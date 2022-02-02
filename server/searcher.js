@@ -27,14 +27,16 @@ function searcher(haystack, needle, type) {
     type: "exact", // by default, the type is exact until it comes to be weak
   };
 
-  // search by titles
-  const exactResult = exactSearcher.search(needle);
-
-  if (type === "exact" || (exactResult && exactResult.length > 0)) {
+  // Exact search by title
+  if (type !== "weak") {
+    // search by titles
+    const exactResult = exactSearcher.search(needle);
     finalResult.items = exactResult;
-    return finalResult;
+
+    if (exactResult && exactResult.length > 0) return finalResult;
   }
 
+  // Weak search by title & definition
   if (type !== "exact") {
     // if no result found based on title, include [definition] as well and search again
     const weakResult = weakSearcher.search(needle);

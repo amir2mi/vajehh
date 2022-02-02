@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
 
 // return result based on the given string
 router.get("/:word", (req, res) => {
-  const result = searcher(teyfiDatabase, req.params.word);
+  const result = searcher(teyfiDatabase, req.params.word, 'weak');
   res.send(result);
 });
 
