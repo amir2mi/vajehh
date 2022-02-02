@@ -1,0 +1,16 @@
+{
+  "name": "vajehh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "node server/index.js",
+    "server-dev": "nodemon server/index.js"
+  },
+  "keywords": [],
+  "author": "Amir M. Mohamadi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
