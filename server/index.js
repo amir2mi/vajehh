@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+const motaradef = require("./routes/motaradef");
 const sereh = require("./routes/sereh");
 const teyfi = require("./routes/teyfi");
 
@@ -8,6 +9,7 @@ const teyfi = require("./routes/teyfi");
 app.use(morgan("dev"));
 
 // routes
+app.use("/api/motaradef", motaradef);
 app.use("/api/sereh", sereh);
 app.use("/api/teyfi", teyfi);
 
