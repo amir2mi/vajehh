@@ -6,6 +6,7 @@ const options = {
     findAllMatches: true,
     includeMatches: true,
     useExtendedSearch: true,
+    ignoreLocation: true,
     keys: ["title"],
   },
 
@@ -18,7 +19,12 @@ const options = {
   },
 };
 
-function searcher(haystack, needle, type) {
+function searcher(haystack, needle, type, customOptions) {
+  if (options) {
+    options.exact = { ...options.exact, ...customOptions };
+    options.weak = { ...options.weak, ...customOptions };
+  }
+
   let exactSearcher = new Fuse(haystack.items, options.exact);
   let weakSearcher = new Fuse(haystack.items, options.weak);
 
@@ -33,7 +39,7 @@ function searcher(haystack, needle, type) {
     const exactResult = exactSearcher.search(needle);
     finalResult.items = exactResult;
 
-    if (exactResult && exactResult.length > 0) return finalResult;
+    if (type === "exact" || (exactResult && exactResult.length > 0)) return finalResult;
   }
 
   // Weak search by title & definition
