@@ -1,24 +1,29 @@
 const express = require("express");
-
+var spellChecker = require("simple-spellchecker");
 const path = require("path");
-var dictionary = require("dictionary-fa");
-var nspell = require("nspell");
-const router = express.Router();
 
+const router = express.Router();
 
 // return result based on the given string
 router.get("/:word", (req, res) => {
   const { word } = req.params;
 
-  dictionary((err, dict) => {
-    if (err) {
-      throw err;
+  spellChecker.getDictionary("fa_IR", path.dirname(__dirname) + "/dict", function (err, dictionary) {
+    if (err) throw new Error(err);
+
+    let suggestions = dictionary.getSuggestions(word, 4);
+
+    if (suggestions) {
+      // 1. remove \r char
+      // 2. remove given word from suggestions
+      suggestions = [...suggestions.map((value) => value.replace("\r", "")).filter((value) => value !== word)];
     }
 
-    const spell = nspell(dict);
-    const result = spell.suggest(word);
-  
-    res.send(result);
+    res.send({
+      kind: "dictionary:emlaei",
+      type: 'spellcheck',
+      items: suggestions,
+    });
   });
 });
 
