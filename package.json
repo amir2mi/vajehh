@@ -13,6 +13,7 @@
   "dependencies": {
     "express": "^4.17.2",
     "fuse.js": "^6.5.3",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "typo-js": "^1.2.1"
   }
 }

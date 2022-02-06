@@ -9,9 +9,6 @@ const motaradef = require("./routes/motaradef");
 const sereh = require("./routes/sereh");
 const teyfi = require("./routes/teyfi");
 
-var Typo = require("typo-js");
-var dictionary = new Typo([...]);
-
 // middleware
 app.use(morgan("dev"));
 

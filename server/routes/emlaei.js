@@ -1,26 +1,18 @@
 const express = require("express");
-const emlaeiDatabase = require("../database/emlaei.json");
-const searcher = require("../searcher");
+const Typo = require("typo-js");
+const path = require("path");
 
 const router = express.Router();
 
-// return database
-router.get("/", (req, res) => {
-  res.send(emlaeiDatabase);
-});
+const dictionary = new Typo("fa_IR", false, false, { dictionaryPath: path.dirname(__dirname) + "/dictionaries" });
 
 // return result based on the given string
 router.get("/:word", (req, res) => {
   const { word } = req.params;
-  const { type } = req.query;
-  const result = searcher(emlaeiDatabase, word, "exact", {
-    threshold: 0.5,
-    ignoreLocation: false,
-    location: 0,
-    distance: 1000,
-    includeMatches: false,
-  });
-  res.send(result);
+
+  var suggestion = dictionary.suggest(word);
+
+  res.send(suggestion && suggestion);
 });
 
 module.exports = router;
