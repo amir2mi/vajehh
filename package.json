@@ -11,13 +11,9 @@
   "author": "Amir M. Mohamadi",
   "license": "ISC",
   "dependencies": {
-    "dictionary-fa": "^1.1.2",
     "express": "^4.17.2",
     "fuse.js": "^6.5.3",
     "morgan": "^1.10.0",
-    "nodehun": "^3.0.2",
-    "nspell": "^2.1.5",
-    "simple-spellchecker": "^1.0.2",
-    "typo-js": "^1.2.1"
+    "simple-spellchecker": "^1.0.2"
   }
 }
