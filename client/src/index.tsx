@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Vajehh from "./App";
 import reportWebVitals from "./reportWebVitals";
-import "flatifycss/dist/css/flatify-min.css";
+import "flatifycss/scss/flatify-rtl.scss";
 import "./index.scss";
 
 ReactDOM.render(

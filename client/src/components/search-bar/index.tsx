@@ -1,10 +1,13 @@
 import { Input } from "react-flatifycss";
 
-function SearchBar(){
+export default function SearchBar() {
+  const handleOnChange = (value: string) => {
+    console.log(value);
+  };
 
-    return (
-        <Input>
-         <button className="search-button" aria-label="جستجو"></button>
-        </Input>
-    )
+  return (
+    <Input autoFocus type="text" size="lg" wrapperClassName="search-bar" onChange={(value) => handleOnChange(value)}>
+      <button className="search-button size-lg" aria-label="جستجو واژه"></button>
+    </Input>
+  );
 }
