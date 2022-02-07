@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import Vajehh from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "flatifycss/dist/css/flatify-min.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Vajehh />
   </React.StrictMode>,
   document.getElementById("root")
 );
