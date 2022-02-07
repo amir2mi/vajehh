@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import Vajehh from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "flatifycss/dist/css/flatify-min.css";
+import "./index.scss";
 
 ReactDOM.render(
   <React.StrictMode>

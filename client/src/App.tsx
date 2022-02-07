@@ -1,8 +1,7 @@
 import React from "react";
-import "./App.css";
 
 function Vajehh() {
-  return <div className="App">
+  return <div className="vajehh">
 
   </div>;
 }
