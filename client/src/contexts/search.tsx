@@ -1,20 +1,27 @@
 import React, { createContext, useContext, useState } from "react";
 
-const SearchContext = createContext<undefined | {}>(undefined);
-
 interface SearchProviderProps {
   children: React.ReactNode;
 }
 
+interface SearchContextProps {
+  searchValue: string;
+  setSearchValue: (value: string) => void;
+  selectedDicts: {};
+  setSelectedDicts: (value: {}) => void;
+}
+
+const SearchContext = createContext<undefined | SearchContextProps>(undefined);
+
 const SearchProvider = ({ children }: SearchProviderProps) => {
-  const [value, setValue] = useState<string>("");
+  const [searchValue, setSearchValue] = useState<string>("");
   const [selectedDicts, setSelectedDicts] = useState({});
 
   return (
     <SearchContext.Provider
       value={{
-        value,
-        setValue,
+        searchValue,
+        setSearchValue,
         selectedDicts,
         setSelectedDicts,
       }}
@@ -31,6 +38,8 @@ const useSearch = () => {
   if (value === undefined) {
     throw new Error("useSearch must be used within a SearchProvider");
   }
+
+  return value;
 };
 
 export { SearchProvider, useSearch };

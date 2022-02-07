@@ -1,5 +1,4 @@
-import React from "react";
-import SearchMain from "./layouts/search-main";
+import SearchMain from "./layouts/searchMain";
 
 function Vajehh() {
   return (
