@@ -5,7 +5,7 @@ import { useSearch } from "../../contexts/search";
 import { Input } from "react-flatifycss";
 import "./style.scss";
 
-export default function SearchBar() {
+export default function SearchArea() {
   const { setSearchValue } = useSearch();
   const [value, setValue] = useState("");
   // wait until the user stops typing before updating the search value
@@ -17,6 +17,7 @@ export default function SearchBar() {
   }, [debouncedValue]);
 
   return (
+    <>
     <div id="main-search-bar">
       <Input
         autoFocus
@@ -30,5 +31,9 @@ export default function SearchBar() {
         <button className="search-button" aria-label="جستجو کن"></button>
       </Input>
     </div>
+    <div className="search-settings">
+
+    </div>
+    </>
   );
 }

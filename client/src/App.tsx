@@ -1,4 +1,4 @@
-import SearchMain from "./layouts/searchMain";
+import SearchMain from "./layouts/SearchMain";
 
 function Vajehh() {
   return (
