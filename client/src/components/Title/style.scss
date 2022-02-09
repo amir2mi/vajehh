@@ -4,15 +4,17 @@
   margin: 1em 0;
 
   .title {
-      font-size: 4.5em;
-      display: inline-block;
-      margin-bottom: 0;
+    font-size: 4.5em;
+    font-weight: 1000;
+    display: inline-block;
+    margin-bottom: 0;
   }
 
   .subtitle {
     position: absolute;
     bottom: -0.25em;
     right: calc(100% - 0.5em);
+    font-weight: 100;
     font-size: 0.9em;
     white-space: nowrap;
     opacity: 0.75;

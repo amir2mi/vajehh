@@ -1,0 +1,41 @@
+.definition-box {
+  position: relative;
+  border: 0.18em solid var(--flatify__bg-color-dark);
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 1em;
+
+  &:before,
+  &:after {
+    content: " ";
+    position: absolute;
+ 
+  }
+
+&:before{
+    top: 0.3em;
+    right: -1em;
+    z-index: 2;
+    width: 3.75em;
+    height: 1em;
+    background: var(--flatify__bg-color);
+    transform: rotate(45deg);
+    filter: drop-shadow(0 0.15em 0 var(--flatify__bg-color-dark));
+}
+
+  &:after {
+    top: -0.25em;
+    right: -0.25em;
+    width: 0;
+    height: 0;
+    border-right: 2.75em solid var(--flatify__bg-color);
+    border-bottom: 2.75em solid var(--flatify__bg-color);
+    filter: drop-shadow(-0.15em 0.15em 0 var(--flatify__bg-color-dark));
+  }
+}
+
+.definition-title {
+  font-size: 1.2em;
+  font-weight: 700;
+  padding-right: 2em;
+}

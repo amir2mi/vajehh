@@ -9,15 +9,15 @@ interface SearchContextProps {
   setIsSearching: (isSearching: boolean) => void;
   searchValue: string;
   setSearchValue: (value: string) => void;
-  selectedDicts: {};
-  setSelectedDicts: (value: {}) => void;
+  dictionaries: {};
+  setDictionaries: (value: {}) => void;
 }
 
 const SearchContext = createContext<undefined | SearchContextProps>(undefined);
 
 const SearchProvider = ({ children }: SearchProviderProps) => {
   const [searchValue, setSearchValue] = useState<string>("");
-  const [selectedDicts, setSelectedDicts] = useState<object>({});
+  const [dictionaries, setDictionaries] = useState<object>({});
   const [isSearching, setIsSearching] = useState<boolean>(false);
 
   return (
@@ -27,8 +27,8 @@ const SearchProvider = ({ children }: SearchProviderProps) => {
         setIsSearching,
         searchValue,
         setSearchValue,
-        selectedDicts,
-        setSelectedDicts,
+        dictionaries,
+        setDictionaries,
       }}
     >
       {children}
