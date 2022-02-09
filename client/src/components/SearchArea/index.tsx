@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import config from "../../config.json";
 import useDebounce from "../../hooks/useDebounce";
 import { useSearch } from "../../contexts/search";
+import DictionaryPicker from "../../components/DictionaryPicker";
+import SearchInfo from "../../components/SearchInfo";
 import { Input } from "react-flatifycss";
 import "./style.scss";
 
@@ -18,22 +20,23 @@ export default function SearchArea() {
 
   return (
     <>
-    <div id="main-search-bar">
-      <Input
-        autoFocus
-        name="search"
-        type="text"
-        wrapperClassName="search-bar"
-        placeholder="برای شروع واژه‌ای بنویسید"
-        value={value}
-        onChange={(val) => setValue(val)}
-      >
-        <button className="search-button" aria-label="جستجو کن"></button>
-      </Input>
-    </div>
-    <div className="search-settings">
-
-    </div>
+      <div id="main-search-bar">
+        <Input
+          autoFocus
+          name="search"
+          type="text"
+          wrapperClassName="search-bar"
+          placeholder="برای شروع واژه‌ای بنویسید"
+          value={value}
+          onChange={(val) => setValue(val)}
+        >
+          <button className="search-button" aria-label="جستجو کن"></button>
+        </Input>
+      </div>
+      <div className="search-settings">
+        <SearchInfo />
+        <DictionaryPicker />
+      </div>
     </>
   );
 }
