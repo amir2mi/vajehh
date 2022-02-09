@@ -1,5 +1,22 @@
 .result-tabs {
+  margin-top: 0.5em !important;
+
   .badge {
     font-feature-settings: "ss01";
   }
+  
+  .tabs-content {
+    padding: 1em 1.5em;
+  }
+}
+
+// masonry grid using [react-masonry-css]
+.result-grid {
+  display: flex;
+  margin-left: -1em;
+  width: auto;
+}
+
+.result-grid-column {
+  padding-left: 1em;
 }

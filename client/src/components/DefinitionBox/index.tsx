@@ -14,7 +14,7 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
   return (
     <div className="definition-box">
       <Heading className="definition-title">{title}</Heading>
-      {definition && <p>{definition}</p>}
+      {definition && <p className="definition">{definition}</p>}
       {children}
     </div>
   );

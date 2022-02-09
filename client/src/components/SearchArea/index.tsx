@@ -28,6 +28,7 @@ export default function SearchArea() {
           wrapperClassName="search-bar"
           placeholder="جستجو"
           value={value}
+          theme="light"
           onChange={(val) => setValue(val)}
         >
           <button className="search-button" aria-label="جستجو کن"></button>
