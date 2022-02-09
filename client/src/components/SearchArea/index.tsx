@@ -3,8 +3,8 @@ import config from "../../config.json";
 import useDebounce from "../../hooks/useDebounce";
 import { useSearch } from "../../contexts/search";
 import DictionaryPicker from "../../components/DictionaryPicker";
-import SearchInfo from "../../components/SearchInfo";
 import { Input } from "react-flatifycss";
+import SearchInfo from "../../components/SearchInfo";
 import "./style.scss";
 
 export default function SearchArea() {
@@ -26,7 +26,7 @@ export default function SearchArea() {
           name="search"
           type="text"
           wrapperClassName="search-bar"
-          placeholder="برای شروع واژه‌ای بنویسید"
+          placeholder="جستجو"
           value={value}
           onChange={(val) => setValue(val)}
         >

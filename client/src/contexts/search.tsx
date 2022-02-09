@@ -5,6 +5,8 @@ interface SearchProviderProps {
 }
 
 interface SearchContextProps {
+  isSearching: boolean;
+  setIsSearching: (isSearching: boolean) => void;
   searchValue: string;
   setSearchValue: (value: string) => void;
   selectedDicts: {};
@@ -15,11 +17,14 @@ const SearchContext = createContext<undefined | SearchContextProps>(undefined);
 
 const SearchProvider = ({ children }: SearchProviderProps) => {
   const [searchValue, setSearchValue] = useState<string>("");
-  const [selectedDicts, setSelectedDicts] = useState({});
+  const [selectedDicts, setSelectedDicts] = useState<object>({});
+  const [isSearching, setIsSearching] = useState<boolean>(false);
 
   return (
     <SearchContext.Provider
       value={{
+        isSearching,
+        setIsSearching,
         searchValue,
         setSearchValue,
         selectedDicts,

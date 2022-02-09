@@ -8,5 +8,5 @@ interface SearchInfoProps {
 export default function SearchInfo(props: SearchInfoProps) {
   const { onSuggestionClick } = props;
 
-  return <div className="search-info size-sm">test</div>;
+  return <div className="search-info size-sm opacity-70"></div>;
 }
