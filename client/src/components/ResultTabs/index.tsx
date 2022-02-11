@@ -4,6 +4,12 @@ import DefinitionBox from "../DefinitionBox";
 import "./style.scss";
 
 export default function ResultTabs() {
+  const breakpointColumnsObj = {
+    1200: 3,
+    767: 2,
+    575: 1
+  };
+  
   const items = [
     {
       title: (
@@ -15,7 +21,7 @@ export default function ResultTabs() {
         </>
       ),
       content: (
-        <Masonry breakpointCols={2} className="result-grid" columnClassName="result-grid-column">
+        <Masonry breakpointCols={breakpointColumnsObj} className="result-grid" columnClassName="result-grid-column">
           <DefinitionBox
             title="تست عنوان"
             definition="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از مه و مجله در ستون و سطرآنچنان که لازم است"
