@@ -1,4 +1,3 @@
-import React from "react";
 import { SearchProvider } from "../../contexts/search";
 import Title from "../../components/Title";
 import SearchArea from "../../components/SearchArea";
