@@ -1,10 +1,23 @@
-.column-picker{
-    .item-button{
+.dropdown.settings-options {
+  width: 18em !important;
+}
 
-        padding: 0.25em 0.5em;
-    }
-    .item-icon svg{
-        width: 1.75em;
-        height: 1.75em;
-    }
+.settings-options {
+  user-select: none;
+  
+  .checkbox-wrapper {
+    padding: 0 0.5em;
+  }
+}
+
+.column-picker {
+  margin-bottom: 0.5em;
+
+  .item-button {
+    padding: 0.25em 0.5em;
+  }
+  .item-icon svg {
+    width: 1.75em;
+    height: 1.75em;
+  }
 }

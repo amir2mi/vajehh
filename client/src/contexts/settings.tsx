@@ -5,18 +5,38 @@ interface SettingsProviderProps {
   children: React.ReactNode;
 }
 
+type HighlightColors = "yellow" | "green" | "blue" | "red" | "pink" | "purple";
+
 interface SettingsContextProps {
   columnsCount: number;
   setColumnsCount: (value: number) => void;
+  highlight: boolean;
+  setHighlight: (value: boolean) => void;
+  highlightColor: HighlightColors;
+  setHighlightColor: (value: HighlightColors) => void;
 }
 
 const SettingsContext = createContext<undefined | SettingsContextProps>(undefined);
 
 const SettingsProvider = ({ children }: SettingsProviderProps) => {
   // use local storage to get selected columns count, if local storage is empty set default value
-  const [columnsCount, setColumnsCount] = useState<number>(getLocalStorage("columns", 2));
+  const userSettings = getLocalStorage("settings", {
+    columns: 2,
+    highlight: true,
+    highlightColor: "yellow",
+  });
 
-  return <SettingsContext.Provider value={{ columnsCount, setColumnsCount }}>{children}</SettingsContext.Provider>;
+  const [columnsCount, setColumnsCount] = useState<number>(userSettings.columns);
+  const [highlight, setHighlight] = useState<boolean>(userSettings.highlight);
+  const [highlightColor, setHighlightColor] = useState<HighlightColors>(userSettings.highlight);
+
+  return (
+    <SettingsContext.Provider
+      value={{ columnsCount, setColumnsCount, highlight, setHighlight, highlightColor, setHighlightColor }}
+    >
+      {children}
+    </SettingsContext.Provider>
+  );
 };
 
 const useSettings = () => {

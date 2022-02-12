@@ -38,8 +38,8 @@ export default function SearchArea() {
       <div className="search-settings">
         <SearchInfo />
         <div className="search-settings-left">
-          <SearchSettings />
           <DictionaryPicker />
+          <SearchSettings />
         </div>
       </div>
     </>
