@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
+import { Input } from "react-flatifycss";
 import config from "../../config.json";
 import useDebounce from "../../hooks/useDebounce";
 import { useSearch } from "../../contexts/search";
-import DictionaryPicker from "../../components/DictionaryPicker";
-import { Input } from "react-flatifycss";
 import SearchInfo from "../../components/SearchInfo";
+import DictionaryPicker from "../../components/DictionaryPicker";
+import ColumnPicker from "../ColumnPicker";
 import "./style.scss";
 
 export default function SearchArea() {
@@ -36,7 +37,10 @@ export default function SearchArea() {
       </div>
       <div className="search-settings">
         <SearchInfo />
-        <DictionaryPicker />
+        <div className="search-settings-left">
+          <ColumnPicker />
+          <DictionaryPicker />
+        </div>
       </div>
     </>
   );

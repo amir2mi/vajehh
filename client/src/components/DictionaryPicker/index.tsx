@@ -24,7 +24,7 @@ export default function DictionaryPicker() {
 
     setDictionariesInfo(newDictionaries);
 
-    // set current dictionaries to local storage for next time user open the app
+    // set current dictionaries to local storage for next time user opens the app
     setLocalStorage("dictionaries", newDictionaries);
   };
 

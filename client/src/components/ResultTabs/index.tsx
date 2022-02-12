@@ -1,15 +1,19 @@
 import Masonry from "react-masonry-css";
 import { Badge, Tabs } from "react-flatifycss";
+import { useLayout } from "../../contexts/layout";
 import DefinitionBox from "../DefinitionBox";
 import "./style.scss";
 
 export default function ResultTabs() {
+  const { columnsCount } = useLayout();
+
   const breakpointColumnsObj = {
-    1200: 3,
-    767: 2,
-    575: 1
+    default: columnsCount,
+    1200: columnsCount < 3 ? columnsCount : 3,
+    767: columnsCount === 1 ? 1 : 2,
+    575: 1,
   };
-  
+
   const items = [
     {
       title: (
