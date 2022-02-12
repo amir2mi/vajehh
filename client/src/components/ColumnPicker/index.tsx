@@ -1,33 +1,7 @@
 import { Dropdown, ItemsGroup } from "react-flatifycss";
 import { useLayout } from "../../contexts/layout";
 import { setLocalStorage } from "../../utils/localStorage";
-
-const columns = [
-  {
-    title: "تک ستونه",
-    subtitle: "تک ستونه",
-    svg: "",
-    value: 1,
-  },
-  {
-    title: "دو ستونه",
-    subtitle: "دو ستونه",
-    svg: "",
-    value: 2,
-  },
-  {
-    title: "سه ستونه",
-    subtitle: "سه ستونه",
-    svg: "",
-    value: 3,
-  },
-  {
-    title: "چهار ستونه",
-    subtitle: "چهار ستونه",
-    svg: "",
-    value: 4,
-  },
-];
+import columns from "./columns";
 
 export default function ColumnPicker() {
   const { columnsCount, setColumnsCount } = useLayout();
