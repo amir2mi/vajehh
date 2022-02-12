@@ -33,6 +33,7 @@
   }
 
   .definition {
+    line-height: 1.8;
     font-size: 0.9em;
     opacity: 0.85;
   }
@@ -42,4 +43,8 @@
   font-size: 1.125em;
   font-weight: 700;
   padding-right: 2em;
+}
+
+.marked-word{
+  padding: 0 !important;
 }
