@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "flatifycss/scss/flatify-rtl.scss";
 import Vajehh from "./App";
 import reportWebVitals from "./reportWebVitals";
-import "flatifycss/scss/flatify-rtl.scss";
 import "./index.scss";
 
 ReactDOM.render(

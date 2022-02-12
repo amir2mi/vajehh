@@ -19,7 +19,7 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
       {highlight ? (
         <Highlighter
           className="definition"
-          highlightClassName="marked-word style-yellow-light size-sm"
+          highlightClassName="marked-word style-yellow-light"
           autoEscape={true}
           searchWords={highlight}
           textToHighlight={definition}

@@ -1,11 +1,11 @@
 import Masonry from "react-masonry-css";
 import { Badge, Tabs } from "react-flatifycss";
-import { useLayout } from "../../contexts/layout";
+import { useSettings } from "../../contexts/settings";
 import DefinitionBox from "../DefinitionBox";
 import "./style.scss";
 
 export default function ResultTabs() {
-  const { columnsCount } = useLayout();
+  const { columnsCount } = useSettings();
 
   const breakpointColumnsObj = {
     default: columnsCount,

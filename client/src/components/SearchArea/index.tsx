@@ -5,7 +5,7 @@ import useDebounce from "../../hooks/useDebounce";
 import { useSearch } from "../../contexts/search";
 import SearchInfo from "../../components/SearchInfo";
 import DictionaryPicker from "../../components/DictionaryPicker";
-import ColumnPicker from "../ColumnPicker";
+import SearchSettings from "../SearchSettings";
 import "./style.scss";
 
 export default function SearchArea() {
@@ -38,7 +38,7 @@ export default function SearchArea() {
       <div className="search-settings">
         <SearchInfo />
         <div className="search-settings-left">
-          <ColumnPicker />
+          <SearchSettings />
           <DictionaryPicker />
         </div>
       </div>
