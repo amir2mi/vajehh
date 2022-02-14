@@ -1,17 +1,27 @@
-function getLocalStorage(key: string, initialValue?: unknown) {
-  try {
-    const value = localStorage.getItem(key);
-    return value ? JSON.parse(value) : initialValue;
-  } catch (e) {
-    return initialValue;
-  }
-}
-
 function setLocalStorage(key: string, value: unknown) {
   try {
     localStorage.setItem(key, JSON.stringify(value));
   } catch (e) {
     console.error({ e });
+  }
+}
+
+function getLocalStorage(key: string, initialValue?: any) {
+  try {
+    const value = localStorage.getItem(key);
+
+    if (value) {
+      return JSON.parse(value);
+    } else {
+      const data = JSON.parse(JSON.stringify(initialValue));
+      console.log(data);
+      
+      // set initial value to the local storage
+      setLocalStorage(key, data);
+      return data;
+    }
+  } catch (e) {
+    return initialValue;
   }
 }
 

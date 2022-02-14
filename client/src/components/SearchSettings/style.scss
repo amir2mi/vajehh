@@ -4,8 +4,8 @@
 
 .settings-options {
   user-select: none;
-  
-  .checkbox-wrapper {
+
+  .toggle-wrapper {
     padding: 0 0.5em;
   }
 }
@@ -17,7 +17,66 @@
     padding: 0.25em 0.5em;
   }
   .item-icon svg {
-    width: 1.75em;
-    height: 1.75em;
+    width: 2em;
+    height: 2em;
+  }
+}
+
+.disable-layer {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.highlight-colors {
+  flex-direction: row;
+  justify-content: center;
+
+  .item-button {
+    --highlight-colors-bg: #696969;
+    position: relative;
+    width: 2em;
+    height: 2em;
+    margin: 0.25em;
+    color: transparent !important;
+
+    &:not(.active) {
+      opacity: 0.75;
+      transform: scale(0.75);
+
+      &:focus-visible {
+        transform: scale(1.2);
+      }
+    }
+
+    &:before {
+      content: " ";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      margin: auto;
+      background: var(--highlight-colors-bg);
+      border-radius: 0.5em;
+    }
+
+    &.red {
+      --highlight-colors-bg: var(--flatify__color-red-primary);
+    }
+    &.yellow {
+      --highlight-colors-bg: var(--flatify__color-yellow-primary);
+    }
+    &.blue {
+      --highlight-colors-bg: var(--flatify__color-blue-primary);
+    }
+    &.green {
+      --highlight-colors-bg: var(--flatify__color-green-primary);
+    }
+    &.pink {
+      --highlight-colors-bg: var(--flatify__color-pink-primary);
+    }
+    &.purple {
+      --highlight-colors-bg: var(--flatify__color-purple-primary);
+    }
   }
 }

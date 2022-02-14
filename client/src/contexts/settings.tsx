@@ -5,7 +5,7 @@ interface SettingsProviderProps {
   children: React.ReactNode;
 }
 
-type HighlightColors = "yellow" | "green" | "blue" | "red" | "pink" | "purple";
+type HighlightColors = "blue" | "green" | "pink" | "purple" | "yellow" | "red";
 
 interface SettingsContextProps {
   columnsCount: number;
@@ -25,10 +25,11 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
     highlight: true,
     highlightColor: "yellow",
   });
+console.log(getLocalStorage("settings"));
 
   const [columnsCount, setColumnsCount] = useState<number>(userSettings.columns);
   const [highlight, setHighlight] = useState<boolean>(userSettings.highlight);
-  const [highlightColor, setHighlightColor] = useState<HighlightColors>(userSettings.highlight);
+  const [highlightColor, setHighlightColor] = useState<HighlightColors>(userSettings.highlightColor);
 
   return (
     <SettingsContext.Provider

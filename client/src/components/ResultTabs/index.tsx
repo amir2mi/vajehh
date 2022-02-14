@@ -5,7 +5,7 @@ import DefinitionBox from "../DefinitionBox";
 import "./style.scss";
 
 export default function ResultTabs() {
-  const { columnsCount, highlight } = useSettings();
+  const { columnsCount, highlight, highlightColor } = useSettings();
 
   const breakpointColumnsObj = {
     default: columnsCount,
@@ -13,7 +13,6 @@ export default function ResultTabs() {
     767: columnsCount === 1 ? 1 : 2,
     575: 1,
   };
-  console.log(highlight);
 
   const items = [
     {
@@ -31,37 +30,44 @@ export default function ResultTabs() {
             title="تست عنوان"
             definition="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از مه و مجله در ستون و سطرآنچنان که لازمه است"
             highlight={highlight && ["متن", "لازمه"]}
+            highlightColor={highlightColor}
           />
           <DefinitionBox title="تست عنوان" definition="لورم ایپسوم متن ساختگیت" />{" "}
           <DefinitionBox
             title="تست عنوان"
             definition="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون راحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سو سطرآنچنان که لازم است"
             highlight={highlight && ["متن", "لازمه"]}
+            highlightColor={highlightColor}
           />
           <DefinitionBox
             title="تست عنوان"
             definition="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است"
             highlight={highlight && ["متن", "لازمه"]}
+            highlightColor={highlightColor}
           />
           <DefinitionBox
             title="تست عنوان"
             definition="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است"
             highlight={highlight && ["متن", "لازمه"]}
+            highlightColor={highlightColor}
           />
           <DefinitionBox
             title="تست عنوان"
             definition="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است"
             highlight={highlight && ["متن", "لازمه"]}
+            highlightColor={highlightColor}
           />
           <DefinitionBox
             title="تست عنوان"
             definition="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون راحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سو سطرآنچنان که لازم است"
             highlight={highlight && ["متن", "لازمه"]}
+            highlightColor={highlightColor}
           />
           <DefinitionBox
             title="تست عنوان"
             definition="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون راحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سو سطرآنچنان که لازم است"
             highlight={highlight && ["متن", "لازمه"]}
+            highlightColor={highlightColor}
           />
         </Masonry>
       ),

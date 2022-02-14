@@ -1,24 +1,73 @@
-import { Checkbox } from "react-flatifycss";
+import { ItemsGroup, ToggleSwitch } from "react-flatifycss";
 import { useSettings } from "../../contexts/settings";
 import { setLocalStorageProp } from "../../utils/localStorage";
+
+const highlightPalette = [
+  {
+    title: "زرد",
+    value: "yellow",
+    className: "yellow",
+    activeClassName: "active",
+  },
+  {
+    title: "آبی",
+    value: "blue",
+    className: "blue",
+    activeClassName: "active",
+  },
+  {
+    title: "سبز",
+    value: "green",
+    className: "green",
+    activeClassName: "active",
+  },
+  {
+    title: "قرمز",
+    value: "red",
+    className: "red",
+    activeClassName: "active",
+  },
+  {
+    title: "صورتی",
+    value: "pink",
+    className: "pink",
+    activeClassName: "active",
+  },
+  {
+    title: "بنفش",
+    value: "purple",
+    className: "purple",
+    activeClassName: "active",
+  },
+];
 
 export default function HighlightSettings() {
   const { highlight, setHighlight, highlightColor, setHighlightColor } = useSettings();
 
   const handleOnToggle = (value: boolean) => {
     setHighlight(value);
-
-    // set current columns count to local storage for next time user opens the app
     setLocalStorageProp("settings", "highlight", value);
+  };
+
+  const handleOnColorChange = (value) => {
+    setHighlightColor(value);
+    setLocalStorageProp("settings", "highlightColor", value);
   };
 
   return (
     <>
       <p className="menu-item heading">علامت گذاری</p>
-      <Checkbox checked={highlight} onChange={(value) => handleOnToggle(value)}>
+      <ToggleSwitch checked={highlight} isAfterLabel={true} onChange={(value) => handleOnToggle(value)}>
         علامت گذاری واژه جستجو شده
-      </Checkbox>
-      {highlight && "تغییر رنگ هایلایت"}
+      </ToggleSwitch>
+      <div className={`change-highlight-color${!highlight ? " disable-layer" : ""}`}>
+        <ItemsGroup
+          className="highlight-colors"
+          items={highlightPalette}
+          value={highlightColor}
+          onChange={(value) => handleOnColorChange(value)}
+        />
+      </div>
     </>
   );
 }
