@@ -1,6 +1,8 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const morgan = require("morgan");
+
 // dictionaries
 const emlaei = require("./routes/emlaei");
 const farhangestan = require("./routes/farhangestan");
@@ -9,8 +11,9 @@ const motaradef = require("./routes/motaradef");
 const sereh = require("./routes/sereh");
 const teyfi = require("./routes/teyfi");
 
-// middleware
+// middlewares
 app.use(morgan("dev"));
+app.use(cors());
 
 // routes
 app.use("/api/emlaei", emlaei);

@@ -20,6 +20,8 @@ const options = {
 };
 
 function searcher(haystack, needle, type, customOptions) {
+  const limit = customOptions ? customOptions.limit : 75;
+
   if (options) {
     options.exact = { ...options.exact, ...customOptions };
     options.weak = { ...options.weak, ...customOptions };
@@ -36,7 +38,7 @@ function searcher(haystack, needle, type, customOptions) {
   // Exact search by title
   if (type !== "weak") {
     // search by titles
-    const exactResult = exactSearcher.search(needle);
+    const exactResult = exactSearcher.search(needle, { limit });
     finalResult.items = exactResult;
 
     if (type === "exact" || (exactResult && exactResult.length > 0)) return finalResult;
@@ -45,7 +47,7 @@ function searcher(haystack, needle, type, customOptions) {
   // Weak search by title & definition
   if (type !== "exact") {
     // if no result found based on title, include [definition] as well and search again
-    const weakResult = weakSearcher.search(needle);
+    const weakResult = weakSearcher.search(needle, { limit });
 
     finalResult.items = weakResult;
     finalResult.type = "weak";

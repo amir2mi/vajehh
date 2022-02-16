@@ -4,11 +4,6 @@ const searcher = require("../searcher");
 
 const router = express.Router();
 
-// return database
-router.get("/", (req, res) => {
-  res.send(ganjvarDatabase);
-});
-
 // return result based on the given string
 router.get("/:word", (req, res) => {
   const { word } = req.params;
@@ -17,7 +12,8 @@ router.get("/:word", (req, res) => {
     includeMatches: false,
     useExtendedSearch: false,
     threshold: 0.0,
-  });   
+    limit: 15,
+  });
   res.send(result);
 });
 

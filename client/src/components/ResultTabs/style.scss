@@ -1,11 +1,19 @@
 .result-tabs {
+  overflow: visible;
   margin-top: 0.5em !important;
 
   .badge {
     font-feature-settings: "ss01";
   }
-  
+  .tabs-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-radius: 1em 0;
+  }
+
   .tabs-content {
+    min-height: 50vh;
     padding: 1em 1.5em;
   }
 }

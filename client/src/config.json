@@ -1,4 +1,4 @@
 {
-  "searchDebounceDuration": 500,
-  "dictionaryPickerDebounceDuration": 750
+  "searchDebounceDuration": 1000,
+  "dictionaryPickerDebounceDuration": 1000
 }

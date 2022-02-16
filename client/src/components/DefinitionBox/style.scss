@@ -37,15 +37,27 @@
     font-size: 0.9em;
     opacity: 0.85;
   }
+
+  p {
+    margin-bottom: 0;
+  }
 }
 
 .definition-title {
+  text-transform: capitalize;
+  line-height: 1.5;
   font-size: 1.125em;
   font-weight: 700;
   padding-right: 2em;
 }
 
-.marked-word{
+.marked-word {
   padding: 0 !important;
   border-radius: 0 !important;
+}
+
+@media screen and (max-width: 575px) {
+  .definition-box {
+    font-size: 0.9em;
+  }
 }

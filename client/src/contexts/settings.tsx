@@ -25,7 +25,6 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
     highlight: true,
     highlightColor: "yellow",
   });
-console.log(getLocalStorage("settings"));
 
   const [columnsCount, setColumnsCount] = useState<number>(userSettings.columns);
   const [highlight, setHighlight] = useState<boolean>(userSettings.highlight);

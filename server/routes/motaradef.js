@@ -4,11 +4,6 @@ const searcher = require("../searcher");
 
 const router = express.Router();
 
-// return database
-router.get("/", (req, res) => {
-  res.send(motaradefDatabase);
-});
-
 // return result based on the given string
 router.get("/:word", (req, res) => {
   const { word } = req.params;

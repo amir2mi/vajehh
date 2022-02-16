@@ -21,12 +21,11 @@ export interface Dictionaries {
 }
 
 interface SearchContextProps {
-  isSearching: boolean;
-  setIsSearching: (isSearching: boolean) => void;
   searchValue: string;
   setSearchValue: (value: string) => void;
   dictionaries: Dictionaries;
   setDictionaries: (value: Dictionaries) => void;
+  editDictionary: (dic: string, prop: string, value: unknown) => void;
 }
 
 const getActiveDictionaries = () => {
@@ -71,18 +70,23 @@ const SearchProvider = ({ children }: SearchProviderProps) => {
   const [dictionaries, setDictionaries] = useState<Dictionaries>(() =>
     getLocalStorage("dictionaries", getActiveDictionaries())
   );
-  
-  const [isSearching, setIsSearching] = useState<boolean>(false);
+
+  const editDictionary = (dic, prop, value) => {
+    setDictionaries((old) => {
+      const newDictionaries = old;
+      newDictionaries[dic][prop] = value;
+      return newDictionaries;
+    });
+  };
 
   return (
     <SearchContext.Provider
       value={{
-        isSearching,
-        setIsSearching,
         searchValue,
         setSearchValue,
         dictionaries,
         setDictionaries,
+        editDictionary,
       }}
     >
       {children}
