@@ -9,7 +9,7 @@ interface DefinitionBoxProps {
   hasMultipleLine?: boolean;
   highlight?: string[] | false;
   highlightColor?: string;
-  separator?: string;
+  separator?: "space" | "newline";
   title: string;
   titleTagName?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 }
@@ -24,23 +24,22 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
 
       {hasMultipleLine && isArray(definition) ? (
         definition.map((line: string, index) => {
-          const Wrapper = separator === "\n" ? "p" : React.Fragment;
+          // the last line should not have a separator
+          const textWithSeparator = definition.length === index + 1 ? line : line + "، ";
+
           return highlight ? (
-            <Wrapper>
-              <Highlighter
-                key={index}
-                className="definition"
-                highlightClassName={`marked-word style-${highlightColor}-light`}
-                autoEscape={true}
-                searchWords={highlight}
-                // textToHighlight={line + separator}
-                textToHighlight={definition.length === index + 1 ? line : line + separator}
-              />
-            </Wrapper>
+            <Highlighter
+              key={index}
+              className="definition"
+              highlightClassName={`marked-word style-${highlightColor}-light`}
+              autoEscape={true}
+              searchWords={highlight}
+              textToHighlight={textWithSeparator}
+            />
           ) : (
-            <Wrapper key={index}>
-              <span className="definition">{definition.length === index + 1 ? line : line + separator}</span>
-            </Wrapper>
+            <span key={index} className="definition">
+              {textWithSeparator}
+            </span>
           );
         })
       ) : highlight ? (
@@ -49,10 +48,10 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
           highlightClassName={`marked-word style-${highlightColor}-light`}
           autoEscape={true}
           searchWords={highlight}
-          textToHighlight={definition}
+          textToHighlight={isArray(definition) ? definition.join(", ") : definition}
         />
       ) : (
-        <p className="definition">{definition}</p>
+        <p className="definition">{isArray(definition) ? definition.join(", ") : definition}</p>
       )}
 
       {children}

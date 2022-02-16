@@ -71,9 +71,9 @@ export default function TabBody({ dic, postsPerPage }: TabBodyProps) {
                 <DefinitionBox
                   key={itemIndex}
                   title={item.title}
-                  hasMultipleLine={true}
                   definition={item.definition}
-                  separator={dic === "motaradef" || dic === "sereh" || dic === "teyfi" ? "، " : "\n"}
+                  hasMultipleLine={dic === "ganjvar" || dic === "farhangestan"}
+                  separator="newline"
                   highlight={highlight && searchValue.split(" ")}
                   highlightColor={highlightColor}
                 />
