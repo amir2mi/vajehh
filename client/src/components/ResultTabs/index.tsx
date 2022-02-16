@@ -9,27 +9,27 @@ export default function ResultTabs() {
   const items = [
     {
       title: "مترادف",
-      content: <TabBody dic="motaradef" />,
+      content: <TabBody postsPerPage={10} dic="motaradef" />,
       isHidden: !dictionaries.motaradef.active,
     },
     {
       title: "سره",
-      content: <TabBody dic="sereh" />,
+      content: <TabBody postsPerPage={10} dic="sereh" />,
       isHidden: !dictionaries.sereh.active,
     },
     {
       title: "طیفی",
-      content: <TabBody dic="teyfi" />,
+      content: <TabBody postsPerPage={10} dic="teyfi" />,
       isHidden: !dictionaries.teyfi.active,
     },
     {
       title: "فرهنگستان",
-      content: <TabBody dic="farhangestan" />,
+      content: <TabBody postsPerPage={10} dic="farhangestan" />,
       isHidden: !dictionaries.farhangestan.active,
     },
     {
       title: "گنجور",
-      content: <TabBody dic="ganjvar" />,
+      content: <TabBody postsPerPage={4} dic="ganjvar" />,
       isHidden: !dictionaries.ganjvar.active,
     },
   ];

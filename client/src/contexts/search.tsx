@@ -11,6 +11,8 @@ interface DictionariesInfo {
   active: boolean;
 }
 
+export type AllowedDictionaries = "motaradef" | "sereh" | "teyfi" | "farhangestan" | "ganjvar";
+
 export interface Dictionaries {
   [key: string]: DictionariesInfo;
   farhangestan: DictionariesInfo;

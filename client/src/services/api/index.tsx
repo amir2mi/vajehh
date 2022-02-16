@@ -1,10 +1,9 @@
 import axios from "axios";
+import { AllowedDictionaries } from "../../contexts/search";
 
 const apiEndPoint = "http://localhost:8080/api";
 
-type Dictionaries = "motaradef" | "sereh" | "teyfi" | "farhangestan" | "ganjvar";
-
-export async function searchWord(dic: Dictionaries, word: string) {
+export async function searchWord(dic: AllowedDictionaries, word: string) {
   word = word.trim();
 
   if (word.length < 2) return { data: [] };
