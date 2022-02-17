@@ -11,13 +11,14 @@ interface DictionariesInfo {
   active: boolean;
 }
 
-export type AllowedDictionaries = "motaradef" | "sereh" | "teyfi" | "farhangestan" | "ganjvar";
+export type AllowedDictionaries = "motaradef" | "sereh" | "teyfi" | "farhangestan" | "ganjvar" | "emlaei";
 
 export interface Dictionaries {
   [key: string]: DictionariesInfo;
+  emlaei: DictionariesInfo;
   farhangestan: DictionariesInfo;
-  ganjvar: DictionariesInfo;
   motaradef: DictionariesInfo;
+  ganjvar: DictionariesInfo;
   sereh: DictionariesInfo;
   teyfi: DictionariesInfo;
 }
@@ -33,6 +34,11 @@ const getActiveDictionaries = () => {
 
   // if empty set default dictionaries
   return {
+    emlaei: {
+      name: "املائی",
+      key: "emlaei",
+      active: true,
+    },
     motaradef: {
       name: "مترادف",
       key: "motaradef",

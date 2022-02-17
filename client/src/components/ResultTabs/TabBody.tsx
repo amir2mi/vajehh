@@ -3,13 +3,12 @@ import InfiniteScroll from "react-infinite-scroller";
 import MasonryGrid from "./MasonryGrid";
 import { Loading } from "react-flatifycss";
 import { useSearch } from "../../contexts/search";
-import { AllowedDictionaries } from "../../contexts/dictionary";
 import { useSettings } from "../../contexts/settings";
+import { AllowedDictionaries } from "../../contexts/dictionary";
 import { searchWord } from "../../services/api";
 import DefinitionBox from "../DefinitionBox";
 import FakeDefinitionBox from "../FakeDefinitionBox";
 import NoResult from "./NoResult";
-import { isArray } from "lodash";
 
 interface ResultProps {
   item: {
@@ -33,7 +32,7 @@ export default function TabBody({ children, dic, postsPerPage }: TabBodyProps) {
   const [isSearching, setIsSearching] = useState<boolean>(false);
 
   const addMoreToQueue = (page: number) => {
-    if (isArray(result)) {
+    if (Array.isArray(result)) {
       setDisplayQueue(result?.slice(0, page * postsPerPage));
     }
   };
@@ -86,8 +85,7 @@ export default function TabBody({ children, dic, postsPerPage }: TabBodyProps) {
       <MasonryGrid>
         {isSearching
           ? [...new Array(12)].map((item, index) => <FakeDefinitionBox key={index} />)
-          : displayQueue &&
-            displayQueue.map(({ item }, index) => {
+          : displayQueue?.map(({ item }, index) => {
               const itemIndex = String(item.definition).slice(0, 12) + String(item.title).slice(0, 12) + index;
 
               return (

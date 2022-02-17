@@ -14,6 +14,11 @@ export default function SearchArea() {
   // wait until the user stops typing before updating the search value
   const debouncedValue = useDebounce(value, config.searchDebounceDuration);
 
+  const setInputValue = (value: string) => {
+    setValue(value);
+    setSearchValue(value);
+  };
+
   const handleOnSubmit = (e) => {
     e.preventDefault();
     // immediately update the search value
@@ -42,7 +47,7 @@ export default function SearchArea() {
         </Input>
       </form>
       <div className="search-settings">
-        <SearchInfo />
+        <SearchInfo onSuggestionClick={(word) => setInputValue(word)} />
         <div className="search-settings-left">
           <DictionaryPicker />
           <SearchSettings />

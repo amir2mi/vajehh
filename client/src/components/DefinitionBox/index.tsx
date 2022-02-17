@@ -1,6 +1,5 @@
 import React from "react";
 import clsx from "clsx";
-import { isArray } from "lodash";
 import Highlighter from "react-highlight-words";
 import "./style.scss";
 
@@ -23,7 +22,7 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
     <div className={clsx("definition-box", className && className)}>
       <Heading className="definition-title">{title}</Heading>
 
-      {hasMultipleLine && isArray(definition) ? (
+      {hasMultipleLine && Array.isArray(definition) ? (
         definition.map((line: string, index) => {
           // the last line should not have a separator
           const textWithSeparator = definition.length === index + 1 ? line : line + "، ";
@@ -49,10 +48,10 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
           highlightClassName={clsx("marked-word", `style-${highlightColor}-light`)}
           autoEscape={true}
           searchWords={highlight}
-          textToHighlight={isArray(definition) ? definition.join(", ") : definition}
+          textToHighlight={Array.isArray(definition) ? definition.join(", ") : definition}
         />
       ) : (
-        <span className="definition">{isArray(definition) ? definition.join(", ") : definition}</span>
+        <span className="definition">{Array.isArray(definition) ? definition.join(", ") : definition}</span>
       )}
 
       {children}
