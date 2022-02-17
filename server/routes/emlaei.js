@@ -11,7 +11,7 @@ router.get("/:word", (req, res) => {
   spellChecker.getDictionary("fa_IR", path.dirname(__dirname) + "/dict", function (err, dictionary) {
     if (err) throw new Error(err);
 
-    let suggestions = dictionary.getSuggestions(word, 4);
+    let suggestions = dictionary.getSuggestions(word, 3);
 
     if (suggestions) {
       // 1. remove \r char
@@ -21,7 +21,7 @@ router.get("/:word", (req, res) => {
 
     res.send({
       kind: "dictionary:emlaei",
-      type: 'spellcheck',
+      type: "spellcheck",
       items: suggestions,
     });
   });
