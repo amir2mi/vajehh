@@ -14,6 +14,12 @@ export default function SearchArea() {
   // wait until the user stops typing before updating the search value
   const debouncedValue = useDebounce(value, config.searchDebounceDuration);
 
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    // immediately update the search value
+    setSearchValue(value);
+  };
+
   useEffect(() => {
     setSearchValue(debouncedValue);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -21,7 +27,7 @@ export default function SearchArea() {
 
   return (
     <>
-      <div id="main-search-bar">
+      <form id="main-search-bar" onSubmit={(e) => handleOnSubmit(e)}>
         <Input
           autoFocus
           name="search"
@@ -32,9 +38,9 @@ export default function SearchArea() {
           theme="light"
           onChange={(val) => setValue(val)}
         >
-          <button className="search-button" aria-label="جستجو کن"></button>
+          <button className="search-button" aria-label="جستجو کن" onClick={(e) => handleOnSubmit(e)}></button>
         </Input>
-      </div>
+      </form>
       <div className="search-settings">
         <SearchInfo />
         <div className="search-settings-left">

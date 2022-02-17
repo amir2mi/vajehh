@@ -1,10 +1,21 @@
 .intro-box {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .icon {
-    width: 6em;
-    height: 6em;
-    margin: 0 auto 2em auto;
+    width: 30%;
+    margin: 2em auto;
+
+    svg {
+      width: 15em;
+      height: 15em;
+    }
+  }
+
+  .texts {
+    width: 100%;
+    padding: 3em;
   }
 
   .title {
