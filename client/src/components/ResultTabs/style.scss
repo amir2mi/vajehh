@@ -5,6 +5,7 @@
   .badge {
     font-feature-settings: "ss01";
   }
+
   .tabs-header {
     position: sticky;
     top: 0;
@@ -28,4 +29,15 @@
 
 .result-grid-column {
   padding-left: 1em;
+}
+
+.infinite-scroll-loading{
+  margin: 2em auto;
+}
+
+@media screen and (max-width: 575px) {
+  .tab-button {
+    padding-right: 1em !important;
+    padding-left: 1em !important;
+  }
 }

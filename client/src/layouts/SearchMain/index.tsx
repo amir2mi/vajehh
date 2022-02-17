@@ -1,5 +1,6 @@
 import { SearchProvider } from "../../contexts/search";
 import { SettingsProvider } from "../../contexts/settings";
+import { DictionaryProvider } from "../../contexts/dictionary";
 import Title from "../../components/Title";
 import SearchArea from "../../components/SearchArea";
 import ResultTabs from "../../components/ResultTabs";
@@ -10,8 +11,10 @@ export default function SearchMain() {
       <Title title="واژه" subtitle="زیبا و خلاق بنویسید" />
       <SettingsProvider>
         <SearchProvider>
-          <SearchArea />
-          <ResultTabs />
+          <DictionaryProvider>
+            <SearchArea />
+            <ResultTabs />
+          </DictionaryProvider>
         </SearchProvider>
       </SettingsProvider>
     </main>

@@ -22,7 +22,7 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
   // use local storage to get selected columns count, if local storage is empty set default value
   const userSettings = getLocalStorage("settings", {
     columns: 2,
-    highlight: true,
+    highlight: false,
     highlightColor: "yellow",
   });
 

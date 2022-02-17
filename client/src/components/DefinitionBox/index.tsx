@@ -1,25 +1,26 @@
 import React from "react";
+import clsx from "clsx";
 import { isArray } from "lodash";
 import Highlighter from "react-highlight-words";
 import "./style.scss";
 
 interface DefinitionBoxProps {
   children?: string | React.ReactNode;
+  className?: string;
   definition?: string | string[];
   hasMultipleLine?: boolean;
   highlight?: string[] | false;
   highlightColor?: string;
-  separator?: "space" | "newline";
   title: string;
   titleTagName?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 }
 
 export default function DefinitionBox(props: DefinitionBoxProps) {
-  const { children, definition, hasMultipleLine, separator, highlight, highlightColor, title, titleTagName } = props;
+  const { children, className, definition, hasMultipleLine, highlight, highlightColor, title, titleTagName } = props;
   const Heading = titleTagName || "h2";
 
   return (
-    <div className="definition-box">
+    <div className={clsx("definition-box", className && className)}>
       <Heading className="definition-title">{title}</Heading>
 
       {hasMultipleLine && isArray(definition) ? (
@@ -31,7 +32,7 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
             <Highlighter
               key={index}
               className="definition"
-              highlightClassName={`marked-word style-${highlightColor}-light`}
+              highlightClassName={clsx("marked-word", `style-${highlightColor}-light`)}
               autoEscape={true}
               searchWords={highlight}
               textToHighlight={textWithSeparator}
@@ -45,13 +46,13 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
       ) : highlight ? (
         <Highlighter
           className="definition"
-          highlightClassName={`marked-word style-${highlightColor}-light`}
+          highlightClassName={clsx("marked-word", `style-${highlightColor}-light`)}
           autoEscape={true}
           searchWords={highlight}
           textToHighlight={isArray(definition) ? definition.join(", ") : definition}
         />
       ) : (
-        <p className="definition">{isArray(definition) ? definition.join(", ") : definition}</p>
+        <span className="definition">{isArray(definition) ? definition.join(", ") : definition}</span>
       )}
 
       {children}

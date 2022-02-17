@@ -1,10 +1,15 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
-import DefinitionBox from "../DefinitionBox";
-import { AllowedDictionaries, useSearch } from "../../contexts/search";
+import MasonryGrid from "./MasonryGrid";
+import { Loading } from "react-flatifycss";
+import { useSearch } from "../../contexts/search";
+import { AllowedDictionaries } from "../../contexts/dictionary";
 import { useSettings } from "../../contexts/settings";
 import { searchWord } from "../../services/api";
-import MasonryGrid from "./MasonryGrid";
+import DefinitionBox from "../DefinitionBox";
+import FakeDefinitionBox from "../FakeDefinitionBox";
+import NoResult from "./NoResult";
+import { isArray } from "lodash";
 
 interface ResultProps {
   item: {
@@ -14,20 +19,23 @@ interface ResultProps {
 }
 
 interface TabBodyProps {
+  children: React.ReactNode;
   dic: AllowedDictionaries;
   postsPerPage: number;
 }
 
-export default function TabBody({ dic, postsPerPage }: TabBodyProps) {
+export default function TabBody({ children, dic, postsPerPage }: TabBodyProps) {
   const { searchValue } = useSearch();
   const { highlight, highlightColor } = useSettings();
 
-  const [result, setResult] = useState<ResultProps[]>();
+  const [result, setResult] = useState<"firstTime" | ResultProps[]>("firstTime");
   const [displayQueue, setDisplayQueue] = useState<ResultProps[]>();
   const [isSearching, setIsSearching] = useState<boolean>(false);
 
-  const loadFunc = (page: number) => {
-    setDisplayQueue(result?.slice(0, page * postsPerPage));
+  const addMoreToQueue = (page: number) => {
+    if (isArray(result)) {
+      setDisplayQueue(result?.slice(0, page * postsPerPage));
+    }
   };
 
   useEffect(() => {
@@ -37,34 +45,49 @@ export default function TabBody({ dic, postsPerPage }: TabBodyProps) {
     setIsSearching(true);
     searchWord(dic, searchValue)
       .then((data) => {
-        // update search result
-        setResult(data.items);
-        // allowed items to display after fetch
-        setDisplayQueue(data.items.slice(0, postsPerPage));
+        if (data?.items) {
+          // update search result
+          setResult(data.items);
+          // allowed items to display after fetch
+          setDisplayQueue(data.items.slice(0, postsPerPage));
+        } else {
+          // reset result and queue
+          setResult([]);
+          setDisplayQueue([]);
+        }
       })
       .finally(() => {
         // change searching state to false to stop loading
         setIsSearching(false);
       });
 
+    return () => {
+      // reset result and queue
+      setResult([]);
+      setDisplayQueue([]);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchValue]);
 
-  return (
+  return (!displayQueue || displayQueue.length === 0) && !isSearching ? (
+    result === "firstTime" ? (
+      <>{children}</>
+    ) : (
+      <NoResult />
+    )
+  ) : (
     <InfiniteScroll
+      key={0}
       pageStart={0}
-      loadMore={loadFunc}
+      loadMore={addMoreToQueue}
       hasMore={result?.length !== displayQueue?.length}
-      loader={
-        <div className="loader" key={0}>
-          Loading ...
-        </div>
-      }
+      loader={<Loading className="infinite-scroll-loading" size="lg" />}
     >
       <MasonryGrid>
-        {isSearching && "در حال جستجو"}
-        {displayQueue
-          ? displayQueue.map(({ item }, index) => {
+        {isSearching
+          ? [...new Array(12)].map((item, index) => <FakeDefinitionBox key={index} />)
+          : displayQueue &&
+            displayQueue.map(({ item }, index) => {
               const itemIndex = String(item.definition).slice(0, 12) + String(item.title).slice(0, 12) + index;
 
               return (
@@ -73,13 +96,11 @@ export default function TabBody({ dic, postsPerPage }: TabBodyProps) {
                   title={item.title}
                   definition={item.definition}
                   hasMultipleLine={dic === "ganjvar" || dic === "farhangestan"}
-                  separator="newline"
                   highlight={highlight && searchValue.split(" ")}
                   highlightColor={highlightColor}
                 />
               );
-            })
-          : "test"}
+            })}
       </MasonryGrid>
     </InfiniteScroll>
   );

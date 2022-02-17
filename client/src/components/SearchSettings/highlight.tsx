@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { ItemsGroup, ToggleSwitch } from "react-flatifycss";
 import { useSettings } from "../../contexts/settings";
 import { setLocalStorageProp } from "../../utils/localStorage";
@@ -60,7 +61,7 @@ export default function HighlightSettings() {
       <ToggleSwitch checked={highlight} isAfterLabel={true} onChange={(value) => handleOnToggle(value)}>
         علامت گذاری واژه جستجو شده
       </ToggleSwitch>
-      <div className={`change-highlight-color${!highlight ? " disable-layer" : ""}`}>
+      <div className={clsx("change-highlight-color", !highlight && "disable-layer")}>
         <ItemsGroup
           className="highlight-colors"
           items={highlightPalette}

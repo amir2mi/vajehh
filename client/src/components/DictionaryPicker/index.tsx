@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { Checkbox, Dropdown } from "react-flatifycss";
 import config from "../../config.json";
 import useDebounce from "../../hooks/useDebounce";
+import { useDictionary, Dictionaries } from "../../contexts/dictionary";
 import { setLocalStorage } from "../../utils/localStorage";
-import { useSearch, Dictionaries } from "../../contexts/search";
 import "./style.scss";
 
 export default function DictionaryPicker() {
-  const { dictionaries, setDictionaries } = useSearch();
+  const { dictionaries, setDictionaries } = useDictionary();
   const [dictionariesInfo, setDictionariesInfo] = useState<Dictionaries>(dictionaries);
 
   const debouncedInfo = useDebounce(dictionariesInfo, config.dictionaryPickerDebounceDuration);
