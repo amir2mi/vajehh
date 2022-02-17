@@ -20,7 +20,7 @@ const options = {
 };
 
 function searcher(haystack, needle, type, customOptions) {
-  const limit = customOptions ? customOptions.limit : 75;
+  const limit = customOptions ? customOptions.limit : 100;
 
   if (options) {
     options.exact = { ...options.exact, ...customOptions };
