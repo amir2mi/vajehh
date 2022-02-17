@@ -3,6 +3,23 @@
   justify-content: center;
   align-items: center;
 
+  &.horizontal {
+    flex-direction: column;
+
+    .icon {
+      width: auto;
+
+      svg {
+        height: auto;
+      }
+    }
+
+    .texts {
+      text-align: center;
+      padding: 0;
+    }
+  }
+
   .icon {
     width: 30%;
     margin: 2em auto;
@@ -42,5 +59,30 @@
     width: 90%;
     height: max-content;
     margin: auto;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .intro-box {
+    flex-direction: column;
+
+    .icon {
+      width: auto;
+
+      svg {
+        width: 8em;
+        height: auto;
+      }
+    }
+
+    .texts {
+      font-size: 0.9em;
+      text-align: center;
+      padding: 0;
+    }
+
+    .title {
+      font-size: 1.5em;
+    }
   }
 }

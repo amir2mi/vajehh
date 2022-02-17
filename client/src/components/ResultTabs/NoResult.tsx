@@ -1,3 +1,8 @@
+import Icons from "../Icons";
+import IntroBox from "../IntroBox";
+
 export default function NoResult() {
-  return <p>چیزی یافت نشد</p>;
+  return (
+    <IntroBox className="horizontal" title="چیزی پیدا نشد" icon={<Icons.NoResult />}/>
+  );
 }

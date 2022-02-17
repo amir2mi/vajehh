@@ -11,6 +11,10 @@ import { ReactComponent as IntroTeyfi } from "../../assets/svg/dics/teyfi.svg";
 import { ReactComponent as IntroFarhangestan } from "../../assets/svg/dics/farhangestan.svg";
 import { ReactComponent as IntroGanjvar } from "../../assets/svg/dics/ganjvar.svg";
 
+// misc
+import { ReactComponent as NoResult } from "../../assets/svg/no-result.svg";
+
+
 const Icons = {
   FourColumns,
   OneColumn,
@@ -21,5 +25,6 @@ const Icons = {
   IntroTeyfi,
   IntroFarhangestan,
   IntroGanjvar,
+  NoResult,
 };
 export default Icons;
