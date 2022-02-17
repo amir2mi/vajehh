@@ -39,7 +39,7 @@ export default function SearchInfo({ onSuggestionClick }: SearchInfoProps) {
   return (
     <div className="search-info size-sm opacity-70">
       {dictionaries.emlaei.active && result && result.length > 0 ? (
-        <>
+        <div className="anim-fade-in">
           منظورتان
           {result.map((item, index) => (
             <>
@@ -56,9 +56,9 @@ export default function SearchInfo({ onSuggestionClick }: SearchInfoProps) {
             </>
           ))}
           بود؟
-        </>
+        </div>
       ) : null}
-      {searchValue.length === 1 && "متن جستجو باید بیشتر از یک حرف باشد"}
+      {searchValue.length === 1 && <span className="anim-fade-in">متن جستجو باید بیشتر از یک حرف باشد</span>}
     </div>
   );
 }

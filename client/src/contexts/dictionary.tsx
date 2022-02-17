@@ -62,7 +62,7 @@ const getActiveDictionaries = () => {
     ganjvar: {
       name: "گنجور",
       key: "ganjvar",
-      active: true,
+      active: false,
     },
   };
 };
