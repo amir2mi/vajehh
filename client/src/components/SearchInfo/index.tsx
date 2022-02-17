@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "react-flatifycss";
 import { useSearch } from "../../contexts/search";
 import { useDictionary } from "../../contexts/dictionary";
@@ -42,18 +42,12 @@ export default function SearchInfo({ onSuggestionClick }: SearchInfoProps) {
         <div className="anim-fade-in">
           منظورتان
           {result.map((item, index) => (
-            <>
-              <Button
-                key={index}
-                className="suggestion-button"
-                theme="purple"
-                size="xs"
-                onClick={() => onSuggestionClick?.(item)}
-              >
+            <React.Fragment key={index}>
+              <Button className="suggestion-button" theme="purple" size="xs" onClick={() => onSuggestionClick?.(item)}>
                 {item}
               </Button>
               {index + 1 === result.length ? "" : "یا"}
-            </>
+            </React.Fragment>
           ))}
           بود؟
         </div>
