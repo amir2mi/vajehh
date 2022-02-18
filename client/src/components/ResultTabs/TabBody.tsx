@@ -20,10 +20,12 @@ interface ResultProps {
 interface TabBodyProps {
   children: React.ReactNode;
   dic: AllowedDictionaries;
+  onFinish: (count: number) => void;
+  onSearch: () => void;
   postsPerPage: number;
 }
 
-export default function TabBody({ children, dic, postsPerPage }: TabBodyProps) {
+export default function TabBody({ children, dic, onFinish, onSearch, postsPerPage }: TabBodyProps) {
   const { searchValue } = useSearch();
   const { highlight, highlightColor } = useSettings();
 
@@ -41,18 +43,30 @@ export default function TabBody({ children, dic, postsPerPage }: TabBodyProps) {
     // should not search when searchValue is empty
     if (!searchValue) return;
 
+    // set local state to indicate that search is in progress
     setIsSearching(true);
+
+    // call on search, tab use this function to show loading
+    onSearch();
+
     searchWord(dic, searchValue)
       .then((data) => {
         if (data?.items) {
           // update search result
           setResult(data.items);
+
           // allowed items to display after fetch
           setDisplayQueue(data.items.slice(0, postsPerPage));
+
+          // update result count
+          onFinish(data.items.length || 0);
         } else {
           // reset result and queue
           setResult([]);
           setDisplayQueue([]);
+
+          // no result
+          onFinish(0);
         }
       })
       .finally(() => {

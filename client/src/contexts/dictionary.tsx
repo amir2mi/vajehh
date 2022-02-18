@@ -9,6 +9,7 @@ interface DictionariesInfo {
   name: string;
   key: string;
   active: boolean;
+  resultCount: number;
 }
 
 export type AllowedDictionaries = "motaradef" | "sereh" | "teyfi" | "farhangestan" | "ganjvar" | "emlaei";
@@ -29,10 +30,7 @@ interface DictionaryContextProps {
   editDictionary: (dic: string, prop: string, value: unknown) => void;
 }
 
-const getActiveDictionaries = () => {
-  // check local storage
-
-  // if empty set default dictionaries
+const getDefaultDictionaries = () => {
   return {
     emlaei: {
       name: "املائی",
@@ -72,7 +70,7 @@ const DictionaryContext = createContext<undefined | DictionaryContextProps>(unde
 const DictionaryProvider = ({ children }: DictionaryProviderProps) => {
   // use local storage to get selected dictionaries, if local storage is empty set default dictionaries
   const [dictionaries, setDictionaries] = useState<Dictionaries>(() =>
-    getLocalStorage("dictionaries", getActiveDictionaries())
+    getLocalStorage("dictionaries", getDefaultDictionaries())
   );
 
   const editDictionary = (dic, prop, value) => {

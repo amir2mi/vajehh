@@ -20,6 +20,14 @@
   }
 }
 
+.tab-button-loading {
+  padding: 0.7em 0.5em;
+
+  .loading {
+    font-size: 0.38em;
+  }
+}
+
 // masonry grid using [react-masonry-css]
 .result-grid {
   display: flex;
