@@ -4,4 +4,11 @@
   .dropdown {
     padding: 0.5em 1em;
   }
+
+  @media screen and (max-width: 575px) {
+    // more space for touch devices
+    .checkbox-wrapper:not(:last-of-type) {
+      margin-bottom: 1.25em;
+    }
+  }
 }

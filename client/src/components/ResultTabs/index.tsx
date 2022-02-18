@@ -20,6 +20,8 @@ export default function ResultTabs() {
         </TabBody>
       ),
       isHidden: !dictionaries.motaradef.active,
+      buttonTagName: "a",
+      buttonHref: "#app-title",
     },
     {
       title: "سره",
@@ -31,6 +33,8 @@ export default function ResultTabs() {
         </TabBody>
       ),
       isHidden: !dictionaries.sereh.active,
+      buttonTagName: "a",
+      buttonHref: "#app-title",
     },
     {
       title: "طیفی",
@@ -43,6 +47,8 @@ export default function ResultTabs() {
         </TabBody>
       ),
       isHidden: !dictionaries.teyfi.active,
+      buttonTagName: "a",
+      buttonHref: "#app-title",
     },
     {
       title: "فرهنگستان",
@@ -54,6 +60,8 @@ export default function ResultTabs() {
         </TabBody>
       ),
       isHidden: !dictionaries.farhangestan.active,
+      buttonTagName: "a",
+      buttonHref: "#app-title",
     },
     {
       title: "گنجور",
@@ -66,8 +74,10 @@ export default function ResultTabs() {
         </TabBody>
       ),
       isHidden: !dictionaries.ganjvar.active,
+      buttonTagName: "a",
+      buttonHref: "#app-title",
     },
   ];
 
-  return <Tabs className="result-tabs" items={items} animation="fade" bordered={true} />;
+  return <Tabs scrollable className="result-tabs" items={items} animation="fade" bordered={true} />;
 }

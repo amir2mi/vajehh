@@ -8,7 +8,7 @@ import ResultTabs from "../../components/ResultTabs";
 export default function SearchMain() {
   return (
     <main className="search-main container-lg">
-      <Title title="واژه" subtitle="زیبا و خلاق بنویسید" />
+      <Title id="app-title" title="واژه" subtitle="زیبا و خلاق بنویسید" />
       <SettingsProvider>
         <SearchProvider>
           <DictionaryProvider>
