@@ -1,5 +1,5 @@
 const express = require("express");
-var spellChecker = require("simple-spellchecker");
+const spellChecker = require("simple-spellchecker");
 const path = require("path");
 
 const router = express.Router();
