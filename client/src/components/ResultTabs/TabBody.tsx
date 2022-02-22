@@ -49,7 +49,7 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
     onSearch();
 
     searchWord(dic, searchValue)
-      .then(({ data }) => {
+      .then((data) => {
         // if the result be unsuccessful [items] will be undefined
         if (data?.items) {
           // update search result
