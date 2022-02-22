@@ -5,9 +5,10 @@
  * @param {string | Array} value
  * @param {number} limit
  * @param {boolean} fuzzySearch
+ * @param {number} fuzzyLevel [1,2,3] 1 = more fuzzy, 3 = less fuzzy
  * @returns {Promise<Array> | Promise<Error>}
  */
-async function searchWord(database, dict, value, limit = 100, fuzzySearch = true) {
+async function searchWord(database, dict, value, limit = 100, fuzzySearch = true, fuzzyLevel = 3) {
   const collection = database.collection(dict);
 
   if (!collection) reject("Database is not connected");
@@ -26,7 +27,7 @@ async function searchWord(database, dict, value, limit = 100, fuzzySearch = true
   if (fuzzySearch) {
     searchSettings.fuzzy = {
       maxEdits: 2,
-      prefixLength: 3,
+      prefixLength: fuzzyLevel,
     };
   }
 

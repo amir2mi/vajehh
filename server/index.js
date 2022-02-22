@@ -7,6 +7,7 @@ const sereh = require("./routes/sereh");
 const teyfi = require("./routes/teyfi");
 const farhangestan = require("./routes/farhangestan");
 const ganjvar = require("./routes/ganjvar");
+const emlaei = require("./routes/emlaei");
 
 // connect to MongoDB Atlas client
 // first => motaradef, sereh, teyfi
@@ -30,6 +31,7 @@ app.use("/api/sereh", sereh);
 app.use("/api/teyfi", teyfi);
 app.use("/api/farhangestan", farhangestan);
 app.use("/api/ganjvar", ganjvar);
+app.use("/api/emlaei", emlaei);
 
 const port = process.env.PORT || 8080;
 app.listen(port, async () => {
