@@ -11,10 +11,9 @@ import FakeDefinitionBox from "../FakeDefinitionBox";
 import NoResult from "./NoResult";
 
 interface ResultProps {
-  item: {
-    title: string;
-    definition: string[];
-  };
+  id: string;
+  title: string;
+  definition: string[];
 }
 
 interface TabBodyProps {
@@ -50,7 +49,8 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
     onSearch();
 
     searchWord(dic, searchValue)
-      .then((data) => {
+      .then(({ data }) => {
+        // if the result be unsuccessful [items] will be undefined
         if (data?.items) {
           // update search result
           setResult(data.items);
@@ -64,7 +64,6 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
           // reset result and queue
           setResult([]);
           setDisplayQueue([]);
-
           // no result
           onFinish(0);
         }
@@ -99,7 +98,7 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
       <MasonryGrid>
         {isSearching
           ? [...new Array(12)].map((item, index) => <FakeDefinitionBox key={index} />)
-          : displayQueue?.map(({ item }, index) => {
+          : displayQueue?.map((item, index) => {
               const itemIndex = String(item.definition).slice(0, 12) + String(item.title).slice(0, 12) + index;
 
               return (
