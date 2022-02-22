@@ -11,6 +11,7 @@ async function searchWord(database, dict, value, limit = 100, fuzzySearch = true
   const collection = database.collection(dict);
 
   if (!collection) reject("Database is not connected");
+  if (!value || value.length === 0) reject("searchWord requires a value");
 
   // the basic config to search by
   const searchSettings = {
@@ -34,7 +35,6 @@ async function searchWord(database, dict, value, limit = 100, fuzzySearch = true
       .aggregate([
         {
           $search: {
-            index: dict,
             text: searchSettings,
           },
         },

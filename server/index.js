@@ -3,6 +3,10 @@ const { MongoClient } = require("mongodb");
 const cors = require("cors");
 const morgan = require("morgan");
 const motaradef = require("./routes/motaradef");
+const sereh = require("./routes/sereh");
+const teyfi = require("./routes/teyfi");
+const farhangestan = require("./routes/farhangestan");
+const ganjvar = require("./routes/ganjvar");
 
 // connect to MongoDB Atlas client
 // first => motaradef, sereh, teyfi
@@ -10,7 +14,7 @@ const firstDatabaseClient = new MongoClient(process.env["VAJEHH_FIRST_DB_URL"]);
 // second => farhangestan, ganjvar, emlaei
 const secondDatabaseClient = new MongoClient(process.env["VAJEHH_SECOND_DB_URL"]);
 
-// express app and middlewares
+// middlewares
 const app = express();
 app.use(cors());
 
@@ -22,6 +26,10 @@ if (app.get("env") === "development") {
 
 // routes
 app.use("/api/motaradef", motaradef);
+app.use("/api/sereh", sereh);
+app.use("/api/teyfi", teyfi);
+app.use("/api/farhangestan", farhangestan);
+app.use("/api/ganjvar", ganjvar);
 
 const port = process.env.PORT || 8080;
 app.listen(port, async () => {
