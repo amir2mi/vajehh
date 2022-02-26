@@ -28,6 +28,10 @@
   }
 }
 
+.no-result {
+  animation: flatify-fade-in 0.3s 0.2s both;
+}
+
 // masonry grid using [react-masonry-css]
 .result-grid {
   display: flex;

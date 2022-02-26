@@ -28,7 +28,7 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
   const { searchValue } = useSearch();
   const { highlight, highlightColor } = useSettings();
 
-  const [result, setResult] = useState<"firstTime" | ResultProps[]>("firstTime");
+  const [result, setResult] = useState<ResultProps[]>();
   const [displayQueue, setDisplayQueue] = useState<ResultProps[]>();
   const [isSearching, setIsSearching] = useState<boolean>(false);
 
@@ -81,8 +81,8 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchValue]);
 
-  return (!displayQueue || displayQueue.length === 0) && !isSearching ? (
-    result === "firstTime" ? (
+  return !isSearching && (!displayQueue || displayQueue?.length === 0) ? (
+    searchValue?.length < 2 ? (
       <>{children}</>
     ) : (
       <NoResult />
