@@ -56,7 +56,7 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
           setResult(data.items);
 
           // allowed items to display after fetch
-          setDisplayQueue(data.items.slice(0, postsPerPage));
+          setDisplayQueue(data.items?.slice(0, postsPerPage));
 
           // update result count
           onFinish(data.items.length || 0);
@@ -107,7 +107,7 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
                   title={item.title}
                   definition={item.definition}
                   hasMultipleLine={dic === "ganjvar" || dic === "farhangestan"}
-                  highlight={highlight && searchValue.split(" ")}
+                  highlight={highlight && searchValue.split(/&|،|,|\*|\+| /)}
                   highlightColor={highlightColor}
                 />
               );

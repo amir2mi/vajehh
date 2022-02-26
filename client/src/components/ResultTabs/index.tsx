@@ -52,8 +52,6 @@ export default function ResultTabs() {
         </TabBody>
       ),
       isHidden: !dictionaries.motaradef.active,
-      buttonTagName: "a",
-      buttonHref: "#app-title",
     },
     {
       title: <TabTitle title="سره" value={resultCount.sereh} />,
@@ -70,8 +68,6 @@ export default function ResultTabs() {
         </TabBody>
       ),
       isHidden: !dictionaries.sereh.active,
-      buttonTagName: "a",
-      buttonHref: "#app-title",
     },
     {
       title: <TabTitle title="طیفی" value={resultCount.teyfi} />,
@@ -89,8 +85,6 @@ export default function ResultTabs() {
         </TabBody>
       ),
       isHidden: !dictionaries.teyfi.active,
-      buttonTagName: "a",
-      buttonHref: "#app-title",
     },
     {
       title: <TabTitle title="فرهنگستان" value={resultCount.farhangestan} />,
@@ -107,8 +101,6 @@ export default function ResultTabs() {
         </TabBody>
       ),
       isHidden: !dictionaries.farhangestan.active,
-      buttonTagName: "a",
-      buttonHref: "#app-title",
     },
     {
       title: <TabTitle title="گنجور" value={resultCount.ganjvar} />,
@@ -126,8 +118,6 @@ export default function ResultTabs() {
         </TabBody>
       ),
       isHidden: !dictionaries.ganjvar.active,
-      buttonTagName: "a",
-      buttonHref: "#app-title",
     },
   ];
 

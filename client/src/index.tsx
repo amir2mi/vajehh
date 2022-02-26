@@ -1,13 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 import "flatifycss/scss/flatify-rtl.scss";
+import "./index.scss";
 import Vajehh from "./App";
 import reportWebVitals from "./reportWebVitals";
-import "./index.scss";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Vajehh />
+    <BrowserRouter>
+      <Vajehh />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );

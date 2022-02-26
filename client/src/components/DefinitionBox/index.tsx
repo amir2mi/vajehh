@@ -24,9 +24,6 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
 
       {hasMultipleLine && Array.isArray(definition) ? (
         definition.map((line: string, index) => {
-          // the last line should not have a separator
-          const textWithSeparator = definition.length === index + 1 ? line : line + "، ";
-
           return highlight ? (
             <Highlighter
               key={index}
@@ -34,11 +31,11 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
               highlightClassName={clsx("marked-word", `style-${highlightColor}-light`)}
               autoEscape={true}
               searchWords={highlight}
-              textToHighlight={textWithSeparator}
+              textToHighlight={line}
             />
           ) : (
             <span key={index} className="definition">
-              {textWithSeparator}
+              {line}
             </span>
           );
         })
@@ -48,10 +45,10 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
           highlightClassName={clsx("marked-word", `style-${highlightColor}-light`)}
           autoEscape={true}
           searchWords={highlight}
-          textToHighlight={Array.isArray(definition) ? definition.join(", ") : definition}
+          textToHighlight={Array.isArray(definition) ? definition.join("، ") : definition}
         />
       ) : (
-        <span className="definition">{Array.isArray(definition) ? definition.join(", ") : definition}</span>
+        <span className="definition">{Array.isArray(definition) ? definition.join("، ") : definition}</span>
       )}
 
       {children}

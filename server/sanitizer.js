@@ -31,7 +31,7 @@ function sanitizeText(value) {
   // separate words by & ، , * +
   // remove empty words
   // trim spaces
-  value = value.split(/\&|\،|\,|\*|\+/).filter((word) => word && word.trim());
+  value = value.split(/&|،|,|\*|\+/).filter((word) => word && word.trim());
 
   return value;
 }

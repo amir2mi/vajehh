@@ -38,7 +38,7 @@ export default function SearchInfo({ onSuggestionClick }: SearchInfoProps) {
 
   return (
     <div className="search-info size-sm opacity-70">
-      {dictionaries.emlaei.active && result && result.length > 0 ? (
+      {dictionaries.emlaei?.active && result && result.length > 0 ? (
         <div className="anim-fade-in">
           منظورتان
           {result.map((item, index) => (
