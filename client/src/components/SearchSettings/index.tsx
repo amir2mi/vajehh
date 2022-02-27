@@ -1,4 +1,5 @@
 import { Dropdown } from "react-flatifycss";
+import Icons from "../Icons";
 import ColumnSettings from "./columns";
 import GeneralSettings from "./general";
 import HighlightSettings from "./highlight";
@@ -7,12 +8,12 @@ import "./style.scss";
 export default function SearchSettings() {
   return (
     <Dropdown
+      id="settings-options"
       className="settings-options"
       autoClose="outside"
       size="xs"
-      buttonLabel="تنظیمات"
-      buttonArrow={true}
-      offsetY={12}
+      buttonLabel={<Icons.Settings />}
+      offsetY={10}
     >
       <ColumnSettings />
       <GeneralSettings />

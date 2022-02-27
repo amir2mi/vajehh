@@ -1,3 +1,19 @@
+#settings-options {
+  .dropdown-toggle {
+    svg {
+      width: 1.5em;
+      height: 1.5em;
+      transition: all var(--flatify__bouncing-transition);
+    }
+
+    &.active {
+      svg {
+        transform: rotate(120deg);
+      }
+    }
+  }
+}
+
 .dropdown.settings-options {
   width: 18em !important;
 }

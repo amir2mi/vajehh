@@ -30,12 +30,13 @@ export default function DictionaryPicker() {
 
   return (
     <Dropdown
+      id="search-dictionaries"
       className="dictionary-picker"
       autoClose="outside"
       size="xs"
       buttonLabel="منابع جستجو"
       buttonArrow={true}
-      offsetY={12}
+      offsetY={10}
     >
       {Object.values(dictionaries).map(({ name, key, active }) => (
         <Checkbox key={key} checked={active} onChange={(value) => handleOnChange(key, value)}>

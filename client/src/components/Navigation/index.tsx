@@ -26,7 +26,7 @@ export default function Navigation() {
           </NavLink>
         </li>
         <li>
-          <a href="https://github.com/amir2mi/vajehh" className="nav-link" target="_blank">
+          <a href="https://github.com/amir2mi/vajehh" className="nav-link" target="_blank" rel="noreferrer">
             مشارکت در پروژه
           </a>
         </li>

@@ -14,6 +14,7 @@ import { ReactComponent as IntroGanjvar } from "../../assets/svg/dics/ganjvar.sv
 // misc
 import { ReactComponent as Moon } from "../../assets/svg/moon.svg";
 import { ReactComponent as NoResult } from "../../assets/svg/no-result.svg";
+import { ReactComponent as Settings } from "../../assets/svg/settings.svg";
 import { ReactComponent as Sun } from "../../assets/svg/sun.svg";
 
 const Icons = {
@@ -28,6 +29,7 @@ const Icons = {
   IntroGanjvar,
   Moon,
   NoResult,
+  Settings,
   Sun,
 };
 export default Icons;
