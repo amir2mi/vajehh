@@ -2,6 +2,14 @@
   --flatify__border-width: 0.15em;
   font-size: 1.25em;
   margin-top: 2em;
+
+  input:focus {
+    background: var(--flatify__bg-color);
+  }
+
+  .search-button {
+    background: transparent;
+  }
 }
 
 .search-settings {
