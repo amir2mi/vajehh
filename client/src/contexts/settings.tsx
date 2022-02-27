@@ -10,6 +10,8 @@ type HighlightColors = "blue" | "green" | "pink" | "purple" | "yellow" | "red";
 interface SettingsContextProps {
   columnsCount: number;
   setColumnsCount: (value: number) => void;
+  autoSearch: boolean;
+  setAutoSearch: (value: boolean) => void;
   highlight: boolean;
   setHighlight: (value: boolean) => void;
   highlightColor: HighlightColors;
@@ -22,17 +24,28 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
   // use local storage to get selected columns count, if local storage is empty set default value
   const userSettings = getLocalStorage("settings", {
     columns: 2,
+    autoSearch: true,
     highlight: false,
     highlightColor: "yellow",
   });
 
   const [columnsCount, setColumnsCount] = useState<number>(userSettings.columns);
+  const [autoSearch, setAutoSearch] = useState<boolean>(userSettings.autoSearch);
   const [highlight, setHighlight] = useState<boolean>(userSettings.highlight);
   const [highlightColor, setHighlightColor] = useState<HighlightColors>(userSettings.highlightColor);
 
   return (
     <SettingsContext.Provider
-      value={{ columnsCount, setColumnsCount, highlight, setHighlight, highlightColor, setHighlightColor }}
+      value={{
+        columnsCount,
+        setColumnsCount,
+        autoSearch,
+        setAutoSearch,
+        highlight,
+        setHighlight,
+        highlightColor,
+        setHighlightColor,
+      }}
     >
       {children}
     </SettingsContext.Provider>
