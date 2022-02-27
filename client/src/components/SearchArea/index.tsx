@@ -58,7 +58,7 @@ export default function SearchArea() {
       const newHashState = window.location.hash;
       const newValue = getSearchValue();
 
-      // Do not continue if the given search value was empty
+      // Do not continue if the given search value is empty
       if (newValue === "/search") return;
 
       // Do NOT update the value when hash changes,
