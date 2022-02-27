@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Input } from "react-flatifycss";
 import config from "../../config.json";
 import useDebounce from "../../hooks/useDebounce";
+import { useSettings } from "../../contexts/settings";
 import { useSearch } from "../../contexts/search";
 import SearchInfo from "../../components/SearchInfo";
 import DictionaryPicker from "../../components/DictionaryPicker";
@@ -12,6 +13,7 @@ import "./style.scss";
 export default function SearchArea() {
   const navigate = useNavigate();
   const { "*": word } = useParams();
+  const { autoSearch } = useSettings();
 
   // shared value
   const { setSearchValue } = useSearch();
@@ -43,6 +45,9 @@ export default function SearchArea() {
 
   // updated context value and URL after debounce
   useEffect(() => {
+    // set debounced value after delay if autoSearch is active
+    if (!autoSearch) return;
+
     setSearchValue(debouncedValue);
     navigate(value);
 

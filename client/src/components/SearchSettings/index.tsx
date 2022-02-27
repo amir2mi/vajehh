@@ -1,5 +1,6 @@
 import { Dropdown } from "react-flatifycss";
 import ColumnSettings from "./columns";
+import GeneralSettings from "./general";
 import HighlightSettings from "./highlight";
 import "./style.scss";
 
@@ -14,6 +15,7 @@ export default function SearchSettings() {
       offsetY={12}
     >
       <ColumnSettings />
+      <GeneralSettings />
       <HighlightSettings />
     </Dropdown>
   );
