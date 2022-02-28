@@ -32,7 +32,18 @@
     // increase colors tint
     --flatify__color-accent-primary: #53c3f8;
     --flatify__color-blue-primary: #53c3f8;
-    --flatify__color-success-primary: #62E002;
-    --flatify__color-green-primary: #62E002;
+    --flatify__color-success-primary: #62e002;
+    --flatify__color-green-primary: #62e002;
+    --flatify__color-red-primary: #ff5959;
+    --flatify__color-danger-primary: #ff5959;
+    --flatify__color-warning-primary: #FFA424;
+    --flatify__color-orange-primary: #FFA424;
+    --flatify__color-yellow-primary: #ffe224;
+    --flatify__color-purple-primary: #c671ff;
+
+    // light text color for primary colors
+    [class*="style-"]:not([class*="-light"]) {
+      --flatify__txt-color-inverted: #f1f4f7;
+    }
   }
 }
