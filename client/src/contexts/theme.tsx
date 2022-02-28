@@ -7,7 +7,7 @@ interface ThemeProviderProps {
 
 interface ThemeContextProps {
   nightMode: "auto" | boolean;
-  setNightMode: (value: boolean) => void;
+  setNightMode: (value: boolean | "auto") => void;
 }
 
 const ThemeContext = createContext<undefined | ThemeContextProps>(undefined);
@@ -16,15 +16,6 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const themeSettings = getLocalStorage("theme", {
     nightMode: "auto",
   });
-
-  // if the nightmode is set to "auto" follow operating system preference
-  if (themeSettings.nightMode === "auto") {
-    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      themeSettings.nightMode = true;
-    } else {
-      themeSettings.nightMode = false;
-    }
-  }
 
   const [nightMode, setNightMode] = useState<"auto" | boolean>(themeSettings.nightMode);
 
@@ -41,4 +32,17 @@ const useTheme = () => {
   return value;
 };
 
-export { ThemeProvider, useTheme };
+const getNightModeClass = (nightMode) => {
+  // if the nightmode is set to "auto" follow operating system preference
+  if (nightMode === "auto") {
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      nightMode = true;
+    } else {
+      nightMode = false;
+    }
+  }
+
+  return nightMode ? "night-mode" : "";
+};
+
+export { ThemeProvider, useTheme, getNightModeClass };

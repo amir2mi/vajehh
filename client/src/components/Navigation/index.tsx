@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { Button } from "react-flatifycss";
-import Icons from "../Icons";
+import NightModeButton from "../NightModeButton";
 import "./style.scss";
 
 export default function Navigation() {
@@ -36,9 +35,7 @@ export default function Navigation() {
           </NavLink>
         </li>
       </ul>
-      <Button className="toggle-nightmode" size="xs">
-        <Icons.Sun />
-      </Button>
+      <NightModeButton />
     </nav>
   );
 }

@@ -12,6 +12,7 @@ import { ReactComponent as IntroFarhangestan } from "../../assets/svg/dics/farha
 import { ReactComponent as IntroGanjvar } from "../../assets/svg/dics/ganjvar.svg";
 
 // misc
+import { ReactComponent as AutoLight } from "../../assets/svg/auto-light.svg";
 import { ReactComponent as Moon } from "../../assets/svg/moon.svg";
 import { ReactComponent as NoResult } from "../../assets/svg/no-result.svg";
 import { ReactComponent as Settings } from "../../assets/svg/settings.svg";
@@ -27,6 +28,7 @@ const Icons = {
   IntroTeyfi,
   IntroFarhangestan,
   IntroGanjvar,
+  AutoLight,
   Moon,
   NoResult,
   Settings,
