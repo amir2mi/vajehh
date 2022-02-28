@@ -27,7 +27,7 @@ export default function NightModeButton() {
   };
 
   return (
-    <Button className="toggle-nightmode" size="xs" onClick={() => handleOnNightModeChange()}>
+    <Button className="toggle-nightmode" roundness="circle" size="xs" onClick={() => handleOnNightModeChange()}>
       {nightMode === "auto" && <Icons.AutoLight className="anim-fade-in" />}
       {nightMode === true && <Icons.Moon className="anim-fade-in" />}
       {nightMode === false && <Icons.Sun className="anim-fade-in" />}

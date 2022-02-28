@@ -13,6 +13,8 @@ import { ReactComponent as IntroGanjvar } from "../../assets/svg/dics/ganjvar.sv
 
 // misc
 import { ReactComponent as AutoLight } from "../../assets/svg/auto-light.svg";
+import { ReactComponent as Error } from "../../assets/svg/error.svg";
+import { ReactComponent as External } from "../../assets/svg/external.svg";
 import { ReactComponent as Moon } from "../../assets/svg/moon.svg";
 import { ReactComponent as NoResult } from "../../assets/svg/no-result.svg";
 import { ReactComponent as Settings } from "../../assets/svg/settings.svg";
@@ -29,6 +31,8 @@ const Icons = {
   IntroFarhangestan,
   IntroGanjvar,
   AutoLight,
+  Error,
+  External,
   Moon,
   NoResult,
   Settings,

@@ -6,4 +6,11 @@
   font-stretch: 100%;
 }
 
-@import "./config";
+// configs
+:root {
+  --flatify__heading-font-family: "Vazir", Tahoma, sans-serif;
+  --flatify__primary-font-family: "Vazir", Tahoma, sans-serif;
+}
+
+@import "./styles/night";
+@import "./styles/utils";

@@ -33,6 +33,8 @@ const useTheme = () => {
 };
 
 const getNightModeClass = (nightMode) => {
+  const htmlElement = document.querySelector(":root");
+
   // if the nightmode is set to "auto" follow operating system preference
   if (nightMode === "auto") {
     if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -42,6 +44,14 @@ const getNightModeClass = (nightMode) => {
     }
   }
 
+  // set the html element class to dark or light
+  if (nightMode) {
+    htmlElement?.classList.add("night-mode");
+  } else {
+    htmlElement?.classList.remove("night-mode");
+  }
+
+  // and return the class name
   return nightMode ? "night-mode" : "";
 };
 

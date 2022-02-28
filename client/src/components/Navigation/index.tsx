@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import Icons from "../Icons";
 import NightModeButton from "../NightModeButton";
 import "./style.scss";
 
@@ -25,14 +26,15 @@ export default function Navigation() {
           </NavLink>
         </li>
         <li>
-          <a href="https://github.com/amir2mi/vajehh" className="nav-link" target="_blank" rel="noreferrer">
-            مشارکت در پروژه
-          </a>
-        </li>
-        <li>
           <NavLink to="/support" className="nav-link">
             پشتیبانی
           </NavLink>
+        </li>
+        <li>
+          <a href="https://github.com/amir2mi/vajehh" className="nav-link" target="_blank" rel="noreferrer">
+            مشارکت در پروژه
+            <Icons.External className="nav-icon"/>
+          </a>
         </li>
       </ul>
       <NightModeButton />
