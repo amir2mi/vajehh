@@ -8,12 +8,18 @@ import { AllowedDictionaries } from "../../contexts/dictionary";
 import { searchWord } from "../../services/api";
 import DefinitionBox from "../DefinitionBox";
 import FakeDefinitionBox from "../FakeDefinitionBox";
+import Error from "./Error";
 import NoResult from "./NoResult";
 
 interface ResultProps {
   id: string;
   title: string;
   definition: string[];
+}
+
+interface SearchResponseProps {
+  kind: string;
+  items: ResultProps[];
 }
 
 interface TabBodyProps {
@@ -31,10 +37,35 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
   const [result, setResult] = useState<ResultProps[]>();
   const [displayQueue, setDisplayQueue] = useState<ResultProps[]>();
   const [isSearching, setIsSearching] = useState<boolean>(false);
+  const [hasError, setHasError] = useState<boolean>(false);
 
   const addMoreToQueue = (page: number) => {
     if (Array.isArray(result)) {
       setDisplayQueue(result?.slice(0, page * postsPerPage));
+    }
+  };
+
+  const search = async () => {
+    try {
+      const response = await searchWord(dic, searchValue);
+      const { items } = response?.data as SearchResponseProps;
+
+      // update search result
+      setResult(items);
+      // allowed items to display after fetch
+      setDisplayQueue(items?.slice(0, postsPerPage));
+      // update result count
+      onFinish(items.length || 0);
+      // there was no error
+      setHasError(false);
+    } catch (err) {
+      console.error(err);
+      setHasError(true);
+      // there was an error so there is no result
+      onFinish(0);
+    } finally {
+      // stop loading
+      setIsSearching(false);
     }
   };
 
@@ -44,34 +75,10 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
 
     // set local state to indicate that search is in progress
     setIsSearching(true);
-
     // call on search, tab use this function to show loading
     onSearch();
-
-    searchWord(dic, searchValue)
-      .then((data) => {
-        // if the result be unsuccessful [items] will be undefined
-        if (data?.items) {
-          // update search result
-          setResult(data.items);
-
-          // allowed items to display after fetch
-          setDisplayQueue(data.items?.slice(0, postsPerPage));
-
-          // update result count
-          onFinish(data.items.length || 0);
-        } else {
-          // reset result and queue
-          setResult([]);
-          setDisplayQueue([]);
-          // no result
-          onFinish(0);
-        }
-      })
-      .finally(() => {
-        // change searching state to false to stop loading
-        setIsSearching(false);
-      });
+    // search and update result
+    search();
 
     return () => {
       // reset result and queue
@@ -84,6 +91,8 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
   return !isSearching && (!displayQueue || displayQueue?.length === 0) ? (
     searchValue?.length < 2 ? (
       <>{children}</>
+    ) : hasError ? (
+      <Error />
     ) : (
       <NoResult />
     )

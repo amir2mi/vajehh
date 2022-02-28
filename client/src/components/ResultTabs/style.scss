@@ -14,7 +14,7 @@
   }
 
   .tabs-content {
-    min-height: 50vh;
+    min-height: max(50vh, 20em);
     padding: 1em 1.5em;
     border-radius: 1em;
   }

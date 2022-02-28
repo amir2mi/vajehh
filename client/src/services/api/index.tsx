@@ -7,10 +7,5 @@ export async function searchWord(dic: AllowedDictionaries, word: string) {
   word = word.trim();
   if (word.length < 2) return null;
 
-  try {
-    const { data } = await axios.get(`${apiEndPoint}/${dic}/${word}`);
-    return data;
-  } catch (e) {
-    console.error(e);
-  }
+  return axios.get(`${apiEndPoint}/${dic}/${word}`);
 }

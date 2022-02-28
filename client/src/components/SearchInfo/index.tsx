@@ -15,19 +15,20 @@ export default function SearchInfo({ onSuggestionClick }: SearchInfoProps) {
 
   const [result, setResult] = useState<string[]>();
 
+  const search = async () => {
+    try {
+      const response = await searchWord("emlaei", searchValue);
+      const { items } = response?.data;
+      setResult(items || []);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   useEffect(() => {
     // should not search when searchValue is empty
     if (!searchValue) return;
-
-    searchWord("emlaei", searchValue).then((data) => {
-      if (data?.items) {
-        // update search result
-        setResult(data.items);
-      } else {
-        // reset result and queue
-        setResult([]);
-      }
-    });
+    search();
 
     return () => {
       // reset result and queue
