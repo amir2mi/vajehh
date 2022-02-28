@@ -3,13 +3,17 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import "flatifycss/scss/flatify-rtl.scss";
 import "./index.scss";
+import { ThemeProvider } from "./contexts/theme";
+
 import Vajehh from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Vajehh />
+      <ThemeProvider>
+        <Vajehh />
+      </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
