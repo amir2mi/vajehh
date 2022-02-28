@@ -3,7 +3,7 @@
   .definition {
     user-select: none;
     color: transparent !important;
-    background: var(--flatify__bg-color-darker) !important;
+    background: var(--flatify__bg-color-dark) !important;
     border-radius: 0.5em;
   }
 
@@ -18,9 +18,9 @@
 
 @keyframes loading-flicker {
   0% {
-    opacity: 0.9;
+    opacity: 1;
   }
   50% {
-    opacity: 0.3;
+    opacity: 0.4;
   }
 }
