@@ -44,7 +44,6 @@ export default function SearchArea() {
   };
 
   const handleOnPopState = (oldValue, oldHashState) => {
-    alert("popstate");
     const newHashState = window.location.hash;
     const newValue = getSearchValue();
 
@@ -72,6 +71,8 @@ export default function SearchArea() {
   useEffect(() => {
     // set debounced value after delay if autoSearch is active
     if (!autoSearch) return;
+    // do not update value if it is the same as the current value
+    if (debouncedValue === searchValue) return;
 
     setSearchValue(debouncedValue);
     navigate(value);
