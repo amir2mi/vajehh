@@ -1,11 +1,11 @@
-.night-mode .fill-bg-color-dark {
-  fill: var(--flatify__bg-color-dark);
-}
-
-.stroke-txt-color {
-  stroke: var(--flatify__txt-color);
-}
-
-.force-stroke-txt-color * {
-  stroke: var(--flatify__txt-color) !important;
+.night-mode {
+  .fill-bg-color-dark {
+    fill: var(--flatify__bg-color-dark);
+  }
+  .stroke-txt-color {
+    stroke: var(--flatify__txt-color);
+  }
+  .force-stroke-txt-color * {
+    stroke: var(--flatify__txt-color) !important;
+  }
 }

@@ -1,4 +1,5 @@
 {
-  "searchDebounceDuration": 1000,
-  "dictionaryPickerDebounceDuration": 750
+  "apiEndpoint": "http://localhost:8080/api",
+  "searchDebounceDuration": 900,
+  "dictionaryPickerDebounceDuration": 500
 }

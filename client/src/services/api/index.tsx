@@ -1,11 +1,10 @@
 import axios from "axios";
+import config from "../../config.json";
 import { AllowedDictionaries } from "../../contexts/dictionary";
 
-const apiEndPoint = "http://localhost:8080/api";
-
-export async function searchWord(dic: AllowedDictionaries, word: string) {
+export async function searchWord(dic: AllowedDictionaries, word: string, fuzzy?: boolean) {
   word = word.trim();
   if (word.length < 2) return null;
 
-  return axios.get(`${apiEndPoint}/${dic}/${word}`);
+  return axios.get(`${config.apiEndpoint}/${dic}/${word}?fuzzy=${fuzzy}`);
 }
