@@ -16,7 +16,7 @@ export default function SearchArea() {
   const { autoSearch } = useSettings();
 
   // shared value
-  const { setSearchValue } = useSearch();
+  const { searchValue, setSearchValue } = useSearch();
   // local value: can be initialised with word from url
   const [value, setValue] = useState(word || "");
 
@@ -43,6 +43,31 @@ export default function SearchArea() {
     navigate(value);
   };
 
+  const handleOnPopState = (oldValue, oldHashState) => {
+    alert("popstate");
+    const newHashState = window.location.hash;
+    const newValue = getSearchValue();
+
+    // Do not continue if the given search value is empty
+    if (newValue === "/search") return;
+
+    // Do NOT update the value when hash changes,
+    // this is to prevent the search area from updating when the user clicks on a link.
+    if (oldValue === newValue && oldHashState !== newHashState) return;
+
+    // update local and context value
+    setValue(newValue);
+    setSearchValue(newValue);
+  };
+
+  useEffect(() => {
+    if (searchValue) {
+      document.title = `واژه | نتایج جستجو برای ${searchValue}`;
+    } else {
+      document.title = `واژه | جستجوی واژه و اشعار در فرهنگ های سره، طیفی، گنجور و غیره`;
+    }
+  }, [searchValue]);
+
   // updated context value and URL after debounce
   useEffect(() => {
     // set debounced value after delay if autoSearch is active
@@ -58,22 +83,13 @@ export default function SearchArea() {
   useEffect(() => {
     const oldHashState = window.location.hash;
     const oldValue = getSearchValue();
+    const onPopState = () => handleOnPopState(oldValue, oldHashState);
 
-    window.addEventListener("popstate", () => {
-      const newHashState = window.location.hash;
-      const newValue = getSearchValue();
+    window.addEventListener("popstate", onPopState);
 
-      // Do not continue if the given search value is empty
-      if (newValue === "/search") return;
-
-      // Do NOT update the value when hash changes,
-      // this is to prevent the search area from updating when the user clicks on a link.
-      if (oldValue === newValue && oldHashState !== newHashState) return;
-
-      // update local and context value
-      setValue(newValue);
-      setSearchValue(newValue);
-    });
+    return () => {
+      window.removeEventListener("popstate", onPopState);
+    };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
