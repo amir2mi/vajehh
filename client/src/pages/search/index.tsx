@@ -4,7 +4,7 @@ import { DictionaryProvider } from "../../contexts/dictionary";
 import SearchArea from "../../components/SearchArea";
 import ResultTabs from "../../components/ResultTabs";
 
-export default function SearchMain() {
+export default function SearchPage() {
   return (
     <main className="search-main container-lg">
       <SettingsProvider>
