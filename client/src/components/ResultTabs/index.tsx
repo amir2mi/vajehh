@@ -35,6 +35,8 @@ export default function ResultTabs() {
     }));
   };
 
+  const scrollToTop = () => window.scrollTo(0, 0);
+
   const items = [
     {
       title: <TabTitle title="مترادف" value={resultCount.motaradef} />,
@@ -46,12 +48,13 @@ export default function ResultTabs() {
           onFinish={(count) => handleOnFinish("motaradef", count)}
         >
           <IntroBox title="مترادف" icon={<Icons.IntroMotaradef />}>
-            این فرهنگ ارزشمند دربردارنده‌ی حجم زیادی از واژگان مترادف و متضاد فارسی است، استفاده
-            از این فرهنگ راه خوبی برای تقویت دایره‌ی واژگان است.
+            این فرهنگ ارزشمند دربردارنده‌ی حجم زیادی از واژگان مترادف و متضاد فارسی است، استفاده از این فرهنگ راه خوبی
+            برای تقویت دایره‌ی واژگان است.
           </IntroBox>
         </TabBody>
       ),
       isHidden: !dictionaries.motaradef.active,
+      onClick: scrollToTop,
     },
     {
       title: <TabTitle title="سره" value={resultCount.sereh} />,
@@ -68,6 +71,7 @@ export default function ResultTabs() {
         </TabBody>
       ),
       isHidden: !dictionaries.sereh.active,
+      onClick: scrollToTop,
     },
     {
       title: <TabTitle title="طیفی" value={resultCount.teyfi} />,
@@ -85,6 +89,7 @@ export default function ResultTabs() {
         </TabBody>
       ),
       isHidden: !dictionaries.teyfi.active,
+      onClick: scrollToTop,
     },
     {
       title: <TabTitle title="فرهنگستان" value={resultCount.farhangestan} />,
@@ -101,6 +106,7 @@ export default function ResultTabs() {
         </TabBody>
       ),
       isHidden: !dictionaries.farhangestan.active,
+      onClick: scrollToTop,
     },
     {
       title: <TabTitle title="گنجور" value={resultCount.ganjvar} />,
@@ -118,6 +124,7 @@ export default function ResultTabs() {
         </TabBody>
       ),
       isHidden: !dictionaries.ganjvar.active,
+      onClick: scrollToTop,
     },
   ];
 
