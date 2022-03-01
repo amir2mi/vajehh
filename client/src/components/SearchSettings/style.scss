@@ -22,6 +22,8 @@
   user-select: none;
 
   .toggle-wrapper {
+    display: flex;
+    justify-content: space-between;
     padding: 0 0.5em;
   }
 }

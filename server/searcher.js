@@ -20,16 +20,11 @@ async function searchWord(database, dict, value, limit = 100, fuzzySearch = true
     path: {
       wildcard: "*",
     },
-  };
-
-  // if fuzzy search is enabled, add fuzzy search settings:
-  // https://docs.atlas.mongodb.com/atlas-search/text/
-  if (fuzzySearch) {
-    searchSettings.fuzzy = {
-      maxEdits: 2,
+    fuzzy: {
+      maxEdits: fuzzySearch ? 2 : 1,
       prefixLength: fuzzyLevel,
-    };
-  }
+    },
+  };
 
   try {
     const result = await collection

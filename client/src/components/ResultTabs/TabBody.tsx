@@ -32,7 +32,7 @@ interface TabBodyProps {
 
 export default function TabBody({ children, dic, onFinish, onSearch, postsPerPage }: TabBodyProps) {
   const { searchValue } = useSearch();
-  const { highlight, highlightColor } = useSettings();
+  const { highlight, highlightColor, fuzzySearch } = useSettings();
 
   const [result, setResult] = useState<ResultProps[]>();
   const [displayQueue, setDisplayQueue] = useState<ResultProps[]>();
@@ -47,7 +47,7 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
 
   const search = async () => {
     try {
-      const response = await searchWord(dic, searchValue);
+      const response = await searchWord(dic, searchValue, fuzzySearch);
       const { items } = response?.data as SearchResponseProps;
 
       // update search result
@@ -86,7 +86,7 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
       setDisplayQueue([]);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchValue]);
+  }, [searchValue, fuzzySearch]);
 
   return !isSearching && (!displayQueue || displayQueue?.length === 0) ? (
     searchValue?.length < 2 ? (

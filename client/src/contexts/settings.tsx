@@ -12,6 +12,8 @@ interface SettingsContextProps {
   setColumnsCount: (value: number) => void;
   autoSearch: boolean;
   setAutoSearch: (value: boolean) => void;
+  fuzzySearch: boolean;
+  setFuzzySearch: (value: boolean) => void;
   highlight: boolean;
   setHighlight: (value: boolean) => void;
   highlightColor: HighlightColors;
@@ -25,12 +27,14 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
   const userSettings = getLocalStorage("settings", {
     columns: 2,
     autoSearch: true,
+    fuzzySearch: true,
     highlight: false,
     highlightColor: "yellow",
   });
 
   const [columnsCount, setColumnsCount] = useState<number>(userSettings.columns);
   const [autoSearch, setAutoSearch] = useState<boolean>(userSettings.autoSearch);
+  const [fuzzySearch, setFuzzySearch] = useState<boolean>(userSettings.fuzzySearch);
   const [highlight, setHighlight] = useState<boolean>(userSettings.highlight);
   const [highlightColor, setHighlightColor] = useState<HighlightColors>(userSettings.highlightColor);
 
@@ -41,6 +45,8 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
         setColumnsCount,
         autoSearch,
         setAutoSearch,
+        fuzzySearch,
+        setFuzzySearch,
         highlight,
         setHighlight,
         highlightColor,

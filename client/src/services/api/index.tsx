@@ -6,5 +6,5 @@ export async function searchWord(dic: AllowedDictionaries, word: string, fuzzy?:
   word = word.trim();
   if (word.length < 2) return null;
 
-  return axios.get(`${config.apiEndpoint}/${dic}/${word}?fuzzy=${fuzzy}`);
+  return axios.get(`${config.apiEndpoint}/${dic}/${word}${fuzzy ? "?fuzzy=true" : ""}`);
 }
