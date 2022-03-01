@@ -16,6 +16,7 @@ import { ReactComponent as AutoLight } from "../../assets/svg/auto-light.svg";
 import { ReactComponent as Error } from "../../assets/svg/error.svg";
 import { ReactComponent as External } from "../../assets/svg/external.svg";
 import { ReactComponent as Moon } from "../../assets/svg/moon.svg";
+import { ReactComponent as More } from "../../assets/svg/more.svg";
 import { ReactComponent as NoResult } from "../../assets/svg/no-result.svg";
 import { ReactComponent as Settings } from "../../assets/svg/settings.svg";
 import { ReactComponent as Sun } from "../../assets/svg/sun.svg";
@@ -34,6 +35,7 @@ const Icons = {
   Error,
   External,
   Moon,
+  More,
   NoResult,
   Settings,
   Sun,

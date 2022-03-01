@@ -1,7 +1,38 @@
 import { NavLink } from "react-router-dom";
+import { Dropdown } from "react-flatifycss";
 import Icons from "../Icons";
 import NightModeButton from "../NightModeButton";
+import NavLinks from "../NavLinks";
 import "./style.scss";
+
+const navLinks = [
+  {
+    title: "جستجو",
+    to: "/search",
+  },
+  {
+    title: "راهنما",
+    to: "/help",
+  },
+  {
+    title: "حمایت مالی",
+    to: "/donate",
+  },
+  {
+    title: "پشتیبانی",
+    to: "/support",
+  },
+  {
+    title: (
+      <>
+        مشارکت در پروژه
+        <Icons.External className="nav-icon" />
+      </>
+    ),
+    openInNewTab: true,
+    to: "https://github.com/amir2mi/vajehh",
+  },
+];
 
 export default function Navigation() {
   return (
@@ -9,35 +40,24 @@ export default function Navigation() {
       <NavLink to="" className="home-link">
         واژه
       </NavLink>
-      <ul className="navigation-links">
-        <li>
-          <NavLink to="/search" className="nav-link">
-            جستجو
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/help" className="nav-link">
-            راهنما
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/donate" className="nav-link">
-            حمایت مالی
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/support" className="nav-link">
-            پشتیبانی
-          </NavLink>
-        </li>
-        <li>
-          <a href="https://github.com/amir2mi/vajehh" className="nav-link" target="_blank" rel="noreferrer">
-            مشارکت در پروژه
-            <Icons.External className="nav-icon"/>
-          </a>
-        </li>
+      <ul className="navigation-links desktop">
+        <NavLinks items={navLinks} />
       </ul>
-      <NightModeButton />
+      <div className="navigation-buttons">
+        <Dropdown
+          id="mobile-navigation-dropdown"
+          className="mobile-navigation-dropdown"
+          autoClose={true}
+          size="xs"
+          buttonLabel={<Icons.More />}
+          offsetY={10}
+        >
+          <ul className="navigation-links mobile">
+            <NavLinks items={navLinks} />
+          </ul>
+        </Dropdown>
+        <NightModeButton />
+      </div>
     </nav>
   );
 }
