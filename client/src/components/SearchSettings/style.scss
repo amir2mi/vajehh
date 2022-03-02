@@ -16,6 +16,9 @@
 
 .dropdown.settings-options {
   width: 18em !important;
+  @media (max-width: 991px) {
+    margin-left: 0.5em;
+  }
 }
 
 .settings-options {
@@ -24,6 +27,7 @@
   .toggle-wrapper {
     display: flex;
     justify-content: space-between;
+    white-space: nowrap;
     padding: 0 0.5em;
   }
 }

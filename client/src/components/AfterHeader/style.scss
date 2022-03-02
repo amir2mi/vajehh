@@ -1,0 +1,131 @@
+.after-header {
+  display: flex;
+  height: max(50vh, 35em);
+
+  @media (min-width: 576px) and (max-width: 767px) {
+    font-size: 0.9em;
+
+    .message-box {
+      font-size: 1.25em !important;
+    }
+
+    .floating-message,
+    .main-svg {
+      width: 50% !important;
+    }
+
+    .floating-message .line {
+      top: -6em;
+    }
+  }
+
+  @media (max-width: 575px) {
+    height: auto;
+
+    .main-svg {
+      display: none;
+    }
+
+    .floating-message {
+      flex-direction: column;
+      width: 100%;
+
+      .line {
+        top: -2em;
+        height: 15em;
+        margin: 0 auto;
+      }
+
+      .message-box {
+        font-size: 1.125em;
+        text-align: center;
+        width: 90%;
+        margin: 0 auto;
+        border-radius: 1em;
+      }
+    }
+  }
+
+  .main-svg {
+    width: 60%;
+
+    svg {
+      width: 30em;
+    }
+  }
+}
+
+.floating-message {
+  position: relative;
+  display: flex;
+  width: 40%;
+  padding-bottom: 3em;
+
+  .message-box {
+    align-self: flex-end;
+    font-size: 1.75em;
+    font-weight: 200;
+    width: 15em;
+    height: min-content;
+    margin: 0 1.25em;
+    transform-origin: top right;
+
+    @media (min-width: 576px) {
+      transform: rotate(-5deg);
+
+      @media (prefers-reduced-motion: no-preference) {
+        animation: hand-wave 5s ease-in-out infinite;
+      }
+    }
+  }
+
+  .line {
+    position: relative;
+    z-index: 0;
+    top: -8em;
+    width: 0.25em;
+    margin: 0 1em;
+    background: repeating-linear-gradient(
+      0deg,
+      var(--flatify__bg-color-darker),
+      var(--flatify__bg-color-darker) 1em,
+      transparent 1em,
+      transparent 2em
+    );
+    background-attachment: fixed;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: vertical-stripe 1s linear infinite;
+    }
+
+    .pulse {
+      position: absolute;
+      bottom: -0.25em;
+      right: calc(-0.75em + 0.125em);
+      width: 1.5em;
+      height: 1.5em;
+      background: var(--flatify__color-accent-primary);
+    }
+  }
+}
+
+@keyframes vertical-stripe {
+  0% {
+    background-position-y: 0;
+  }
+  100% {
+    background-position-y: 2em;
+  }
+}
+
+@keyframes hand-wave {
+  0% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(-8deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}

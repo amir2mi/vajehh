@@ -1,4 +1,6 @@
 .navigation {
+  position: relative;
+  z-index: 101;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,6 +19,12 @@
     text-decoration: none !important;
     margin-right: 0.32em;
     color: var(--flatify__txt-color);
+
+    @media (max-width: 575px) {
+      &.active {
+        color: #2e4051 !important;
+      }
+    }
 
     &.active:focus {
       animation: flatify-hue 25s infinite !important;
@@ -131,6 +139,7 @@
   }
 
   .nav-link {
+    opacity: 1 !important;
     padding: 0.64em 1em;
 
     &:before {

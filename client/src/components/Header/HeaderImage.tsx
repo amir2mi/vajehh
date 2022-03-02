@@ -1,4 +1,3 @@
-import Pattern from "../../assets/images/pattern.png";
 import Ferdowsi from "../../assets/images/ferdowsi-retro.png";
 
 export default function HeaderImage() {

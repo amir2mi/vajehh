@@ -13,7 +13,7 @@ export default function HeaderInfo() {
   return (
     <div className="header-info">
       <h1 className="title">جستجو در میان هزاران واژه</h1>
-      <p className="subtitle">با واژه، رفیق نویسندگان خلاق</p>
+      <p className="subtitle">واژه، رفیق نویسندگان خلاق</p>
       <form onSubmit={() => handleOnSubmit()}>
         <Input
           type="text"

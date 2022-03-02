@@ -1,16 +1,96 @@
 .header {
+  overflow: hidden;
   display: flex;
-  flex-basis: 50%;
   align-items: center;
   justify-content: space-between;
-  min-height: max(calc(100vh - 12em), 25em);
+  min-height: 25em;
   padding: 2em 6em;
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    padding: 2em;
+  }
+
+  @media (min-width: 576px) and (max-width: 767px) {
+    font-size: 0.85em;
+    padding: 2em;
+  }
+
+  @media (max-width: 575px) {
+    flex-direction: column;
+    height: calc(112vh - 3em);
+    padding: 1em;
+
+    .header-image {
+      position: absolute;
+      top: -1em;
+
+      .rotated-box {
+        width: 100%;
+        height: 112vh;
+        border-radius: 0 0 4em 4em;
+
+        &:before {
+          background: #9edefb !important;
+        }
+      }
+    }
+
+    .header-info,
+    .header-image {
+      width: 100%;
+    }
+
+    .header-info {
+      font-size: 0.9em;
+      text-align: center;
+
+      .title,
+      .search-bar {
+        max-width: none;
+      }
+
+      .title,
+      .subtitle {
+        color: #2e4051 !important;
+      }
+
+      .title {
+        margin-top: 0.5em;
+      }
+
+      .subtitle {
+        font-weight: 400;
+      }
+    }
+
+    .header-image {
+      z-index: 1;
+      font-size: 0.75em;
+      padding-top: 1em;
+
+      .rotated-box:before,
+      .animated-letters,
+      .main-image {
+        transform: none !important;
+      }
+
+      .main-image {
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
 }
 
 .header-info {
+  position: relative;
+  z-index: 3;
+  width: 50%;
+
   .title {
     font-size: 3.5em;
     font-weight: 1000;
+    max-width: 8em;
     margin-bottom: 0.25em;
   }
 
@@ -23,6 +103,7 @@
 
   .search-bar {
     font-size: 1.125em;
+    max-width: 25em;
 
     input:focus {
       background: var(--flatify__bg-color);
@@ -35,6 +116,12 @@
 }
 
 .header-image {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  min-width: 50%;
+
   .rotated-box {
     width: 30em;
     height: 25em;
@@ -60,7 +147,10 @@
         width: 100%;
         background: url("../../assets/images/pattern.png");
         background-size: 50%;
-        animation: playful-letters 90s linear infinite;
+
+        @media (prefers-reduced-motion: no-preference) {
+          animation: playful-letters 120s linear infinite;
+        }
       }
     }
   }

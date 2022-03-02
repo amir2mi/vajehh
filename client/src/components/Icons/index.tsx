@@ -20,6 +20,7 @@ import { ReactComponent as More } from "../../assets/svg/more.svg";
 import { ReactComponent as NoResult } from "../../assets/svg/no-result.svg";
 import { ReactComponent as Settings } from "../../assets/svg/settings.svg";
 import { ReactComponent as Sun } from "../../assets/svg/sun.svg";
+import { ReactComponent as Writing } from "../../assets/svg/writing.svg";
 
 const Icons = {
   FourColumns,
@@ -39,5 +40,6 @@ const Icons = {
   NoResult,
   Settings,
   Sun,
+  Writing,
 };
 export default Icons;
