@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { Dropdown } from "react-flatifycss";
+import config from '../../config.json'
 import Icons from "../Icons";
 import NightModeButton from "../NightModeButton";
 import NavLinks from "../NavLinks";
@@ -30,7 +31,7 @@ const navLinks = [
       </>
     ),
     openInNewTab: true,
-    to: "https://github.com/amir2mi/vajehh",
+    to: config.githubURL,
   },
 ];
 

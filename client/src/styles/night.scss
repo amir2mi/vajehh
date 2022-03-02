@@ -1,7 +1,7 @@
 :root {
   background: var(--flatify__bg-color);
 
-  &.night-mode {
+  &.nightmode {
     // lighter primary colors
     // @each $name, $colors in $PALETTE {
     //   $color: map-get($colors, "primary");
@@ -12,13 +12,13 @@
     --flatify__hover-brightness: 110%;
 
     // Background color
-    --flatify__bg-color: #2e4051 !important;
-    --flatify__bg-color-dark: #415a71 !important;
-    --flatify__bg-color-darker: #547492 !important;
+    --flatify__bg-color: #1e2a35 !important;
+    --flatify__bg-color-dark: #2e4051 !important;
+    --flatify__bg-color-darker: #456078 !important;
     --flatify__bg-color-darkest: #547492 !important;
-    --flatify__color-light-light: #5b7e9e !important;
-    --flatify__color-light-primary: #10191c !important;
-    --flatify__color-light-dark: #263b43 !important;
+    --flatify__color-light-light: #4e6c87 !important;
+    --flatify__color-light-primary: #547492 !important;
+    --flatify__color-light-dark: #5b7e9e !important;
 
     // Text color
     --flatify__txt-color: #f1f4f7;
@@ -36,8 +36,8 @@
     --flatify__color-green-primary: #62e002;
     --flatify__color-red-primary: #ff5959;
     --flatify__color-danger-primary: #ff5959;
-    --flatify__color-warning-primary: #FFA424;
-    --flatify__color-orange-primary: #FFA424;
+    --flatify__color-warning-primary: #ffa424;
+    --flatify__color-orange-primary: #ffa424;
     --flatify__color-yellow-primary: #ffe224;
     --flatify__color-purple-primary: #c671ff;
 

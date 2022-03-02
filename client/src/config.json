@@ -1,5 +1,7 @@
 {
+  "version": "1.0",
   "apiEndpoint": "http://localhost:8080/api",
+  "githubURL": "https://github.com/amir2mi/vajehh",
   "searchDebounceDuration": 900,
   "dictionaryPickerDebounceDuration": 500
 }

@@ -4,9 +4,9 @@ import "./style.scss";
 
 export default function Header() {
   return (
-    <div className="header">
+    <header className="header">
       <HeaderInfo />
       <HeaderImage />
-    </div>
+    </header>
   );
 }

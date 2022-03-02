@@ -46,13 +46,13 @@ const getNightModeClass = (nightMode) => {
 
   // set the html element class to dark or light
   if (nightMode) {
-    htmlElement?.classList.add("night-mode");
+    htmlElement?.classList.add("nightmode");
   } else {
-    htmlElement?.classList.remove("night-mode");
+    htmlElement?.classList.remove("nightmode");
   }
 
   // and return the class name
-  return nightMode ? "night-mode" : "";
+  return nightMode ? "nightmode" : "";
 };
 
 export { ThemeProvider, useTheme, getNightModeClass };
