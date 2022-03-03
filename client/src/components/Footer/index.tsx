@@ -12,7 +12,7 @@ export default function Footer() {
           <a href={config.githubURL} target="_blank" rel="noreferrer">
             متن‌باز
           </a>{" "}
-          است و تمامی حقوق محفوظ / <span className="opacity-70">نسخه {config.version}</span>
+          است و تمامی حقوق محفوظ <span className="opacity-70">/ نسخه {config.version}</span>
         </p>
 
         <ul className="footer-nav">

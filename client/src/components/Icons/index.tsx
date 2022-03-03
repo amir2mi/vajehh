@@ -4,12 +4,18 @@ import { ReactComponent as OneColumn } from "../../assets/svg/columns/one-column
 import { ReactComponent as ThreeColumns } from "../../assets/svg/columns/three-columns.svg";
 import { ReactComponent as TwoColumns } from "../../assets/svg/columns/two-columns.svg";
 
-// dictionaries icons
+// dictionaries
 import { ReactComponent as IntroMotaradef } from "../../assets/svg/dics/motaradef.svg";
 import { ReactComponent as IntroSereh } from "../../assets/svg/dics/sereh.svg";
 import { ReactComponent as IntroTeyfi } from "../../assets/svg/dics/teyfi.svg";
 import { ReactComponent as IntroFarhangestan } from "../../assets/svg/dics/farhangestan.svg";
 import { ReactComponent as IntroGanjvar } from "../../assets/svg/dics/ganjvar.svg";
+
+// features
+import { ReactComponent as Cursor } from "../../assets/svg/features/cursor.svg";
+import { ReactComponent as Quill } from "../../assets/svg/features/quill.svg";
+import { ReactComponent as Star } from "../../assets/svg/features/star.svg";
+import { ReactComponent as Update } from "../../assets/svg/features/update.svg";
 
 // misc
 import { ReactComponent as AutoLight } from "../../assets/svg/auto-light.svg";
@@ -33,6 +39,10 @@ const Icons = {
   IntroTeyfi,
   IntroFarhangestan,
   IntroGanjvar,
+  Cursor,
+  Quill,
+  Star,
+  Update,
   AutoLight,
   ChevronTop,
   Error,
