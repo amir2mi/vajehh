@@ -11,7 +11,7 @@ router.get("/:word", async (req, res) => {
   if (!database) return res.status(500).send("Database is not connected");
 
   try {
-    const result = await searchWord(database, "ganjvar", sanitizeText(word), 50, false);
+    const result = await searchWord(database, "ganjvar", sanitizeText(word), 100, false);
     res.send({
       kind: "ganjvar",
       items: result,
