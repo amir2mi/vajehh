@@ -12,7 +12,23 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 3em  3em 1em;
+  padding: 2.5em 3em 0.5em;
+
+  @media (max-width: 575px) {
+    flex-direction: column;
+    padding: 2em 2em 0.5em;
+
+    .copyright {
+      order: 1;
+      text-align: center;
+      padding-top: 1em;
+    }
+
+    .footer-nav {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
 
   &:before {
     content: " ";
