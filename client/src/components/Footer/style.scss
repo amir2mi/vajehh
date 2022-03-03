@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2.5em 2.5em 0em 1em;
+  padding: 3em  3em 1em;
 
   &:before {
     content: " ";
@@ -42,6 +42,8 @@
 .footer-nav {
   display: flex;
   list-style: none;
+  padding: 0;
+  margin: 0;
 
   a {
     text-decoration: none !important;

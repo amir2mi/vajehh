@@ -12,17 +12,28 @@ export default function Footer() {
           <a href={config.githubURL} target="_blank" rel="noreferrer">
             متن‌باز
           </a>{" "}
-          منتشر شده و تمامی حقوق محفوظ است - <span className="opacity-70">نسخه {config.version}</span>
+          است و تمامی حقوق محفوظ / <span className="opacity-70">نسخه {config.version}</span>
         </p>
 
         <ul className="footer-nav">
           <li>
-            <a className="button style-dark size-sm reduce-brightness" href="https://vajehdan.com/" target="_blank" rel="nofollow noreferrer">
+            <a
+              className="button style-dark size-sm reduce-brightness"
+              href="https://vajehdan.com/"
+              target="_blank"
+              rel="nofollow noreferrer"
+            >
               نسخه ویندوز
             </a>
           </li>
           <li>
-            <Button theme="dark" size="sm" className="go-to-top reduce-brightness" onClick={() => window.scrollTo(0, 0)}>
+            <Button
+              theme="dark"
+              size="sm"
+              className="go-to-top reduce-brightness"
+              aria-label="رفتن به بالای صفحه"
+              onClick={() => window.scrollTo(0, 0)}
+            >
               <Icons.ChevronTop />
             </Button>
           </li>

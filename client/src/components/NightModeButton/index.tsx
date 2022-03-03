@@ -6,12 +6,19 @@ import Icons from "../Icons";
 export default function NightModeButton() {
   const { nightMode, setNightMode } = useTheme();
 
+  const themeLabel = (value) => {
+    switch (value) {
+      case "auto":
+        return "خودکار";
+      case true:
+        return "شب";
+      case false:
+        return "روز";
+    }
+  };
+
   const handleOnNightModeChange = () => {
     switch (nightMode) {
-      case "auto":
-        setNightMode(false);
-        setLocalStorageProp("theme", "nightMode", false);
-        break;
       case true:
         setNightMode("auto");
         setLocalStorageProp("theme", "nightMode", "auto");
@@ -23,11 +30,17 @@ export default function NightModeButton() {
       default:
         setNightMode(false);
         setLocalStorageProp("theme", "nightMode", false);
+        break;
     }
   };
 
   return (
-    <Button className="toggle-nightmode" size="xs" onClick={() => handleOnNightModeChange()}>
+    <Button
+      className="toggle-nightmode"
+      size="xs"
+      aria-label={`تم فعلی: ${themeLabel(nightMode)}`}
+      onClick={() => handleOnNightModeChange()}
+    >
       {nightMode === "auto" && <Icons.AutoLight className="anim-fade-in" />}
       {nightMode === true && <Icons.Moon className="anim-fade-in" />}
       {nightMode === false && <Icons.Sun className="anim-fade-in" />}
