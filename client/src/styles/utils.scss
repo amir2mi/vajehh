@@ -10,7 +10,11 @@
   }
 }
 
-.main-container{
+.main-container {
   max-width: 1366px;
   margin: 0 auto;
+}
+
+.reduce-brightness {
+  filter: brightness(85%) !important;
 }

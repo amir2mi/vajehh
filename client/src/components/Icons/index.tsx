@@ -13,6 +13,7 @@ import { ReactComponent as IntroGanjvar } from "../../assets/svg/dics/ganjvar.sv
 
 // misc
 import { ReactComponent as AutoLight } from "../../assets/svg/auto-light.svg";
+import { ReactComponent as ChevronTop } from "../../assets/svg/chevron-top.svg";
 import { ReactComponent as Error } from "../../assets/svg/error.svg";
 import { ReactComponent as External } from "../../assets/svg/external.svg";
 import { ReactComponent as Moon } from "../../assets/svg/moon.svg";
@@ -33,6 +34,7 @@ const Icons = {
   IntroFarhangestan,
   IntroGanjvar,
   AutoLight,
+  ChevronTop,
   Error,
   External,
   Moon,

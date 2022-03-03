@@ -44,7 +44,7 @@ export default function SearchInfo({ onSuggestionClick }: SearchInfoProps) {
           منظورتان
           {result.map((item, index) => (
             <React.Fragment key={index}>
-              <Button className="suggestion-button" theme="purple" size="xs" onClick={() => onSuggestionClick?.(item)}>
+              <Button className="suggestion-button" theme="purple-light" size="xs" onClick={() => onSuggestionClick?.(item)}>
                 {item}
               </Button>
               {result.length !== index + 1 && "یا"}

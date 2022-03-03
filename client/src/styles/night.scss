@@ -40,10 +40,5 @@
     --flatify__color-orange-primary: #ffa424;
     --flatify__color-yellow-primary: #ffe224;
     --flatify__color-purple-primary: #c671ff;
-
-    // light text color for primary colors
-    [class*="style-"]:not([class*="-light"]) {
-      --flatify__txt-color-inverted: #f1f4f7;
-    }
   }
 }

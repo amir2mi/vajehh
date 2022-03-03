@@ -1,6 +1,6 @@
 .navigation {
   position: relative;
-  z-index: 100;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -140,6 +140,7 @@
 
   .nav-link {
     opacity: 1 !important;
+    width: 100%;
     padding: 0.64em 1em;
 
     &:before {
