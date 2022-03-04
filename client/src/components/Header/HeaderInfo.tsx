@@ -13,7 +13,7 @@ export default function HeaderInfo() {
   return (
     <div className="header-info anim-rise">
       <h1 className="title">جستجو در میان هزاران واژه</h1>
-      <p className="subtitle">واژه، رفیق نویسندگان خلاق</p>
+      <p className="subtitle">واژه، موتور جستجوی نویسندگان</p>
       <form onSubmit={() => handleOnSubmit()}>
         <Input
           type="text"

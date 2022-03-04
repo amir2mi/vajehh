@@ -35,7 +35,8 @@ export default function ResultTabs() {
     }));
   };
 
-  const scrollToTop = () => window.scrollTo(0, 0);
+  // if the tab has enough result scroll to top
+  const scrollToTop = (dict: string) => (resultCount[dict] > 4 ? window.scrollTo(0, 0) : null);
 
   const items = [
     {
@@ -54,7 +55,7 @@ export default function ResultTabs() {
         </TabBody>
       ),
       isHidden: !dictionaries.motaradef.active,
-      onClick: scrollToTop,
+      onClick: () => scrollToTop("motaradef"),
     },
     {
       title: <TabTitle title="سره" value={resultCount.sereh} />,
@@ -71,7 +72,7 @@ export default function ResultTabs() {
         </TabBody>
       ),
       isHidden: !dictionaries.sereh.active,
-      onClick: scrollToTop,
+      onClick: () => scrollToTop("sereh"),
     },
     {
       title: <TabTitle title="طیفی" value={resultCount.teyfi} />,
@@ -89,7 +90,7 @@ export default function ResultTabs() {
         </TabBody>
       ),
       isHidden: !dictionaries.teyfi.active,
-      onClick: scrollToTop,
+      onClick: () => scrollToTop("teyfi"),
     },
     {
       title: <TabTitle title="فرهنگستان" value={resultCount.farhangestan} />,
@@ -106,7 +107,7 @@ export default function ResultTabs() {
         </TabBody>
       ),
       isHidden: !dictionaries.farhangestan.active,
-      onClick: scrollToTop,
+      onClick: () => scrollToTop("farhangestan"),
     },
     {
       title: <TabTitle title="گنجور" value={resultCount.ganjvar} />,
@@ -124,7 +125,7 @@ export default function ResultTabs() {
         </TabBody>
       ),
       isHidden: !dictionaries.ganjvar.active,
-      onClick: scrollToTop,
+      onClick: () => scrollToTop("ganjvar"),
     },
   ];
 

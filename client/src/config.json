@@ -1,7 +1,9 @@
 {
   "version": "1.0.0",
-  "apiEndpoint": "http://localhost:8080/api",
+  "websiteURL": "https://vajehh.com",
+  "apiEndpointURL": "http://localhost:8080/api",
   "githubURL": "https://github.com/amir2mi/vajehh",
+  "supportURL": "https://hamibash.com/vajehh",
   "searchDebounceDuration": 900,
   "dictionaryPickerDebounceDuration": 500
 }

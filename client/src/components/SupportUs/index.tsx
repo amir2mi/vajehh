@@ -1,4 +1,6 @@
 import { Button } from "react-flatifycss";
+import config from "../../config.json";
+import { shareVajehh } from "../../utils/share";
 import Info from "../Info";
 import "./style.scss";
 
@@ -10,10 +12,12 @@ export default function SupportUs() {
         subtitle="واژه متن‌باز منتشر شده و استفاده از آن رایگان است، شما می‌توانید از فرآیند توسعه واژه حمایت کنید."
       />
       <div className="call-to-action">
-        <Button theme="blue" onClick={() => {}}>
-          اشتراک‌گذاری
+        <Button theme="blue" onClick={shareVajehh}>
+          {!!navigator.share ? "اشتراک‌گذاری" : "توییت در توییتر"}
         </Button>
-        <Button onClick={() => {}}>حمایت مالی</Button>
+        <a href={config.supportURL} className="button" target="_blank" rel="noreferrer">
+          حمایت مالی
+        </a>
       </div>
     </div>
   );
