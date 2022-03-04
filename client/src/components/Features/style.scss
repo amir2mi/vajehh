@@ -152,4 +152,9 @@
   opacity: 0.75;
   --vajehh__firefly-color: #ff6666;
   --vajehh__firefly-delay: 2s;
+
+  @media (max-width: 575px) {
+    top: 12em;
+    left: 0;
+  }
 }

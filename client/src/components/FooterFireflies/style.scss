@@ -30,8 +30,27 @@
     bottom: -4em;
     left: -10%;
     font-size: 4em;
-    opacity:0.5;
+    opacity: 0.5;
     --vajehh__firefly-color: #ff6694;
     --vajehh__firefly-delay: 6s;
+  }
+
+  @media (max-width: 575px) {
+    .right {
+      right: -20%;
+      bottom: 8em;
+      font-size: 2em;
+      opacity: 0.75;
+    }
+    .center {
+      bottom: 0;
+      font-size: 4em;
+    }
+    .left {
+      bottom: 3em;
+      left: -20%;
+      font-size: 2em;
+      opacity: 0.75;
+    }
   }
 }
