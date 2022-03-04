@@ -5,7 +5,7 @@
   .stroke-txt-color {
     stroke: var(--flatify__txt-color);
   }
-  .force-stroke-txt-color * {
+  .force-stroke-txt-color * { 
     stroke: var(--flatify__txt-color) !important;
   }
 }
