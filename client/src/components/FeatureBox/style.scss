@@ -1,0 +1,50 @@
+.feature-box {
+  --vajehh__feature-box-icon-background: var(--flatify__color-accent-primary);
+  --vajehh__feature-box-icon-border: var(--flatify__color-accent-dark);
+  position: relative;
+
+  &:focus,
+  &:hover {
+    .icon {
+      transform: scale(1.1) rotate(-3deg);
+    }
+  }
+
+  .icon {
+    position: relative;
+    top: 2em;
+    right: 0.38em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.75em;
+    height: 3.75em;
+    background: var(--vajehh__feature-box-icon-background);
+    border: 0.18em solid var(--vajehh__feature-box-icon-border);
+    border-radius: 1.2em 1.2em 1.2em 0;
+    transform-origin: left bottom;
+    transition: all var(--flatify__bouncing-transition);
+
+    svg {
+      width: 1.4em;
+      height: 1.8em;
+    }
+  }
+
+  .message-box {
+    padding-top: 3em;
+    margin-right: 2em;
+
+    .title {
+      font-size: 1.25em;
+      font-weight: 700;
+    }
+
+    .description {
+      font-size: 0.85em;
+      line-height: 1.65;
+      margin-top: 0.85em;
+      opacity: 0.7;
+    }
+  }
+}

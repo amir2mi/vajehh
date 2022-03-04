@@ -22,21 +22,25 @@ export default function Features() {
       </div>
       <div className="features-items">
         <FeatureBox
+          className="star"
           icon={<Icons.Star />}
           title="انتخاب بهترین واژه"
           description="با استفاده از منابعی از جمله فرهنگ مترادف و متضاد، طیفی و واژه‌نامه سره بهترین واژه را پیدا کنید."
         />
         <FeatureBox
+          className="quill"
           icon={<Icons.Quill />}
           title="یک بیت شعر"
           description="با جستجو در مجموعه عظیم گنجور همیشه یک بیت شعر مناسب با موضوع شما پیدا می‌شود."
         />
         <FeatureBox
+          className="cursor"
           icon={<Icons.Cursor />}
           title="اصلاح اشتباهات املائی"
           description="فرهنگ املائی خط فارسی به سادگی اشتباهات رایج املائی و نگارشی را به شما اطلاع می‌دهد."
         />
         <FeatureBox
+          className="update"
           icon={<Icons.Update />}
           title="جایگزینی واژگان بیگانه"
           description="با استفاده از مجموعه چند جلدی فرهنگستان و سره می‌توانید معادل واژگان بیگانه را پیدا کنید."
