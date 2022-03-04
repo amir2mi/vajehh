@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 2em 6em;
-  margin-top: 4em;
+  margin-top: 5em;
 }
 
 .features-intro {
@@ -33,5 +33,25 @@
 
   .feature-box {
     flex-basis: calc(50% - 1em);
+  }
+
+  .star {
+    --vajehh__feature-box-icon-background: #62e002;
+    --vajehh__feature-box-icon-border: #58cc02;
+  }
+
+  .quill {
+    --vajehh__feature-box-icon-background: #ff6666;
+    --vajehh__feature-box-icon-border: #ff3333;
+  }
+
+  .cursor {
+    --vajehh__feature-box-icon-background: #ffa424;
+    --vajehh__feature-box-icon-border: #ff9600;
+  }
+
+  .update {
+    --vajehh__feature-box-icon-background: #cb7cff;
+    --vajehh__feature-box-icon-border: #c164ff;
   }
 }

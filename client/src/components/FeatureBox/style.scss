@@ -5,8 +5,10 @@
 
   &:focus,
   &:hover {
-    .icon {
-      transform: scale(1.1) rotate(-3deg);
+    @media (prefers-reduced-motion: no-preference) {
+      .icon {
+        transform: rotate(-5deg);
+      }
     }
   }
 
