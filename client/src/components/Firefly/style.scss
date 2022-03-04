@@ -18,6 +18,7 @@
     background: var(--vajehh__firefly-color);
     border-radius: 50%;
     filter: blur(5em) var(--vajehh__firefly-opacity);
+    will-change: opacity, transform;
     animation: firefly 5s var(--vajehh__firefly-delay) ease-in-out infinite;
   }
 
@@ -29,7 +30,7 @@
     width: 24em;
     height: 24em;
     background: var(--vajehh__image-letters-pattern);
-    background-size: 8em;
+    background-size: 200px;
   }
 }
 

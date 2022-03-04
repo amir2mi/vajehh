@@ -1,0 +1,36 @@
+.footer-fireflies {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+
+  .right {
+    bottom: -3em;
+    right: -5%;
+    font-size: 2em;
+    transform: rotate(10deg);
+    --vajehh__firefly-opacity: opacity(50%);
+    --vajehh__firefly-delay: 3s;
+  }
+
+  .center {
+    bottom: -3em;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    font-size: 3em;
+    transform: rotate(-10deg);
+    --vajehh__firefly-opacity: opacity(50%);
+    --vajehh__firefly-color: #ffe749;
+    --vajehh__firefly-delay: 4s;
+  }
+
+  .left {
+    bottom: -4em;
+    left: -10%;
+    font-size: 2em;
+    --vajehh__firefly-opacity: opacity(50%);
+    --vajehh__firefly-color: #ff6694;
+    --vajehh__firefly-delay: 6s;
+  }
+}

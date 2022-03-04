@@ -16,7 +16,15 @@ body {
   overflow-x: hidden;
 }
 
+.app {
+  position: relative;
+}
+
+// General
 @import "./styles/night";
 @import "./styles/utils";
-@import "./styles/rotated-box";
 @import "./styles/variables";
+
+// Reusable
+@import "./styles/call-to-action";
+@import "./styles/rotated-box";

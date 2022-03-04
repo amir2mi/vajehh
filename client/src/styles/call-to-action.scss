@@ -1,0 +1,10 @@
+.call-to-action {
+  .button {
+    // because of fireflies :)
+    position: relative;
+    z-index: 2;
+    font-size: 1.1em;
+    padding-left: 1.75em;
+    padding-right: 1.75em;
+  }
+}
