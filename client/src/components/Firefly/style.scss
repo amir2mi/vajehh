@@ -10,7 +10,7 @@
 
   &.animated {
     &:before {
-      animation: firefly 5s var(--vajehh__firefly-delay) ease-in-out infinite;
+      animation: vajehh-firefly 5s var(--vajehh__firefly-delay) ease-in-out infinite;
     }
   }
 
@@ -38,7 +38,7 @@
   }
 }
 
-@keyframes firefly {
+@keyframes vajehh-firefly {
   0% {
     filter: blur(85px) opacity(100%);
   }

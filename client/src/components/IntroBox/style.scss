@@ -89,6 +89,10 @@
   }
 }
 
+.anim-rise {
+  animation: vajehh-rise 0.3s 0.1s both;
+}
+
 @keyframes vajehh-rise {
   0% {
     opacity: 0;

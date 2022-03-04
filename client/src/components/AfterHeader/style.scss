@@ -76,7 +76,7 @@
       transform: rotate(-5deg);
 
       @media (prefers-reduced-motion: no-preference) {
-        animation: hand-wave 5s ease-in-out infinite;
+        animation: vajehh-hand-wave 5s ease-in-out infinite;
       }
     }
   }
@@ -97,7 +97,7 @@
     background-attachment: fixed;
 
     @media (prefers-reduced-motion: no-preference) {
-      animation: vertical-stripe 1s linear infinite;
+      animation: vajehh-vertical-stripe 1s linear infinite;
     }
 
     .pulse {
@@ -111,7 +111,7 @@
   }
 }
 
-@keyframes vertical-stripe {
+@keyframes vajehh-vertical-stripe {
   0% {
     background-position-y: 0;
   }
@@ -120,7 +120,7 @@
   }
 }
 
-@keyframes hand-wave {
+@keyframes vajehh-hand-wave {
   0% {
     transform: rotate(-5deg);
   }
