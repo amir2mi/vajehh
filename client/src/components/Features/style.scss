@@ -38,12 +38,21 @@
     width: 40%;
   }
 
+  .info {
+    // because of fireflies :)
+    position: relative;
+    z-index: 2;
+  }
+
   .subtitle {
     max-width: 18em;
     margin: 1em 0 2em;
   }
 
   .button {
+    // because of fireflies :)
+    position: relative;
+    z-index: 2;
     font-size: 1.1em;
     padding-left: 1.75em;
     padding-right: 1.75em;
@@ -55,6 +64,7 @@
 }
 
 .features-items {
+  position: relative;
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
@@ -75,6 +85,9 @@
   }
 
   .feature-box {
+    // because of fireflies :)
+    position: relative;
+    z-index: 2;
     margin-top: 3em;
     flex-basis: calc(50% - 0.5em);
   }
@@ -102,4 +115,28 @@
     --vajehh__feature-box-icon-background: #cb7cff;
     --vajehh__feature-box-icon-border: #c164ff;
   }
+}
+
+.features-right-firefly {
+  right: -5em;
+  --vajehh__firefly-color: #62e002;
+  --vajehh__firefly-opacity: opacity(85%);
+}
+
+.features-center-firefly {
+  top: 5em;
+  right: -10em;
+  font-size: 1.25em;
+  --vajehh__firefly-color: #d04d9d;
+  --vajehh__firefly-opacity: opacity(75%);
+  --vajehh__firefly-delay: 1s;
+}
+
+.features-left-firefly {
+  top: 8em;
+  left: -5em;
+  font-size: 1.5em;
+  --vajehh__firefly-color: #ff6666;
+  --vajehh__firefly-opacity: opacity(75%);
+  --vajehh__firefly-delay: 2s;
 }

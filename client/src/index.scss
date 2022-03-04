@@ -12,6 +12,10 @@
   --flatify__primary-font-family: "Vazir", Tahoma, sans-serif;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 @import "./styles/night";
 @import "./styles/utils";
 @import "./styles/rotated-box";
