@@ -12,7 +12,8 @@ export default function Features() {
   return (
     <div className="features">
       <div className="features-intro">
-        <Firefly className="features-right-firefly" />
+        <Firefly className="features-intro-right-firefly" />
+        <Firefly className="features-intro-left-firefly" />
         <Info
           title="با واژه می‌تونی..."
           subtitle="خیلی راحت و سریع بین فرهنگ‌های مختلف جستجو کنی و متن بهتری بنویسی."
@@ -25,8 +26,8 @@ export default function Features() {
         </div>
       </div>
       <div className="features-items">
-        <Firefly className="features-center-firefly" />
-        <Firefly className="features-left-firefly" />
+        <Firefly className="features-items-center-firefly" />
+        <Firefly className="features-items-left-firefly" />
         <FeatureBox
           className="star"
           icon={<Icons.Star />}
