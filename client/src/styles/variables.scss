@@ -1,0 +1,11 @@
+:root {
+  --vajehh__area-padding: 2em 6em;
+
+  @media (min-width: 576px) and (max-width: 991px) {
+    --vajehh__area-padding: 2em;
+  }
+
+  @media (max-width: 575px) {
+    --vajehh__area-padding: 1em;
+  }
+}

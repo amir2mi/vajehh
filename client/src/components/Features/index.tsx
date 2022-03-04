@@ -15,10 +15,12 @@ export default function Features() {
           title="با واژه می‌تونی..."
           subtitle="خیلی راحت و سریع بین فرهنگ‌های مختلف جستجو کنی و متن بهتری بنویسی."
         />
-        <Button theme="blue" onClick={() => navigate("/search")}>
-          شروع جستجو
-        </Button>
-        <Button onClick={() => navigate("/help")}>اطلاعات بیشتر</Button>
+        <div className="call-to-action">
+          <Button theme="blue" onClick={() => navigate("/search")}>
+            شروع جستجو
+          </Button>
+          <Button onClick={() => navigate("/help")}>اطلاعات بیشتر</Button>
+        </div>
       </div>
       <div className="features-items">
         <FeatureBox
@@ -30,7 +32,7 @@ export default function Features() {
         <FeatureBox
           className="quill"
           icon={<Icons.Quill />}
-          title="یک بیت شعر"
+          title="افزودن یک بیت شعر"
           description="با جستجو در مجموعه عظیم گنجور همیشه یک بیت شعر مناسب با موضوع شما پیدا می‌شود."
         />
         <FeatureBox

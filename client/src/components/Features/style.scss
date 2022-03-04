@@ -2,12 +2,41 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2em 6em;
+  padding: var(--vajehh__area-padding);
   margin-top: 5em;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    margin-top: 3em;
+
+    .features-intro {
+      text-align: center;
+      width: 100%;
+      margin-bottom: 3em;
+
+      .subtitle {
+        margin: 0 auto 1em;
+      }
+
+      .call-to-action {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .features-items {
+      width: 100%;
+    }
+  }
 }
 
 .features-intro {
   width: 50%;
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    font-size: 0.85em;
+    width: 40%;
+  }
 
   .subtitle {
     max-width: 18em;
@@ -27,12 +56,31 @@
 
 .features-items {
   display: flex;
+  flex-grow: 1;
   flex-wrap: wrap;
   gap: 1em;
   width: 50%;
 
+  @media (max-width: 575px) {
+    font-size: 0.85em;
+
+    .feature-box {
+      .icon {
+        right: -0.5em;
+      }
+    }
+    .message-box {
+      margin: 0.5em;
+    }
+  }
+
   .feature-box {
-    flex-basis: calc(50% - 1em);
+    margin-top: 3em;
+    flex-basis: calc(50% - 0.5em);
+  }
+
+  .message-box {
+    height: 100%;
   }
 
   .star {
