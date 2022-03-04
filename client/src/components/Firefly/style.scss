@@ -1,50 +1,51 @@
 .firefly {
   --vajehh__firefly-color: var(--flatify__color-accent-primary);
-  --vajehh__firefly-opacity: opacity(1);
   --vajehh__firefly-delay: 0s;
   pointer-events: none;
   position: absolute;
   display: block;
   width: 8em;
   height: 8em;
+  opacity: 1;
 
-  &:before {
+  &.animated {
+    &:before {
+      animation: firefly 5s var(--vajehh__firefly-delay) ease-in-out infinite;
+    }
+  }
+
+  &:before,
+  &:after {
     content: " ";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+  }
+
+  &:before {
     background: var(--vajehh__firefly-color);
     border-radius: 50%;
-    filter: blur(5em) var(--vajehh__firefly-opacity);
-    will-change: opacity, transform;
-    animation: firefly 5s var(--vajehh__firefly-delay) ease-in-out infinite;
+    filter: blur(1em);
+    will-change: opacity, filter;
   }
 
   &:after {
-    content: " ";
-    position: absolute;
-    top: -8.5em;
-    left: -8.5em;
-    width: 24em;
-    height: 24em;
     background: var(--vajehh__image-letters-pattern);
-    background-size: 200px;
+    background-size: 100px;
+    transform: scale(2.5);
   }
 }
 
 @keyframes firefly {
   0% {
-    opacity: 0.8;
+    filter: blur(85px) opacity(100%);
   }
-  33.33% {
-    opacity: 1;
-  }
-  66.66% {
-    opacity: 0.4;
+  50% {
+    filter: blur(85px) opacity(40%);
   }
   100% {
-    opacity: 0.8;
+    filter: blur(85px) opacity(100%);
   }
 }

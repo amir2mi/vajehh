@@ -41,16 +41,12 @@
     --flatify__color-yellow-primary: #ffe224;
     --flatify__color-purple-primary: #c671ff;
 
-    // invert firefly pattern color
-    .firefly {
-      &:after {
-        mix-blend-mode: hue;
-        filter: drop-shadow(1px 1px 0);
+    .footer-fireflies {
+      opacity: 0.5;
+    }
 
-        @supports not (mix-blend-mode: hue) {
-          display: none;
-        }
-      }
+    .firefly:after {
+      display: none;
     }
   }
 }

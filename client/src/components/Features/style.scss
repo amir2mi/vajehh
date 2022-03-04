@@ -113,18 +113,18 @@
 .features-intro-right-firefly {
   right: -5%;
   --vajehh__firefly-color: #62e002;
-  --vajehh__firefly-opacity: opacity(85%);
+  opacity: 0.85;
 
   @media (max-width: 767px) {
     font-size: 1.2em;
+    opacity: 1;
     --vajehh__firefly-color: #ff248a;
-    --vajehh__firefly-opacity: opacity(100%);
   }
 }
 .features-intro-left-firefly {
   left: -8%;
   font-size: 2em;
-  --vajehh__firefly-opacity: opacity(75%);
+  opacity: 0.75;
   --vajehh__firefly-delay: 1.5s;
 
   @media (min-width: 768px) {
@@ -136,8 +136,8 @@
   top: 5em;
   right: -20%;
   font-size: 1.25em;
+  opacity: 0.75;
   --vajehh__firefly-color: #d04d9d;
-  --vajehh__firefly-opacity: opacity(75%);
   --vajehh__firefly-delay: 1s;
 
   @media (max-width: 767px) {
@@ -149,7 +149,7 @@
   top: 8em;
   left: -20%;
   font-size: 1.5em;
+  opacity: 0.75;
   --vajehh__firefly-color: #ff6666;
-  --vajehh__firefly-opacity: opacity(75%);
   --vajehh__firefly-delay: 2s;
 }
