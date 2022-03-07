@@ -3,6 +3,7 @@ import { SettingsProvider } from "../../contexts/settings";
 import { DictionaryProvider } from "../../contexts/dictionary";
 import SearchArea from "../../components/SearchArea";
 import ResultTabs from "../../components/ResultTabs";
+import ShareBox from "../../components/ShareBox";
 
 export default function SearchPage() {
   return (
@@ -14,6 +15,7 @@ export default function SearchPage() {
             <ResultTabs />
           </DictionaryProvider>
         </SearchProvider>
+        <ShareBox />
       </SettingsProvider>
     </main>
   );
