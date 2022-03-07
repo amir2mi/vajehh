@@ -6,8 +6,9 @@ import "./style.scss";
 export default function ShareBox() {
   return (
     <RotatedBox rotateContent className="share-box">
-      <Info title="اشتراک گذاری" subtitle="به دوستان و آشنایان در مورد واژه بگویید!" />
-      <img className="share-image" src={DaftPunk} alt="اشتراک‌گذاری واژه"  draggable={false}/>
+      <Info title="اشتراک‌‌گذاری" subtitle="به دوستان و آشنایان در مورد واژه بگویید!" />
+      <img className="share-image" src={DaftPunk} alt="اشتراک‌گذاری واژه" draggable={false} />
+      <span className="halftone"></span>
     </RotatedBox>
   );
 }

@@ -1,9 +1,10 @@
 .footer-fireflies {
+  overflow: hidden;
   position: absolute;
   bottom: 0;
-  width: 100%;
+  left: -20vw;
+  width: 120vw;
   height: 40em;
-  overflow: hidden;
 
   .right {
     bottom: -3em;
@@ -17,7 +18,7 @@
 
   .center {
     bottom: -3em;
-    left: 0;
+    left: 5%;
     right: 0;
     margin: 0 auto;
     font-size: 6em;
@@ -29,7 +30,7 @@
 
   .left {
     bottom: -4em;
-    left: -10%;
+    left: 0;
     font-size: 4em;
     opacity: 0.5;
     --vajehh__firefly-color: #ff6694;

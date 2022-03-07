@@ -3,12 +3,12 @@
   background: var(--flatify__bg-color-dark);
   border-radius: 4em;
 
-  &:before {
+  &:before,
+  &:after {
     content: " ";
     position: absolute;
     top: 0;
     right: 0;
-    z-index: -1;
     width: 100%;
     height: 100%;
     background: var(--flatify__color-accent-primary);
@@ -16,24 +16,25 @@
     transform: rotate(-8deg);
   }
 
+  &:not(.rotate-content) {
+    &:after {
+      display: none;
+    }
+  }
+
   &.rotate-content {
     transform: rotate(-2deg);
     background: transparent;
 
     &:before {
-      transform: rotate(2deg) scale(1.05, 0.9) translateY(1.75em);
-      background: var(--flatify__bg-color-dark);
-    }
-    &:after {
-      content: " ";
-      position: absolute;
-      top: 0;
-      right: 0;
       z-index: -1;
-      width: 100%;
-      height: 100%;
-      background: var(--flatify__color-accent-primary);
-      border-radius: inherit;
+      background: var(--flatify__bg-color-dark);
+      transform: rotate(2deg) scale(1.05, 0.9) translateY(1.75em);
+    }
+
+    &:after {
+      z-index: -1;
+      transform: none;
     }
   }
 }

@@ -4,21 +4,38 @@
   margin: 10em 0 1em;
   color: #fff;
 
+  .info {
+    position: relative;
+    z-index: 2;
+  }
+
   .title {
     margin-bottom: 0.32em;
     filter: drop-shadow(-0.05em 0.1em 0 rgba(0, 0, 0, 0.25));
   }
 
   .subtitle {
-    font-weight: 500;
+    font-weight: 600;
     margin-right: 3em;
-    opacity: 0.9;
+    opacity: 1;
   }
 
   .share-image {
     position: absolute;
     bottom: 0;
     left: 3em;
+    z-index: 2;
     width: 15em;
+  }
+
+  .halftone {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    opacity: 0.05;
   }
 }

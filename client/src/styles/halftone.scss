@@ -1,0 +1,25 @@
+.halftone {
+  --vajehh__halftone-color: #000;
+  --i0: 0;
+  --j0: 0;
+  --k0: 0;
+  --mask: radial-gradient(circle at calc(var(--i0) * 100%) calc(var(--j0) * 100%), red, rgba(255, 0, 0, 0.5) 100%);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  background: var(--vajehh__halftone-color);
+  filter: contrast(10);
+  mix-blend-mode: multiply;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: radial-gradient(#fff, var(--stop, #{rgba(#fff, 0.375)})) 0 0/ 1em 1em round;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+  }
+}

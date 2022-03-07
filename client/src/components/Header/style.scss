@@ -12,7 +12,6 @@
 
   @media (max-width: 575px) {
     flex-direction: column;
-    height: calc(112vh - 3em);
 
     .header-image {
       position: absolute;
@@ -20,7 +19,7 @@
 
       .rotated-box {
         width: 100%;
-        height: max(112vh, 55em);
+        height: 45em;
         border-radius: 0 0 4em 4em;
 
         &:before {
@@ -58,19 +57,17 @@
     }
 
     .header-image {
-      z-index: 1;
+      z-index: 2;
       font-size: 0.75em;
       padding-top: 1em;
 
       .rotated-box:before,
-      .animated-letters,
-      .main-image {
+      .animated-letters {
         transform: none !important;
       }
 
       .main-image {
-        bottom: 0;
-        left: 0;
+        display: none;
       }
     }
   }
@@ -84,6 +81,7 @@
   .title {
     font-size: 3.5em;
     font-weight: 1000;
+    line-height: 1.45;
     max-width: 8em;
     margin-bottom: 0.25em;
   }
