@@ -36,7 +36,7 @@ export default function ResultTabs() {
 
   // if the tab has enough result scroll to top
   const scrollToTop = (dict: string) => {
-    if (resultCount[dict] > 0) {
+    if (resultCount[dict] > 4) {
       window.scrollTo({
         top: 0,
         behavior: "smooth",
