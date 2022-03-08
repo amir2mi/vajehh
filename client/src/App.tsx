@@ -4,6 +4,7 @@ import { useTheme, getNightModeClass } from "./contexts/theme";
 import SearchPage from "./pages/search";
 import HomePage from "./pages/home";
 import HelpPage from "./pages/help";
+import SupportPage from "./pages/support";
 import Navigation from "./layouts/Navigation";
 import Footer from "./layouts/Footer";
 import { ScrollToTop } from "./components";
@@ -18,6 +19,7 @@ function Vajehh() {
         <Routes>
           <Route path="/search/*" element={<SearchPage />} />
           <Route path="/help" element={<HelpPage />} />
+          <Route path="/support" element={<SupportPage />} />
           <Route path="/" element={<HomePage />} />
         </Routes>
       </ScrollToTop>
