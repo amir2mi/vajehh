@@ -1,6 +1,7 @@
 import { Button } from "react-flatifycss";
 import DaftPunk from "../../assets/images/daft-punk-retro.png";
-import { Info, RotatedBox } from "..";
+import { shareVajehh } from "../../utils/share";
+import { Icons, Info, RotatedBox } from "..";
 import "./style.scss";
 
 export default function ShareBox() {
@@ -11,8 +12,7 @@ export default function ShareBox() {
           <>
             اشتراک‌‌گذاری
             <div className="share-buttons">
-              {navigator.hasOwnProperty("share") && <Button>Share</Button>}
-              <Button>Tweet</Button>
+              <Button onClick={shareVajehh}>{!!navigator.share ? <Icons.Share /> : <Icons.Twitter />}</Button>
             </div>
           </>
         }
