@@ -1,9 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-flatifycss";
-import Icons from "../Icons";
-import Info from "../Info";
-import Firefly from "../Firefly";
-import FeatureBox from "../FeatureBox";
+import { Icons, Info, FeatureBox, Firefly } from "../../components";
+
 import "./style.scss";
 
 export default function Features() {

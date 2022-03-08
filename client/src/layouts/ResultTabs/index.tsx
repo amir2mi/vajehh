@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Tabs } from "react-flatifycss";
 import { useDictionary } from "../../contexts/dictionary";
-import IntroBox from "../IntroBox";
-import Icons from "../Icons";
+import { Icons, IntroBox } from "../../components";
 import TabTitle from "./TabTitle";
 import TabBody from "./TabBody";
 import "./style.scss";

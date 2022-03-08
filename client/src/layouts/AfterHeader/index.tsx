@@ -1,5 +1,4 @@
-import Icons from "../Icons";
-import MessageBox from "../MessageBox";
+import { Icons, MessageBox } from "../../components";
 import "./style.scss";
 
 export default function AfterHeader() {

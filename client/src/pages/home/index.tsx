@@ -1,8 +1,8 @@
-import Header from "../../components/Header";
-import AfterHeader from "../../components/AfterHeader";
-import Features from "../../components/Features";
+import Header from "../../layouts/Header";
+import AfterHeader from "../../layouts/AfterHeader";
+import Features from "../../layouts/Features";
 import SupportUs from "../../components/SupportUs";
-import FooterFireflies from "../../components/FooterFireflies";
+import FooterFireflies from "../../layouts/FooterFireflies";
 
 export default function HomePage() {
   return (

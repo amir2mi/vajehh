@@ -3,8 +3,8 @@ import { Route, Routes } from "react-router-dom";
 import { useTheme, getNightModeClass } from "./contexts/theme";
 import SearchPage from "./pages/search";
 import HomePage from "./pages/home";
-import Navigation from "./components/Navigation";
-import Footer from "./components/Footer";
+import Navigation from "./layouts/Navigation";
+import Footer from "./layouts/Footer";
 
 function Vajehh() {
   const { nightMode } = useTheme();

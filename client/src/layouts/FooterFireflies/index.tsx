@@ -1,4 +1,4 @@
-import Firefly from "../Firefly";
+import { Firefly } from "../../components";
 import "./style.scss";
 
 export default function FooterFireflies() {

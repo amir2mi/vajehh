@@ -1,6 +1,6 @@
 import { Button } from "react-flatifycss";
 import config from "../../config.json";
-import Icons from "../../components/Icons";
+import { Icons } from "../../components";
 import "./style.scss";
 
 export default function Footer() {

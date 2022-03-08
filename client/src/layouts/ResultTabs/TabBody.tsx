@@ -6,8 +6,7 @@ import { useSearch } from "../../contexts/search";
 import { useSettings } from "../../contexts/settings";
 import { AllowedDictionaries } from "../../contexts/dictionary";
 import { searchWord } from "../../services/api";
-import DefinitionBox from "../DefinitionBox";
-import FakeDefinitionBox from "../FakeDefinitionBox";
+import { DefinitionBox, FakeDefinitionBox } from "../../components";
 import Error from "./Error";
 import NoResult from "./NoResult";
 

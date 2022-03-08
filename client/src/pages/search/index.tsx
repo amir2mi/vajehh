@@ -1,8 +1,8 @@
 import { SearchProvider } from "../../contexts/search";
 import { SettingsProvider } from "../../contexts/settings";
 import { DictionaryProvider } from "../../contexts/dictionary";
-import SearchArea from "../../components/SearchArea";
-import ResultTabs from "../../components/ResultTabs";
+import SearchArea from "../../layouts/SearchArea";
+import ResultTabs from "../../layouts/ResultTabs";
 import ShareBox from "../../components/ShareBox";
 
 export default function SearchPage() {

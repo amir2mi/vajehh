@@ -1,4 +1,4 @@
-import DefinitionBox from "../DefinitionBox";
+import { DefinitionBox } from "..";
 import "./style.scss";
 
 export default function FakeDefinitionBox() {

@@ -1,7 +1,6 @@
 import { Button } from "react-flatifycss";
 import DaftPunk from "../../assets/images/daft-punk-retro.png";
-import RotatedBox from "../RotatedBox";
-import Info from "../Info";
+import { Info, RotatedBox } from "..";
 import "./style.scss";
 
 export default function ShareBox() {

@@ -5,8 +5,8 @@ import config from "../../config.json";
 import useDebounce from "../../hooks/useDebounce";
 import { useSettings } from "../../contexts/settings";
 import { useSearch } from "../../contexts/search";
-import SearchInfo from "../../components/SearchInfo";
-import DictionaryPicker from "../../components/DictionaryPicker";
+import SearchInfo from "../SearchInfo";
+import DictionaryPicker from "../DictionaryPicker";
 import SearchSettings from "../SearchSettings";
 import "./style.scss";
 

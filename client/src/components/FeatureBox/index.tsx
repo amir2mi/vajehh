@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import MessageBox from "../MessageBox";
+import { MessageBox } from "..";
 import "./style.scss";
 
 interface FeatureBoxProps {
