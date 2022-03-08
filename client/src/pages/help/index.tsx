@@ -1,6 +1,6 @@
 import { Article } from "../../components";
-import file from "./content.md";
+import content from "./help.md";
 
 export default function HelpPage() {
-  return <Article file={file} />;
+  return <Article file={content} />;
 }
