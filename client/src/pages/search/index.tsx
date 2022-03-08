@@ -3,7 +3,7 @@ import { SettingsProvider } from "../../contexts/settings";
 import { DictionaryProvider } from "../../contexts/dictionary";
 import SearchArea from "../../layouts/SearchArea";
 import ResultTabs from "../../layouts/ResultTabs";
-import ShareBox from "../../components/ShareBox";
+import { ShareBox } from "../../components";
 
 export default function SearchPage() {
   return (

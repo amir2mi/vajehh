@@ -1,7 +1,7 @@
 import { Button } from "react-flatifycss";
 import config from "../../config.json";
 import { shareVajehh } from "../../utils/share";
-import { Info } from "..";
+import { Info } from "../../components";
 import "./style.scss";
 
 export default function SupportUs() {

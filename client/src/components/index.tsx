@@ -9,6 +9,7 @@ import MessageBox from "./MessageBox";
 import NavLinks from "./NavLinks";
 import NightModeButton from "./NightModeButton";
 import RotatedBox from "./RotatedBox";
+import ShareBox from "./ShareBox";
 
 export {
   DefinitionBox,
@@ -22,4 +23,5 @@ export {
   NavLinks,
   NightModeButton,
   RotatedBox,
+  ShareBox,
 };
