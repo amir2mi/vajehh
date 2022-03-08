@@ -1,0 +1,35 @@
+.text-loading {
+  .title,
+  .paragraph {
+    display: block;
+    margin-bottom: 1em;
+    background: var(--flatify__bg-color-dark) !important;
+    border-radius: 1em;
+  }
+
+  .title {
+    width: 75%;
+    height: 4.5em;
+    margin-bottom: 2em;
+    animation: vajehh-loading-flicker 1.5s ease infinite;
+  }
+
+  .paragraph {
+    width: 100%;
+
+    &:nth-child(n) {
+      height: 1em;
+      animation: vajehh-loading-flicker 2s ease infinite;
+    }
+
+    &:nth-child(2n) {
+      height: 1.5em;
+      animation: vajehh-loading-flicker 1s ease infinite;
+    }
+
+    &:nth-child(3n) {
+        height: 2.5em;
+    }
+
+  }
+}

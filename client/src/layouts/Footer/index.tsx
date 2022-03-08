@@ -32,7 +32,12 @@ export default function Footer() {
               size="sm"
               className="go-to-top reduce-brightness"
               aria-label="رفتن به بالای صفحه"
-              onClick={() => window.scrollTo(0, 0)}
+              onClick={() =>
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                })
+              }
             >
               <Icons.ChevronTop />
             </Button>

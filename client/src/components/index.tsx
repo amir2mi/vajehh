@@ -10,7 +10,9 @@ import MessageBox from "./MessageBox";
 import NavLinks from "./NavLinks";
 import NightModeButton from "./NightModeButton";
 import RotatedBox from "./RotatedBox";
+import ScrollToTop from "./ScrollToTop";
 import ShareBox from "./ShareBox";
+import TextLoading from "./TextLoading";
 
 export {
   Article,
@@ -25,5 +27,7 @@ export {
   NavLinks,
   NightModeButton,
   RotatedBox,
+  ScrollToTop,
   ShareBox,
+  TextLoading,
 };
