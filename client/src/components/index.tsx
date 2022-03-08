@@ -1,3 +1,4 @@
+import Article from "./Article";
 import DefinitionBox from "./DefinitionBox";
 import FakeDefinitionBox from "./FakeDefinitionBox";
 import FeatureBox from "./FeatureBox";
@@ -12,6 +13,7 @@ import RotatedBox from "./RotatedBox";
 import ShareBox from "./ShareBox";
 
 export {
+  Article,
   DefinitionBox,
   FakeDefinitionBox,
   FeatureBox,

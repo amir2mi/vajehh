@@ -13,6 +13,7 @@
     "axios": "^0.26.0",
     "clsx": "^1.1.1",
     "flatifycss": "^1.2.4",
+    "markdown-to-jsx": "^7.1.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-flatifycss": "^0.6.14",
