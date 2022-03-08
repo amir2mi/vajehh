@@ -48,10 +48,14 @@
   }
 
   .main-svg {
-    width: 60%;
+    width: 55%;
 
     svg {
       width: 30em;
+
+      @media (max-width: 991px) {
+        width: 20em;
+      }
     }
   }
 }
@@ -60,7 +64,7 @@
   position: relative;
   z-index: 1;
   display: flex;
-  width: 40%;
+  width: 45%;
   padding-bottom: 3em;
 
   .message-box {
