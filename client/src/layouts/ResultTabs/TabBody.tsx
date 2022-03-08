@@ -53,10 +53,10 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
       setResult(items);
       // allowed items to display after fetch
       setDisplayQueue(items?.slice(0, postsPerPage));
-      // update result count
-      onFinish(items.length || 0);
       // there was no error
       setHasError(false);
+      // update result count
+      onFinish(items.length || 0);
     } catch (err) {
       console.error(err);
       setHasError(true);
@@ -69,8 +69,14 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
   };
 
   useEffect(() => {
-    // should not search when searchValue is empty
-    if (!searchValue) return;
+    // should not search when searchValue is empty or has less than 3 characters
+    // also reset results
+    if (searchValue.trim().length < 2) {
+      setResult([]);
+      setDisplayQueue([]);
+      onFinish(0);
+      return;
+    }
 
     // set local state to indicate that search is in progress
     setIsSearching(true);
