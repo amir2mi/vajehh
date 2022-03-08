@@ -26,7 +26,9 @@ import { ReactComponent as Moon } from "../../assets/svg/moon.svg";
 import { ReactComponent as More } from "../../assets/svg/more.svg";
 import { ReactComponent as NoResult } from "../../assets/svg/no-result.svg";
 import { ReactComponent as Settings } from "../../assets/svg/settings.svg";
+import { ReactComponent as Share } from "../../assets/svg/share.svg";
 import { ReactComponent as Sun } from "../../assets/svg/sun.svg";
+import { ReactComponent as Twitter } from "../../assets/svg/twitter.svg";
 import { ReactComponent as Writing } from "../../assets/svg/writing.svg";
 
 const Icons = {
@@ -51,7 +53,9 @@ const Icons = {
   More,
   NoResult,
   Settings,
+  Share,
   Sun,
+  Twitter,
   Writing,
 };
 export default Icons;

@@ -11,7 +11,7 @@ export default function ShareBox() {
           <>
             اشتراک‌‌گذاری
             <div className="share-buttons">
-              <Button>Share</Button>
+              {navigator.hasOwnProperty("share") && <Button>Share</Button>}
               <Button>Tweet</Button>
             </div>
           </>
