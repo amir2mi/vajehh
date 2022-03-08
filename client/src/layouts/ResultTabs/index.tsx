@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Tabs } from "react-flatifycss";
+import { useSearch } from "../../contexts/search";
 import { useDictionary } from "../../contexts/dictionary";
 import { Icons, IntroBox } from "../../components";
 import TabTitle from "./TabTitle";
@@ -15,6 +16,7 @@ interface ResultCountProps {
 }
 
 export default function ResultTabs() {
+  const { searchValue } = useSearch();
   const { dictionaries } = useDictionary();
   const [resultCount, setResultCount] = useState<ResultCountProps>({});
 
@@ -43,6 +45,13 @@ export default function ResultTabs() {
       });
     }
   };
+
+  // reset result count when search value changes to empty string
+  useEffect(() => {
+    if (!searchValue.trim()) {
+      setResultCount({});
+    }
+  }, [searchValue]);
 
   const items = [
     {

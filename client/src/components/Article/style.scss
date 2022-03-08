@@ -1,4 +1,12 @@
 .article-area {
   min-height: 90vh;
   padding: 3em 0;
+
+  blockquote {
+    margin: 1.5em 0;
+
+    &:before{
+      display: none;
+    }
+  }
 }
