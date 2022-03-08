@@ -1,7 +1,7 @@
 {
-  "name": "vajehh",
+  "name": "vajehh-server-sync",
   "version": "1.0.0",
-  "description": "",
+  "description": "The old way server with sync approach that gets power from Fuse JS to search local data",
   "main": "index.js",
   "scripts": {
     "server": "node server/index.js",

@@ -1,7 +1,7 @@
 {
-  "name": "vajehh",
+  "name": "vajehh-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Server-side for Vajehh, uses the power of NodeJS and MongoDB in favor of ExpressJS",
   "main": "index.js",
   "scripts": {
     "server": "node server/index.js",
