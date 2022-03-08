@@ -1,6 +1,6 @@
 {
-  "name": "client",
-  "version": "0.1.0",
+  "name": "vajehh-client",
+  "version": "0.9.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
