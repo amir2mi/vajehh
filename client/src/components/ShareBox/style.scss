@@ -53,4 +53,35 @@
     filter: invert(1) contrast(10);
     opacity: 0.05;
   }
+
+  @media (max-width: 767px) {
+    font-size: 0.9em;
+  }
+
+  @media (max-width: 575px) {
+    width: calc(100% - 2em);
+    padding: 0;
+    margin-right: auto;
+    margin-left: auto;
+
+    .info {
+      text-align: center;
+      padding: 2.5em 1em;
+
+      .title {
+        justify-content: center;
+      }
+
+      .subtitle {
+        margin: 0;
+      }
+    }
+
+    .share-image {
+      position: relative;
+      left: 0;
+      width: 10em;
+      margin: 0 auto;
+    }
+  }
 }
