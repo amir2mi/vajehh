@@ -1,6 +1,12 @@
 .article-area {
   min-height: 90vh;
-  padding: 3em 0;
+  padding: 3em 1.25em;
+
+  @media (max-width: 575px) {
+    h1 {
+      font-size: 3em;
+    }
+  }
 
   h2 {
     font-size: 2.35em;
