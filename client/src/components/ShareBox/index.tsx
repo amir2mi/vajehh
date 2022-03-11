@@ -19,7 +19,7 @@ export default function ShareBox() {
         subtitle="به دوستان و آشنایان در مورد واژه خبر دهید!"
       />
       <img className="share-image" src={DaftPunk} alt="اشتراک‌گذاری واژه" draggable={false} />
-      <span className="halftone"></span>
+      <span className="halftone" />
     </RotatedBox>
   );
 }
