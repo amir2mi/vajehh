@@ -12,6 +12,7 @@ import NightModeButton from "./NightModeButton";
 import RotatedBox from "./RotatedBox";
 import ScrollToTop from "./ScrollToTop";
 import ShareBox from "./ShareBox";
+import TestWrapper from "./TestWrapper";
 import TextLoading from "./TextLoading";
 
 export {
@@ -29,5 +30,6 @@ export {
   RotatedBox,
   ScrollToTop,
   ShareBox,
+  TestWrapper,
   TextLoading,
 };

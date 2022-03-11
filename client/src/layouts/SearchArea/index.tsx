@@ -97,7 +97,7 @@ export default function SearchArea() {
 
   return (
     <>
-      <form id="main-search-bar" onSubmit={(e) => handleOnSubmit(e)}>
+      <form id="main-search-bar" aria-label="جستجو و تنظیمات جستجو" onSubmit={(e) => handleOnSubmit(e)}>
         <Input
           autoFocus
           name="search"

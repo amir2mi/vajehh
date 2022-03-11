@@ -14,7 +14,6 @@ function getLocalStorage(key: string, initialValue?: any) {
       return JSON.parse(value);
     } else {
       const data = JSON.parse(JSON.stringify(initialValue));
-      console.log(data);
       
       // set initial value to the local storage
       setLocalStorage(key, data);
