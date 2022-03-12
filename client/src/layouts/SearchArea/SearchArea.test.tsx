@@ -1,15 +1,17 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { TestWrapper } from "../../components";
 import config from "../../config.json";
+import { SearchContext } from "../../contexts/search";
 import SearchArea from ".";
-import { debug } from "console";
+import React from "react";
 
 describe("<SearchArea/>", () => {
-  const setup = () =>
+  const setup = (children?: React.ReactNode) =>
     render(
       <TestWrapper>
         <SearchArea />
+        {children}
       </TestWrapper>
     );
 
@@ -26,10 +28,12 @@ describe("<SearchArea/>", () => {
   });
 
   it("should change context value automatically after delay", async () => {
-    setup();
+    setup(<SearchContext.Consumer>{(value) => <p>search this value: {value?.searchValue}</p>}</SearchContext.Consumer>);
     const input = screen.getByRole("textbox");
     userEvent.type(input, "test");
 
-    // expect().toHaveTextContent("test");
+    await waitFor(() => {
+      expect(screen.getByText("search this value: test")).toBeInTheDocument();
+    });
   });
 });
