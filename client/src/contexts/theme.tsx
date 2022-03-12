@@ -55,4 +55,4 @@ const getNightModeClass = (nightMode) => {
   return nightMode ? "nightmode" : "";
 };
 
-export { ThemeProvider, useTheme, getNightModeClass };
+export { ThemeContext, ThemeProvider, useTheme, getNightModeClass };

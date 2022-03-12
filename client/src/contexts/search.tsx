@@ -37,4 +37,4 @@ const useSearch = () => {
   return value;
 };
 
-export { SearchProvider, useSearch };
+export { SearchContext, SearchProvider, useSearch };

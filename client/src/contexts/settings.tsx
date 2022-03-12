@@ -69,4 +69,4 @@ const useSettings = () => {
   return value;
 };
 
-export { SettingsProvider, useSettings };
+export { SettingsContext, SettingsProvider, useSettings };

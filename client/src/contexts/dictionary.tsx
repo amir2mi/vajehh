@@ -105,4 +105,4 @@ const useDictionary = () => {
   return value;
 };
 
-export { DictionaryProvider, useDictionary };
+export { DictionaryContext, DictionaryProvider, useDictionary };
