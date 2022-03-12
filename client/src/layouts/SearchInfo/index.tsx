@@ -6,16 +6,19 @@ import { searchWord } from "../../services/api";
 import "./style.scss";
 
 interface SearchInfoProps {
+  disableSuggestion?: boolean;
   onSuggestionClick?: (suggestion: string) => void;
 }
 
-export default function SearchInfo({ onSuggestionClick }: SearchInfoProps) {
+export default function SearchInfo({ disableSuggestion, onSuggestionClick }: SearchInfoProps) {
   const { searchValue } = useSearch();
   const { dictionaries } = useDictionary();
 
   const [result, setResult] = useState<string[]>();
 
   const search = async () => {
+    if (disableSuggestion) return;
+
     try {
       const response = await searchWord("emlaei", searchValue);
       const { items } = response?.data;

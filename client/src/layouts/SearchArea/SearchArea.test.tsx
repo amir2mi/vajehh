@@ -1,16 +1,16 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { TestWrapper } from "../../components";
-import config from "../../config.json";
 import { SearchContext } from "../../contexts/search";
 import SearchArea from ".";
 import React from "react";
 
 describe("<SearchArea/>", () => {
   const setup = (children?: React.ReactNode) =>
+    // disableSuggestion: do not make API call to get suggestions
     render(
       <TestWrapper>
-        <SearchArea />
+        <SearchArea disableSuggestion />
         {children}
       </TestWrapper>
     );
@@ -20,20 +20,36 @@ describe("<SearchArea/>", () => {
     expect(screen.getByRole("form")).toBeInTheDocument();
   });
 
-  it("should change the input value on type", async () => {
+  it("should change the input value on type", () => {
     setup();
     const input = screen.getByRole("textbox");
     userEvent.type(input, "test");
     expect(input).toHaveValue("test");
   });
 
-  it("should change context value automatically after delay", async () => {
+  it("should change the search context value automatically after delay", async () => {
     setup(<SearchContext.Consumer>{(value) => <p>search this value: {value?.searchValue}</p>}</SearchContext.Consumer>);
     const input = screen.getByRole("textbox");
+
+    // type "test"
     userEvent.type(input, "test");
 
+    // wait for debounce
     await waitFor(() => {
       expect(screen.getByText("search this value: test")).toBeInTheDocument();
     });
+  });
+
+  it("should change the search context value when the search button is clicked", () => {
+    setup(<SearchContext.Consumer>{(value) => <p>search this value: {value?.searchValue}</p>}</SearchContext.Consumer>);
+    const input = screen.getByRole("textbox");
+    const searchButton = screen.getByLabelText("جستجو کن");
+
+    // type "test" then click search button
+    userEvent.type(input, "test");
+    userEvent.click(searchButton);
+
+    // context value immediately should be changed to "test"
+    expect(screen.getByText("search this value: test")).toBeInTheDocument();
   });
 });

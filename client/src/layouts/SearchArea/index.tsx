@@ -10,7 +10,11 @@ import DictionaryPicker from "../DictionaryPicker";
 import SearchSettings from "../SearchSettings";
 import "./style.scss";
 
-export default function SearchArea() {
+interface SearchAreaProps {
+  disableSuggestion?: boolean;
+}
+
+export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
   const navigate = useNavigate();
   const { "*": word } = useParams();
   const { autoSearch } = useSettings();
@@ -111,7 +115,7 @@ export default function SearchArea() {
         </Input>
       </form>
       <div className="search-settings">
-        <SearchInfo onSuggestionClick={(word) => setInputValue(word)} />
+        <SearchInfo disableSuggestion={disableSuggestion} onSuggestionClick={(word) => setInputValue(word)} />
         <div className="search-settings-left">
           <DictionaryPicker />
           <SearchSettings />
