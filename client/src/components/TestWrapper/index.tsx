@@ -4,7 +4,11 @@ import { SettingsProvider } from "../../contexts/settings";
 import { DictionaryProvider } from "../../contexts/dictionary";
 import { ThemeProvider } from "../../contexts/theme";
 
-export default function TestWrapper({ children }) {
+interface TestWrapperProps {
+  children: React.ReactNode;
+}
+
+export default function TestWrapper({ children }: TestWrapperProps) {
   return (
     <BrowserRouter>
       <ThemeProvider>

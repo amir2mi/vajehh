@@ -60,7 +60,7 @@ const getDefaultDictionaries = () => {
     ganjvar: {
       name: "گنجور",
       key: "ganjvar",
-      active: false,
+      active: true,
     },
   };
 };

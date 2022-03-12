@@ -103,11 +103,10 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
     )
   ) : (
     <InfiniteScroll
-      key={0}
       pageStart={0}
       loadMore={addMoreToQueue}
       hasMore={result?.length !== displayQueue?.length}
-      loader={<Loading className="infinite-scroll-loading" size="lg" />}
+      loader={<Loading key={0} className="infinite-scroll-loading" size="lg" />}
     >
       <MasonryGrid>
         {isSearching

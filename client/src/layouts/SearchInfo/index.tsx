@@ -49,7 +49,7 @@ export default function SearchInfo({ disableSuggestion, onSuggestionClick }: Sea
     <div className="search-info size-sm opacity-70">
       {dictionaries.emlaei?.active && result && result.length > 0 ? (
         <div className="anim-fade-in">
-          منظورتان
+          منظورتان{" "}
           {result.map((item, index) => (
             <React.Fragment key={index}>
               <Button
@@ -60,9 +60,9 @@ export default function SearchInfo({ disableSuggestion, onSuggestionClick }: Sea
               >
                 {item}
               </Button>
-              {result.length !== index + 1 && "یا"}
+              {result.length !== index + 1 && " یا "}
             </React.Fragment>
-          ))}
+          ))}{" "}
           بود؟
         </div>
       ) : null}

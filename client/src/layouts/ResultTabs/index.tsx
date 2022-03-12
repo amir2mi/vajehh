@@ -69,6 +69,7 @@ export default function ResultTabs() {
           </IntroBox>
         </TabBody>
       ),
+      className: "motaradef",
       isHidden: !dictionaries.motaradef.active,
       onClick: () => scrollToTop("motaradef"),
     },
@@ -86,6 +87,7 @@ export default function ResultTabs() {
           </IntroBox>
         </TabBody>
       ),
+      className: "sereh",
       isHidden: !dictionaries.sereh.active,
       onClick: () => scrollToTop("sereh"),
     },
@@ -104,6 +106,7 @@ export default function ResultTabs() {
           </IntroBox>
         </TabBody>
       ),
+      className: "teyfi",
       isHidden: !dictionaries.teyfi.active,
       onClick: () => scrollToTop("teyfi"),
     },
@@ -121,6 +124,7 @@ export default function ResultTabs() {
           </IntroBox>
         </TabBody>
       ),
+      className: "farhangestan",
       isHidden: !dictionaries.farhangestan.active,
       onClick: () => scrollToTop("farhangestan"),
     },
@@ -139,6 +143,7 @@ export default function ResultTabs() {
           </IntroBox>
         </TabBody>
       ),
+      className: "ganjvar",
       isHidden: !dictionaries.ganjvar.active,
       onClick: () => scrollToTop("ganjvar"),
     },
