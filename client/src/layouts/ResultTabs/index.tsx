@@ -24,7 +24,7 @@ export default function ResultTabs() {
   const handleOnSearch = (dic: string) => {
     setResultCount((prev) => ({
       ...prev,
-      [dic]: -1,
+      [dic]: -1, // loading
     }));
   };
 
@@ -48,9 +48,11 @@ export default function ResultTabs() {
 
   // reset result count when search value changes to empty string
   useEffect(() => {
-    if (!searchValue.trim()) {
+    if (!searchValue.trim()) setResultCount({});
+
+    return () => {
       setResultCount({});
-    }
+    };
   }, [searchValue]);
 
   const items = [
