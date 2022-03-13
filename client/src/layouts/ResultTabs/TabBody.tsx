@@ -31,7 +31,7 @@ interface TabBodyProps {
 
 export default function TabBody({ children, dic, onFinish, onSearch, postsPerPage }: TabBodyProps) {
   const { searchValue } = useSearch();
-  const { highlight, highlightColor, fuzzySearch } = useSettings();
+  const { highlight, highlightColor, fuzzySearch, columnsCount } = useSettings();
 
   const [result, setResult] = useState<ResultProps[]>();
   const [displayQueue, setDisplayQueue] = useState<ResultProps[]>();
@@ -110,7 +110,7 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
     >
       <MasonryGrid>
         {isSearching
-          ? [...new Array(12)].map((item, index) => <FakeDefinitionBox key={index} />)
+          ? [...new Array(columnsCount * 2)].map((item, index) => <FakeDefinitionBox key={index} />)
           : displayQueue?.map((item, index) => {
               const itemIndex = String(item.definition).slice(0, 12) + String(item.title).slice(0, 12) + index;
 
