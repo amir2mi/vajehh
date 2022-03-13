@@ -56,7 +56,7 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
       // there was no error
       setHasError(false);
       // update result count
-      onFinish(items.length || 0);
+      onFinish(items?.length || 0);
     } catch (err) {
       console.error(err);
       setHasError(true);

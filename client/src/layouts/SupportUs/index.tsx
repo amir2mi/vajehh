@@ -15,7 +15,7 @@ export default function SupportUs() {
         <Button theme="blue" onClick={shareVajehh}>
           {!!navigator.share ? "اشتراک‌گذاری" : "توییت در توییتر"}
         </Button>
-        <a href={config.supportURL} className="button" target="_blank" rel="noreferrer">
+        <a href={config.supportURL} className="button style-dark" target="_blank" rel="noreferrer">
           حمایت مالی
         </a>
       </div>
