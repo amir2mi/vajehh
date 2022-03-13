@@ -77,6 +77,8 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
     if (!autoSearch) return;
     // do not update value if it is the same as the current value
     if (debouncedValue === searchValue) return;
+    // do not update because it navigates user to the homepage
+    if (debouncedValue === "/") return;
 
     setSearchValue(debouncedValue);
     navigate(value);
