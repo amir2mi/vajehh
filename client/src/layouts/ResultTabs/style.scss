@@ -10,6 +10,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
+    height: 3.25em;
     border-radius: 1em 1em 0 0;
   }
 
@@ -51,5 +52,20 @@
   .tab-button {
     padding-right: 1em !important;
     padding-left: 1em !important;
+  }
+}
+
+.no-active-tab {
+  min-height: calc(max(50vh, 20em) + 3.5em);
+
+  .intro-box {
+    .icon {
+      margin-top: 0;
+      margin-bottom: 0;
+      svg {
+        width: 15em;
+        height: 15em;
+      }
+    }
   }
 }

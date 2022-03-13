@@ -156,7 +156,11 @@ export default function ResultTabs() {
   ];
 
   return !hasActiveDictionary() ? (
-    <p>No tab</p>
+    <div className="tabs-wrapper bordered result-tabs no-active-tab flex-column-center">
+      <IntroBox className="horizontal anim-fade-in" title="بدون منابع جستجو" icon={<Icons.NoActiveDict />}>
+      هیچ زبانه جستجویی فعال نیست، از قسمت منابع جستجو حداقل یک مورد را فعال کنید.
+      </IntroBox>
+    </div>
   ) : (
     <Tabs scrollable className="result-tabs" items={items} animation="fade" bordered={true} />
   );

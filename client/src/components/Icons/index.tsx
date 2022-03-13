@@ -24,6 +24,7 @@ import { ReactComponent as Error } from "../../assets/svg/error.svg";
 import { ReactComponent as External } from "../../assets/svg/external.svg";
 import { ReactComponent as Moon } from "../../assets/svg/moon.svg";
 import { ReactComponent as More } from "../../assets/svg/more.svg";
+import { ReactComponent as NoActiveDict } from "../../assets/svg/no-active-dict.svg";
 import { ReactComponent as NoResult } from "../../assets/svg/no-result.svg";
 import { ReactComponent as Settings } from "../../assets/svg/settings.svg";
 import { ReactComponent as Share } from "../../assets/svg/share.svg";
@@ -51,6 +52,7 @@ const Icons = {
   External,
   Moon,
   More,
+  NoActiveDict,
   NoResult,
   Settings,
   Share,
