@@ -1,5 +1,6 @@
 const express = require("express");
 const { MongoClient } = require("mongodb");
+const path = require("path");
 const cors = require("cors");
 const morgan = require("morgan");
 const motaradef = require("./routes/motaradef");
@@ -32,6 +33,14 @@ app.use("/api/teyfi", teyfi);
 app.use("/api/farhangestan", farhangestan);
 app.use("/api/ganjvar", ganjvar);
 app.use("/api/emlaei", emlaei);
+
+// Serve static files
+app.use(express.static(path.resolve(__dirname, "../client/build")));
+
+// redirect all other routes to the index.html
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+});
 
 const port = process.env.PORT || 8080;
 app.listen(port, async () => {
