@@ -28,7 +28,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build-gzip": "react-scripts build && gzipper compress --verbose ./build/static/js ./build/static/css",
+    "build-gzip": "react-scripts build && gzipper compress ./build/static/js && gzipper compress ./build/static/css",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
