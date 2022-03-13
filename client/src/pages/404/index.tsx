@@ -15,7 +15,7 @@ export default function NothingFound() {
         <Info title="ناکجـاآباد" subtitle="صفحه‌ای که به دنبال آن هستید وجود خارجی ندارد!" />
         <ButtonGroup>
           <Link to="/" className="button style-light">
-            رفتن به خانه
+            برگشت به خانه
           </Link>
           <Link to="/search" className="button style-accent">
             جستجوی واژه
