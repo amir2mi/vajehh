@@ -1,6 +1,7 @@
 const express = require("express");
 const { MongoClient } = require("mongodb");
 const path = require("path");
+const gzipStatic = require("connect-gzip-static");
 const cors = require("cors");
 const morgan = require("morgan");
 const motaradef = require("./routes/motaradef");
@@ -9,6 +10,7 @@ const teyfi = require("./routes/teyfi");
 const farhangestan = require("./routes/farhangestan");
 const ganjvar = require("./routes/ganjvar");
 const emlaei = require("./routes/emlaei");
+const staticDir = "../client/build";
 
 // connect to MongoDB Atlas client
 // first => motaradef, sereh, teyfi
@@ -34,12 +36,13 @@ app.use("/api/farhangestan", farhangestan);
 app.use("/api/ganjvar", ganjvar);
 app.use("/api/emlaei", emlaei);
 
+// Use gzipped static files
+app.use(gzipStatic(path.resolve(__dirname, staticDir), { maxAge: 86400000 }));
 // Serve static files
-app.use(express.static(path.resolve(__dirname, "../client/build")));
-
+app.use(express.static(path.resolve(__dirname, staticDir)));
 // redirect all other routes to the index.html
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+  res.sendFile(path.resolve(__dirname, staticDir, "index.html"));
 });
 
 const port = process.env.PORT || 8080;
