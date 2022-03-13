@@ -5,6 +5,10 @@
   padding-top: 5em;
   border-radius: 3em 2em 0 0;
   color: #fff;
+
+  @media (max-width: 575px) {
+    padding-top: 3em;
+  }
 }
 
 .inner-footer {

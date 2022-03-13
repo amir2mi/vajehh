@@ -3,6 +3,9 @@
   padding: 3em 1.25em;
 
   @media (max-width: 575px) {
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+
     h1 {
       font-size: 3em;
     }
