@@ -1,6 +1,6 @@
 /* eslint-disable testing-library/no-node-access */
 import axios from "axios";
-import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { TestWrapper } from "../components";
 import SearchPage from "../pages/search";
@@ -146,12 +146,19 @@ describe("Search functionality", () => {
     return view;
   };
 
-  afterEach(() => cleanup());
+  it("should show the loading items when it is searching", async () => {
+    setupFakeEndpoints();
+    setup();
+    const searchInput = screen.getByRole("textbox");
 
-  //    // check if the loading (fake definition boxes) are displayed correctly
-  //    await waitFor(() => {
-  //     expect(screen.getAllByRole("heading", { level: 2 })).toHaveTextContent("در حال جستجو");
-  //   });
+    // type something to initiate the search
+    userEvent.type(searchInput, "کمال");
+
+    // check if the loading (fake definition boxes) are displayed correctly
+    await waitFor(() => {
+      expect(screen.getAllByRole("heading", { level: 2 })[0]).toHaveTextContent("در حال جستجو");
+    });
+  });
 
   it("should search the word in Motaradef dictionary and display the result correctly", async () => {
     setupFakeEndpoints();
