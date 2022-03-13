@@ -4,6 +4,7 @@
   "description": "Server-side for Vajehh, uses the power of NodeJS and MongoDB in favor of ExpressJS",
   "main": "index.js",
   "scripts": {
+    "build": "cd client && npm install && npm run build-gzip",
     "start": "node server/index.js",
     "server": "node server/index.js",
     "server-dev": "nodemon server/index.js"
@@ -18,5 +19,8 @@
     "mongodb": "^4.4.0",
     "morgan": "^1.10.0",
     "simple-spellchecker": "^1.0.2"
+  },
+  "engines": {
+    "node": "16.13.2"
   }
 }
