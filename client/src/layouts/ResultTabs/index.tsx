@@ -46,6 +46,10 @@ export default function ResultTabs() {
     }
   };
 
+  // if any dictionary except "Emalei" (because it is not a tab) is active, return true
+  const hasActiveDictionary = () =>
+    Object.values(dictionaries).filter((dict) => dict.key !== "emlaei" && dict.active === true).length > 0;
+
   // reset result count when search value changes to empty string
   useEffect(() => {
     if (!searchValue.trim()) setResultCount({});
@@ -151,5 +155,9 @@ export default function ResultTabs() {
     },
   ];
 
-  return <Tabs scrollable className="result-tabs" items={items} animation="fade" bordered={true} />;
+  return !hasActiveDictionary() ? (
+    <p>No tab</p>
+  ) : (
+    <Tabs scrollable className="result-tabs" items={items} animation="fade" bordered={true} />
+  );
 }
