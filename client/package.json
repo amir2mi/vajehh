@@ -12,7 +12,7 @@
     "@types/react-dom": "^17.0.11",
     "axios": "^0.26.0",
     "clsx": "^1.1.1",
-    "flatifycss": "^1.2.4",
+    "flatifycss": "^1.2.5",
     "markdown-to-jsx": "^7.1.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

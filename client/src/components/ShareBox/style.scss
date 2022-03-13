@@ -78,10 +78,11 @@
     }
 
     .share-image {
-      position: relative;
+      right: 0;
       left: 0;
-      width: 10em;
+      z-index: 1;
       margin: 0 auto;
+      mix-blend-mode: color;
     }
   }
 }
