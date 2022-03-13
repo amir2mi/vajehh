@@ -17,7 +17,7 @@ export default function SearchInfo({ disableSuggestion, onSuggestionClick }: Sea
   const [result, setResult] = useState<string[]>();
 
   const search = async () => {
-    if (disableSuggestion) return;
+    if (disableSuggestion || !dictionaries.emlaei.active) return;
 
     try {
       const response = await searchWord("emlaei", searchValue);
