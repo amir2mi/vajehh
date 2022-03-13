@@ -60,7 +60,7 @@ export default function SearchInfo({ disableSuggestion, onSuggestionClick }: Sea
               >
                 {item}
               </Button>
-              {result.length !== index + 1 && " یا "}
+              {result.length - 1 !== index && " یا "}
             </React.Fragment>
           ))}{" "}
           بود؟
