@@ -5,6 +5,7 @@ import SearchPage from "./pages/search";
 import HomePage from "./pages/home";
 import HelpPage from "./pages/help";
 import SupportPage from "./pages/support";
+import NothingFound from "./pages/404";
 import Navigation from "./layouts/Navigation";
 import Footer from "./layouts/Footer";
 import { ScrollToTop } from "./components";
@@ -21,6 +22,7 @@ function Vajehh() {
           <Route path="/help" element={<HelpPage />} />
           <Route path="/support" element={<SupportPage />} />
           <Route path="/" element={<HomePage />} />
+          <Route path="*" element={<NothingFound />} />
         </Routes>
       </ScrollToTop>
       <Footer />

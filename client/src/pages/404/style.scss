@@ -1,0 +1,37 @@
+.nothing-found {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  padding: 1em;
+  background: var(--flatify__bg-color);
+
+  @media (min-width: 576px) {
+    font-size: 1.25em;
+
+    .info {
+      font-size: 1.125em;
+    }
+  }
+  .content {
+    position: relative;
+    z-index: 3;
+  }
+
+  .info {
+    text-align: center;
+    font-size: 1.125em;
+    margin-bottom: 2em;
+  }
+
+  .firefly {
+    font-size: 3em;
+    top: -45%;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    --vajehh__firefly-color: rgb(28, 176, 246, 0.5);
+  }
+}
