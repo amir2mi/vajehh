@@ -43,7 +43,7 @@ const navLinks = [
 export default function Navigation() {
   return (
     <nav className="navigation">
-      <NavLink to="" className="home-link">
+      <NavLink to="" className="home-link overlay-layer">
         واژه
       </NavLink>
       <ul className="navigation-links desktop">

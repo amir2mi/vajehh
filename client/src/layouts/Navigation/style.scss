@@ -20,6 +20,13 @@
     margin-right: 0.32em;
     color: var(--flatify__txt-color);
 
+    &:before {
+      z-index: -1;
+      background: var(--flatify__bg-color-dark);
+      border-radius: 0.5em;
+      transform: scale(0.75) rotate(25deg);
+    }
+
     @media (max-width: 575px) {
       &.active {
         color: #2e4051 !important;
