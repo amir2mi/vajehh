@@ -4,6 +4,7 @@ const path = require("path");
 const gzipStatic = require("connect-gzip-static");
 const cors = require("cors");
 const morgan = require("morgan");
+const dynamicHTML = require("./routes/dynamic-html");
 const motaradef = require("./routes/motaradef");
 const sereh = require("./routes/sereh");
 const teyfi = require("./routes/teyfi");
@@ -12,23 +13,27 @@ const ganjvar = require("./routes/ganjvar");
 const emlaei = require("./routes/emlaei");
 const staticDir = "../client/build";
 
-// connect to MongoDB Atlas client
+// Connect to MongoDB Atlas client
+// each MongoDB cluster can have only three collection with Atlas search feature
 // first => motaradef, sereh, teyfi
 const firstDatabaseClient = new MongoClient(process.env["VAJEHH_FIRST_DB_URL"]);
-// second => farhangestan, ganjvar, emlaei
+// second => farhangestan, ganjvar
 const secondDatabaseClient = new MongoClient(process.env["VAJEHH_SECOND_DB_URL"]);
 
-// middlewares
+// Middlewares
 const app = express();
 app.use(cors());
 
-// dev only middlewares
+// Dev only middlewares
 if (app.get("env") === "development") {
   app.use(morgan("dev"));
   console.info("Morgan enabled");
 }
 
-// routes
+// Routes
+// this route modify the index.html file and replace the special strings with server generated strings,
+// the example can be page title and meta tags
+app.use("/", dynamicHTML);
 app.use("/api/motaradef", motaradef);
 app.use("/api/sereh", sereh);
 app.use("/api/teyfi", teyfi);
@@ -36,10 +41,12 @@ app.use("/api/farhangestan", farhangestan);
 app.use("/api/ganjvar", ganjvar);
 app.use("/api/emlaei", emlaei);
 
-// Use gzipped static files
+// Serve original static files
+// app.use(express.static(path.resolve(__dirname, staticDir)));
+
+// Serve gzipped static files
 app.use(gzipStatic(path.resolve(__dirname, staticDir), { maxAge: 86400000 }));
-// Serve static files
-app.use(express.static(path.resolve(__dirname, staticDir)));
+
 // redirect all other routes to the index.html
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, staticDir, "index.html"));
