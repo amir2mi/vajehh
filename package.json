@@ -1,27 +1,12 @@
 {
   "name": "vajehh-server",
   "version": "1.0.0",
-<<<<<<< HEAD
-  "description": "Server-side for Vajehh, uses the power of NodeJS and MongoDB in favor of ExpressJS",
-=======
   "description": "Server-side for Vajehh, uses the power of NodeJS, Express and MongoDB in favor of ExpressJS",
->>>>>>> 09c495f1bc78bcf3a248209035a1cdf31240a459
   "main": "index.js",
-  "engines": {
-    "node": "16.x",
-    "npm": "8.1.2"
-  },
   "scripts": {
-<<<<<<< HEAD
-    "build": "cd client && npm install && npm run build-gzip",
-    "start": "node server/index.js",
-    "server": "node server/index.js",
-    "server-dev": "nodemon server/index.js"
-=======
     "start": "node index.js",
     "server": "node index.js",
     "server-dev": "nodemon index.js"
->>>>>>> 09c495f1bc78bcf3a248209035a1cdf31240a459
   },
   "keywords": [],
   "author": "Amir M. Mohamadi",
@@ -33,12 +18,9 @@
     "mongodb": "^4.4.0",
     "morgan": "^1.10.0",
     "simple-spellchecker": "^1.0.2"
-<<<<<<< HEAD
   },
   "engines": {
     "node": "16.13.2",
     "npm": "8.1.2"
-=======
->>>>>>> 09c495f1bc78bcf3a248209035a1cdf31240a459
   }
 }
