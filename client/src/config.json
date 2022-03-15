@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "websiteURL": "https://vajehh.com",
-  "apiEndpointURL": "http://localhost:8080/api",
+  "apiEndpointURL": "https://vajehh.herokuapp.com/api",
   "githubURL": "https://github.com/amir2mi/vajehh",
   "supportURL": "https://hamibash.com/vajehh",
   "searchDebounceDuration": 900,
