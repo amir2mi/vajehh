@@ -4,7 +4,7 @@ const path = require("path");
 const gzipStatic = require("connect-gzip-static");
 const cors = require("cors");
 const morgan = require("morgan");
-const dynamicHTML = require("./routes/dynamic-html");
+// const dynamicHTML = require("./routes/dynamic-html");
 const motaradef = require("./routes/motaradef");
 const sereh = require("./routes/sereh");
 const teyfi = require("./routes/teyfi");
@@ -33,7 +33,7 @@ if (app.get("env") === "development") {
 // Routes
 // this route modify the index.html file and replace the special strings with server generated strings,
 // the example can be page title and meta tags
-app.use("/", dynamicHTML);
+// app.use("/", dynamicHTML);
 app.use("/api/motaradef", motaradef);
 app.use("/api/sereh", sereh);
 app.use("/api/teyfi", teyfi);
@@ -44,13 +44,13 @@ app.use("/api/emlaei", emlaei);
 // Serve original static files
 // app.use(express.static(path.resolve(__dirname, staticDir)));
 
-// Serve gzipped static files
-app.use(gzipStatic(path.resolve(__dirname, staticDir), { maxAge: 86400000 }));
+// // Serve gzipped static files
+// app.use(gzipStatic(path.resolve(__dirname, staticDir), { maxAge: 86400000 }));
 
-// redirect all other routes to the index.html
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, staticDir, "index.html"));
-});
+// // redirect all other routes to the index.html
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, staticDir, "index.html"));
+// });
 
 const port = process.env.PORT || 8080;
 app.listen(port, async () => {
