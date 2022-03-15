@@ -33,6 +33,7 @@ if (app.get("env") === "development") {
 // Routes
 // this route modify the index.html file and replace the special strings with server generated strings,
 // the example can be page title and meta tags
+
 // app.use("/", dynamicHTML);
 app.use("/api/motaradef", motaradef);
 app.use("/api/sereh", sereh);
