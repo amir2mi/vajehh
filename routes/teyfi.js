@@ -14,12 +14,12 @@ router.get("/:word", async (req, res) => {
 
   try {
     const result = await searchWord(database, "teyfi", sanitizeText(word), 100, isFuzzy);
-    res.send({
+    return res.send({
       kind: "teyfi",
       items: result,
     });
   } catch (err) {
-    res.status(500).send(err);
+    return res.status(500).send(err);
   }
 });
 
