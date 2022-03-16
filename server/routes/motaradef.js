@@ -1,9 +1,10 @@
 const express = require("express");
 const searchWord = require("../searcher");
 const sanitizeText = require("../sanitizer");
+const cors = require("cors");
 const router = express.Router();
 
-router.get("/:word", async (req, res) => {
+router.get("/:word", cors(), async (req, res) => {
   const { word } = req.params;
   const { fuzzy } = req.query;
   const isFuzzy = String(fuzzy).toLowerCase() === "true";
