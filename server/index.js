@@ -1,5 +1,6 @@
 const express = require("express");
 const { MongoClient } = require("mongodb");
+
 const cors = require("cors");
 const morgan = require("morgan");
 const motaradef = require("./routes/motaradef");
@@ -22,6 +23,8 @@ const secondDatabaseClient = new MongoClient(process.env["VAJEHH_SECOND_DB_URL"]
 
 // Middlewares
 const app = express();
+app.use("/cors", anywhere());
+
 app.use(
   cors({
     origin: "https://vajehh.com",
