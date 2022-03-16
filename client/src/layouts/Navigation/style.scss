@@ -22,9 +22,10 @@
 
     &:before {
       z-index: -1;
-      background: var(--flatify__bg-color-dark);
+      background: currentColor;
       border-radius: 0.5em;
       transform: scale(0.75) rotate(25deg);
+      opacity: 0.075;
     }
 
     @media (max-width: 575px) {
