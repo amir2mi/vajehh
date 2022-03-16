@@ -17,11 +17,20 @@
   justify-content: space-between;
   align-items: center;
 
-  @media screen and (max-width: 575px) {
+  @media (max-width: 575px) {
     font-size: 0.9em;
   }
 
   .search-settings-left {
     display: flex;
+  }
+}
+
+@media (max-width: 767px) {
+  .settings-options,
+  .dictionary-picker {
+    .dropdown {
+      margin-top: -0.25em;
+    }
   }
 }

@@ -65,9 +65,9 @@
   width: 50%;
 
   @media (max-width: 575px) {
-    font-size: 0.85em;
-
     .feature-box {
+      flex-basis: 100% !important;
+
       .icon {
         right: -0.5em;
       }
