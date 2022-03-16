@@ -26,7 +26,6 @@ const app = express();
 app.use(
   cors({
     origin: "https://vajehh.com",
-    optionsSuccessStatus: 200,
     credentials: true,
   })
 );
