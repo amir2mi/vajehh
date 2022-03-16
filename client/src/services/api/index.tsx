@@ -11,7 +11,6 @@ export async function searchWord(dic: AllowedDictionaries, word: string, fuzzy?:
   return axios({
     method: "get",
     url: `${endPoint}/${dic}/${word}${fuzzy ? "?fuzzy=true" : ""}`,
-    headers: { Origin: "https://vajehh.herokuapp.com" },
+    headers: { Origin: "https://vajehh.herokuapp.com", crossorigin: true },
   });
-  // axios.get(,);
 }
