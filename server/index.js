@@ -1,17 +1,17 @@
 const express = require("express");
 const { MongoClient } = require("mongodb");
-const path = require("path");
-const gzipStatic = require("connect-gzip-static");
 const cors = require("cors");
 const morgan = require("morgan");
-// const dynamicHTML = require("./routes/dynamic-html");
 const motaradef = require("./routes/motaradef");
 const sereh = require("./routes/sereh");
 const teyfi = require("./routes/teyfi");
 const farhangestan = require("./routes/farhangestan");
 const ganjvar = require("./routes/ganjvar");
 const emlaei = require("./routes/emlaei");
-const staticDir = "../client/build";
+// const dynamicHTML = require("./routes/dynamic-html");
+// const path = require("path");
+// const gzipStatic = require("connect-gzip-static");
+// const staticDir = "../client/build";
 
 // Connect to MongoDB Atlas client
 // each MongoDB cluster can have only three collection with Atlas search feature
