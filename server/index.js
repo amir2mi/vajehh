@@ -22,6 +22,8 @@ const secondDatabaseClient = new MongoClient(process.env["VAJEHH_SECOND_DB_URL"]
 
 // Middlewares
 const app = express();
+app.options("*", cors());
+
 app.use(
   cors({
     origin: "https://vajehh.com",
