@@ -7,5 +7,5 @@ export async function searchWord(dic: AllowedDictionaries, word: string, fuzzy?:
   word = word.replace(/\//g, "");
   // Use real API when it is in production mode
   const endPoint: string = process.env.NODE_ENV !== "production" ? config.apiEndpointURL__dev : config.apiEndpointURL;
-  return axios.get(`${endPoint}/${dic}/${word}${fuzzy ? "?fuzzy=true" : ""}`);
+  return axios.get(`${endPoint}/${dic}/${word}${fuzzy ? "?fuzzy=true" : ""}`,);
 }

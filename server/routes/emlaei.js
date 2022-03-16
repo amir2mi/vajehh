@@ -9,7 +9,7 @@ router.get("/:word", async (req, res) => {
 
   const suggestions = await checkSpell(word);
 
-  res.send({
+  return res.send({
     kind: "emlaei",
     items: suggestions,
   });

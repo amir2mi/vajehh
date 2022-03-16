@@ -12,12 +12,12 @@ router.get("/:word", async (req, res) => {
 
   try {
     const result = await searchWord(database, "ganjvar", sanitizeText(word), 100, false);
-    res.send({
+    return res.send({
       kind: "ganjvar",
       items: result,
     });
   } catch (err) {
-    res.status(500).send(err);
+    return res.status(500).send(err);
   }
 });
 
