@@ -1,5 +1,6 @@
 .result-tabs {
   overflow: visible;
+  padding-bottom: 0.5em;
   margin-top: 0.5em !important;
 
   .badge {
@@ -56,7 +57,7 @@
 }
 
 .no-active-tab {
-  min-height: calc(max(50vh, 20em) + 3.5em);
+  min-height: calc(max(50vh, 20em) + 4em);
 
   .intro-box {
     .icon {
