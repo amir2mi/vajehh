@@ -1,4 +1,5 @@
 .features {
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -111,18 +112,18 @@
 }
 
 .features-intro-right-firefly {
-  right: -5%;
+  right: 0;
   --vajehh__firefly-color: #62e002;
   opacity: 0.85;
 
   @media (max-width: 767px) {
-    font-size: 1.2em;
+    font-size: 1.5em;
     opacity: 1;
     --vajehh__firefly-color: #ff248a;
   }
 }
 .features-intro-left-firefly {
-  left: -8%;
+  left: 0;
   font-size: 2em;
   opacity: 0.75;
   --vajehh__firefly-delay: 1.5s;
