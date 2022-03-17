@@ -31,7 +31,6 @@
     "build": "react-scripts build",
     "build-gzip": "react-scripts build && gzipper compress ./build/static/js && gzipper compress ./build/static/css",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "dangerous-eject": "react-scripts eject"
   },

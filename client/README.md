@@ -1,46 +1,42 @@
-# Getting Started with Create React App
+# Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Intro
 
-## Available Scripts
+The front-end is built using Create React App, so it is a single-page application and can be easily deployed to any server.
 
-In the project directory, you can run:
+## Develop
 
-### `npm start`
+Just run `npm start` in the root directory, and you should be able to access the application at `http://localhost:3000`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Build
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To build the client, run the following command when you are in the client directory:
 
-### `npm test`
+```bash
+npm run build
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+It is also possible to have gzipped files, which can be served by the server (but it is not recommended), first by running the following command install `Gzipper` globally:
 
-### `npm run build`
+```bash
+npm i gzipper -g
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Then run the following command:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm run build-gzip
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> Note that it will just create the gzipped files for styles and scripts, but not for the media.
 
-### `npm run eject`
+## Deploy
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+There are several ways to deploy the client to a server and numerous services to choose from. In this case, the most smooth way of doing this is using [Surge](https://surge.sh).
+After installing it and following the [instructions](https://surge.sh/help/getting-started-with-surge), you can deploy the client to a server by running the following command when you are in the client directory:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+surge
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+As simple as that, give the `build` directory and domain. You will have the website ready in less than a minute!
