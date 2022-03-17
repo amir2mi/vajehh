@@ -8,9 +8,13 @@ export async function searchWord(dic: AllowedDictionaries, word: string, fuzzy?:
 
   // Use real API when it is in production mode
   const endPoint: string = process.env.NODE_ENV !== "production" ? config.apiEndpointURL__dev : config.apiEndpointURL;
-  return axios({
-    method: "get",
-    url: `${endPoint}/${dic}/${word}${fuzzy ? "?fuzzy=true" : ""}`,
-    headers: { Origin: "https://vajehh.herokuapp.com", crossorigin: true },
+  return axios.get(`${endPoint}/${dic}/${word}`, {
+    params: {
+      fuzzy: fuzzy ? "true" : "false",
+    },
+    headers: {
+      Origin: "https://vajehh.herokuapp.com",
+      crossorigin: true,
+    },
   });
 }
