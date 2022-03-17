@@ -3,10 +3,9 @@ const path = require("path");
 
 function checkSpell(word, limit = 3) {
   return new Promise((resolve, reject) => {
-    spellChecker.getDictionary("fa_IR", path.dirname(__dirname) + "/server/dict", async function (err, dictionary) {
+    spellChecker.getDictionary("fa_IR", __dirname + "/dict", async function (err, dictionary) {
       if (err) reject(err);
-      if (!dictionary) reject("dictionary not found");
-      
+
       let suggestions = await dictionary.getSuggestions(word, limit);
 
       if (suggestions) {
