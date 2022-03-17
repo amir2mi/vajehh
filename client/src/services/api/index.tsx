@@ -8,12 +8,13 @@ export async function searchWord(dic: AllowedDictionaries, word: string, fuzzy?:
 
   // Use real API when it is in production mode
   const endPoint: string = process.env.NODE_ENV !== "production" ? config.apiEndpointURL__dev : config.apiEndpointURL;
+  // we use CORS anywhere proxy server to avoid CORS errors
   return axios.get(`${endPoint}/${dic}/${word}`, {
     params: {
       fuzzy: fuzzy ? "true" : "false",
     },
     headers: {
-      Origin: "https://vajehh.herokuapp.com",
+      Origin: config.apiOrigin,
       crossorigin: true,
     },
   });

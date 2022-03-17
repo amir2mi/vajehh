@@ -3,6 +3,7 @@
   "websiteURL": "https://vajehh.com",
   "apiEndpointURL": "https://vajehh-cors.herokuapp.com/https://vajehh.herokuapp.com/api",
   "apiEndpointURL__dev": "http://localhost:8080/api",
+  "apiOrigin": "https://vajehh.herokuapp.com",
   "githubURL": "https://github.com/amir2mi/vajehh",
   "supportURL": "https://hamibash.com/vajehh",
   "searchDebounceDuration": 900,
