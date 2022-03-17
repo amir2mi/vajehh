@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "websiteURL": "https://vajehh.com",
-  "apiEndpointURL": "https://pure-refuge-74620.herokuapp.com/https://vajehh.herokuapp.com/api",
+  "apiEndpointURL": "https://vajehh-cors.herokuapp.com/https://vajehh.herokuapp.com/api",
   "apiEndpointURL__dev": "http://localhost:8080/api",
   "githubURL": "https://github.com/amir2mi/vajehh",
   "supportURL": "https://hamibash.com/vajehh",
