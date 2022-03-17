@@ -1,8 +1,10 @@
 # Client
 
-## Intro
-
 The front-end is built using Create React App, so it is a single-page application and can be easily deployed to any server.
+
+## Configs
+
+In the client directory, there is a JSON file called `config.json` that contains the API URL, website info and other settings, be sure to take a look at it.
 
 ## Develop
 
