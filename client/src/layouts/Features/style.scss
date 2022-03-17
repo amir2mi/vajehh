@@ -1,14 +1,15 @@
 .features {
   overflow: hidden;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: var(--vajehh__area-padding);
-  margin-top: 10em;
+  padding-top: 10em;
 
   @media (max-width: 767px) {
     flex-direction: column;
-    margin-top: 3em;
+    padding-top: 12em;
 
     .features-intro {
       text-align: center;
@@ -30,6 +31,8 @@
     }
   }
 }
+
+
 
 .features-intro {
   width: 50%;
