@@ -28,7 +28,7 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
     columns: 2,
     autoSearch: true,
     fuzzySearch: true,
-    highlight: false,
+    highlight: true,
     highlightColor: "yellow",
   });
 
