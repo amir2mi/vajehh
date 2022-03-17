@@ -1,6 +1,6 @@
 # Server
 
-The server is built using Node.js, Express.js and MongoDB. It uses MongoDB Atlas to create index and search as fast as possible among thousands of words.
+The server is built using Node.js, Express.js, and MongoDB. It uses MongoDB Atlas to create an index and search as fast as possible among thousands of words.
 
 ## Develop
 
