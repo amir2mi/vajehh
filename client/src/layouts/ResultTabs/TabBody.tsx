@@ -25,13 +25,13 @@ interface SearchResponseProps {
 
 interface TabBodyProps {
   children: React.ReactNode;
-  dic: AllowedDictionaries;
+  dict: AllowedDictionaries;
   onFinish: (count: number) => void;
   onSearch: () => void;
   postsPerPage: number;
 }
 
-export default function TabBody({ children, dic, onFinish, onSearch, postsPerPage }: TabBodyProps) {
+export default function TabBody({ children, dict, onFinish, onSearch, postsPerPage }: TabBodyProps) {
   const { searchValue } = useSearch();
   const { highlight, highlightColor, fuzzySearch, columnsCount } = useSettings();
 
@@ -48,7 +48,7 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
 
   const search = async () => {
     try {
-      const response = await searchWord(dic, searchValue, fuzzySearch);
+      const response = await searchWord(dict, searchValue, fuzzySearch);
       const { items } = response?.data as SearchResponseProps;
 
       // update search result
@@ -62,7 +62,7 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
 
       // cache the result to local storage
       // update current dictionary local storage cache
-      cacheToLocalStorage(`cached_${dic}`, searchValue, items, config[`localCacheLimit__${dic}`]);
+      cacheToLocalStorage(`cached_${dict}`, searchValue, items, config[`localCacheLimit__${dict}`]);
     } catch (err) {
       console.error(err);
       setHasError(true);
@@ -125,7 +125,7 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
                   key={itemIndex}
                   title={item.title}
                   definition={item.definition}
-                  hasMultipleLine={dic === "ganjvar" || dic === "farhangestan"}
+                  hasMultipleLine={dict === "ganjvar" || dict === "farhangestan"}
                   highlight={highlight && searchValue.split(/&|،|,|\*|\+| /)}
                   highlightColor={highlightColor}
                 />
