@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "react-flatifycss";
+import config from "../../config.json";
 import { useSearch } from "../../contexts/search";
 import { useDictionary } from "../../contexts/dictionary";
 import { searchWord } from "../../services/api";
+import { cacheToLocalStorage } from "../../utils/localStorage";
 import "./style.scss";
 
 interface SearchInfoProps {
@@ -23,6 +25,10 @@ export default function SearchInfo({ disableSuggestion, onSuggestionClick }: Sea
       const response = await searchWord("emlaei", searchValue);
       const { items } = response?.data;
       setResult(items || []);
+
+      // cache the result to local storage
+      // update current dictionary local storage cache
+      cacheToLocalStorage("cached_emlaei", searchValue, items, config["localCacheLimit__emlaei"]);
     } catch (err) {
       console.error(err);
     }

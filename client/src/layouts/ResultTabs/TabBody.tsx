@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 import MasonryGrid from "./MasonryGrid";
 import { Loading } from "react-flatifycss";
+import config from "../../config.json";
 import { useSearch } from "../../contexts/search";
 import { useSettings } from "../../contexts/settings";
 import type { AllowedDictionaries } from "../../contexts/dictionary";
@@ -54,12 +55,14 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
       setResult(items);
       // allowed items to display after fetch
       setDisplayQueue(items?.slice(0, postsPerPage));
-      // update current dictionary local storage cache
-      cacheToLocalStorage(`cached_${dic}`, searchValue, items);
       // there was no error
       setHasError(false);
       // update result count
       onFinish(items?.length || 0);
+
+      // cache the result to local storage
+      // update current dictionary local storage cache
+      cacheToLocalStorage(`cached_${dic}`, searchValue, items, config[`localCacheLimit__${dic}`]);
     } catch (err) {
       console.error(err);
       setHasError(true);
