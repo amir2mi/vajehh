@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 import MasonryGrid from "./MasonryGrid";
 import { Loading } from "react-flatifycss";
+import config from "../../config.json";
 import { useSearch } from "../../contexts/search";
 import { useSettings } from "../../contexts/settings";
-import { AllowedDictionaries } from "../../contexts/dictionary";
+import type { AllowedDictionaries } from "../../contexts/dictionary";
+import { cacheToLocalStorage } from "../../utils/localStorage";
 import { searchWord } from "../../services/api";
 import { DefinitionBox, FakeDefinitionBox } from "../../components";
 import Error from "./Error";
@@ -23,13 +25,13 @@ interface SearchResponseProps {
 
 interface TabBodyProps {
   children: React.ReactNode;
-  dic: AllowedDictionaries;
+  dict: AllowedDictionaries;
   onFinish: (count: number) => void;
   onSearch: () => void;
   postsPerPage: number;
 }
 
-export default function TabBody({ children, dic, onFinish, onSearch, postsPerPage }: TabBodyProps) {
+export default function TabBody({ children, dict, onFinish, onSearch, postsPerPage }: TabBodyProps) {
   const { searchValue } = useSearch();
   const { highlight, highlightColor, fuzzySearch, columnsCount } = useSettings();
 
@@ -46,7 +48,7 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
 
   const search = async () => {
     try {
-      const response = await searchWord(dic, searchValue, fuzzySearch);
+      const response = await searchWord(dict, searchValue, fuzzySearch);
       const { items } = response?.data as SearchResponseProps;
 
       // update search result
@@ -57,6 +59,10 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
       setHasError(false);
       // update result count
       onFinish(items?.length || 0);
+
+      // cache the result to local storage
+      // update current dictionary local storage cache
+      cacheToLocalStorage(`cached_${dict}`, searchValue, items, config[`localCacheLimit__${dict}`]);
     } catch (err) {
       console.error(err);
       setHasError(true);
@@ -119,7 +125,7 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
                   key={itemIndex}
                   title={item.title}
                   definition={item.definition}
-                  hasMultipleLine={dic === "ganjvar" || dic === "farhangestan"}
+                  hasMultipleLine={dict === "ganjvar" || dict === "farhangestan"}
                   highlight={highlight && searchValue.split(/&|،|,|\*|\+| /)}
                   highlightColor={highlightColor}
                 />

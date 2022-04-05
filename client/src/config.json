@@ -7,5 +7,11 @@
   "githubURL": "https://github.com/amir2mi/vajehh",
   "supportURL": "https://hamibash.com/vajehh",
   "searchDebounceDuration": 900,
-  "dictionaryPickerDebounceDuration": 500
+  "dictionaryPickerDebounceDuration": 500,
+  "localCacheLimit__emlaei": 30,
+  "localCacheLimit__motaradef": 15,
+  "localCacheLimit__sereh": 15,
+  "localCacheLimit__teyfi": 15,
+  "localCacheLimit__farhangestan": 15,
+  "localCacheLimit__ganjvar": 5
 }

@@ -1,3 +1,8 @@
+import { objectSlicer } from "./objectSlicer";
+
+/**
+ * @description set data to local storage
+ */
 function setLocalStorage(key: string, value: unknown) {
   try {
     localStorage.setItem(key, JSON.stringify(value));
@@ -5,7 +10,9 @@ function setLocalStorage(key: string, value: unknown) {
     console.error({ e });
   }
 }
-
+/**
+ * @description get data from local storage
+ */
 function getLocalStorage(key: string, initialValue?: any) {
   try {
     const value = localStorage.getItem(key);
@@ -14,7 +21,7 @@ function getLocalStorage(key: string, initialValue?: any) {
       return JSON.parse(value);
     } else {
       const data = JSON.parse(JSON.stringify(initialValue));
-      
+
       // set initial value to the local storage
       setLocalStorage(key, data);
       return data;
@@ -24,6 +31,9 @@ function getLocalStorage(key: string, initialValue?: any) {
   }
 }
 
+/**
+ * @description just change specific prop from given key
+ */
 function setLocalStorageProp(key: string, prop: string, value: unknown) {
   // get given key data if it was empty use current prop and value as the initial data
   const settings = getLocalStorage(key, { [prop]: value });
@@ -34,4 +44,17 @@ function setLocalStorageProp(key: string, prop: string, value: unknown) {
   setLocalStorage(key, settings);
 }
 
-export { getLocalStorage, setLocalStorage, setLocalStorageProp };
+/**
+ * @description set new data at the first place and limit the old data to the max length
+ */
+function cacheToLocalStorage(key: string, prop: string, data: unknown, limit: number = 10) {
+  const cache = getLocalStorage(key);
+
+  // if the there is cached data, add new data at the first place and limit cached data to given items count
+  // otherwise just add the data
+  const newCache = cache ? { [prop]: data, ...objectSlicer(cache, 0, limit - 1) } : { [prop]: data };
+
+  setLocalStorage(key, newCache);
+}
+
+export { getLocalStorage, setLocalStorage, setLocalStorageProp, cacheToLocalStorage };
