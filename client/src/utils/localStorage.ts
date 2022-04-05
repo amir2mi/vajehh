@@ -1,3 +1,5 @@
+import { objectSlicer } from "./objectSlicer";
+
 /**
  * @description set data to local storage
  */
@@ -50,7 +52,7 @@ function cacheToLocalStorage(key: string, prop: string, data: unknown, limit: nu
 
   // if the there is cached data, add new data at the first place and limit cached data to given items count
   // otherwise just add the data
-  const newCache = cache ? { [prop]: data, ...cache } : { [prop]: data };
+  const newCache = cache ? { [prop]: data, ...objectSlicer(cache, 0, limit - 1) } : { [prop]: data };
 
   setLocalStorage(key, newCache);
 }
