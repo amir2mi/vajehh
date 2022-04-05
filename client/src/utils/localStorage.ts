@@ -45,12 +45,12 @@ function setLocalStorageProp(key: string, prop: string, value: unknown) {
 /**
  * @description set new data at the first place and limit the old data to the max length
  */
-function cacheToLocalStorage(key: string, data: unknown, limit: number = 100) {
+function cacheToLocalStorage(key: string, prop: string, data: unknown, limit: number = 10) {
   const cache = getLocalStorage(key);
 
-  // if the there is cached data, add new data at the first place and limit data to last 100 items
+  // if the there is cached data, add new data at the first place and limit cached data to given items count
   // otherwise just add the data
-  const newCache = cache ? [data, ...cache.slice(0, limit)] : [data];
+  const newCache = cache ? { [prop]: data, ...cache } : { [prop]: data };
 
   setLocalStorage(key, newCache);
 }

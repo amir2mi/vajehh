@@ -4,7 +4,8 @@ import MasonryGrid from "./MasonryGrid";
 import { Loading } from "react-flatifycss";
 import { useSearch } from "../../contexts/search";
 import { useSettings } from "../../contexts/settings";
-import { AllowedDictionaries } from "../../contexts/dictionary";
+import type { AllowedDictionaries } from "../../contexts/dictionary";
+import { cacheToLocalStorage } from "../../utils/localStorage";
 import { searchWord } from "../../services/api";
 import { DefinitionBox, FakeDefinitionBox } from "../../components";
 import Error from "./Error";
@@ -53,6 +54,8 @@ export default function TabBody({ children, dic, onFinish, onSearch, postsPerPag
       setResult(items);
       // allowed items to display after fetch
       setDisplayQueue(items?.slice(0, postsPerPage));
+      // update current dictionary local storage cache
+      cacheToLocalStorage(`cached_${dic}`, searchValue, items);
       // there was no error
       setHasError(false);
       // update result count
