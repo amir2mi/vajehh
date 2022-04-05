@@ -1,6 +1,6 @@
 import { ToggleSwitch } from "react-flatifycss";
 import { useSettings } from "../../contexts/settings";
-import { setLocalStorageProp } from "../../utils/localStorage";
+import { setLocalStorage, setLocalStorageProp } from "../../utils/localStorage";
 
 export default function GeneralSettings() {
   const { autoSearch, setAutoSearch, fuzzySearch, setFuzzySearch } = useSettings();
@@ -13,6 +13,13 @@ export default function GeneralSettings() {
   const handleFuzzySearchToggle = (value: boolean) => {
     setFuzzySearch(value);
     setLocalStorageProp("settings", "fuzzySearch", value);
+
+    // reset cached results on fuzzy search toggle
+    setLocalStorage("cached_motaradef", {});
+    setLocalStorage("cached_sereh", {});
+    setLocalStorage("cached_teyfi", {});
+    setLocalStorage("cached_farhangestan", {});
+    setLocalStorage("cached_ganjvar", {});
   };
 
   return (
