@@ -65,7 +65,7 @@ export default function ResultTabs() {
       content: (
         <TabBody
           postsPerPage={10}
-          dic="motaradef"
+          dict="motaradef"
           onSearch={() => handleOnSearch("motaradef")}
           onFinish={(count) => handleOnFinish("motaradef", count)}
         >
@@ -84,7 +84,7 @@ export default function ResultTabs() {
       content: (
         <TabBody
           postsPerPage={10}
-          dic="sereh"
+          dict="sereh"
           onSearch={() => handleOnSearch("sereh")}
           onFinish={(count) => handleOnFinish("sereh", count)}
         >
@@ -102,7 +102,7 @@ export default function ResultTabs() {
       content: (
         <TabBody
           postsPerPage={10}
-          dic="teyfi"
+          dict="teyfi"
           onSearch={() => handleOnSearch("teyfi")}
           onFinish={(count) => handleOnFinish("teyfi", count)}
         >
@@ -121,7 +121,7 @@ export default function ResultTabs() {
       content: (
         <TabBody
           postsPerPage={10}
-          dic="farhangestan"
+          dict="farhangestan"
           onSearch={() => handleOnSearch("farhangestan")}
           onFinish={(count) => handleOnFinish("farhangestan", count)}
         >
@@ -139,7 +139,7 @@ export default function ResultTabs() {
       content: (
         <TabBody
           postsPerPage={4}
-          dic="ganjvar"
+          dict="ganjvar"
           onSearch={() => handleOnSearch("ganjvar")}
           onFinish={(count) => handleOnFinish("ganjvar", count)}
         >
@@ -158,7 +158,7 @@ export default function ResultTabs() {
   return !hasActiveDictionary() ? (
     <div className="tabs-wrapper bordered result-tabs no-active-tab flex-column-center">
       <IntroBox className="horizontal anim-fade-in" title="بدون منابع جستجو" icon={<Icons.NoActiveDict />}>
-      هیچ زبانه جستجویی فعال نیست، از قسمت منابع جستجو حداقل یک مورد را فعال کنید.
+        هیچ زبانه جستجویی فعال نیست، از قسمت منابع جستجو حداقل یک مورد را فعال کنید.
       </IntroBox>
     </div>
   ) : (
