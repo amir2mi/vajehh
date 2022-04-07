@@ -11,7 +11,6 @@ const emlaei = require("./routes/emlaei");
 const dynamicHTML = require("./routes/dynamic-html");
 const path = require("path");
 const gzipStatic = require("connect-gzip-static");
-const staticDir = "../client/build";
 
 // Connect to MongoDB Atlas client
 // each MongoDB cluster can have only three collection with Atlas search feature
@@ -50,14 +49,14 @@ app.use("/api/ganjvar", ganjvar);
 app.use("/api/emlaei", emlaei);
 
 // Serve original static files
-// app.use(express.static(path.resolve(__dirname, staticDir)));
+// app.use(express.static(path.resolve(__dirname, process.env["VAJEHH_CLIENT_PATH"])));
 
 // Serve gzipped static files
-app.use(gzipStatic(path.resolve(__dirname, staticDir), { maxAge: 86400000 }));
+app.use(gzipStatic(path.resolve(__dirname, process.env["VAJEHH_CLIENT_PATH"]), { maxAge: 86400000 }));
 
 // redirect all other routes to the index.html
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, staticDir, "index.html"));
+  res.sendFile(path.resolve(__dirname, process.env["VAJEHH_CLIENT_PATH"], "index.html"));
 });
 
 const port = process.env.PORT || 8080;
