@@ -12,6 +12,14 @@
     }
   }
 
+  @media (max-width: 575px) {
+    font-size: 1.125em;
+
+    .message-box {
+      padding-bottom: 0.5em;
+    }
+  }
+
   .icon {
     position: absolute;
     top: -2em;
@@ -46,7 +54,7 @@
       font-size: 0.85em;
       line-height: 1.65;
       margin-top: 0.85em;
-      opacity: 0.7;
+      opacity: 0.85;
     }
   }
 }
