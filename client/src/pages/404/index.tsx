@@ -6,7 +6,7 @@ import "./style.scss";
 
 export default function NothingFound() {
   useEffect(() => {
-    document.title = "صفحه موردنظر پیدا نشد";
+    // document.title = "صفحه موردنظر پیدا نشد";
   }, []);
 
   return (
