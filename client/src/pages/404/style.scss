@@ -16,6 +16,12 @@
     }
   }
 
+  @media (max-width: 575px) {
+    .firefly {
+      top: -30%;
+    }
+  }
+
   .content {
     position: relative;
     z-index: 3;
@@ -27,7 +33,7 @@
     margin-bottom: 2em;
   }
 
-  .button{
+  .button {
     min-width: 9em;
   }
 
