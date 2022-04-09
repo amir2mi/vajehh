@@ -15,7 +15,7 @@
     "clsx": "^1.1.1",
     "flatifycss": "^1.2.5",
     "markdown-to-jsx": "^7.1.7",
-    "react": "^17.0.2",
+    "react": "^18.0.0",
     "react-dom": "^17.0.2",
     "react-flatifycss": "^0.6.15",
     "react-highlight-words": "^0.17.0",
@@ -24,7 +24,8 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "typescript": "^4.5.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "sass": "^1.49.7"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -51,10 +52,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/lodash": "^4.14.178",
-    "gh-pages": "^3.2.3",
-    "sass": "^1.49.7"
   }
 }
