@@ -62,4 +62,41 @@
       animation: flatify-fade-out 4s ease-in-out both;
     }
   }
+
+  .detail-box {
+    font-size: 0.9em;
+    padding: 0.75em;
+    margin: 0.75em 0;
+    background: var(--flatify__bg-color-dark);
+    border: 0.18em solid var(--flatify__bg-color-darker);
+    border-radius: 1em;
+
+    &[open] {
+      summary::marker {
+        content: "💥 ";
+        margin: 0.5em;
+      }
+    }
+
+    summary {
+      &::marker {
+        content: "💡 ";
+      }
+
+      & + * {
+        margin-top: 1em;
+      }
+    }
+  }
+
+  .tutorial-icon {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.32em;
+    fill: currentColor;
+  }
+
+  .rotate-90 {
+    transform: rotate(90deg);
+  }
 }
