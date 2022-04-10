@@ -47,7 +47,7 @@ router.get("/search/:word", async function (req, res) {
   const data = await dynamizeHTML(
     staticFile,
     `واژه | مترادف و اشعار مرتبط با ${req.params.word}`,
-    `مشاهده واژگان مترادف و متضاد، طیف واژه، معادل سره و فرهنگستان و اشعار مرتبط با "${req.params.word}"`,
+    `مشاهده واژگان مترادف و متضاد، طیف واژه، معادل سره و فرهنگستان و اشعار مرتبط با [${req.params.word}]`,
     url
   );
   res.send(data);
