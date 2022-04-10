@@ -39,6 +39,7 @@
    <svg aria-label="سه نقطه منو" class="tutorial-icon rotate-90" viewBox="0 0 384 384"><circle cx="192" cy="42.667" r="42.667"></circle><circle cx="192" cy="192" r="42.667"></circle><circle cx="192" cy="341.333" r="42.667"></circle></svg>
    به بخش برنامه‌ها (Apps) بروید و بر روی نصب واژه کلیک کنید.
 </details>
+<br/>
 
 ## شروع جستجو
 
