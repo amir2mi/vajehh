@@ -65,7 +65,7 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
 
   useEffect(() => {
     if (searchValue) {
-      document.title = `واژه | نتایج جستجو برای ${searchValue}`;
+      document.title = `واژه | مترادف و اشعار مرتبط با ${searchValue}`;
     } else {
       document.title = `واژه | جستجوی واژه و اشعار در فرهنگ های سره، طیفی، گنجور و غیره`;
     }
