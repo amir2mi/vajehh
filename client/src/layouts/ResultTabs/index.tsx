@@ -5,6 +5,7 @@ import { useDictionary } from "../../contexts/dictionary";
 import { Icons, IntroBox } from "../../components";
 import TabTitle from "./TabTitle";
 import TabBody from "./TabBody";
+import NoActiveTab from "./NoActiveTab";
 import "./style.scss";
 
 interface ResultCountProps {
@@ -156,11 +157,7 @@ export default function ResultTabs() {
   ];
 
   return !hasActiveDictionary() ? (
-    <div className="tabs-wrapper bordered result-tabs no-active-tab flex-column-center">
-      <IntroBox className="horizontal anim-fade-in" title="بدون منابع جستجو" icon={<Icons.NoActiveDict />}>
-        هیچ زبانه جستجویی فعال نیست، از قسمت منابع جستجو حداقل یک مورد را فعال کنید.
-      </IntroBox>
-    </div>
+    <NoActiveTab />
   ) : (
     <Tabs scrollable className="result-tabs" items={items} animation="fade" bordered={true} />
   );
