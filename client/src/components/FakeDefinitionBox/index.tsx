@@ -8,6 +8,7 @@ export default function FakeDefinitionBox() {
       title="در حال جستجو"
       definition="واژه در حال جستجو بین واژه‌نامه ها است تا بتواند مناسب ترین پاسخ را برای شما به نمایش بگذارد."
       highlight={false}
+      limit={false}
     />
   );
 }

@@ -11,25 +11,16 @@ interface DefinitionBoxProps {
   hasMultipleLine?: boolean;
   highlight?: string[] | false;
   highlightColor?: string;
-  limit?: number;
+  limit?: number | false;
   title: string;
   titleTagName?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 }
 
 export default function DefinitionBox(props: DefinitionBoxProps) {
-  const {
-    children,
-    className,
-    definition,
-    hasMultipleLine,
-    highlight,
-    highlightColor,
-    limit = 0,
-    title,
-    titleTagName,
-  } = props;
+  const { children, className, definition, hasMultipleLine, highlight, highlightColor, limit, title, titleTagName } =
+    props;
   const Heading = titleTagName || "h2";
-  const [isLimited, setIsLimited] = useState(definition && definition.length > limit);
+  const [isLimited, setIsLimited] = useState(definition && limit && definition.length > limit);
 
   return (
     <div className={clsx("definition-box", className && className)}>
