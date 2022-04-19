@@ -29,9 +29,10 @@ export default function GeneralSettings() {
     setLocalStorageProp("settings", "limitHeight", value);
 
     // reset the search value to update results
+    const oldValue = searchValue;
     setSearchValue("");
     setTimeout(() => {
-      setSearchValue(searchValue);
+      setSearchValue(oldValue);
     }, 100);
   };
 
