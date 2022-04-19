@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Tabs } from "react-flatifycss";
 import { useSearch } from "../../contexts/search";
 import { useDictionary } from "../../contexts/dictionary";
@@ -17,9 +18,21 @@ interface ResultCountProps {
 }
 
 export default function ResultTabs() {
+  const [searchParams] = useSearchParams();
+
   const { searchValue } = useSearch();
   const { dictionaries } = useDictionary();
+
   const [resultCount, setResultCount] = useState<ResultCountProps>({});
+
+  const activeTab = searchParams.get("tab") || "motaradef";
+  const tabsList = {
+    motaradef: 0,
+    sereh: 1,
+    teyfi: 2,
+    farhangestan: 3,
+    ganjvar: 4,
+  };
 
   // set [-1] to indicate that the tab is loading
   const handleOnSearch = (dic: string) => {
@@ -159,6 +172,13 @@ export default function ResultTabs() {
   return !hasActiveDictionary() ? (
     <NoActiveTab />
   ) : (
-    <Tabs scrollable className="result-tabs" items={items} animation="fade" bordered={true} />
+    <Tabs
+      defaultTab={tabsList[activeTab]}
+      scrollable
+      className="result-tabs"
+      items={items}
+      animation="fade"
+      bordered={true}
+    />
   );
 }
