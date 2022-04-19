@@ -26,6 +26,7 @@ export default function ResultTabs() {
   const [resultCount, setResultCount] = useState<ResultCountProps>({});
 
   const activeTab = searchParams.get("tab") || "motaradef";
+  // use tabList[activeTab] to set the default tab index
   const tabsList = {
     motaradef: 0,
     sereh: 1,
