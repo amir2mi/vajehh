@@ -33,7 +33,7 @@ interface TabBodyProps {
 
 export default function TabBody({ children, dict, onFinish, onSearch, postsPerPage }: TabBodyProps) {
   const { searchValue } = useSearch();
-  const { highlight, highlightColor, fuzzySearch, columnsCount } = useSettings();
+  const { highlight, highlightColor, fuzzySearch, columnsCount, limitHeight } = useSettings();
 
   const [result, setResult] = useState<ResultProps[]>();
   const [displayQueue, setDisplayQueue] = useState<ResultProps[]>();
@@ -125,7 +125,7 @@ export default function TabBody({ children, dict, onFinish, onSearch, postsPerPa
                   key={itemIndex}
                   title={item.title}
                   definition={item.definition}
-                  limit={dict === "ganjvar" && 15}
+                  limit={limitHeight && 15}
                   hasMultipleLine={dict === "ganjvar" || dict === "farhangestan"}
                   highlight={highlight && searchValue.split(/&|،|,|\*|\+| /)}
                   highlightColor={highlightColor}

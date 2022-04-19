@@ -1,9 +1,11 @@
 import { ToggleSwitch } from "react-flatifycss";
 import { useSettings } from "../../contexts/settings";
+import { useSearch } from "../../contexts/search";
 import { setLocalStorage, setLocalStorageProp } from "../../utils/localStorage";
 
 export default function GeneralSettings() {
-  const { autoSearch, setAutoSearch, fuzzySearch, setFuzzySearch } = useSettings();
+  const { autoSearch, setAutoSearch, fuzzySearch, setFuzzySearch, limitHeight, setLimitHeight } = useSettings();
+  const { searchValue, setSearchValue } = useSearch();
 
   const handleAutoSearchToggle = (value: boolean) => {
     setAutoSearch(value);
@@ -22,6 +24,17 @@ export default function GeneralSettings() {
     setLocalStorage("cached_ganjvar", {});
   };
 
+  const handleLimitHeightToggle = (value: boolean) => {
+    setLimitHeight(value);
+    setLocalStorageProp("settings", "limitHeight", value);
+
+    // reset the search value to update results
+    setSearchValue("");
+    setTimeout(() => {
+      setSearchValue(searchValue);
+    }, 100);
+  };
+
   return (
     <>
       <p className="menu-item heading">جستجو</p>
@@ -30,6 +43,9 @@ export default function GeneralSettings() {
       </ToggleSwitch>
       <ToggleSwitch checked={fuzzySearch} isAfterLabel={true} onChange={(value) => handleFuzzySearchToggle(value)}>
         جستجو واژگان مشابه
+      </ToggleSwitch>
+      <ToggleSwitch checked={limitHeight} isAfterLabel={true} onChange={(value) => handleLimitHeightToggle(value)}>
+        محدود کردن ارتفاع جعبه‌ها
       </ToggleSwitch>
     </>
   );
