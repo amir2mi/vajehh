@@ -12,7 +12,7 @@ interface DictionariesInfo {
   resultCount: number;
 }
 
-export type AllowedDictionaries = "dehkhoda" | "teyfi" | "motaradef" | "sereh"  | "farhangestan" | "ganjvar" | "emlaei";
+export type AllowedDictionaries = "dehkhoda" | "teyfi" | "motaradef" | "sereh" | "farhangestan" | "ganjvar" | "emlaei";
 
 export interface Dictionaries {
   [key: string]: DictionariesInfo;
@@ -58,7 +58,7 @@ const getDefaultDictionaries = () => {
       key: "sereh",
       active: true,
     },
-  
+
     farhangestan: {
       name: "فرهنگستان",
       key: "farhangestan",
@@ -76,9 +76,13 @@ const DictionaryContext = createContext<undefined | DictionaryContextProps>(unde
 
 const DictionaryProvider = ({ children }: DictionaryProviderProps) => {
   // use local storage to get selected dictionaries, if local storage is empty set default dictionaries
-  const [dictionaries, setDictionaries] = useState<Dictionaries>(() =>
-    getLocalStorage("dictionaries", getDefaultDictionaries())
-  );
+  // first add default dictionaries,
+  // because it is possible for users local storage config to do not have the newest dictionaries
+  const userDictionaries = {
+    ...getDefaultDictionaries(),
+    ...getLocalStorage("dictionaries", getDefaultDictionaries()),
+  };
+  const [dictionaries, setDictionaries] = useState<Dictionaries>(() => userDictionaries);
 
   const editDictionary = (dic, prop, value) => {
     setDictionaries((old) => {
