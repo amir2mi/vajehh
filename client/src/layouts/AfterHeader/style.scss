@@ -79,10 +79,6 @@
 
     @media (min-width: 576px) {
       transform: rotate(-5deg);
-
-      @media (prefers-reduced-motion: no-preference) {
-        animation: vajehh-hand-wave 5s ease-in-out infinite;
-      }
     }
   }
 
@@ -122,17 +118,5 @@
   }
   100% {
     background-position-y: 2em;
-  }
-}
-
-@keyframes vajehh-hand-wave {
-  0% {
-    transform: rotate(-5deg);
-  }
-  50% {
-    transform: rotate(-8deg);
-  }
-  100% {
-    transform: rotate(-5deg);
   }
 }

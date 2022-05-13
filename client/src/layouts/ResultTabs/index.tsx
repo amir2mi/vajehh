@@ -86,9 +86,8 @@ export default function ResultTabs() {
           onSearch={() => handleOnSearch("dehkhoda")}
           onFinish={(count) => handleOnFinish("dehkhoda", count)}
         >
-          <IntroBox title="مترادف" icon={<Icons.IntroMotaradef />}>
-            این فرهنگ ارزشمند دربردارنده‌ی حجم زیادی از واژگان مترادف و متضاد فارسی است، استفاده از این فرهنگ راه خوبی
-            برای تقویت دایره‌ی واژگان است.
+          <IntroBox title="دهخدا" icon={<Icons.IntroMotaradef />}>
+            نسخه مختصرشده واژه‌نامه دهخدا به شما کمک می‌کند تا معنی، تفسیر و شرح تاریخی واژه‌ها را پیدا کنید.
           </IntroBox>
         </TabBody>
       ),
@@ -162,7 +161,7 @@ export default function ResultTabs() {
           onFinish={(count) => handleOnFinish("farhangestan", count)}
         >
           <IntroBox title="فرهنگستان" icon={<Icons.IntroFarhangestan />}>
-            با کمک این فرهنگ می‌توانید برابر فارسی اصطلاحات و کلمات بیگانه را پیدا کنید.
+            با کمک این فرهنگ می‌توانید برابر فارسی اصطلاحات و واژگان بیگانه را پیدا کنید.
           </IntroBox>
         </TabBody>
       ),
