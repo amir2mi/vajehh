@@ -10,9 +10,10 @@ import NoActiveTab from "./NoActiveTab";
 import "./style.scss";
 
 interface ResultCountProps {
+  dehkhoda?: number;
+  teyfi?: number;
   motaradef?: number;
   sereh?: number;
-  teyfi?: number;
   farhangestan?: number;
   ganjvar?: number;
 }
@@ -25,14 +26,15 @@ export default function ResultTabs() {
 
   const [resultCount, setResultCount] = useState<ResultCountProps>({});
 
-  const activeTab = searchParams.get("tab") || "motaradef";
+  const activeTab = searchParams.get("tab") || "dehkhoda";
   // use tabList[activeTab] to set the default tab index
   const tabsList = {
-    motaradef: 0,
-    sereh: 1,
-    teyfi: 2,
-    farhangestan: 3,
-    ganjvar: 4,
+    dehkhoda: 0,
+    teyfi: 1,
+    motaradef: 2,
+    sereh: 3,
+    farhangestan: 4,
+    ganjvar: 5,
   };
 
   // set [-1] to indicate that the tab is loading
@@ -76,6 +78,44 @@ export default function ResultTabs() {
 
   const items = [
     {
+      title: <TabTitle title="دهخدا" value={resultCount.dehkhoda} />,
+      content: (
+        <TabBody
+          postsPerPage={10}
+          dict="dehkhoda"
+          onSearch={() => handleOnSearch("dehkhoda")}
+          onFinish={(count) => handleOnFinish("dehkhoda", count)}
+        >
+          <IntroBox title="مترادف" icon={<Icons.IntroMotaradef />}>
+            این فرهنگ ارزشمند دربردارنده‌ی حجم زیادی از واژگان مترادف و متضاد فارسی است، استفاده از این فرهنگ راه خوبی
+            برای تقویت دایره‌ی واژگان است.
+          </IntroBox>
+        </TabBody>
+      ),
+      className: "dehkhoda",
+      isHidden: !dictionaries.dehkhoda.active,
+      onClick: () => scrollToTop("dehkhoda"),
+    },
+    {
+      title: <TabTitle title="طیفی" value={resultCount.teyfi} />,
+      content: (
+        <TabBody
+          postsPerPage={10}
+          dict="teyfi"
+          onSearch={() => handleOnSearch("teyfi")}
+          onFinish={(count) => handleOnFinish("teyfi", count)}
+        >
+          <IntroBox title="طیفی" icon={<Icons.IntroTeyfi />}>
+            فرهنگ طیفی شبکه‌ای از واژگان مرتبط به‌همدیگر است، این فرهنگ کمک می‌کند تا واژگانی که نوک زبانتان گیر کرده
+            ولی به خاطر نمی‌آورید را به‌سادگی پیدا کنید.
+          </IntroBox>
+        </TabBody>
+      ),
+      className: "teyfi",
+      isHidden: !dictionaries.teyfi.active,
+      onClick: () => scrollToTop("teyfi"),
+    },
+    {
       title: <TabTitle title="مترادف" value={resultCount.motaradef} />,
       content: (
         <TabBody
@@ -111,25 +151,6 @@ export default function ResultTabs() {
       className: "sereh",
       isHidden: !dictionaries.sereh.active,
       onClick: () => scrollToTop("sereh"),
-    },
-    {
-      title: <TabTitle title="طیفی" value={resultCount.teyfi} />,
-      content: (
-        <TabBody
-          postsPerPage={10}
-          dict="teyfi"
-          onSearch={() => handleOnSearch("teyfi")}
-          onFinish={(count) => handleOnFinish("teyfi", count)}
-        >
-          <IntroBox title="طیفی" icon={<Icons.IntroTeyfi />}>
-            فرهنگ طیفی شبکه‌ای از واژگان مرتبط به‌همدیگر است، این فرهنگ کمک می‌کند تا واژگانی
-            که نوک زبانتان گیر کرده ولی به خاطر نمی‌آورید را به‌سادگی پیدا کنید.
-          </IntroBox>
-        </TabBody>
-      ),
-      className: "teyfi",
-      isHidden: !dictionaries.teyfi.active,
-      onClick: () => scrollToTop("teyfi"),
     },
     {
       title: <TabTitle title="فرهنگستان" value={resultCount.farhangestan} />,

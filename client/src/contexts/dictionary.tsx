@@ -12,10 +12,11 @@ interface DictionariesInfo {
   resultCount: number;
 }
 
-export type AllowedDictionaries = "motaradef" | "sereh" | "teyfi" | "farhangestan" | "ganjvar" | "emlaei";
+export type AllowedDictionaries = "dehkhoda" | "teyfi" | "motaradef" | "sereh"  | "farhangestan" | "ganjvar" | "emlaei";
 
 export interface Dictionaries {
   [key: string]: DictionariesInfo;
+  dehkhoda: DictionariesInfo;
   emlaei: DictionariesInfo;
   farhangestan: DictionariesInfo;
   motaradef: DictionariesInfo;
@@ -37,6 +38,16 @@ const getDefaultDictionaries = () => {
       key: "emlaei",
       active: true,
     },
+    dehkhoda: {
+      name: "دهخدا",
+      key: "dehkhoda",
+      active: true,
+    },
+    teyfi: {
+      name: "طیفی",
+      key: "teyfi",
+      active: true,
+    },
     motaradef: {
       name: "مترادف",
       key: "motaradef",
@@ -47,11 +58,7 @@ const getDefaultDictionaries = () => {
       key: "sereh",
       active: true,
     },
-    teyfi: {
-      name: "طیفی",
-      key: "teyfi",
-      active: true,
-    },
+  
     farhangestan: {
       name: "فرهنگستان",
       key: "farhangestan",

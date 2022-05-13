@@ -17,9 +17,10 @@ export default function GeneralSettings() {
     setLocalStorageProp("settings", "fuzzySearch", value);
 
     // reset cached results on fuzzy search toggle
+    setLocalStorage("cached_dehkhoda", {});
+    setLocalStorage("cached_teyfi", {});
     setLocalStorage("cached_motaradef", {});
     setLocalStorage("cached_sereh", {});
-    setLocalStorage("cached_teyfi", {});
     setLocalStorage("cached_farhangestan", {});
     setLocalStorage("cached_ganjvar", {});
   };

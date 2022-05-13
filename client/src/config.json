@@ -9,9 +9,10 @@
   "searchDebounceDuration": 900,
   "dictionaryPickerDebounceDuration": 500,
   "localCacheLimit__emlaei": 30,
+  "localCacheLimit__dehkhoda": 15,
+  "localCacheLimit__teyfi": 15,
   "localCacheLimit__motaradef": 15,
   "localCacheLimit__sereh": 15,
-  "localCacheLimit__teyfi": 15,
   "localCacheLimit__farhangestan": 15,
   "localCacheLimit__ganjvar": 5
 }
