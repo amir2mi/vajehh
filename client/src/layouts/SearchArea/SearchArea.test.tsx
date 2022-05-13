@@ -25,7 +25,10 @@ describe("<SearchArea/>", () => {
       setup();
       const input = screen.getByRole("textbox");
       userEvent.type(input, "test");
-      expect(input).toHaveValue("test");
+
+      waitFor(() => {
+        expect(input).toHaveValue("test");
+      });
     });
 
     it("should change the search context value automatically after delay", async () => {
@@ -38,7 +41,7 @@ describe("<SearchArea/>", () => {
       userEvent.type(input, "test");
 
       // wait for debounce
-      await waitFor(() => {
+      waitFor(() => {
         expect(screen.getByText("search this value: test")).toBeInTheDocument();
       });
     });
@@ -55,7 +58,9 @@ describe("<SearchArea/>", () => {
       userEvent.click(searchButton);
 
       // context value immediately should be changed to "test"
-      expect(screen.getByText("search this value: test")).toBeInTheDocument();
+      waitFor(() => {
+        expect(screen.getByText("search this value: test")).toBeInTheDocument();
+      });
     });
   });
 });

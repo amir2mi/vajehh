@@ -41,6 +41,48 @@ function setupFakeEndpoints() {
         kind: "emlaei",
         items: ["جمال", "شمال"],
       });
+    } else if (url.includes("/dehkhoda")) {
+      return returnFakeResponse({
+        kind: "dehkhoda",
+        items: [
+          {
+            _id: "6214ec0eac881d0bb8a4e10c",
+            title: "کمال‌طلب",
+            definition: ["استغنا", "بلوغ", "پختگی"],
+          },
+          {
+            _id: "6214ebfcac881d0bb8a4c3e3",
+            title: "استغنا (متضاد: نیازمندی، نیاز)",
+            definition: ["علوطبع", "کمال", "ناز"],
+          },
+          {
+            _id: "6214ec09ac881d0bb8a4d836",
+            title: "رسایی",
+            definition: ["بلاغت", "کمال", "رسیدگی (متضاد: نارسایی)"],
+          },
+        ],
+      });
+    } else if (url.includes("/teyfi")) {
+      return returnFakeResponse({
+        kind: "teyfi",
+        items: [
+          {
+            _id: "62136e5cac881d0bb8144aa8",
+            title: "به‌کمال رسیدن",
+            definition: ["ایده‌آل", "معصومیت", "خطاناپذیری", "بلوغ"],
+          },
+          {
+            _id: "62136e5cac881d0bb8144ab5",
+            title: "نمونهٔ کمال",
+            definition: ["اسوه", "ابرمرد", "انسان والا", "شاهکار"],
+          },
+          {
+            _id: "62136e4dac881d0bb8143849",
+            title: "کاملا",
+            definition: ["تماما", "به‌کلی", "کلا", "یکسر", "یک‌سره", "سربه‌سر", "دریک‌نوبت", "تمام‌وکمال"],
+          },
+        ],
+      });
     } else if (url.includes("/motaradef")) {
       return returnFakeResponse({
         kind: "motaradef",
@@ -75,27 +117,6 @@ function setupFakeEndpoints() {
             _id: "62136e2fac881d0bb81420c7",
             title: "کمال طلبانه",
             definition: ["آرمانگرایانه"],
-          },
-        ],
-      });
-    } else if (url.includes("/teyfi")) {
-      return returnFakeResponse({
-        kind: "teyfi",
-        items: [
-          {
-            _id: "62136e5cac881d0bb8144aa8",
-            title: "به‌کمال رسیدن",
-            definition: ["ایده‌آل", "معصومیت", "خطاناپذیری", "بلوغ"],
-          },
-          {
-            _id: "62136e5cac881d0bb8144ab5",
-            title: "نمونهٔ کمال",
-            definition: ["اسوه", "ابرمرد", "انسان والا", "شاهکار"],
-          },
-          {
-            _id: "62136e4dac881d0bb8143849",
-            title: "کاملا",
-            definition: ["تماما", "به‌کلی", "کلا", "یکسر", "یک‌سره", "سربه‌سر", "دریک‌نوبت", "تمام‌وکمال"],
           },
         ],
       });
@@ -155,8 +176,52 @@ describe("Search functionality", () => {
     userEvent.type(searchInput, "کمال");
 
     // check if the loading (fake definition boxes) are displayed correctly
-    await waitFor(() => {
+    waitFor(() => {
       expect(screen.getAllByRole("heading", { level: 2 })[0]).toHaveTextContent("در حال جستجو");
+    });
+  });
+
+  it("should search the word in Dehkhoda dictionary and display the result correctly", async () => {
+    setupFakeEndpoints();
+    const { container } = setup();
+    const searchInput = screen.getByRole("textbox");
+
+    // type something to initiate the search
+    userEvent.type(searchInput, "کمال");
+
+    // check if the result title is displayed correctly
+    waitFor(() => {
+      expect(container.querySelector(".dehkhoda .definition-box:first-child .definition-title")).toHaveTextContent(
+        "کمال‌طلب"
+      );
+    });
+    // check if the result definition is displayed correctly
+    waitFor(() => {
+      expect(container.querySelector(".motaradef .definition-box:first-child .definition")).toHaveTextContent(
+        "استغنا، بلوغ، پختگی"
+      );
+    });
+  });
+
+  it("should search the word in Teyfi dictionary and display the result correctly", async () => {
+    setupFakeEndpoints();
+    const { container } = setup();
+    const searchInput = screen.getByRole("textbox");
+
+    // type something to initiate the search
+    userEvent.type(searchInput, "کمال");
+
+    // check if the result title is displayed correctly
+    waitFor(() => {
+      expect(container.querySelector(".teyfi .definition-box:first-child .definition-title")).toHaveTextContent(
+        "به‌کمال رسیدن"
+      );
+    });
+    // check if the result definition is displayed correctly
+    waitFor(() => {
+      expect(container.querySelector(".teyfi .definition-box:first-child .definition")).toHaveTextContent(
+        "ایده‌آل، معصومیت، خطاناپذیری، بلوغ"
+      );
     });
   });
 
@@ -169,13 +234,13 @@ describe("Search functionality", () => {
     userEvent.type(searchInput, "کمال");
 
     // check if the result title is displayed correctly
-    await waitFor(() => {
+    waitFor(() => {
       expect(container.querySelector(".motaradef .definition-box:first-child .definition-title")).toHaveTextContent(
         "کمال‌طلب"
       );
     });
     // check if the result definition is displayed correctly
-    await waitFor(() => {
+    waitFor(() => {
       expect(container.querySelector(".motaradef .definition-box:first-child .definition")).toHaveTextContent(
         "استغنا، بلوغ، پختگی"
       );
@@ -191,35 +256,13 @@ describe("Search functionality", () => {
     userEvent.type(searchInput, "کمال");
 
     // check if the result title is displayed correctly
-    await waitFor(() => {
+    waitFor(() => {
       expect(container.querySelector(".sereh .definition-box:first-child .definition-title")).toHaveTextContent("کمال");
     });
     // check if the result definition is displayed correctly
-    await waitFor(() => {
+    waitFor(() => {
       expect(container.querySelector(".sereh .definition-box:first-child .definition")).toHaveTextContent(
         "والایی، کهتری، فرهیختگی، فرگشتگی، فرازمندی"
-      );
-    });
-  });
-
-  it("should search the word in Teyfi dictionary and display the result correctly", async () => {
-    setupFakeEndpoints();
-    const { container } = setup();
-    const searchInput = screen.getByRole("textbox");
-
-    // type something to initiate the search
-    userEvent.type(searchInput, "کمال");
-
-    // check if the result title is displayed correctly
-    await waitFor(() => {
-      expect(container.querySelector(".teyfi .definition-box:first-child .definition-title")).toHaveTextContent(
-        "به‌کمال رسیدن"
-      );
-    });
-    // check if the result definition is displayed correctly
-    await waitFor(() => {
-      expect(container.querySelector(".teyfi .definition-box:first-child .definition")).toHaveTextContent(
-        "ایده‌آل، معصومیت، خطاناپذیری، بلوغ"
       );
     });
   });
@@ -233,7 +276,7 @@ describe("Search functionality", () => {
     userEvent.type(searchInput, "کمال");
 
     // check if the result title is displayed correctly
-    await waitFor(() => {
+    waitFor(() => {
       expect(container.querySelector(".farhangestan .definition-box:first-child .definition-title")).toHaveTextContent(
         "least-upper-bound axiom"
       );
@@ -241,17 +284,17 @@ describe("Search functionality", () => {
 
     // check if the result definition is displayed correctly
     // Farhangestan put each line in a separate [.definition] element, so check each line if it has the correct info
-    await waitFor(() => {
+    waitFor(() => {
       expect(
         container.querySelector(".farhangestan .definition-box:first-child .definition:nth-of-type(1)")
       ).toHaveTextContent("اصل کوچک‌ترین کران بالا");
     });
-    await waitFor(() => {
+    waitFor(() => {
       expect(
         container.querySelector(".farhangestan .definition-box:first-child .definition:nth-of-type(2)")
       ).toHaveTextContent("اصل موضوع کمال");
     });
-    await waitFor(() => {
+    waitFor(() => {
       expect(
         container.querySelector(".farhangestan .definition-box:first-child .definition:nth-of-type(3)")
       ).toHaveTextContent("[ریاضی]");
@@ -267,7 +310,7 @@ describe("Search functionality", () => {
     userEvent.type(searchInput, "کمال");
 
     // check if the result title is displayed correctly
-    await waitFor(() => {
+    waitFor(() => {
       expect(container.querySelector(".ganjvar .definition-box:first-child .definition-title")).toHaveTextContent(
         "رشیدالدین وطواط | رباعیات | شمارهٔ ۹ - در مدح کمال الدین"
       );
@@ -275,22 +318,22 @@ describe("Search functionality", () => {
 
     // check if the result definition is displayed correctly
     // Ganjvar put each line in a separate [.definition] element, so check each line if it has the correct info
-    await waitFor(() => {
+    waitFor(() => {
       expect(
         container.querySelector(".ganjvar .definition-box:first-child .definition:nth-of-type(1)")
       ).toHaveTextContent("عنوان ظفر نام کمال الدینست");
     });
-    await waitFor(() => {
+    waitFor(() => {
       expect(
         container.querySelector(".ganjvar .definition-box:first-child .definition:nth-of-type(2)")
       ).toHaveTextContent("مقصود جهان کام کمال الدینست");
     });
-    await waitFor(() => {
+    waitFor(() => {
       expect(
         container.querySelector(".ganjvar .definition-box:first-child .definition:nth-of-type(3)")
       ).toHaveTextContent("هر جا که یکی صاحب فضلست امروز");
     });
-    await waitFor(() => {
+    waitFor(() => {
       expect(
         container.querySelector(".ganjvar .definition-box:first-child .definition:nth-of-type(4)")
       ).toHaveTextContent("در سایهٔ انعام کمال الدینست");
@@ -306,7 +349,7 @@ describe("Search functionality", () => {
     userEvent.type(searchInput, "کمال");
 
     // fake Emlaei API call always return "جمال" & "شمال"
-    await waitFor(() => {
+    waitFor(() => {
       expect(container.querySelector(".search-info")).toHaveTextContent("منظورتان جمال یا شمال بود؟");
     });
   });
