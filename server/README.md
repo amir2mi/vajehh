@@ -6,7 +6,7 @@ The server is built using Node.js, Express.js, and MongoDB. It uses MongoDB Atla
 
 To start the server you need to set two environment variables:
 `VAJEHH_FIRST_DB_URL` and `VAJEHH_SECOND_DB_URL`.
-Because of the Atlas search limit to only 3 collections, the server will use the first database for the Motaradef, Sereh and Teyfi collections and the second one for the Farhangestan and Ganjvar.
+Because of the Atlas search limit to only 3 collections, the server will use the first database for the Motaradef, Sereh and Teyfi collections and the second one for the Farhangestan, Ganjvar and Dehkhoda.
 You should create your own database and use the `VAJEHH_FIRST_DB_URL` and `VAJEHH_SECOND_DB_URL` environment variables to point to it.
 
 After setting the environment variables, run the following command in the server directory:
