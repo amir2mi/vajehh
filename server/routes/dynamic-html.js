@@ -36,6 +36,9 @@ const handleWordSearchTitle = (activeTab, word) => {
         case "ganjvar":
           resolve(`واژه | اشعار و ابیات مرتبط با ${word}`);
           break;
+        default:
+          resolve(`واژه | نتایج جستجو برای ${word}`);
+          break;
       }
     } else {
       if (word) {
