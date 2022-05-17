@@ -1,5 +1,5 @@
 import { useState, useEffect, FormEvent, MouseEvent } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { Input } from "react-flatifycss";
 import config from "../../config.json";
 import useDebounce from "../../hooks/useDebounce";
@@ -17,6 +17,7 @@ interface SearchAreaProps {
 export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
   const navigate = useNavigate();
   const { "*": word } = useParams();
+  const [searchParams] = useSearchParams();
   const { autoSearch } = useSettings();
 
   // shared value
@@ -32,6 +33,15 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
     return value.replace(/\//g, " ").trim();
   };
 
+  const handleNaviagate = (url: string) => {
+    const activeTab = searchParams.get("tab");
+    if (activeTab) {
+      url = url + `?tab=${activeTab}`;
+    }
+
+    navigate(url);
+  };
+
   const getSearchValue = () => {
     // get current path and remove /search/ and return the decoded the value
     return decodeURIComponent(window.location.pathname).replace("/search/", "");
@@ -43,7 +53,7 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
 
     setValue(sanitizedValue);
     setSearchValue(sanitizedValue);
-    navigate(sanitizedValue);
+    handleNaviagate(sanitizedValue);
   };
 
   const handleOnSubmit = (e: MouseEvent | FormEvent) => {
@@ -68,27 +78,38 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
     setSearchValue(newValue);
   };
 
-  useEffect(() => {
-    if (searchValue) {
-      document.title = `واژه | مترادف و اشعار مرتبط با ${searchValue}`;
+  const handlePageTitle = () => {
+    const activeTab = searchParams.get("tab");
+
+    if (activeTab && value) {
+      switch (activeTab) {
+        case "dehkhoda":
+          document.title = `واژه | معنی و تفسیر ${value} در لغت نامه دهخدا`;
+          break;
+        case "teyfi":
+          document.title = `واژه | واژگان مشابه با ${value} در فرهنگ طیفی`;
+          break;
+        case "motaradef":
+          document.title = `واژه | مترادف ${value}`;
+          break;
+        case "sereh":
+          document.title = `واژه | معادل فارسی ${value} در فرهنگ سره`;
+          break;
+        case "farhangestan":
+          document.title = `واژه | معادل تخصصی فارسی ${value} در فرهنگستان`;
+          break;
+        case "ganjvar":
+          document.title = `واژه | اشعار و ابیات مرتبط با ${value}`;
+          break;
+      }
     } else {
-      document.title = `واژه | جستجوی واژه و اشعار در فرهنگ های سره، طیفی، گنجور و غیره`;
+      if (value) {
+        document.title = `واژه | نتایج جستجو برای ${value}`;
+      } else {
+        document.title = `واژه | جستجوی واژه و اشعار در فرهنگ های سره، طیفی، گنجور و غیره`;
+      }
     }
-  }, [searchValue]);
-
-  // updated context value and URL after debounce
-  useEffect(() => {
-    // set debounced value after delay if autoSearch is active
-    if (!autoSearch) return;
-    // do not update value if it is the same as the current value
-    if (debouncedValue === searchValue) return;
-    const sanitizedValue = sanitizeValue(debouncedValue);
-
-    setSearchValue(sanitizedValue);
-    navigate(sanitizedValue);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [debouncedValue]);
+  };
 
   // update value after URL change with the back and forward buttons
   useEffect(() => {
@@ -104,6 +125,27 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // updated context value and URL after debounce
+  useEffect(() => {
+    // set debounced value after delay if autoSearch is active
+    if (!autoSearch) return;
+    // do not update value if it is the same as the current value
+    if (debouncedValue === searchValue) return;
+    const sanitizedValue = sanitizeValue(debouncedValue);
+
+    setSearchValue(sanitizedValue);
+    handleNaviagate(sanitizedValue);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debouncedValue]);
+
+  useEffect(() => {
+    // change page title based on the search value and active tab
+    handlePageTitle();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchValue]);
 
   return (
     <>
