@@ -14,6 +14,39 @@ const getRequestUrl = (req) => {
   });
 };
 
+const handleWordSearchTitle = (activeTab, word) => {
+  return new Promise((resolve) => {
+    if (activeTab && word) {
+      switch (activeTab) {
+        case "dehkhoda":
+          resolve(`واژه | معنی و تفسیر ${word} در لغت نامه دهخدا`);
+          break;
+        case "teyfi":
+          resolve(`واژه | واژگان مشابه با ${word} در فرهنگ طیفی`);
+          break;
+        case "motaradef":
+          resolve(`واژه | مترادف ${word}`);
+          break;
+        case "sereh":
+          resolve(`واژه | معادل فارسی ${word} در فرهنگ سره`);
+          break;
+        case "farhangestan":
+          resolve(`واژه | معادل تخصصی فارسی ${word} در فرهنگستان`);
+          break;
+        case "ganjvar":
+          resolve(`واژه | اشعار و ابیات مرتبط با ${word}`);
+          break;
+      }
+    } else {
+      if (word) {
+        resolve(`واژه | نتایج جستجو برای ${word}`);
+      } else {
+        resolve(`واژه | جستجوی واژه و اشعار در فرهنگ های سره، طیفی، گنجور و غیره`);
+      }
+    }
+  });
+};
+
 router.get("/", async function (req, res) {
   const url = await getRequestUrl(req);
   const data = await dynamizeHTML(
@@ -36,7 +69,7 @@ router.get("/search", async function (req, res) {
   const data = await dynamizeHTML(
     staticFile,
     "واژه | جستجوی واژه و اشعار در فرهنگ های سره، طیفی، گنجور و غیره",
-    "برای استفاده و واژه و جستجو می‌توانید از صفحه در بخش جستجو واژه موردنظر را تایپ کنید",
+    "از بین فرهنگ و واژه نامه های مختلف شروع به جستجو کنید تا به واژه یا شعر موردنظرتان را پیدا نمایید.",
     url
   );
   res.send(data);
@@ -44,10 +77,14 @@ router.get("/search", async function (req, res) {
 
 router.get("/search/:word", async function (req, res) {
   const url = await getRequestUrl(req);
+  const { word } = req.params;
+  const { tab } = req.query;
+
+  const title = await handleWordSearchTitle(tab, word);
   const data = await dynamizeHTML(
     staticFile,
-    `واژه | مترادف و اشعار مرتبط با ${req.params.word}`,
-    `مشاهده واژگان مترادف و متضاد، طیف واژه، معادل سره و فرهنگستان و اشعار مرتبط با [${req.params.word}]`,
+    title,
+    `مشاهده معنی و تفسیر، واژگان مترادف و متضاد، طیف واژه، معادل سره و فرهنگستان و اشعار مرتبط با [${word}]`,
     url
   );
   res.send(data);
