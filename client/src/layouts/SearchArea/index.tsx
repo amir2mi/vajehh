@@ -27,6 +27,11 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
   // wait until the user stops typing before updating the search value
   const debouncedValue = useDebounce(value, config.searchDebounceDuration);
 
+  // replace / with space and trim the value
+  const sanitizeValue = (value: string) => {
+    return value.replace(/\//g, " ").trim();
+  };
+
   const getSearchValue = () => {
     // get current path and remove /search/ and return the decoded the value
     return decodeURIComponent(window.location.pathname).replace("/search/", "");
@@ -34,17 +39,20 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
 
   const setInputValue = (value: string) => {
     // update local value, context value and URL
-    setValue(value);
-    setSearchValue(value);
-    navigate(value);
+    const sanitizedValue = sanitizeValue(value);
+
+    setValue(sanitizedValue);
+    setSearchValue(sanitizedValue);
+    navigate(sanitizedValue);
   };
 
   const handleOnSubmit = (e: MouseEvent | FormEvent) => {
     e.preventDefault();
+    const sanitizedValue = sanitizeValue(value);
 
     // immediately update the search value and URL
-    setSearchValue(value);
-    navigate(value);
+    setSearchValue(sanitizedValue);
+    navigate(sanitizedValue);
   };
 
   const handleOnPopState = (oldValue, oldHashState) => {
@@ -75,13 +83,14 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
   useEffect(() => {
     // set debounced value after delay if autoSearch is active
     if (!autoSearch) return;
+
     // do not update value if it is the same as the current value
     if (debouncedValue === searchValue) return;
-    // do not update because it navigates user to the homepage
-    if (debouncedValue === "/") return;
 
-    setSearchValue(debouncedValue);
-    navigate(value);
+    const sanitizedValue = sanitizeValue(debouncedValue);
+
+    setSearchValue(sanitizedValue);
+    navigate(sanitizedValue);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedValue]);
