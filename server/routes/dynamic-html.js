@@ -4,8 +4,7 @@ const dynamizeHTML = require("../html-dynamizer");
 
 const router = express.Router();
 
-const staticDir = "../../client/build";
-const staticFile = path.resolve(__dirname, staticDir, "index.html");
+const staticFile = path.resolve(__dirname, "../" + process.env.VAJEHH_CLIENT_PATH, "index.html");
 
 const getRequestUrl = (req) => {
   return new Promise((resolve) => {
