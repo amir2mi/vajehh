@@ -86,7 +86,7 @@ export default function ResultTabs() {
           onSearch={() => handleOnSearch("dehkhoda")}
           onFinish={(count) => handleOnFinish("dehkhoda", count)}
         >
-          <IntroBox title="دهخدا" icon={<Icons.IntroMotaradef />}>
+          <IntroBox title="دهخدا" icon={<Icons.IntroDehkhoda />}>
             نسخه مختصرشده واژه‌نامه دهخدا به شما کمک می‌کند تا معنی، تفسیر و شرح تاریخی واژه‌ها را پیدا کنید.
           </IntroBox>
         </TabBody>

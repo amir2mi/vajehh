@@ -5,11 +5,12 @@ import { ReactComponent as ThreeColumns } from "../../assets/svg/columns/three-c
 import { ReactComponent as TwoColumns } from "../../assets/svg/columns/two-columns.svg";
 
 // dictionaries
+import { ReactComponent as IntroDehkhoda } from "../../assets/svg/dics/dehkhoda.svg";
+import { ReactComponent as IntroFarhangestan } from "../../assets/svg/dics/farhangestan.svg";
+import { ReactComponent as IntroGanjvar } from "../../assets/svg/dics/ganjvar.svg";
 import { ReactComponent as IntroMotaradef } from "../../assets/svg/dics/motaradef.svg";
 import { ReactComponent as IntroSereh } from "../../assets/svg/dics/sereh.svg";
 import { ReactComponent as IntroTeyfi } from "../../assets/svg/dics/teyfi.svg";
-import { ReactComponent as IntroFarhangestan } from "../../assets/svg/dics/farhangestan.svg";
-import { ReactComponent as IntroGanjvar } from "../../assets/svg/dics/ganjvar.svg";
 
 // features
 import { ReactComponent as Cursor } from "../../assets/svg/features/cursor.svg";
@@ -37,11 +38,12 @@ const Icons = {
   OneColumn,
   ThreeColumns,
   TwoColumns,
+  IntroDehkhoda,
+  IntroFarhangestan,
+  IntroGanjvar,
   IntroMotaradef,
   IntroSereh,
   IntroTeyfi,
-  IntroFarhangestan,
-  IntroGanjvar,
   Cursor,
   Quill,
   Star,
