@@ -9,7 +9,6 @@ import SearchInfo from "../SearchInfo";
 import DictionaryPicker from "../DictionaryPicker";
 import SearchSettings from "../SearchSettings";
 import "./style.scss";
-import { Icons } from "../../components";
 
 interface SearchAreaProps {
   disableSuggestion?: boolean;
