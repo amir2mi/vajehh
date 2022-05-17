@@ -125,7 +125,7 @@ export default function TabBody({ children, dict, onFinish, onSearch, postsPerPa
                   key={itemIndex}
                   title={item.title}
                   definition={item.definition}
-                  limit={limitHeight && dict === "ganjvar" && 15}
+                  limit={limitHeight && (dict === "ganjvar" || dict === "dehkhoda") && 10}
                   hasMultipleLine={dict === "ganjvar" || dict === "farhangestan" || dict === "dehkhoda"}
                   highlight={highlight && searchValue.split(/&|،|,|\*|\+| /)}
                   highlightColor={highlightColor}
