@@ -41,13 +41,18 @@
 
   ul,
   ol {
-    list-style: square;
     margin: 1.5em 0;
 
     li {
       line-height: 1.7;
       margin-bottom: 0.64em;
+    }
+  }
 
+  ul {
+    li {
+      list-style-type: square;
+      
       li {
         list-style-type: disc;
       }
