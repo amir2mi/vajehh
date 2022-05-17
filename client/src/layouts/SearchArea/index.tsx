@@ -9,6 +9,7 @@ import SearchInfo from "../SearchInfo";
 import DictionaryPicker from "../DictionaryPicker";
 import SearchSettings from "../SearchSettings";
 import "./style.scss";
+import { Icons } from "../../components";
 
 interface SearchAreaProps {
   disableSuggestion?: boolean;
@@ -48,11 +49,8 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
 
   const handleOnSubmit = (e: MouseEvent | FormEvent) => {
     e.preventDefault();
-    const sanitizedValue = sanitizeValue(value);
-
     // immediately update the search value and URL
-    setSearchValue(sanitizedValue);
-    navigate(sanitizedValue);
+    setInputValue(value);
   };
 
   const handleOnPopState = (oldValue, oldHashState) => {
@@ -83,10 +81,8 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
   useEffect(() => {
     // set debounced value after delay if autoSearch is active
     if (!autoSearch) return;
-
     // do not update value if it is the same as the current value
     if (debouncedValue === searchValue) return;
-
     const sanitizedValue = sanitizeValue(debouncedValue);
 
     setSearchValue(sanitizedValue);
@@ -120,9 +116,9 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
           wrapperClassName="search-bar"
           placeholder="جستجو"
           value={value}
-          onChange={(val) => setValue(val)}
+          onChange={setValue}
         >
-          <button className="search-button" aria-label="جستجو کن" onClick={(e) => handleOnSubmit(e)}></button>
+          <button type="submit" className="search-button" aria-label="جستجو کن"></button>
         </Input>
       </form>
       <div className="search-settings">
