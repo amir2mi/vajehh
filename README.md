@@ -8,7 +8,7 @@ Vajehh is a MERN stack application, it uses MongoDB Atlas search to find words i
 
 ## Features
 
-The client search for words in the database and shows the results in a tab. The app supports searching for a word in six popular dictionaries as follows: "Dehkhoda", "Motaradef", "Sereh", "Teyfi", "Farhangestan", "Ganjvar" and "Emlaei".
+The client search for words in the database and shows the results in a tab. The app supports searching for a word in seven popular dictionaries as follows: "Dehkhoda", "Motaradef", "Sereh", "Teyfi", "Farhangestan", "Ganjvar" and "Emlaei".
 Users can change search settings and modify the active search sources.
 
 ## Installation
