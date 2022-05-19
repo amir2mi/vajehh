@@ -22,7 +22,8 @@
 طرح اولیه واژه با نرم‌افزار فیگما پیاده‌سازی شده که می‌توانید <a href="https://www.figma.com/community/file/1083498571775166027" target="_blank" rel="noreferrer">از اینجا</a> آن را مشاهده کنید.  
 کتابخانه مورد استفاده برای سمت کاربر <a href="https://flatifycss.com/" target="_blank" rel="noreferrer">FlatifyCSS</a> است.  
 برای منابع فرهنگ‌نامه‌های طیفی، مترادف، سره، فرهنگستان و گنجور از <a href="https://github.com/kokabi1365/Vajehdan/tree/master/src/Vajehdan/Resources/Dicts" target="_blank" rel="noreferrer"> فایل‌های نرم‌افزار واژه‌دان</a> استفاده شده و منبع واژه‌نامه دهخدا [این مخرن](https://github.com/tarnamaco/persian-databases) است.  
-منابع با اسکریپت پایتون به JSON و سپس به پایگاه‌داده مونگو انتقال یافته و سورس سرور و سمت‌کاربر به صورت متن‌باز تحت مجوز <a href="https://github.com/amir2mi/vajehh/blob/master/LICENSE" target="_blank" rel="noreferrer">AGPL-3.0</a> در <a href="https://github.com/amir2mi/vajehh" target="_blank" rel="noreferrer">گیت‌هاب</a> موجود است.
+منابع با اسکریپت پایتون به JSON تبدیل شده سپس به پایگاه‌داده مونگو انتقال یافته است.  
+سورس سرور و سمت‌کاربر به صورت متن‌باز تحت مجوز <a href="https://github.com/amir2mi/vajehh/blob/master/LICENSE" target="_blank" rel="noreferrer">AGPL-3.0</a> در <a href="https://github.com/amir2mi/vajehh" target="_blank" rel="noreferrer">گیت‌هاب</a> موجود است.
 
 ## حریم خصوصی
 
