@@ -19,7 +19,7 @@ export default function Footer() {
           <li>
             <a
               className="button style-dark size-sm reduce-brightness"
-              href="https://vajehdan.com/"
+              href="https://kokabi1365.github.io/Vajehdan/"
               target="_blank"
               rel="nofollow noreferrer"
             >
