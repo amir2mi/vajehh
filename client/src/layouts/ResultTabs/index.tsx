@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Tabs } from "react-flatifycss";
+import { Tabs, Tab, TabList, TabPanels, TabPanel } from "react-flatifycss";
 import { useSearch } from "../../contexts/search";
 import { useDictionary } from "../../contexts/dictionary";
 import { Icons, IntroBox } from "../../components";
@@ -27,7 +27,9 @@ export default function ResultTabs() {
   const [resultCount, setResultCount] = useState<ResultCountProps>({});
 
   const activeTab = searchParams.get("tab") || "dehkhoda";
+
   // use tabList[activeTab] to set the default tab index
+  // here we assume all tabs are active by default
   const tabsList = {
     dehkhoda: 0,
     teyfi: 1,
@@ -53,6 +55,10 @@ export default function ResultTabs() {
     }));
   };
 
+  const handleOnTabClick = (value: string) => {
+    scrollToTop(value);
+  };
+
   // if the tab has enough result scroll to top
   const scrollToTop = (dict: string) => {
     if (resultCount[dict] > 4) {
@@ -76,130 +82,95 @@ export default function ResultTabs() {
     };
   }, [searchValue]);
 
-  const items = [
+  interface tabProps {
+    title: string;
+    value: "dehkhoda" | "teyfi" | "motaradef" | "sereh" | "farhangestan" | "ganjvar";
+    description: string;
+    icon: React.ReactNode;
+    postsPerPage: number;
+  }
+
+  const tabs: tabProps[] = [
     {
-      title: <TabTitle title="دهخدا" value={resultCount.dehkhoda} />,
-      content: (
-        <TabBody
-          postsPerPage={10}
-          dict="dehkhoda"
-          onSearch={() => handleOnSearch("dehkhoda")}
-          onFinish={(count) => handleOnFinish("dehkhoda", count)}
-        >
-          <IntroBox title="دهخدا" icon={<Icons.IntroDehkhoda />}>
-            نسخه مختصرشده واژه‌نامه دهخدا به شما کمک می‌کند تا معنی، تفسیر و شرح تاریخی واژه‌ها را پیدا کنید.
-          </IntroBox>
-        </TabBody>
-      ),
-      className: "dehkhoda",
-      isHidden: !dictionaries.dehkhoda.active,
-      onClick: () => scrollToTop("dehkhoda"),
+      title: "دهخدا",
+      value: "dehkhoda",
+      description: "نسخه مختصرشده واژه‌نامه دهخدا به شما کمک می‌کند تا معنی، تفسیر و شرح تاریخی واژه‌ها را پیدا کنید.",
+      icon: <Icons.IntroDehkhoda />,
+      postsPerPage: 10,
     },
     {
-      title: <TabTitle title="طیفی" value={resultCount.teyfi} />,
-      content: (
-        <TabBody
-          postsPerPage={10}
-          dict="teyfi"
-          onSearch={() => handleOnSearch("teyfi")}
-          onFinish={(count) => handleOnFinish("teyfi", count)}
-        >
-          <IntroBox title="طیفی" icon={<Icons.IntroTeyfi />}>
-            فرهنگ طیفی شبکه‌ای از واژگان مرتبط به‌همدیگر است، این فرهنگ کمک می‌کند تا واژگانی که نوک زبانتان گیر کرده
-            ولی به خاطر نمی‌آورید را به‌سادگی پیدا کنید.
-          </IntroBox>
-        </TabBody>
-      ),
-      className: "teyfi",
-      isHidden: !dictionaries.teyfi.active,
-      onClick: () => scrollToTop("teyfi"),
+      title: "طیفی",
+      value: "teyfi",
+      description:
+        "فرهنگ طیفی شبکه‌ای از واژگان مرتبط به‌همدیگر است، این فرهنگ کمک می‌کند تا واژگانی که نوک زبانتان گیر کرده ولی به خاطر نمی‌آورید را به‌سادگی پیدا کنید.",
+      icon: <Icons.IntroTeyfi />,
+      postsPerPage: 10,
     },
     {
-      title: <TabTitle title="مترادف" value={resultCount.motaradef} />,
-      content: (
-        <TabBody
-          postsPerPage={10}
-          dict="motaradef"
-          onSearch={() => handleOnSearch("motaradef")}
-          onFinish={(count) => handleOnFinish("motaradef", count)}
-        >
-          <IntroBox title="مترادف" icon={<Icons.IntroMotaradef />}>
-            این فرهنگ ارزشمند دربردارنده‌ی حجم زیادی از واژگان مترادف و متضاد فارسی است، استفاده از این فرهنگ راه خوبی
-            برای تقویت دایره‌ی واژگان است.
-          </IntroBox>
-        </TabBody>
-      ),
-      className: "motaradef",
-      isHidden: !dictionaries.motaradef.active,
-      onClick: () => scrollToTop("motaradef"),
+      title: "مترادف",
+      value: "motaradef",
+      description:
+        "این فرهنگ ارزشمند دربردارنده‌ی حجم زیادی از واژگان مترادف و متضاد فارسی است، استفاده از این فرهنگ راه خوبی برای تقویت دایره‌ی واژگان است.",
+      icon: <Icons.IntroMotaradef />,
+      postsPerPage: 10,
     },
     {
-      title: <TabTitle title="سره" value={resultCount.sereh} />,
-      content: (
-        <TabBody
-          postsPerPage={10}
-          dict="sereh"
-          onSearch={() => handleOnSearch("sereh")}
-          onFinish={(count) => handleOnFinish("sereh", count)}
-        >
-          <IntroBox title="سره" icon={<Icons.IntroSereh />}>
-            با کمک این واژه‌نامه می‌توانید معادل سرهٔ واژگان بیگانه را پیدا کنید.
-          </IntroBox>
-        </TabBody>
-      ),
-      className: "sereh",
-      isHidden: !dictionaries.sereh.active,
-      onClick: () => scrollToTop("sereh"),
+      title: "سره",
+      value: "sereh",
+      description: "با کمک این واژه‌نامه می‌توانید معادل سرهٔ واژگان بیگانه را پیدا کنید.",
+      icon: <Icons.IntroSereh />,
+      postsPerPage: 10,
     },
     {
-      title: <TabTitle title="فرهنگستان" value={resultCount.farhangestan} />,
-      content: (
-        <TabBody
-          postsPerPage={10}
-          dict="farhangestan"
-          onSearch={() => handleOnSearch("farhangestan")}
-          onFinish={(count) => handleOnFinish("farhangestan", count)}
-        >
-          <IntroBox title="فرهنگستان" icon={<Icons.IntroFarhangestan />}>
-            با کمک این فرهنگ می‌توانید برابر فارسی اصطلاحات و واژگان بیگانه را پیدا کنید.
-          </IntroBox>
-        </TabBody>
-      ),
-      className: "farhangestan",
-      isHidden: !dictionaries.farhangestan.active,
-      onClick: () => scrollToTop("farhangestan"),
+      title: "فرهنگستان",
+      value: "farhangestan",
+      description: "با کمک این فرهنگ می‌توانید برابر فارسی اصطلاحات و واژگان بیگانه را پیدا کنید.",
+      icon: <Icons.IntroFarhangestan />,
+      postsPerPage: 10,
     },
     {
-      title: <TabTitle title="گنجور" value={resultCount.ganjvar} />,
-      content: (
-        <TabBody
-          postsPerPage={4}
-          dict="ganjvar"
-          onSearch={() => handleOnSearch("ganjvar")}
-          onFinish={(count) => handleOnFinish("ganjvar", count)}
-        >
-          <IntroBox title="گنجور" icon={<Icons.IntroGanjvar />}>
-            با استفاده از این فرهنگ می‌توانید نوشته‌های خود را مزین به اشعار فارسی کنید؛ کافی است واژگان موردنظر و در
-            صورت لزوم نام شاعر را وارد کنید تا نتایج مرتبط ظاهر شود.
-          </IntroBox>
-        </TabBody>
-      ),
-      className: "ganjvar",
-      isHidden: !dictionaries.ganjvar.active,
-      onClick: () => scrollToTop("ganjvar"),
+      title: "گنجور",
+      value: "ganjvar",
+      description:
+        "با استفاده از این فرهنگ می‌توانید نوشته‌های خود را مزین به اشعار فارسی کنید؛ کافی است واژگان موردنظر و در صورت لزوم نام شاعر را وارد کنید تا نتایج مرتبط ظاهر شود.",
+      icon: <Icons.IntroGanjvar />,
+      postsPerPage: 4,
     },
   ];
 
   return !hasActiveDictionary() ? (
     <NoActiveTab />
   ) : (
-    <Tabs
-      defaultTab={tabsList[activeTab]}
-      scrollable
-      className="result-tabs"
-      items={items}
-      animation="fade"
-      bordered={true}
-    />
+    <Tabs scrollable defaultIndex={tabsList[activeTab]} className="result-tabs" bordered={true}>
+      <TabList>
+        {tabs.map(
+          ({ title, value }, i) =>
+            dictionaries[value].active && (
+              <Tab key={`${i}_${value}`} onClick={() => handleOnTabClick(value)}>
+                <TabTitle title={title} value={resultCount[value]} />
+              </Tab>
+            )
+        )}
+      </TabList>
+      <TabPanels animation="fade">
+        {tabs.map(
+          ({ title, value, postsPerPage, icon, description }, i) =>
+            dictionaries[value].active && (
+              <TabPanel key={`${i}_${value}`}>
+                <TabBody
+                  postsPerPage={postsPerPage}
+                  dict={value}
+                  onSearch={() => handleOnSearch(value)}
+                  onFinish={(count) => handleOnFinish(value, count)}
+                >
+                  <IntroBox title={title} icon={icon}>
+                    {description}
+                  </IntroBox>
+                </TabBody>
+              </TabPanel>
+            )
+        )}
+      </TabPanels>
+    </Tabs>
   );
 }
