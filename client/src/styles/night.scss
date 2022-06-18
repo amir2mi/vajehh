@@ -48,5 +48,9 @@
     .firefly:after {
       display: none;
     }
+
+    .backdrop-layer {
+      background: var(--flatify__bg-color);
+    }
   }
 }
