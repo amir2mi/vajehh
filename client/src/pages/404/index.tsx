@@ -22,7 +22,7 @@ export default function NothingFound() {
           </Link>
         </ButtonGroup>
       </div>
-      <Firefly animated />
+      <Firefly />
     </section>
   );
 }

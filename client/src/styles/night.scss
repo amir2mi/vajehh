@@ -42,11 +42,13 @@
     --flatify__color-purple-primary: #c671ff;
 
     .footer-fireflies {
-      opacity: 0.5;
+      opacity: 0.75;
     }
 
-    .firefly:after {
-      display: none;
+    .firefly::after {
+      opacity: 0.3;
+      filter: invert(0.8) brightness(80%);
+      mix-blend-mode: darken;
     }
 
     .backdrop-layer {

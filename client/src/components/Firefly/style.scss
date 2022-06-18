@@ -8,12 +8,6 @@
   height: 8em;
   opacity: 1;
 
-  &.animated {
-    &:before {
-      animation: vajehh-firefly 5s var(--vajehh__firefly-delay) ease-in-out infinite;
-    }
-  }
-
   &:before,
   &:after {
     content: " ";
@@ -35,17 +29,5 @@
     background: var(--vajehh__image-letters-pattern);
     background-size: 100px;
     transform: scale(2.5);
-  }
-}
-
-@keyframes vajehh-firefly {
-  0% {
-    filter: blur(85px) opacity(100%);
-  }
-  50% {
-    filter: blur(85px) opacity(40%);
-  }
-  100% {
-    filter: blur(85px) opacity(100%);
   }
 }

@@ -4,8 +4,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--vajehh__area-padding);
-  padding-top: 10em;
+  padding: 12em 6em 6em;
+
+  @media (max-width: 991px) {
+    padding: 12em 2em 6em;
+  }
 
   @media (max-width: 767px) {
     flex-direction: column;
@@ -31,8 +34,6 @@
     }
   }
 }
-
-
 
 .features-intro {
   width: 50%;
@@ -137,10 +138,10 @@
 }
 
 .features-items-center-firefly {
-  top: 5em;
+  top: 2em;
   right: -20%;
-  font-size: 1.25em;
-  opacity: 0.75;
+  font-size: 2em;
+  opacity: 0.5;
   --vajehh__firefly-color: #d04d9d;
   --vajehh__firefly-delay: 1s;
 
