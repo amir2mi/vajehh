@@ -1,34 +1,46 @@
-.settings-options {
-  .dropdown-toggle {
-    svg {
-      width: 1.25em;
-      height: 1.25em;
-      transition: all var(--flatify__bouncing-transition);
-    }
+.settings-modal-toggle {
+  svg {
+    width: 1.25em;
+    height: 1.25em;
+    transition: all var(--flatify__bouncing-transition);
+  }
 
-    &.active {
-      svg {
-        transform: rotate(120deg);
+  &.active {
+    svg {
+      transform: rotate(120deg);
+    }
+  }
+}
+
+.settings-modal {
+  user-select: none;
+  padding: 1.5em;
+  width: 100%;
+  max-width: 500px;
+
+  .menu-item {
+    &.heading {
+      font-size: 1.1em;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+      opacity: 0.65;
+
+      &:not(:first-child) {
+        margin-top: 1.5em;
       }
     }
   }
-}
-
-.dropdown.settings-options {
-  width: 18em !important;
-  @media (max-width: 991px) {
-    margin-left: 0.5em;
-  }
-}
-
-.settings-options {
-  user-select: none;
 
   .toggle-wrapper {
     display: flex;
     justify-content: space-between;
     white-space: nowrap;
-    padding: 0 0.5em;
+  }
+
+  .settings-description {
+    font-size: 0.85em;
+    font-weight: 300;
+    opacity: 0.65;
   }
 }
 
@@ -49,6 +61,12 @@
   opacity: 0.3;
 }
 
+.change-highlight-color {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .highlight-colors {
   flex-direction: row;
   justify-content: center;
@@ -56,14 +74,15 @@
   .item-button {
     --highlight-colors-bg: #696969;
     position: relative;
-    width: 2em;
-    height: 2em;
+    width: 1.75em;
+    height: 1.75em;
     margin: 0.25em;
     color: transparent !important;
 
     &:not(.active) {
       opacity: 0.75;
       transform: scale(0.75);
+      filter: grayscale(25%);
 
       &:focus-visible {
         transform: scale(1.2);

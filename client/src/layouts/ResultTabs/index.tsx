@@ -141,8 +141,8 @@ export default function ResultTabs() {
   return !hasActiveDictionary() ? (
     <NoActiveTab />
   ) : (
-    <Tabs scrollable defaultIndex={tabsList[activeTab]} className="result-tabs" bordered={true}>
-      <TabList>
+    <Tabs defaultIndex={tabsList[activeTab]} className="result-tabs" bordered={true}>
+      <TabList scrollable>
         {tabs.map(
           ({ title, value }, i) =>
             dictionaries[value].active && (

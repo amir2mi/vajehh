@@ -1,10 +1,12 @@
 import { ToggleSwitch } from "react-flatifycss";
 import { useSettings } from "../../contexts/settings";
+import { useDictionary } from "../../contexts/dictionary";
 import { useSearch } from "../../contexts/search";
 import { setLocalStorage, setLocalStorageProp } from "../../utils/localStorage";
 
 export default function GeneralSettings() {
   const { autoSearch, setAutoSearch, fuzzySearch, setFuzzySearch, limitHeight, setLimitHeight } = useSettings();
+  const { dictionaries, setDictionaries } = useDictionary();
   const { searchValue, setSearchValue } = useSearch();
 
   const handleAutoSearchToggle = (value: boolean) => {
@@ -37,18 +39,49 @@ export default function GeneralSettings() {
     }, 100);
   };
 
+  const handleOnEmlaeiToggle = (value: boolean) => {
+    const newDictionaries = { ...dictionaries };
+    newDictionaries.emlaei.active = value;
+
+    setDictionaries(newDictionaries);
+    setLocalStorage("dictionaries", newDictionaries);
+  };
+
   return (
     <>
-      <p className="menu-item heading">جستجو</p>
-      <ToggleSwitch checked={autoSearch} isAfterLabel={true} onChange={(value) => handleAutoSearchToggle(value)}>
-        جستجو خودکار پس از یک ثانیه
-      </ToggleSwitch>
-      <ToggleSwitch checked={fuzzySearch} isAfterLabel={true} onChange={(value) => handleFuzzySearchToggle(value)}>
-        جستجو واژگان مشابه
-      </ToggleSwitch>
-      <ToggleSwitch checked={limitHeight} isAfterLabel={true} onChange={(value) => handleLimitHeightToggle(value)}>
-        محدود کردن ارتفاع جعبه‌ها
-      </ToggleSwitch>
+      <p id="general-settings-label" className="menu-item heading">
+        تنظیمات عمومی
+      </p>
+      <div aria-labelledby="general-settings-label">
+        <ToggleSwitch checked={autoSearch} isAfterLabel={true} onChange={(value) => handleAutoSearchToggle(value)}>
+          <p>
+            جستجو خودکار
+            <p className="settings-description">پس از یک ثانیه توقف نوشتن جستجو را شروع کن</p>
+          </p>
+        </ToggleSwitch>
+        <ToggleSwitch checked={fuzzySearch} isAfterLabel={true} onChange={(value) => handleFuzzySearchToggle(value)}>
+          <p>
+            کشف واژگان مشابه
+            <p className="settings-description">واژگانی که ساختاری مشابه ورودی دارند را در نظر بگیر</p>
+          </p>
+        </ToggleSwitch>
+        <ToggleSwitch
+          checked={dictionaries.emlaei.active}
+          isAfterLabel={true}
+          onChange={(value) => handleOnEmlaeiToggle(value)}
+        >
+          <p>
+            پیشنهاد املایی
+            <p className="settings-description">املا درست یا جایگزین واژگان را پیشنهاد بده</p>
+          </p>
+        </ToggleSwitch>
+        <ToggleSwitch checked={limitHeight} isAfterLabel={true} onChange={(value) => handleLimitHeightToggle(value)}>
+          <p>
+            محدود کردن ارتفاع جعبه‌ها
+            <p className="settings-description">محتوای طولانی را محدود و با کلیک نمایش بده</p>
+          </p>
+        </ToggleSwitch>
+      </div>
     </>
   );
 }

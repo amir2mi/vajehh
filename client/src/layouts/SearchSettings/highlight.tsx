@@ -57,17 +57,25 @@ export default function HighlightSettings() {
 
   return (
     <>
-      <p className="menu-item heading">علامت گذاری</p>
-      <ToggleSwitch checked={highlight} isAfterLabel={true} onChange={(value) => handleOnToggle(value)}>
-        علامت گذاری واژه جستجو شده
-      </ToggleSwitch>
-      <div className={clsx("change-highlight-color", !highlight && "disable-layer")}>
-        <ItemsGroup
-          className="highlight-colors"
-          items={highlightPalette}
-          value={highlightColor}
-          onChange={(value) => handleOnColorChange(value)}
-        />
+      <p id="highlight-settings-label" className="menu-item heading">
+        تنظیمات علامت‌گذاری
+      </p>
+      <div aria-labelledby="highlight-settings-label">
+        <ToggleSwitch checked={highlight} isAfterLabel={true} onChange={(value) => handleOnToggle(value)}>
+          علامت‌گذاری واژه جستجو شده
+        </ToggleSwitch>
+        <div className={clsx("change-highlight-color", !highlight && "disable-layer")}>
+          <p id="highlight-color-label" className="settings-label">
+            رنگ علامت‌گذاری
+          </p>
+          <ItemsGroup
+            aria-labelledby="highlight-color-label"
+            className="highlight-colors"
+            items={highlightPalette}
+            value={highlightColor}
+            onChange={(value) => handleOnColorChange(value)}
+          />
+        </div>
       </div>
     </>
   );
