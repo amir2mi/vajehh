@@ -17,6 +17,11 @@
   padding: 1.5em;
   width: 100%;
   max-width: 540px;
+  border-radius: 1.5em 1.5em 0 0 !important;
+
+  @media (max-width: 575px) {
+    font-size: 0.75em !important;
+  }
 
   .menu-item {
     &.heading {
@@ -46,11 +51,22 @@
 }
 
 .column-picker {
+  flex-direction: row;
   margin-bottom: 0.5em;
 
   .item-button {
     padding: 0.25em 0.5em;
+    margin-bottom: 0;
+
+    &:not(:last-child) {
+      margin-left: 0.5em;
+    }
+
+    @media (max-width: 420px) {
+      font-size: 0.85em;
+    }
   }
+
   .item-icon svg {
     width: 2em;
     height: 2em;
