@@ -42,7 +42,7 @@ const navLinks = [
 
 export default function Navigation() {
   return (
-    <nav className="navigation">
+    <nav className="navigation main-container">
       <NavLink to="" className="home-link overlay-layer">
         واژه
       </NavLink>

@@ -3,7 +3,7 @@ import "./style.scss";
 
 export default function AfterHeader() {
   return (
-    <div className="after-header">
+    <div className="after-header main-container">
       <div className="main-svg flex-center">
         <Icons.Writing />
       </div>

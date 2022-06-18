@@ -9,7 +9,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="header">
+    <header className="header main-container">
       <HeaderInfo />
       <HeaderImage />
     </header>

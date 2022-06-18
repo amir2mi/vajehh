@@ -5,7 +5,7 @@ import "./style.scss";
 
 export default function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer main-container">
       <div className="inner-footer">
         <p className="copyright">
           واژه{" "}

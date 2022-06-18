@@ -13,7 +13,6 @@
     transform: rotate(10deg);
     opacity: 0.35;
     --vajehh__firefly-color: #1cb0f6;
-    --vajehh__firefly-delay: 3s;
   }
 
   .center {
@@ -25,7 +24,6 @@
     transform: rotate(-10deg);
     opacity: 0.5;
     --vajehh__firefly-color: #ffe749;
-    --vajehh__firefly-delay: 4s;
   }
 
   .left {
@@ -34,7 +32,6 @@
     font-size: 4em;
     opacity: 0.5;
     --vajehh__firefly-color: #ff6694;
-    --vajehh__firefly-delay: 6s;
   }
 
   @media (max-width: 575px) {

@@ -14,7 +14,7 @@ function Vajehh() {
   const { nightMode } = useTheme();
 
   return (
-    <div className={clsx("app", "main-container", getNightModeClass(nightMode))}>
+    <div className={clsx("app", getNightModeClass(nightMode))}>
       <Navigation />
       <ScrollToTop>
         <Routes>
