@@ -12,6 +12,9 @@ export default function DictionaryPicker() {
 
   const debouncedInfo = useDebounce(dictionariesInfo, config.dictionaryPickerDebounceDuration);
 
+  // these dictionaries should not be shown in the picker
+  const dictionariesBlacklist = ["emlaei"];
+
   useEffect(() => {
     setDictionaries(debouncedInfo);
 
@@ -38,11 +41,14 @@ export default function DictionaryPicker() {
       buttonArrow={true}
       offsetY={10}
     >
-      {Object.values(dictionaries).map(({ name, key, active }) => (
-        <Checkbox key={key} checked={active} onChange={(value) => handleOnChange(key, value)}>
-          {name}
-        </Checkbox>
-      ))}
+      {Object.values(dictionaries).map(
+        ({ name, key, active }) =>
+          !dictionariesBlacklist.includes(key) && (
+            <Checkbox key={key} checked={active} onChange={(value) => handleOnChange(key, value)}>
+              {name}
+            </Checkbox>
+          )
+      )}
     </Dropdown>
   );
 }
