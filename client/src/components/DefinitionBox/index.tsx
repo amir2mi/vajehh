@@ -28,19 +28,24 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
       <p className={clsx("definition-content", isLimited && "limited")}>
         {hasMultipleLine && Array.isArray(definition) ? (
           definition.map((line: string, index) => {
-            return highlight ? (
-              <Highlighter
-                key={index}
-                className="definition"
-                highlightClassName={clsx("marked-word", `style-${highlightColor}-light`)}
-                autoEscape={true}
-                searchWords={highlight}
-                textToHighlight={line}
-              />
-            ) : (
-              <span key={index} className="definition">
-                {line}
-              </span>
+            return (
+              <>
+                {highlight ? (
+                  <Highlighter
+                    key={index}
+                    className="definition"
+                    highlightClassName={clsx("marked-word", `style-${highlightColor}-light`)}
+                    autoEscape={true}
+                    searchWords={highlight}
+                    textToHighlight={line}
+                  />
+                ) : (
+                  <span key={index} className="definition">
+                    {line}
+                  </span>
+                )}
+                <br />
+              </>
             );
           })
         ) : highlight ? (

@@ -29,7 +29,7 @@ export default function SearchSettings() {
         isOpen={isOpen}
         onDismiss={() => setIsOpen(false)}
       >
-        {/* <ColumnSettings /> */}
+        <ColumnSettings />
         <GeneralSettings />
         <HighlightSettings />
       </Modal>

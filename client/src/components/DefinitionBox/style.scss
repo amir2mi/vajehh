@@ -91,6 +91,7 @@
   position: relative;
   overflow: hidden;
   max-height: 250em;
+  line-height: 0;
   will-change: max-height height;
   transition: max-height 1s ease-in-out;
 
