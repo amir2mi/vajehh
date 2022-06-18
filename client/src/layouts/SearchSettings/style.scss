@@ -16,7 +16,7 @@
   user-select: none;
   padding: 1.5em;
   width: 100%;
-  max-width: 500px;
+  max-width: 540px;
 
   .menu-item {
     &.heading {
@@ -38,6 +38,7 @@
   }
 
   .settings-description {
+    display: block;
     font-size: 0.85em;
     font-weight: 300;
     opacity: 0.65;

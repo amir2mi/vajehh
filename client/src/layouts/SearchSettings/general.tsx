@@ -56,13 +56,13 @@ export default function GeneralSettings() {
         <ToggleSwitch checked={autoSearch} isAfterLabel={true} onChange={(value) => handleAutoSearchToggle(value)}>
           <p>
             جستجو خودکار
-            <p className="settings-description">پس از یک ثانیه توقف نوشتن جستجو را شروع کن</p>
+            <span className="settings-description">پس از یک ثانیه توقف نوشتن، جستجو را شروع کن</span>
           </p>
         </ToggleSwitch>
         <ToggleSwitch checked={fuzzySearch} isAfterLabel={true} onChange={(value) => handleFuzzySearchToggle(value)}>
           <p>
             کشف واژگان مشابه
-            <p className="settings-description">واژگانی که ساختاری مشابه ورودی دارند را در نظر بگیر</p>
+            <span className="settings-description">واژگانی که ساختاری مشابه ورودی دارند را در نظر بگیر</span>
           </p>
         </ToggleSwitch>
         <ToggleSwitch
@@ -72,13 +72,13 @@ export default function GeneralSettings() {
         >
           <p>
             پیشنهاد املایی
-            <p className="settings-description">املا درست یا جایگزین واژگان را پیشنهاد بده</p>
+            <span className="settings-description">املا درست یا جایگزین واژگان را پیشنهاد بده</span>
           </p>
         </ToggleSwitch>
         <ToggleSwitch checked={limitHeight} isAfterLabel={true} onChange={(value) => handleLimitHeightToggle(value)}>
           <p>
             محدود کردن ارتفاع جعبه‌ها
-            <p className="settings-description">محتوای طولانی را محدود و با کلیک نمایش بده</p>
+            <span className="settings-description">محتوای طولانی را محدود و با کلیک نمایش بده</span>
           </p>
         </ToggleSwitch>
       </div>
