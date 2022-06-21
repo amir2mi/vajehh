@@ -1,5 +1,5 @@
+import { NavLink } from "react-router-dom";
 import { Button } from "react-flatifycss";
-import config from "../../config.json";
 import { shareVajehh } from "../../utils/share";
 import { Info } from "../../components";
 import "./style.scss";
@@ -15,9 +15,9 @@ export default function SupportUs() {
         <Button theme="blue" onClick={shareVajehh}>
           {!!navigator.share ? "اشتراک‌گذاری" : "توییت در توییتر"}
         </Button>
-        <a href={config.supportURL} className="button style-dark" target="_blank" rel="noreferrer">
+        <NavLink to="/donate" className="button style-dark">
           حمایت مالی
-        </a>
+        </NavLink>
       </div>
     </div>
   );

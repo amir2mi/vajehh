@@ -5,7 +5,7 @@ import SearchPage from "./pages/search";
 import HomePage from "./pages/home";
 import HelpPage from "./pages/help";
 import SupportPage from "./pages/support";
-import DonatePage from "./pages/support";
+import DonatePage from "./pages/donate";
 import NothingFound from "./pages/404";
 import Navigation from "./layouts/Navigation";
 import Footer from "./layouts/Footer";

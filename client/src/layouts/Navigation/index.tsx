@@ -19,14 +19,8 @@ const navLinks = [
     to: "/support",
   },
   {
-    title: (
-      <>
-        حمایت مالی
-        <Icons.External className="nav-icon" />
-      </>
-    ),
-    openInNewTab: true,
-    to: config.supportURL,
+    title: "حمایت مالی",
+    to: "/donate",
   },
   {
     title: (
