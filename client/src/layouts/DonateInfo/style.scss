@@ -1,0 +1,18 @@
+.donate-info {
+  height: fit-content;
+  margin-top: 2em;
+
+  @media (min-width: 992px) {
+    width: 50%;
+    padding-left: 2em;
+  }
+
+  .heading {
+    font-weight: 100;
+    color: rgba(46, 64, 81, 0.4);
+
+    .gradient-text {
+      font-weight: 900;
+    }
+  }
+}

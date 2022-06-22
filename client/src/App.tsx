@@ -9,7 +9,7 @@ import DonatePage from "./pages/donate";
 import NothingFound from "./pages/404";
 import Navigation from "./layouts/Navigation";
 import Footer from "./layouts/Footer";
-import { ScrollToTop } from "./components";
+import { OnRouteChange } from "./components";
 
 function Vajehh() {
   const { nightMode } = useTheme();
@@ -17,7 +17,7 @@ function Vajehh() {
   return (
     <div className={clsx("app", getNightModeClass(nightMode))}>
       <Navigation />
-      <ScrollToTop>
+      <OnRouteChange>
         <Routes>
           <Route path="/search/*" element={<SearchPage />} />
           <Route path="/help" element={<HelpPage />} />
@@ -27,7 +27,7 @@ function Vajehh() {
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<Navigate to="/404" />} />
         </Routes>
-      </ScrollToTop>
+      </OnRouteChange>
       <Footer />
     </div>
   );

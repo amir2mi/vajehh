@@ -10,7 +10,7 @@ import MessageBox from "./MessageBox";
 import NavLinks from "./NavLinks";
 import NightModeButton from "./NightModeButton";
 import RotatedBox from "./RotatedBox";
-import ScrollToTop from "./ScrollToTop";
+import OnRouteChange from "./OnRouteChange";
 import ShareBox from "./ShareBox";
 import TestWrapper from "./TestWrapper";
 import TextLoading from "./TextLoading";
@@ -28,7 +28,7 @@ export {
   NavLinks,
   NightModeButton,
   RotatedBox,
-  ScrollToTop,
+  OnRouteChange,
   ShareBox,
   TestWrapper,
   TextLoading,

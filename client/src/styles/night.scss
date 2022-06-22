@@ -54,5 +54,13 @@
     .backdrop-layer {
       background: var(--flatify__bg-color-darker);
     }
+
+    .donate-info .heading {
+      color: rgba(255, 255, 255, 0.4);
+
+      .gradient-text {
+        text-shadow: 0 0.15em 1em rgba(31, 162, 255, 1);
+      }
+    }
   }
 }
