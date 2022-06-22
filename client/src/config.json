@@ -5,6 +5,7 @@
   "apiEndpointURL__dev": "http://localhost:8080/api",
   "apiOrigin": "https://vajehh.com",
   "githubURL": "https://github.com/amir2mi/vajehh",
+  "donationsListURL": "/donations.json",
   "searchDebounceDuration": 900,
   "dictionaryPickerDebounceDuration": 500,
   "localCacheLimit__emlaei": 30,

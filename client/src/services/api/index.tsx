@@ -21,9 +21,9 @@ export async function searchWord(dic: AllowedDictionaries, word: string, fuzzy?:
     params: {
       fuzzy: fuzzy ? "true" : "false",
     },
-    headers: {
-      Origin: config.apiOrigin,
-      crossorigin: true,
-    },
   });
+}
+
+export async function getDonations() {
+  return axios.get(config.donationsListURL);
 }
