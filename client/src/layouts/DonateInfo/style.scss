@@ -1,9 +1,14 @@
 .donate-info {
+  width: 100%;
   height: fit-content;
+  padding-top: 2em;
 
   @media (min-width: 992px) {
-    width: 40%;
+    width: 45%;
     padding-left: 2em;
+  }
+  @media (max-width: 991px) {
+    position: static;
   }
 
   .heading {

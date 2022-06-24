@@ -3,10 +3,18 @@
   flex-wrap: wrap;
   align-content: flex-start;
   gap: 1.5em;
-  width: 60%;
-  max-width: 32em;
+  width: 100%;
+
+  @media (min-width: 992px) {
+    width: 55%;
+    max-width: 35em;
+  }
 
   .donator-item {
     width: calc(50% - 0.75em);
+
+    @media (min-width: 575px) and (max-width: 991px) {
+      width: calc(33.3333% - 1em);
+    }
   }
 }
