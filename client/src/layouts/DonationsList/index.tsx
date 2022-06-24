@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { getDonations } from "../../services/api";
+import { Donator } from "../../components";
+import "./style.scss";
 
 export default function DonationsList() {
   const [donations, setDonations] = useState<any>([]);
@@ -13,17 +15,15 @@ export default function DonationsList() {
       console.error(e);
     }
   };
+
   useEffect(() => {
     handleFetchDonations();
   }, []);
 
   return (
     <div className="donate-list">
-      {donations.map((item) => (
-        <>
-          {item.name}
-          <br />
-        </>
+      {donations.map((item, index) => (
+        <Donator key={item.name + index} {...item} />
       ))}
     </div>
   );

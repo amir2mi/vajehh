@@ -29,7 +29,6 @@ export default function DonateInfo() {
       <p className="donate-text">
         بهترین راه حمایت از واژه معرفی آن به دوستان و آشنایانتان است، البته که می‌توانید در تأمین هزینه‌های نگه‌داری و
         توسعه آن شریک شوید.
-        <span className="text-left"> پیشاپیش سپاس :)</span>
       </p>
       <DonateInput />
       {cryptoButtons.map(({ address, icon, theme, title }) => (

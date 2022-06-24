@@ -1,0 +1,11 @@
+.donate-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    width: 60%;
+    max-width: 32em;
+
+    .donator-item{
+        width: calc(50% - 0.75em);
+    }
+}

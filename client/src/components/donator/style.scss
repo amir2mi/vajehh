@@ -1,0 +1,40 @@
+.donator-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+  margin-top: 2em;
+  background: var(--flatify__bg-color);
+  border-radius: 1em;
+  box-shadow: 0 0 0 max(0.125em, 2px) var(--flatify__bg-color-dark), 0 0.25em 0 var(--flatify__bg-color-dark);
+  transition: all var(--flatify__simple-transition);
+
+  &:hover,
+  &:focus-within {
+    box-shadow: 0 0 0 max(0.125em, 2px) var(--flatify__bg-color-dark);
+    transform: translateY(0.25em);
+  }
+
+  .avatar {
+    width: 4em;
+    height: 4em;
+    margin-top: -2.75em;
+    object-fit: cover;
+    border: max(0.125em, 2px) solid var(--flatify__bg-color-dark);
+    border-radius: 1.3em;
+  }
+
+  .name {
+    font-size: 1.125em;
+    font-weight: 700;
+    margin: 0.75em 0 0.5em;
+    color: var(--flatify__txt-color-dark) !important;
+  }
+
+  .amount {
+    gap: 0.125em;
+    letter-spacing: 2px;
+    font-size: 0.85em;
+    opacity: 0.75;
+  }
+}

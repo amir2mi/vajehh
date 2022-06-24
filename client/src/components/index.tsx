@@ -1,5 +1,6 @@
 import Article from "./Article";
 import DefinitionBox from "./DefinitionBox";
+import Donator from "./donator";
 import FakeDefinitionBox from "./FakeDefinitionBox";
 import FeatureBox from "./FeatureBox";
 import Firefly from "./Firefly";
@@ -18,6 +19,7 @@ import TextLoading from "./TextLoading";
 export {
   Article,
   DefinitionBox,
+  Donator,
   FakeDefinitionBox,
   FeatureBox,
   Firefly,

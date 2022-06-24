@@ -3,56 +3,56 @@
     "date": "2021-02-05",
     "name": "هادی مصطفی پور",
     "email": "bluetec@gmail.com",
-    "web": "https://github.com/bluetec",
+    "url": "https://github.com/bluetec",
     "amount": 50000
   },
   {
     "date": "2022-01-02",
     "name": "مهدی قدمیاری",
     "email": "ghadamyari@gmail.com",
-    "web": "http://ghadamyari.com",
+    "url": "http://ghadamyari.com",
     "amount": 10000
   },
   {
     "date": "2023-02-05",
     "name": "سامان سلطانی",
     "email": "samansoltani@gmail.com",
-    "web": "http://samansoltani.com/",
+    "url": "http://samansoltani.com/",
     "amount": 20000
   },
   {
     "date": "2021-08-05",
     "name": "kia",
     "email": "samansoltani8@gmail.com",
-    "web": "",
+    "url": "",
     "amount": 3000
   },
   {
     "date": "2021-09-10",
     "name": "پوریا",
     "email": "samansoltani70@gmail.com",
-    "web": "",
+    "url": "",
     "amount": 5000
   },
   {
     "date": "2018-02-05",
     "name": "یوسف شیری",
     "email": "samansoli@gmail.com",
-    "web": "",
+    "url": "",
     "amount": 2000
   },
   {
     "date": "2017-02-05",
     "name": "مسعود لطفی",
     "email": "masoudltf@gmail.com",
-    "web": "http://masoudltf.ir",
+    "url": "http://masoudltf.ir",
     "amount": 5000
   },
   {
     "date": "2016-02-05",
     "name": "آمیرزا",
     "email": "mirzaproject@gmail.com",
-    "web": "http://mirzaproject.ir",
+    "url": "http://mirzaproject.ir",
     "amount": 20000
   }
 ]
