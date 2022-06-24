@@ -1,4 +1,5 @@
 import gravatarUrl from "gravatar-url";
+import defaulyAvatar from "../../assets/images/none.jpeg";
 import "./style.scss";
 
 interface DonatorProps {
@@ -15,12 +16,19 @@ export default function Donator(props: DonatorProps) {
     default: "identicon",
   };
 
+  const avatarUrl = email ? gravatarUrl(email, avatarOptions) : defaulyAvatar;
+
   return (
     <div className="donator-item">
-      <img className="avatar" src={gravatarUrl(email, avatarOptions)} alt={name} loading="lazy" />
-      <a className="name" href={url} target="_blank" rel="nofollow noreferrer noopener">
-        {name}
-      </a>
+      <img className="avatar" src={avatarUrl} alt={name} loading="lazy" />
+      {url ? (
+        <a className="name" href={url} target="_blank" rel="nofollow noreferrer noopener">
+          {name}
+        </a>
+      ) : (
+        <p className="name">{name}</p>
+      )}
+
       <span className="amount flex-center">
         {amount.toLocaleString("fa-IR")} <span className="size-xs">﷼</span>
       </span>
