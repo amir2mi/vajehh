@@ -20,9 +20,11 @@ import { ReactComponent as Update } from "../../assets/svg/features/update.svg";
 
 // misc
 import { ReactComponent as AutoLight } from "../../assets/svg/auto-light.svg";
+import { ReactComponent as Bitcoin } from "../../assets/svg/bitcoin.svg";
 import { ReactComponent as ChevronTop } from "../../assets/svg/chevron-top.svg";
 import { ReactComponent as Close } from "../../assets/svg/close.svg";
 import { ReactComponent as Error } from "../../assets/svg/error.svg";
+import { ReactComponent as Ether } from "../../assets/svg/ether.svg";
 import { ReactComponent as External } from "../../assets/svg/external.svg";
 import { ReactComponent as Moon } from "../../assets/svg/moon.svg";
 import { ReactComponent as More } from "../../assets/svg/more.svg";
@@ -50,9 +52,11 @@ const Icons = {
   Star,
   Update,
   AutoLight,
+  Bitcoin,
   ChevronTop,
   Close,
   Error,
+  Ether,
   External,
   Moon,
   More,

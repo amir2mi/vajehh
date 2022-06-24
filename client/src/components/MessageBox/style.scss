@@ -1,7 +1,14 @@
 .message-box {
+  --vajehh-messsage-box-shadow-color: var(--flatify__bg-color-dark);
   display: flex;
   padding: 1em;
   background: var(--flatify__bg-color);
   border-radius: 1em 0 1em 1em;
-  box-shadow: 0 0 0 max(0.125em, 2px) var(--flatify__bg-color-dark), 0 0.25em 0 var(--flatify__bg-color-dark);
+  border: none;
+  box-shadow: 0 0 0 max(0.125em, 2px) var(--vajehh-messsage-box-shadow-color),
+    0 0.25em 0 var(--vajehh-messsage-box-shadow-color);
+
+  &[class*="style-"] {
+    --vajehh-messsage-box-shadow-color: var(--flatify__local-border-color);
+  }
 }

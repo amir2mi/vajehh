@@ -2,6 +2,7 @@ import clsx from "clsx";
 import "./style.scss";
 
 interface MessageBoxProps {
+  as?: React.ElementType;
   children?: string | React.ReactNode;
   description?: string;
   message?: string;
@@ -9,9 +10,10 @@ interface MessageBoxProps {
   [rest: string]: any;
 }
 
-export default function MessageBox({ children, description, className, message, title, ...rest }: MessageBoxProps) {
+export default function MessageBox({ as, children, description, className, message, title, ...rest }: MessageBoxProps) {
+  const Message = as || "div";
   return (
-    <div className={clsx("message-box", className)} {...rest}>
+    <Message className={clsx("message-box", className)} {...rest}>
       <div className="message-text">
         {message || children ? (
           <>
@@ -26,6 +28,6 @@ export default function MessageBox({ children, description, className, message, 
           </>
         ) : null}
       </div>
-    </div>
+    </Message>
   );
 }
