@@ -3,7 +3,7 @@ import { Input, Button } from "react-flatifycss";
 import config from "../../config.json";
 
 export default function DonateInput() {
-  const [amount, setAmount] = useState<number | null>(null);
+  const [amount, setAmount] = useState<string | number | null>(null);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -12,8 +12,8 @@ export default function DonateInput() {
 
   return (
     <form className="input-with-button" onSubmit={handleOnSubmit}>
-      <Input type="number" min="0" placeholder="مبلغ موردنظر به تومان" onChange={(value) => setAmount(value)}>
-        <Button theme="blue">حمایت</Button>
+      <Input required type="number" min="0" placeholder="مبلغ موردنظر به تومان" onChange={(value) => setAmount(value)}>
+        <Button state="static" theme="blue">حمایت</Button>
       </Input>
     </form>
   );

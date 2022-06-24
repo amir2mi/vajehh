@@ -8,7 +8,7 @@ export default function DonatePage() {
   }, []);
 
   return (
-    <main className="donate-main container-lg">
+    <main className="donate-main main-container">
       <DonateInfo />
     </main>
   );
