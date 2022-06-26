@@ -12,15 +12,12 @@
   "author": "Amir M. Mohamadi",
   "license": "ISC",
   "dependencies": {
+    "canvas": "^2.9.3",
     "connect-gzip-static": "^2.1.1",
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "mongodb": "^4.4.0",
     "morgan": "^1.10.0",
     "simple-spellchecker": "^1.0.2"
-  },
-  "engines": {
-    "node": "16.13.2",
-    "npm": "8.1.2"
   }
 }

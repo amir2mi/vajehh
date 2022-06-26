@@ -1,3 +1,5 @@
+const sanitizer = require("./sanitizer");
+
 /**
  * Search for a string in the database with MongoDB Atlas client
  * @param {Object} database
@@ -10,7 +12,8 @@
  */
 async function searchWord(database, dict, value, limit = 200, fuzzySearch = true, fuzzyLevel = 3) {
   const collection = database.collection(dict);
-
+  value = sanitizer(value);
+  
   if (!collection) reject("Database is not connected");
   if (!value || value.length === 0) reject("searchWord requires a value");
 
