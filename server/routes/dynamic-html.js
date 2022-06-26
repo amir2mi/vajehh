@@ -24,7 +24,7 @@ const handleWordSearchTitle = (activeTab, word) => {
           resolve(`واژه | واژگان مشابه با ${word} در فرهنگ طیفی`);
           break;
         case "motaradef":
-          resolve(`واژه | مترادف ${word}`);
+          resolve(`واژه | مترادف و متضاد ${word}`);
           break;
         case "sereh":
           resolve(`واژه | معادل فارسی ${word} در فرهنگ سره`);

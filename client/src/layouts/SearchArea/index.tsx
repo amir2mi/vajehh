@@ -90,7 +90,7 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
           document.title = `واژه | واژگان مشابه با ${value} در فرهنگ طیفی`;
           break;
         case "motaradef":
-          document.title = `واژه | مترادف ${value}`;
+          document.title = `واژه | مترادف و متضاد ${value}`;
           break;
         case "sereh":
           document.title = `واژه | معادل فارسی ${value} در فرهنگ سره`;
