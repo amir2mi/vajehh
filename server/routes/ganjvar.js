@@ -1,6 +1,5 @@
 const express = require("express");
 const searchWord = require("../searcher");
-const sanitizeText = require("../sanitizer");
 const router = express.Router();
 
 router.get("/:word", async (req, res) => {
@@ -11,7 +10,7 @@ router.get("/:word", async (req, res) => {
   if (!database) return res.status(500).send("Database is not connected");
 
   try {
-    const result = await searchWord(database, "ganjvar", sanitizeText(word), 100, false);
+    const result = await searchWord(database, "ganjvar", word, 100, false);
     return res.send({
       kind: "ganjvar",
       items: result,
