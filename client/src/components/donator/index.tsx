@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import gravatarUrl from "gravatar-url";
-import defaulyAvatar from "../../assets/images/none.jpeg";
+import defaultAvatar from "../../assets/images/none.jpeg";
 import "./style.scss";
 
 interface DonatorProps {
@@ -18,7 +18,7 @@ export default function Donator(props: DonatorProps) {
     default: "identicon",
   };
 
-  const avatarUrl = email ? gravatarUrl(email, avatarOptions) : defaulyAvatar;
+  const avatarUrl = email ? gravatarUrl(email, avatarOptions) : defaultAvatar;
 
   return (
     <div className={clsx("donator-item", className)}>
