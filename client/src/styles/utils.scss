@@ -40,3 +40,12 @@
 .text-right {
   text-align: right;
 }
+
+// Delay animation items by order
+.anim-delay-items {
+  @for $i from 1 through 20 {
+    .anim-delay:nth-of-type(#{$i}) {
+      animation-delay: #{100 * $i}ms;
+    }
+  }
+}

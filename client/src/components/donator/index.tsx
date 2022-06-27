@@ -1,16 +1,18 @@
+import clsx from "clsx";
 import gravatarUrl from "gravatar-url";
 import defaulyAvatar from "../../assets/images/none.jpeg";
 import "./style.scss";
 
 interface DonatorProps {
   amount: number;
+  className: string;
   email: string;
   name: string;
   url?: string;
 }
 
 export default function Donator(props: DonatorProps) {
-  const { email, name, url, amount } = props;
+  const { className, email, name, url, amount } = props;
   const avatarOptions = {
     size: 100,
     default: "identicon",
@@ -19,7 +21,7 @@ export default function Donator(props: DonatorProps) {
   const avatarUrl = email ? gravatarUrl(email, avatarOptions) : defaulyAvatar;
 
   return (
-    <div className="donator-item">
+    <div className={clsx("donator-item", className)}>
       <img className="avatar" src={avatarUrl} alt={name} loading="lazy" />
       {url ? (
         <a className="name" href={url} target="_blank" rel="nofollow noreferrer noopener">

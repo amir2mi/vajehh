@@ -21,9 +21,9 @@ export default function DonationsList() {
   }, []);
 
   return (
-    <div className="donate-list">
+    <div className="donate-list anim-delay-items">
       {donations.map((item, index) => (
-        <Donator key={item.name + index} {...item} />
+        <Donator key={item.name + index} className="anim-delay anim-rise" {...item} />
       ))}
     </div>
   );
