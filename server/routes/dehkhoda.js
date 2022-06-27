@@ -78,9 +78,9 @@ router.get("/image/:word", async (req, res) => {
 
     ctx.font = '18px "Vazir"';
     description.slice(0, 5).forEach((def, i) => {
-      def = def.length > 62 ? def.slice(0, 62) + "…" : def;
+      def = def.length > 68 ? def.slice(0, 68) + "…" : def;
 
-      ctx.fillText(def, canvas.width - 25, 120 + i * 40);
+      ctx.fillText(def, canvas.width - 25, 120 + i * 40, 475);
     });
 
     // vajehh description
