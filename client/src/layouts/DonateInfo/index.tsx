@@ -22,7 +22,7 @@ export default function DonateInfo() {
   ];
 
   return (
-    <aside className="donate-info sticky-top">
+    <aside className="donate-info sticky-top anim-rise">
       <h1 className="heading anim-hue">
         باهم، <span className="gradient-text">برای همه</span>
       </h1>
