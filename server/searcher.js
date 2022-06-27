@@ -13,16 +13,18 @@ const sanitizer = require("./sanitizer");
 async function searchWord(database, dict, value, limit = 200, fuzzySearch = true, fuzzyLevel = 3) {
   const collection = database.collection(dict);
   value = sanitizer(value);
-  
+
   if (!collection) reject("Database is not connected");
   if (!value || value.length === 0) reject("searchWord requires a value");
 
   // the basic config to search by
   const searchSettings = {
     query: value,
-    path: {
-      wildcard: "*",
-    },
+    path: fuzzySearch
+      ? {
+          wildcard: "*",
+        }
+      : ["title", "defintion"],
   };
 
   // if fuzzy search is enabled, add fuzzy search settings:
