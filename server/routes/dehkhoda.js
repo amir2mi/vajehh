@@ -4,6 +4,19 @@ const searchWord = require("../searcher");
 const path = require("path");
 const router = express.Router();
 
+function canvasRoundRect(ctx, x, y, w, h, r) {
+  if (w < 2 * r) r = w / 2;
+  if (h < 2 * r) r = h / 2;
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+  return ctx;
+}
+
 router.get("/:word", async (req, res) => {
   const { word } = req.params;
   const { fuzzy } = req.query;
@@ -52,10 +65,9 @@ router.get("/image/:word", async (req, res) => {
     // draw the ferdowsi retro image
     const ferdowsiRetroPath = path.resolve(__dirname, "../assets/images/ferdowsi-retro.png");
     const ferdowsiRetroImage = await loadImage(ferdowsiRetroPath);
-    ctx.drawImage(ferdowsiRetroImage, -30, 245, 240, 310);
+    ctx.drawImage(ferdowsiRetroImage, -30, 300, 200, 250);
 
-    let title = result[0].title.slice(0, 19);
-    title = result[0].title > 19 ? title + "…" : title;
+    let title = result[0].title.length > 19 ? result[0].title.slice(0, 19) + "…" : result[0].title;
     let description = result[0].definition;
 
     // draw the word
@@ -64,16 +76,26 @@ router.get("/image/:word", async (req, res) => {
     ctx.fillStyle = "#5EC7F8";
     ctx.fillText(title, canvas.width - 25, 65);
 
-    ctx.font = '24px "Vazir"';
-    description.forEach((def, i) => {
+    ctx.font = '18px "Vazir"';
+    description.slice(0, 5).forEach((def, i) => {
+      def = def.length > 62 ? def.slice(0, 62) + "…" : def;
+
       ctx.fillText(def, canvas.width - 25, 120 + i * 40);
     });
 
+    // vajehh description
+    ctx.font = '24px "Vazir"';
+    ctx.fillText("موتور جستجوی نویسندگان", canvas.width - 25, 485);
+
+    // vajehh website url
+    canvasRoundRect(ctx, 340, 410, 150, 40, 12);
+    ctx.fill();
+    ctx.fillStyle = "#1e2a35";
+    ctx.font = 'bold 18px "Roboto"';
+    ctx.fillText("vajehh.com", 474, 436);
+
     const dataUrl = canvas.toDataURL("image/jpeg", "fast");
 
-    res.writeHead(200, {
-      "Content-Type": "image/jpeg",
-    });
     return res.end(canvas.toBuffer("image/jpeg"));
 
     // res.send({
