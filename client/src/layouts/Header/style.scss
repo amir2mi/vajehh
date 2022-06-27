@@ -106,12 +106,23 @@
   }
 }
 
+@keyframes vajehh-rotated-box-in {
+  0% {
+    transform: rotate(8deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+
 .header-image {
   position: relative;
   z-index: 2;
   display: flex;
   justify-content: center;
   min-width: 50%;
+  animation: vajehh-rotated-box-in cubic-bezier(.17,.67,.13,1.47) 0.3s 1s both;
 
   .rotated-box {
     width: 30em;
@@ -127,6 +138,7 @@
       overflow: hidden;
       border-radius: 4em;
       transform: rotate(-8deg);
+      animation: vajehh-rotated-box-bg-in ease 0.3s;
 
       &:before {
         content: "";
