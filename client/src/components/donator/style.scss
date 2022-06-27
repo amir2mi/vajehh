@@ -13,6 +13,7 @@
   &:focus-within {
     box-shadow: 0 0 0 max(0.125em, 2px) var(--flatify__bg-color-dark);
     transform: translateY(0.25em);
+    transition-delay: 0.15s;
   }
 
   .avatar {
