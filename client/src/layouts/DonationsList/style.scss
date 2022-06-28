@@ -1,20 +1,58 @@
-.donate-list {
+.donate-list-wrapper {
   display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  gap: 1.5em;
+  flex-direction: column;
   width: 100%;
 
   @media (min-width: 992px) {
     width: 55%;
     max-width: 35em;
   }
+}
+
+.donate-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 1.5em;
 
   .donator-item {
     width: calc(50% - 0.75em);
 
     @media (min-width: 575px) and (max-width: 991px) {
       width: calc(33.3333% - 1em);
+    }
+  }
+}
+
+.donations-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 0 2em;
+
+  @media (max-width: 575px) {
+    flex-direction: column;
+    text-align: center;
+
+    .title,
+    .filters {
+      padding-top: 1em;
+    }
+  }
+
+  .title {
+    font-size: 2em;
+    font-weight: 500;
+  }
+
+  .total {
+    font-size: 0.9em;
+    opacity: 0.65;
+  }
+
+  .filters {
+    .button {
+      min-width: 6em;
     }
   }
 }

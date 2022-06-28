@@ -1,30 +1,65 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 import { getDonations } from "../../services/api";
 import { Donator } from "../../components";
+import DonationsHeader from "./DonationsHeader";
 import "./style.scss";
 
-export default function DonationsList() {
-  const [donations, setDonations] = useState<any>([]);
+interface donations {
+  amount: number;
+  date: string;
+  email: string;
+  name: string;
+  url: string;
+}
 
-  const handleFetchDonations = async () => {
+export default function DonationsList() {
+  const [donations, setDonations] = useState<donations[]>([]);
+  const [filteredBy, setFilteredBy] = useState<"date" | "amount">("amount");
+
+  // By default [donations] is ordered by date [DESC].
+  // Just when we fetch donations, sort one-time and save the result here for further usages
+  const [donationsByAmount, setDonationsByAmount] = useState<donations[]>([]);
+
+  const handleFetchDonations = useCallback(async () => {
     try {
       const { data } = await getDonations();
       setDonations(data);
-      console.log(data);
     } catch (e) {
       console.error(e);
     }
-  };
+  }, []);
+
+  const totalDonations = useMemo(
+    () => donations.reduce((acc: number, curr: donations) => acc + curr.amount, 0),
+    [donations]
+  );
 
   useEffect(() => {
     handleFetchDonations();
-  }, []);
+  }, [handleFetchDonations]);
+
+  useEffect(() => {
+    // updated sorted by amount when donations list changes
+    const filteredByAmount = [...donations].sort((a, b) => b.amount - a.amount);
+    setDonationsByAmount(filteredByAmount);
+  }, [donations]);
 
   return (
-    <div className="donate-list anim-delay-items">
-      {donations.map((item, index) => (
-        <Donator key={item.name + index} className="anim-delay anim-rise" {...item} />
-      ))}
-    </div>
+    <section className="donate-list-wrapper anim-delay-items">
+      <DonationsHeader
+        total={totalDonations}
+        donatorsCount={donations.length}
+        filteredBy={filteredBy}
+        onFilter={(x) => {
+          setFilteredBy(x);
+          console.log(x);
+        }}
+      />
+      <div className="donate-list">
+        {(filteredBy === "date" ? donations : donationsByAmount).map((item, index) => (
+          <Donator key={index + item.amount} className="anim-delay anim-rise" {...item} />
+        ))}
+      </div>
+    </section>
   );
 }
