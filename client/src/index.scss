@@ -47,6 +47,10 @@ body.home {
   position: relative;
 }
 
+::selection {
+  background: var(--flatify__bg-color-darker);
+}
+
 // General
 @import "./styles/night";
 @import "./styles/utils";
