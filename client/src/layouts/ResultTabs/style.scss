@@ -17,8 +17,11 @@
 
   .tabs-content {
     min-height: max(50vh, 20em);
-    padding: 1em 1.5em;
     border-radius: 1em;
+
+    @media (min-width: 576px) {
+      padding: 1em 1.5em;
+    }
   }
 }
 

@@ -20,10 +20,8 @@ interface ResultCountProps {
 
 export default function ResultTabs() {
   const [searchParams] = useSearchParams();
-
   const { searchValue } = useSearch();
   const { dictionaries } = useDictionary();
-
   const [resultCount, setResultCount] = useState<ResultCountProps>({});
 
   const activeTab = searchParams.get("tab") || "dehkhoda";

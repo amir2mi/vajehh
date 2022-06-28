@@ -12,9 +12,9 @@ export default function SearchPage() {
       <SettingsProvider>
         <SearchProvider>
           <DictionaryProvider>
-            <ResultImage />
             <SearchArea />
             <ResultTabs />
+            <ResultImage />
           </DictionaryProvider>
         </SearchProvider>
         <ShareBox />
