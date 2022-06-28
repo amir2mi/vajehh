@@ -1,4 +1,5 @@
 import { useEffect, useState, useMemo, useCallback } from "react";
+import { Loading } from "react-flatifycss";
 import { getDonations } from "../../services/api";
 import { Donator } from "../../components";
 import DonationsHeader from "./DonationsHeader";
@@ -30,7 +31,7 @@ export default function DonationsList() {
   }, []);
 
   const totalDonations = useMemo(
-    () => donations.reduce((acc: number, curr: donations) => acc + curr.amount, 0),
+    () => donations && donations.reduce((acc: number, curr: donations) => acc + curr.amount, 0),
     [donations]
   );
 
@@ -40,6 +41,7 @@ export default function DonationsList() {
 
   useEffect(() => {
     // updated sorted by amount when donations list changes
+    if (!donations) return;
     const filteredByAmount = [...donations].sort((a, b) => b.amount - a.amount);
     setDonationsByAmount(filteredByAmount);
   }, [donations]);
@@ -50,15 +52,16 @@ export default function DonationsList() {
         total={totalDonations}
         donatorsCount={donations.length}
         filteredBy={filteredBy}
-        onFilter={(x) => {
-          setFilteredBy(x);
-          console.log(x);
-        }}
+        onFilter={setFilteredBy}
       />
       <div className="donate-list">
-        {(filteredBy === "date" ? donations : donationsByAmount).map((item, index) => (
-          <Donator key={index + item.amount} className="anim-delay anim-rise" {...item} />
-        ))}
+        {!donations ? (
+          <Loading className="donations-loading" />
+        ) : (
+          (filteredBy === "date" ? donations : donationsByAmount).map((item, index) => (
+            <Donator key={index + item.amount} className="anim-delay anim-rise" {...item} />
+          ))
+        )}
       </div>
     </section>
   );

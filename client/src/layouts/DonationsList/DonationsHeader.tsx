@@ -12,8 +12,8 @@ export default function DonationsHeader(props: DonationsHeaderProps) {
   const { donatorsCount, filteredBy, onFilter, total } = props;
 
   // convert numbers to local
-  const totalLocal = total.toLocaleString("fa-IR");
-  const donatorsCountLocal = donatorsCount.toLocaleString("fa-IR");
+  const totalLocal = total ? total.toLocaleString("fa-IR") : 0;
+  const donatorsCountLocal = donatorsCount ? donatorsCount.toLocaleString("fa-IR") : 0;
 
   return (
     <div className="donations-header anim-rise">
