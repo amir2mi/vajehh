@@ -21,6 +21,8 @@
     height: 4em;
     margin-top: -2.75em;
     object-fit: cover;
+    color: transparent;
+    background: var(--flatify__bg-color-dark);
     border: max(0.125em, 2px) solid var(--flatify__bg-color-dark);
     border-radius: 1.3em;
   }
