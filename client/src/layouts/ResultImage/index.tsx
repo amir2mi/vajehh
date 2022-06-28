@@ -41,7 +41,7 @@ export default function ResultImage() {
     <>
       {imageUrl && (
         <figure className="search-result-image">
-          <img src={imageUrl} alt={document.title} />
+          <img src={imageUrl} alt={document.title} loading="lazy" />
           <figcaption className="text-center">تصویر برای نتایج جستجوی {searchValue}</figcaption>
         </figure>
       )}
