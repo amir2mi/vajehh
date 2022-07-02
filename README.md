@@ -18,4 +18,4 @@ Each directory has a README.md file which contains instructions for development 
 ## Support
 
 Vajehh is created as a free and open-source project. If you have any questions or problems, please open an issue in the GitHub repository.
-You can also support the project by starring it. The other way would be to support the developers at [HamiBash](https://hamibash.com/vajehh)
+You can also support the project by starring it. The other way could be supporting the developers through [donation page](https://vajehh.com/donate)
