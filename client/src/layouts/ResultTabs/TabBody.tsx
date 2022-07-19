@@ -9,8 +9,7 @@ import type { AllowedDictionaries } from "../../contexts/dictionary";
 import { cacheToLocalStorage } from "../../utils/localStorage";
 import { searchWord } from "../../services/api";
 import { DefinitionBox, FakeDefinitionBox } from "../../components";
-import Error from "./Error";
-import NoResult from "./NoResult";
+import IdleTab from "./IdleTab";
 
 interface ResultProps {
   id: string;
@@ -99,14 +98,10 @@ export default function TabBody({ children, dict, onFinish, onSearch, postsPerPa
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchValue, fuzzySearch]);
 
-  return !isSearching && (!displayQueue || displayQueue?.length === 0) ? (
-    searchValue?.length < 2 ? (
-      <>{children}</>
-    ) : hasError ? (
-      <Error />
-    ) : (
-      <NoResult />
-    )
+  const isIdle = !isSearching && (!displayQueue || displayQueue?.length === 0);
+
+  return isIdle ? (
+    <IdleTab hasError={hasError}>{children}</IdleTab>
   ) : (
     <InfiniteScroll
       pageStart={0}
