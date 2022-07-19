@@ -12,7 +12,7 @@
 واژه می‌تواند برروی گوشی‌همراه یا رایانه شما نصب شود تا برای استفاده از آن هربار مجبور به بازکردن مرورگر و سایت نباشید.
 
 <details className="detail-box">
-  <summary>نصب در مروگرهای اندروید</summary>
+  <summary>نصب در مرورگرهای اندروید</summary>
    با کلیک بر روی 
    <svg aria-label="سه نقطه منو" className="tutorial-icon" viewBox="0 0 384 384"><circle cx="192" cy="42.667" r="42.667"></circle><circle cx="192" cy="192" r="42.667"></circle><circle cx="192" cy="341.333" r="42.667"></circle></svg>
    گزینه افزودن به صفحه اصلی
