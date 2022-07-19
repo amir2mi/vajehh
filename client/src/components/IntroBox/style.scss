@@ -89,18 +89,3 @@
     }
   }
 }
-
-.anim-rise {
-  animation: vajehh-rise 0.3s 0.1s backwards;
-}
-
-@keyframes vajehh-rise {
-  0% {
-    opacity: 0;
-    transform: translateY(0.75em);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}

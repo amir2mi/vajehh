@@ -122,7 +122,7 @@
   justify-content: center;
   min-width: 50%;
 
-  @media (min-width: 576px) {
+  @media (min-width: 576px) and (prefers-reduced-motion: no-preference) {
     animation: vajehh-rotated-box-in cubic-bezier(0.17, 0.67, 0.13, 1.47) 0.3s 1s both;
   }
 
