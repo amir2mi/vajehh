@@ -115,14 +115,16 @@
   }
 }
 
-
 .header-image {
   position: relative;
   z-index: 2;
   display: flex;
   justify-content: center;
   min-width: 50%;
-  animation: vajehh-rotated-box-in cubic-bezier(.17,.67,.13,1.47) 0.3s 1s both;
+
+  @media (min-width: 576px) {
+    animation: vajehh-rotated-box-in cubic-bezier(0.17, 0.67, 0.13, 1.47) 0.3s 1s both;
+  }
 
   .rotated-box {
     width: 30em;
@@ -165,6 +167,15 @@
     z-index: 2;
     width: 22em;
     transform: rotate(-8deg);
+  }
+}
+
+@keyframes vajehh-rotated-box-in {
+  0% {
+    transform: rotate(8deg);
+  }
+  100% {
+    transform: rotate(0);
   }
 }
 

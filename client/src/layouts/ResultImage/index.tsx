@@ -22,7 +22,6 @@ export default function ResultImage() {
     try {
       const response = await getWordImage(activeTab, searchValue);
       const { url } = response?.data as SearchResponseProps;
-
       setImageUrl(url);
     } catch (e) {
       setImageUrl("");
