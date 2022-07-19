@@ -139,7 +139,7 @@ export default function ResultTabs() {
   return !hasActiveDictionary() ? (
     <NoActiveTab />
   ) : (
-    <Tabs defaultIndex={tabsList[activeTab]} className="result-tabs" bordered={true}>
+    <Tabs bordered defaultIndex={tabsList[activeTab]} className="result-tabs">
       <TabList scrollable>
         {tabs.map(
           ({ title, value }, i) =>

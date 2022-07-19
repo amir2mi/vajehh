@@ -1,6 +1,7 @@
 .dictionary-picker {
+  user-select: none;
   white-space: nowrap;
-  
+
   .dropdown {
     padding: 0.5em 1em;
   }

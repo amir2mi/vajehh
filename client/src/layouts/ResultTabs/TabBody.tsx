@@ -95,6 +95,7 @@ export default function TabBody({ children, dict, onFinish, onSearch, postsPerPa
       setResult([]);
       setDisplayQueue([]);
     };
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchValue, fuzzySearch]);
 

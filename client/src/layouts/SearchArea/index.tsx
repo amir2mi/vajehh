@@ -1,4 +1,4 @@
-import { useState, useEffect, FormEvent, MouseEvent } from "react";
+import { useState, useEffect, FormEvent, MouseEvent, useCallback } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { Input } from "react-flatifycss";
 import config from "../../config.json";
@@ -33,28 +33,34 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
     return value.replace(/\//g, " ").trim();
   };
 
-  const handleNaviagate = (url: string) => {
-    const activeTab = searchParams.get("tab");
-    if (activeTab) {
-      url = url + `?tab=${activeTab}`;
-    }
+  const handleNaviagate = useCallback(
+    (url: string) => {
+      const activeTab = searchParams.get("tab");
+      if (activeTab) {
+        url = url + `?tab=${activeTab}`;
+      }
 
-    navigate(url);
-  };
+      navigate(url);
+    },
+    [navigate, searchParams]
+  );
 
   const getSearchValue = () => {
     // get current path and remove /search/ and return the decoded the value
     return decodeURIComponent(window.location.pathname).replace("/search/", "");
   };
 
-  const setInputValue = (value: string) => {
-    // update local value, context value and URL
-    const sanitizedValue = sanitizeValue(value);
+  const setInputValue = useCallback(
+    (value: string) => {
+      // update local value, context value and URL
+      const sanitizedValue = sanitizeValue(value);
 
-    setValue(sanitizedValue);
-    setSearchValue(sanitizedValue);
-    handleNaviagate(sanitizedValue);
-  };
+      setValue(sanitizedValue);
+      setSearchValue(sanitizedValue);
+      handleNaviagate(sanitizedValue);
+    },
+    [handleNaviagate, setSearchValue]
+  );
 
   const handleOnSubmit = (e: MouseEvent | FormEvent) => {
     e.preventDefault();
@@ -111,6 +117,19 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
     }
   };
 
+  // if the user selected a word by double click, update the search value
+  const onMultipleClicks = useCallback(
+    function (e: any) {
+      if (e.detail > 1) {
+        var word = window.getSelection()?.toString();
+        if (word && word.length > 2) {
+          setInputValue(word);
+        }
+      }
+    },
+    [setInputValue]
+  );
+
   // update value after URL change with the back and forward buttons
   useEffect(() => {
     const oldHashState = window.location.hash;
@@ -118,9 +137,11 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
     const onPopState = () => handleOnPopState(oldValue, oldHashState);
 
     window.addEventListener("popstate", onPopState);
+    window.addEventListener("click", onMultipleClicks);
 
     return () => {
       window.removeEventListener("popstate", onPopState);
+      window.removeEventListener("click", onMultipleClicks);
     };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
