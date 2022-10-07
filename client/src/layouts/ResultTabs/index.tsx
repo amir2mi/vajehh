@@ -24,9 +24,9 @@ export default function ResultTabs() {
   const { dictionaries } = useDictionary();
   const [resultCount, setResultCount] = useState<ResultCountProps>({});
 
-  const activeTab = searchParams.get("tab") || "dehkhoda";
+  const selectedTab = searchParams.get("tab") || "dehkhoda";
 
-  // use tabList[activeTab] to set the default tab index
+  // use tabList[selectedTab] to set the default tab index
   // here we assume all tabs are active by default
   const tabsList = {
     dehkhoda: 0,
@@ -136,38 +136,35 @@ export default function ResultTabs() {
     },
   ];
 
+  // filter active tabs based on given dictionaries from context
+  const activeTabs = tabs.filter(({ value }) => dictionaries[value].active);
+
   return !hasActiveDictionary() ? (
     <NoActiveTab />
   ) : (
-    <Tabs bordered defaultIndex={tabsList[activeTab]} className="result-tabs">
+    <Tabs key={activeTabs.length} bordered defaultIndex={tabsList[selectedTab]} className="result-tabs">
       <TabList scrollable>
-        {tabs.map(
-          ({ title, value }, i) =>
-            dictionaries[value].active && (
-              <Tab key={`${i}_${value}`} onClick={() => handleOnTabClick(value)}>
-                <TabTitle title={title} value={resultCount[value]} />
-              </Tab>
-            )
-        )}
+        {activeTabs.map(({ title, value }, i) => (
+          <Tab key={`${i}_${value}`} onClick={() => handleOnTabClick(value)}>
+            <TabTitle title={title} value={resultCount[value]} />
+          </Tab>
+        ))}
       </TabList>
       <TabPanels animation="fade">
-        {tabs.map(
-          ({ title, value, postsPerPage, icon, description }, i) =>
-            dictionaries[value].active && (
-              <TabPanel key={`${i}_${value}`}>
-                <TabBody
-                  postsPerPage={postsPerPage}
-                  dict={value}
-                  onSearch={() => handleOnSearch(value)}
-                  onFinish={(count) => handleOnFinish(value, count)}
-                >
-                  <IntroBox title={title} icon={icon}>
-                    {description}
-                  </IntroBox>
-                </TabBody>
-              </TabPanel>
-            )
-        )}
+        {activeTabs.map(({ title, value, postsPerPage, icon, description }, i) => (
+          <TabPanel key={`${i}_${value}`}>
+            <TabBody
+              postsPerPage={postsPerPage}
+              dict={value}
+              onSearch={() => handleOnSearch(value)}
+              onFinish={(count) => handleOnFinish(value, count)}
+            >
+              <IntroBox title={title} icon={icon}>
+                {description}
+              </IntroBox>
+            </TabBody>
+          </TabPanel>
+        ))}
       </TabPanels>
     </Tabs>
   );
