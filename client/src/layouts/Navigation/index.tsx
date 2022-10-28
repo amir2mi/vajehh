@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { Dropdown } from "react-flatifycss";
+import { Dropdown, DropdownButton, DropdownBody } from "react-flatifycss";
 import config from "../../config.json";
 import { Icons, NavLinks, NightModeButton } from "../../components";
 import "./style.scss";
@@ -49,12 +49,16 @@ export default function Navigation() {
           className="mobile-navigation-dropdown"
           autoClose={true}
           size="xs"
-          buttonLabel={<Icons.More />}
           offsetY={10}
         >
-          <ul className="navigation-links mobile">
-            <NavLinks items={navLinks} />
-          </ul>
+          <DropdownButton>
+            <Icons.More />
+          </DropdownButton>
+          <DropdownBody>
+            <ul className="navigation-links mobile">
+              <NavLinks items={navLinks} />
+            </ul>
+          </DropdownBody>
         </Dropdown>
         <NightModeButton />
       </div>
