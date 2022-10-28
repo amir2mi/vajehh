@@ -53,13 +53,13 @@ export default function GeneralSettings() {
         تنظیمات عمومی
       </p>
       <div aria-labelledby="general-settings-label">
-        <ToggleSwitch checked={autoSearch} isAfterLabel={true} onChange={(value) => handleAutoSearchToggle(value)}>
+        <ToggleSwitch checked={autoSearch} isAfterLabel={true} onChange={(e, value) => handleAutoSearchToggle(value)}>
           <p>
             جستجو خودکار
             <span className="settings-description">پس از یک ثانیه توقف نوشتن، جستجو را شروع کن</span>
           </p>
         </ToggleSwitch>
-        <ToggleSwitch checked={fuzzySearch} isAfterLabel={true} onChange={(value) => handleFuzzySearchToggle(value)}>
+        <ToggleSwitch checked={fuzzySearch} isAfterLabel={true} onChange={(e, value) => handleFuzzySearchToggle(value)}>
           <p>
             کشف واژگان مشابه
             <span className="settings-description">واژگانی که ساختاری مشابه ورودی دارند را در نظر بگیر</span>
@@ -68,14 +68,14 @@ export default function GeneralSettings() {
         <ToggleSwitch
           checked={dictionaries.emlaei.active}
           isAfterLabel={true}
-          onChange={(value) => handleOnEmlaeiToggle(value)}
+          onChange={(e, value) => handleOnEmlaeiToggle(value)}
         >
           <p>
             پیشنهاد املایی
             <span className="settings-description">املا درست یا جایگزین واژگان را پیشنهاد بده</span>
           </p>
         </ToggleSwitch>
-        <ToggleSwitch checked={limitHeight} isAfterLabel={true} onChange={(value) => handleLimitHeightToggle(value)}>
+        <ToggleSwitch checked={limitHeight} isAfterLabel={true} onChange={(e, value) => handleLimitHeightToggle(value)}>
           <p>
             محدود کردن ارتفاع جعبه‌ها
             <span className="settings-description">محتوای طولانی را محدود و با کلیک نمایش بده</span>
