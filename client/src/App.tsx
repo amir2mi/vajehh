@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { Navigate, Route, Routes } from "react-router-dom";
+import { ToastsWrapper } from "react-flatifycss";
 import { useTheme, getNightModeClass } from "./contexts/theme";
 import SearchPage from "./pages/search";
 import HomePage from "./pages/home";
@@ -17,6 +18,7 @@ function Vajehh() {
   return (
     <div className={clsx("app", getNightModeClass(nightMode))}>
       <Navigation />
+      <ToastsWrapper />
       <OnRouteChange>
         <Routes>
           <Route path="/search/*" element={<SearchPage />} />
