@@ -31,7 +31,7 @@ export default function DonateInfo() {
         باهم، <span className="gradient-text">برای همه</span>
       </h1>
       <p className="donate-text">
-        بهترین راه حمایت از واژه معرفی آن به دوستان و آشنایانتان است، البته که می‌توانید در تأمین هزینه‌های نگه‌داری و
+        بهترین راه حمایت از واژه معرفی آن به دوستان و آشنایانتان است، همچنین که می‌توانید در تأمین هزینه‌های نگه‌داری و
         توسعه آن شریک شوید.
       </p>
       <DonateInput />
@@ -52,7 +52,7 @@ export default function DonateInfo() {
           </div>
         </MessageBox>
       ))}
-      <Toast closeButton x="right" show={copiedToast} onClose={() => setCopiedToast(false)}>
+      <Toast closeButton autoClose x="right" show={copiedToast} onClose={() => setCopiedToast(false)}>
         آدرس کیف‌پول با موفقیت کپی شد
       </Toast>
     </aside>
