@@ -8,7 +8,7 @@ import "./style.scss";
 export default function DonateInfo() {
   const cryptoButtons = [
     {
-      title: "بیت کوین",
+      title: "بیت‌کوین",
       address: "bc1qajdanz0wjgy3d2p80rty8t0ss696t227cx3g3c",
       theme: "orange",
       icon: <Icons.Bitcoin />,
