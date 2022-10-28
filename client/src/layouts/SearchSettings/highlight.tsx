@@ -61,7 +61,7 @@ export default function HighlightSettings() {
         تنظیمات علامت‌گذاری
       </p>
       <div aria-labelledby="highlight-settings-label">
-        <ToggleSwitch checked={highlight} isAfterLabel={true} onChange={(value) => handleOnToggle(value)}>
+        <ToggleSwitch checked={highlight} isAfterLabel={true} onChange={(e, value) => handleOnToggle(value)}>
           علامت‌گذاری واژه جستجو شده
         </ToggleSwitch>
         <div className={clsx("change-highlight-color", !highlight && "disable-layer")}>
