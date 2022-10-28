@@ -1,4 +1,6 @@
+import { useState } from "react";
 import clsx from "clsx";
+import { Toast } from "react-flatifycss";
 import copy from "copy-text-to-clipboard";
 import { Icons, MessageBox } from "../../components";
 import DonateInput from "./DonateInput";
@@ -6,6 +8,8 @@ import "./style.scss";
 
 // TODO: replace alert() with custom toast component for crypto buttons when the address is copied
 export default function DonateInfo() {
+  const [copiedToast, setCopiedToast] = useState(false);
+
   const cryptoButtons = [
     {
       title: "بیت‌کوین",
@@ -38,7 +42,7 @@ export default function DonateInfo() {
           className={clsx("icon-info-box", `style-${theme}`)}
           onClick={() => {
             copy(address);
-            alert("آدرس با موفقیت کپی شد");
+            setCopiedToast(true);
           }}
         >
           {icon}
@@ -48,6 +52,9 @@ export default function DonateInfo() {
           </div>
         </MessageBox>
       ))}
+      <Toast closeButton x="right" show={copiedToast} onClose={() => setCopiedToast(false)}>
+        آدرس کیف‌پول با موفقیت کپی شد
+      </Toast>
     </aside>
   );
 }
