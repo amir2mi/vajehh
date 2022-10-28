@@ -4559,10 +4559,10 @@ flatifycss@1.4.1:
   resolved "https://registry.yarnpkg.com/flatifycss/-/flatifycss-1.4.1.tgz#3994ac5fca6219407d703b37f197345295090503"
   integrity sha512-prTr1HIkfXGjl0BIxw/sjTDG54c4VQ78UuDanKUMhVZJc7qkaaldeb03OzEGVYl0cbXBmIxhSuj0QYTXMQrabw==
 
-flatifycss@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/flatifycss/-/flatifycss-1.5.0.tgz#4125371f09df54443a6026f932c9d44a35bf7f8f"
-  integrity sha512-9lPt5jA7pP1W5D3IaJyBsl1ZSuL5OCT6g6vXKQ+RGvs/kIFhBEdFF1K/i/FcRscelbXWDlr2a28vbhxHdlBpeA==
+flatifycss@1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/flatifycss/-/flatifycss-1.5.1.tgz#491a5a5de7fc8051026280646e0c9360dae50b97"
+  integrity sha512-EJpfiExQs2H026AGy1oAadnhY/C1r2MCfXg2HyP8yyL/TTDZh1KNyCZ9nU8drYJbGuFhJKfCIWbkW3HFkBErHA==
 
 flatted@^3.1.0:
   version "3.2.7"

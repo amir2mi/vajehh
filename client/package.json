@@ -15,7 +15,7 @@
     "canvas-image-generator": "^1.0.0",
     "clsx": "^1.1.1",
     "copy-text-to-clipboard": "^3.0.1",
-    "flatifycss": "1.5.0",
+    "flatifycss": "1.5.1",
     "markdown-to-jsx": "^7.1.7",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

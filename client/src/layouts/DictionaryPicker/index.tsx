@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Checkbox, Dropdown } from "react-flatifycss";
+import { Checkbox, Dropdown, DropdownBody, DropdownButton } from "react-flatifycss";
 import config from "../../config.json";
 import useDebounce from "../../hooks/useDebounce";
 import { useDictionary, Dictionaries } from "../../contexts/dictionary";
@@ -32,23 +32,18 @@ export default function DictionaryPicker() {
   };
 
   return (
-    <Dropdown
-      id="search-dictionaries"
-      className="dictionary-picker"
-      autoClose="outside"
-      size="xs"
-      buttonLabel="منابع جستجو"
-      buttonArrow={true}
-      offsetY={10}
-    >
-      {Object.values(dictionaries).map(
-        ({ name, key, active }) =>
-          !dictionariesBlacklist.includes(key) && (
-            <Checkbox key={key} checked={active} onChange={(value) => handleOnChange(key, value)}>
-              {name}
-            </Checkbox>
-          )
-      )}
+    <Dropdown id="search-dictionaries" className="dictionary-picker" autoClose="outside" size="xs" offsetY={10}>
+      <DropdownButton hasArrow>منابع جستجو</DropdownButton>
+      <DropdownBody>
+        {Object.values(dictionaries).map(
+          ({ name, key, active }) =>
+            !dictionariesBlacklist.includes(key) && (
+              <Checkbox key={key} checked={active} onChange={(e, value) => handleOnChange(key, value)}>
+                {name}
+              </Checkbox>
+            )
+        )}
+      </DropdownBody>
     </Dropdown>
   );
 }
