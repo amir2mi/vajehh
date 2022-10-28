@@ -1,4 +1,6 @@
 .text-loading {
+  animation: flatify-fade-in ease 0.3s 0.2s both;
+
   .title,
   .paragraph {
     display: block;
@@ -28,8 +30,7 @@
     }
 
     &:nth-child(3n) {
-        height: 2.5em;
+      height: 2.5em;
     }
-
   }
 }

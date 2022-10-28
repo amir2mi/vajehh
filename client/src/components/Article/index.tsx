@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Markdown from "markdown-to-jsx";
 import clsx from "clsx";
@@ -22,14 +22,13 @@ export default function Article({ className, children, file }: ArticleProps) {
         setLoading(false);
       });
     }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [file]);
 
   return (
     <article className={clsx("article-area container-md", className)}>
-      <Markdown>{children || content}</Markdown>
       {file && loading ? <TextLoading /> : null}
+      {content && <Markdown className="anim-fade-in">{content}</Markdown>}
+      {children}
     </article>
   );
 }
