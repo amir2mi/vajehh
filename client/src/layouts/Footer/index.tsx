@@ -17,16 +17,6 @@ export default function Footer() {
 
         <ul className="footer-nav">
           <li>
-            <a
-              className="button style-dark size-sm reduce-brightness"
-              href="https://kokabi1365.github.io/Vajehdan/"
-              target="_blank"
-              rel="nofollow noreferrer"
-            >
-              نسخه ویندوز
-            </a>
-          </li>
-          <li>
             <Button
               theme="dark"
               size="sm"
