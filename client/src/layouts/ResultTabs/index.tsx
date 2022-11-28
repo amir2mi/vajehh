@@ -59,12 +59,10 @@ export default function ResultTabs() {
 
   // if the tab has enough result scroll to top
   const scrollToTop = (dict: string) => {
-    if (resultCount[dict] > 4) {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   // if any dictionary except "Emalei" (because it is not a tab) is active, return true
