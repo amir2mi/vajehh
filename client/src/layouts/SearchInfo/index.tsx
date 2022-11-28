@@ -88,7 +88,11 @@ export default function SearchInfo({ disableSuggestion, onSuggestionClick }: Sea
         </div>
       ) : (
         searchValue.length !== 1 && (
-          <ToggleSwitch checked={fuzzySearch} onChange={(e, value) => handleFuzzySearchToggle(value)}>
+          <ToggleSwitch
+            className="anim-fade-in"
+            checked={fuzzySearch}
+            onChange={(e, value) => handleFuzzySearchToggle(value)}
+          >
             کشف واژگان مشابه
           </ToggleSwitch>
         )
