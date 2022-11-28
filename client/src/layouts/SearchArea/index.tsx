@@ -1,6 +1,7 @@
 import { useState, useEffect, FormEvent, MouseEvent, useCallback } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { Input } from "react-flatifycss";
+import clsx from "clsx";
 import config from "../../config.json";
 import useDebounce from "../../hooks/useDebounce";
 import { useSettings } from "../../contexts/settings";
@@ -66,6 +67,10 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
     e.preventDefault();
     // immediately update the search value and URL
     setInputValue(value);
+  };
+
+  const handleOnClear = () => {
+    setInputValue("");
   };
 
   const handleOnPopState = (oldValue, oldHashState) => {
@@ -175,12 +180,13 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
           autoFocus
           name="search"
           type="text"
-          wrapperClassName="search-bar"
+          wrapperClassName={clsx("search-bar", value && "has-value")}
           placeholder="جستجو"
           value={value}
           onChange={setValue}
         >
-          <button type="submit" className="search-button" aria-label="جستجو کن"></button>
+          <button type="reset" className="close-button" aria-label="پاکسازی جستجو" onClick={handleOnClear} />
+          <button type="submit" className="search-button" aria-label="جستجو کن" />
         </Input>
       </form>
       <div className="search-settings">

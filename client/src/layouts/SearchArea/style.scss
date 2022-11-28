@@ -7,8 +7,27 @@
     background: var(--flatify__bg-color);
   }
 
+  .close-button,
   .search-button {
     background: transparent;
+  }
+
+  .close-button {
+    position: absolute;
+    right: 0.75em;
+    font-size: 0.75em;
+    transform: scale(0) !important;
+    transition: var(--flatify__simple-transition);
+  }
+
+  .has-value {
+    .text-input {
+      padding-right: 2.9em;
+    }
+
+    .close-button {
+      transform: scale(1) !important;
+    }
   }
 }
 
