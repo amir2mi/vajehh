@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "react-flatifycss";
+import { Button, ToggleSwitch } from "react-flatifycss";
 import config from "../../config.json";
-import { useSearch } from "../../contexts/search";
 import { useDictionary } from "../../contexts/dictionary";
+import { useSearch } from "../../contexts/search";
+import { useSettings } from "../../contexts/settings";
 import { searchWord } from "../../services/api";
-import { cacheToLocalStorage } from "../../utils/localStorage";
+import { cacheToLocalStorage, setLocalStorage, setLocalStorageProp } from "../../utils/localStorage";
 import "./style.scss";
 
 interface SearchInfoProps {
@@ -13,6 +14,7 @@ interface SearchInfoProps {
 }
 
 export default function SearchInfo({ disableSuggestion, onSuggestionClick }: SearchInfoProps) {
+  const { fuzzySearch, setFuzzySearch } = useSettings();
   const { searchValue } = useSearch();
   const { dictionaries } = useDictionary();
 
@@ -32,6 +34,19 @@ export default function SearchInfo({ disableSuggestion, onSuggestionClick }: Sea
     } catch (err) {
       console.error(err);
     }
+  };
+
+  const handleFuzzySearchToggle = (value: boolean) => {
+    setFuzzySearch(value);
+    setLocalStorageProp("settings", "fuzzySearch", value);
+
+    // reset cached results on fuzzy search toggle
+    setLocalStorage("cached_dehkhoda", {});
+    setLocalStorage("cached_teyfi", {});
+    setLocalStorage("cached_motaradef", {});
+    setLocalStorage("cached_sereh", {});
+    setLocalStorage("cached_farhangestan", {});
+    setLocalStorage("cached_ganjvar", {});
   };
 
   useEffect(() => {
@@ -71,7 +86,13 @@ export default function SearchInfo({ disableSuggestion, onSuggestionClick }: Sea
           ))}{" "}
           بود؟
         </div>
-      ) : null}
+      ) : (
+        searchValue.length !== 1 && (
+          <ToggleSwitch checked={fuzzySearch} onChange={(e, value) => handleFuzzySearchToggle(value)}>
+            کشف واژگان مشابه
+          </ToggleSwitch>
+        )
+      )}
       {searchValue.length === 1 && <span className="anim-fade-in">متن جستجو باید بیشتر از یک حرف باشد</span>}
     </div>
   );
