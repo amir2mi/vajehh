@@ -1,4 +1,4 @@
-import { useState, useEffect, FormEvent, MouseEvent, useCallback } from "react";
+import { useState, useEffect, FormEvent, MouseEvent, useCallback, useRef } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { Input } from "react-flatifycss";
 import clsx from "clsx";
@@ -28,6 +28,8 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
 
   // wait until the user stops typing before updating the search value
   const debouncedValue = useDebounce(value, config.searchDebounceDuration);
+
+  const searchInputElement = useRef<HTMLInputElement | null>(null);
 
   // replace / with space and trim the value
   const sanitizeValue = (value: string) => {
@@ -71,6 +73,7 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
 
   const handleOnClear = () => {
     setInputValue("");
+    searchInputElement?.current && searchInputElement.current.focus();
   };
 
   const handleOnPopState = (oldValue, oldHashState) => {
@@ -135,6 +138,15 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
     [setInputValue]
   );
 
+  const onGlobalKeyDown = (e: KeyboardEvent) => {
+    // Accessiblity keyboard navigation: focus search input when "/" is pressed
+    const input = searchInputElement?.current;
+    if ((e.key === "/" || e.code === "Slash") && document.activeElement !== input) {
+      input?.focus();
+      e.preventDefault();
+    }
+  };
+
   // update value after URL change with the back and forward buttons
   useEffect(() => {
     const oldHashState = window.location.hash;
@@ -143,10 +155,12 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
 
     window.addEventListener("popstate", onPopState);
     window.addEventListener("click", onMultipleClicks);
+    window.addEventListener("keydown", onGlobalKeyDown);
 
     return () => {
       window.removeEventListener("popstate", onPopState);
       window.removeEventListener("click", onMultipleClicks);
+      window.removeEventListener("keydown", onGlobalKeyDown);
     };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -177,6 +191,7 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
     <>
       <form id="main-search-bar" aria-label="جستجو و تنظیمات جستجو" onSubmit={(e) => handleOnSubmit(e)}>
         <Input
+          ref={searchInputElement}
           autoFocus
           name="search"
           type="text"
