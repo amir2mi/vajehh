@@ -9,12 +9,14 @@ import type { AllowedDictionaries } from "../../contexts/dictionary";
 import { cacheToLocalStorage } from "../../utils/localStorage";
 import { searchWord } from "../../services/api";
 import { DefinitionBox, FakeDefinitionBox } from "../../components";
+import { DefinitionImagesProps } from "../../components/DefinitionBox";
 import IdleTab from "./IdleTab";
 
 interface ResultProps {
   id: string;
   title: string;
   definition: string[];
+  images: DefinitionImagesProps[];
 }
 
 interface SearchResponseProps {
@@ -121,6 +123,7 @@ export default function TabBody({ children, dict, onFinish, onSearch, postsPerPa
                   key={itemIndex}
                   title={item.title}
                   definition={item.definition}
+                  images={item.images}
                   limit={limitHeight && (dict === "ganjvar" || dict === "dehkhoda") && 10}
                   hasMultipleLine={dict === "ganjvar" || dict === "farhangestan" || dict === "dehkhoda"}
                   highlight={highlight && searchValue.split(/&|،|,|\*|\+| /)}
