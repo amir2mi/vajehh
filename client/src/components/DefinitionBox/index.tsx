@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import clsx from "clsx";
 import Highlighter from "react-highlight-words";
+import { ImageViewer } from "..";
 import Icons from "../Icons";
 import "./style.scss";
 
@@ -39,15 +40,33 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
     titleTagName,
   } = props;
   const Heading = titleTagName || "h2";
+
   const [isLimited, setIsLimited] = useState(definition && limit && definition.length > limit);
+  const [showGallery, setShowGallery] = useState(false);
+
+  const imagesGallery: any = images?.map(({ thumbnail_link, link, mime, source, title }) => ({
+    src: link,
+    caption: (
+      <div className="caption">
+        <span className="mime badge">{mime.split("/")[1]}</span>
+        <a href={source} rel="nofollow noreferrer noopener" target="_blank">
+          {title}
+        </a>
+      </div>
+    ),
+    thumbnail: thumbnail_link,
+  }));
 
   return (
     <article className={clsx("definition-box", className, !images && "crumbled")}>
       <header className="main-header">
         {images?.length && (
-          <button className="images-preview">
-            {images.slice(0, 3).map((image, index) => {
-              return (
+          <>
+            <button
+              className={clsx("images-preview", images.length > 2 && "animated")}
+              onClick={() => setShowGallery(true)}
+            >
+              {images.slice(0, 3).map((image, index) => (
                 <img
                   key={image.title + index}
                   className="preview"
@@ -55,9 +74,10 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
                   alt={image.title}
                   loading="lazy"
                 />
-              );
-            })}
-          </button>
+              ))}
+            </button>
+            <ImageViewer images={imagesGallery} isOpen={showGallery} onClose={() => setShowGallery(false)} />
+          </>
         )}
         <Heading className="definition-title">{title}</Heading>
       </header>
