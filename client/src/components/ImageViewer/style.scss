@@ -1,0 +1,23 @@
+#viewerBackdrop {
+  direction: ltr !important;
+  backdrop-filter: blur(5px);
+  font-size: 0.75em;
+  animation: flatify-fade-in 0.25s ease-in-out;
+
+  figure {
+    position: relative;
+    margin: 0.64em auto !important;
+    max-width: 90vw;
+  }
+
+  .caption {
+    display: flex;
+    align-items: center;
+
+    .mime {
+      text-transform: uppercase;
+      font-size: 0.9em;
+      margin-right: 0.5em;
+    }
+  }
+}
