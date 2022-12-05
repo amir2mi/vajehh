@@ -21,6 +21,7 @@
     "react-dom": "^18.0.0",
     "react-flatifycss": "2.0.0",
     "react-highlight-words": "^0.18.0",
+    "react-images-viewer": "^1.7.1",
     "react-infinite-scroller": "^1.2.5",
     "react-masonry-css": "^1.0.16",
     "react-router-dom": "^6.3.0",
