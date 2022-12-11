@@ -12,7 +12,7 @@ async function renderSearchImage(data, options = {}) {
     titleScale: "large",
     linesOrdinalMargin: false,
     format: "image/jpeg",
-    quality: "fast",
+    quality: 0.85,
   };
   // merge custom options with default ones
   options = { ...defaultOptions, ...options };
