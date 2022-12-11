@@ -40,6 +40,10 @@
     display: flex;
     justify-content: space-between;
     white-space: nowrap;
+
+    .badge {
+      margin-right: 0.64em;
+    }
   }
 
   .settings-description {

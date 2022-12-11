@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, Fragment, useMemo } from "react";
 import clsx from "clsx";
 import Highlighter from "react-highlight-words";
+import { useSettings } from "../../contexts/settings";
 import { ImageViewer } from "..";
 import Icons from "../Icons";
 import "./style.scss";
@@ -41,26 +42,34 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
   } = props;
   const Heading = titleTagName || "h2";
 
+  const { imageSearch } = useSettings();
+
   const [isLimited, setIsLimited] = useState(definition && limit && definition.length > limit);
   const [showGallery, setShowGallery] = useState(false);
 
-  const imagesGallery: any = images?.map(({ thumbnail_link, link, mime, source, title }) => ({
-    src: link,
-    caption: (
-      <div className="caption">
-        <span className="mime badge">{mime.split("/")[1]}</span>
-        <a href={source} rel="nofollow noreferrer noopener" target="_blank">
-          {title}
-        </a>
-      </div>
-    ),
-    thumbnail: thumbnail_link,
-  }));
+  const hasImage = images?.length && imageSearch;
+
+  const imagesGallery: any = useMemo(
+    () =>
+      images?.map(({ thumbnail_link, link, mime, source, title }) => ({
+        src: link,
+        caption: (
+          <div className="caption">
+            <span className="mime badge">{mime.split("/")[1]}</span>
+            <a href={source} rel="nofollow noreferrer noopener" target="_blank">
+              {title}
+            </a>
+          </div>
+        ),
+        thumbnail: thumbnail_link,
+      })),
+    [images]
+  );
 
   return (
-    <article className={clsx("definition-box", className, !images && "crumbled")}>
+    <article className={clsx("definition-box", className, !hasImage && "crumbled")}>
       <header className="main-header">
-        {images?.length && (
+        {hasImage && (
           <>
             <button
               className={clsx("images-preview", images.length > 2 && "animated")}
@@ -86,10 +95,9 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
         {hasMultipleLine && Array.isArray(definition) ? (
           definition.map((line: string, index) => {
             return (
-              <>
+              <Fragment key={index}>
                 {highlight ? (
                   <Highlighter
-                    key={index}
                     className="definition"
                     highlightClassName={clsx("marked-word", `style-${highlightColor}-light`)}
                     autoEscape={true}
@@ -97,12 +105,10 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
                     textToHighlight={line}
                   />
                 ) : (
-                  <span key={index} className="definition">
-                    {line}
-                  </span>
+                  <span className="definition">{line}</span>
                 )}
                 <br />
-              </>
+              </Fragment>
             );
           })
         ) : highlight ? (

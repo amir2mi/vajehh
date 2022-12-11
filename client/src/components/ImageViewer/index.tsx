@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ImgsViewer from "react-images-viewer";
-import "./style.scss";
 import { Loading } from "react-flatifycss";
+import "./style.scss";
 
 export interface Image {
   caption?: string | React.ReactNode;
@@ -33,7 +33,7 @@ export default function ImageViewer({ initialIndex = 0, isOpen, onClose, images 
       backdropCloseable={true}
       preloadNextImg={true}
       showThumbnails={true}
-      spinner={() => <Loading size="3x" />}
+      spinner={() => <Loading size="3x" color="light-light" />}
     />
   );
 }

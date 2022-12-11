@@ -14,6 +14,8 @@ interface SettingsContextProps {
   setAutoSearch: (value: boolean) => void;
   fuzzySearch: boolean;
   setFuzzySearch: (value: boolean) => void;
+  imageSearch: boolean;
+  setImageSearch: (value: boolean) => void;
   limitHeight: boolean;
   setLimitHeight: (value: boolean) => void;
   highlight: boolean;
@@ -30,6 +32,7 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
     columns: 2,
     autoSearch: true,
     fuzzySearch: true,
+    imageSearch: true,
     limitHeight: true,
     highlight: true,
     highlightColor: "yellow",
@@ -38,6 +41,7 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
   const [columnsCount, setColumnsCount] = useState<number>(userSettings.columns);
   const [autoSearch, setAutoSearch] = useState<boolean>(userSettings.autoSearch);
   const [fuzzySearch, setFuzzySearch] = useState<boolean>(userSettings.fuzzySearch);
+  const [imageSearch, setImageSearch] = useState<boolean>(userSettings.imageSearch);
   const [limitHeight, setLimitHeight] = useState<boolean>(userSettings.limitHeight);
   const [highlight, setHighlight] = useState<boolean>(userSettings.highlight);
   const [highlightColor, setHighlightColor] = useState<HighlightColors>(userSettings.highlightColor);
@@ -51,6 +55,8 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
         setAutoSearch,
         fuzzySearch,
         setFuzzySearch,
+        imageSearch,
+        setImageSearch,
         limitHeight,
         setLimitHeight,
         highlight,

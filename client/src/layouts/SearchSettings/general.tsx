@@ -1,17 +1,31 @@
-import { ToggleSwitch } from "react-flatifycss";
+import { ToggleSwitch, Badge } from "react-flatifycss";
 import { useSettings } from "../../contexts/settings";
 import { useDictionary } from "../../contexts/dictionary";
 import { useSearch } from "../../contexts/search";
 import { setLocalStorage, setLocalStorageProp } from "../../utils/localStorage";
 
 export default function GeneralSettings() {
-  const { autoSearch, setAutoSearch, fuzzySearch, setFuzzySearch, limitHeight, setLimitHeight } = useSettings();
+  const {
+    autoSearch,
+    setAutoSearch,
+    fuzzySearch,
+    setFuzzySearch,
+    imageSearch,
+    setImageSearch,
+    limitHeight,
+    setLimitHeight,
+  } = useSettings();
   const { dictionaries, setDictionaries } = useDictionary();
   const { searchValue, setSearchValue } = useSearch();
 
   const handleAutoSearchToggle = (value: boolean) => {
     setAutoSearch(value);
     setLocalStorageProp("settings", "autoSearch", value);
+  };
+
+  const handleImageSearchToggle = (value: boolean) => {
+    setImageSearch(value);
+    setLocalStorageProp("settings", "imageSearch", value);
   };
 
   const handleFuzzySearchToggle = (value: boolean) => {
@@ -57,6 +71,15 @@ export default function GeneralSettings() {
           <p>
             جستجو خودکار
             <span className="settings-description">پس از یک ثانیه توقف نوشتن، جستجو را شروع کن</span>
+          </p>
+        </ToggleSwitch>
+        <ToggleSwitch checked={imageSearch} isAfterLabel={true} onChange={(e, value) => handleImageSearchToggle(value)}>
+          <p>
+            <span>
+              جستجو تصاویر
+              <Badge theme="accent-light">جدید</Badge>
+            </span>
+            <span className="settings-description">نمایش تصاویر مرتبط با واژه جستجو شده</span>
           </p>
         </ToggleSwitch>
         <ToggleSwitch checked={fuzzySearch} isAfterLabel={true} onChange={(e, value) => handleFuzzySearchToggle(value)}>
