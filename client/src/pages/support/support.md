@@ -18,11 +18,26 @@
 
 ## درباره واژه
 
-واژه براساس <a href="https://vajehdan.com/" target="_blank" rel="noreferrer nofollow">نرم‌افزار واژه‌دان</a> توسط <a href="https://github.com/amir2mi" target="_blank" rel="noreferrer">من</a> طراحی و اجرا شده است.  
+واژه براساس <a href="https://vajehdan.com/" target="_blank" rel="noreferrer nofollow">نرم‌افزار واژه‌دان</a> توسط <a href="https://github.com/amir2mi" target="_blank" rel="noreferrer">من</a> طراحی و اجرا شده است.
+
+### تکنولوژی‌ها
+
 طرح اولیه واژه با نرم‌افزار فیگما پیاده‌سازی شده که می‌توانید <a href="https://www.figma.com/community/file/1083498571775166027" target="_blank" rel="noreferrer">از اینجا</a> آن را مشاهده کنید.  
-کتابخانه مورد استفاده برای سمت کاربر <a href="https://flatifycss.com/" target="_blank" rel="noreferrer">FlatifyCSS</a> است.  
-برای منابع فرهنگ‌نامه‌های طیفی، مترادف، سره، فرهنگستان و گنجور از <a href="https://github.com/kokabi1365/Vajehdan/tree/master/src/Vajehdan/Resources/Dicts" target="_blank" rel="noreferrer"> فایل‌های نرم‌افزار واژه‌دان</a> استفاده شده و منبع واژه‌نامه دهخدا [این مخرن](https://github.com/tarnamaco/persian-databases) است.  
-منابع با اسکریپت پایتون به JSON تبدیل شده سپس به پایگاه‌داده مونگو انتقال یافته است.  
+کتابخانه‌های مورد استفاده برای سمت کاربر
+<a href="https://flatifycss.com/" target="_blank" rel="noreferrer">FlatifyCSS</a>
+&nbsp;و
+<a href="https://react.flatifycss.com/" target="_blank" rel="noreferrer">React FlatifyCSS</a>
+&nbsp;هستند.  
+پایگاه‌داده مورد استفاده
+MongoDB
+بوده و جستجو سریع بین هزاران واژه با قابلیت
+MongoDB Atlas Search
+امکان‌پذیر شده است.
+
+### منابع
+
+برای منابع فرهنگ‌نامه‌های طیفی، مترادف، سره، فرهنگستان و گنجور از <a href="https://github.com/mrkou65/Vajehdan" target="_blank" rel="noreferrer"> فایل‌های نرم‌افزار واژه‌دان</a> استفاده شده و منبع واژه‌نامه دهخدا [این مخرن](https://github.com/tarnamaco/persian-databases) است.  
+تصاویر مرتبط با نتایج توسط موتور جستجوی گوگل ارائه شده است.  
 سورس سرور و سمت‌کاربر به صورت متن‌باز تحت مجوز <a href="https://github.com/amir2mi/vajehh/blob/master/LICENSE" target="_blank" rel="noreferrer">AGPL-3.0</a> در <a href="https://github.com/amir2mi/vajehh" target="_blank" rel="noreferrer">گیت‌هاب</a> موجود است.
 
 ## حریم خصوصی
