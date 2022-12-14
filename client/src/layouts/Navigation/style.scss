@@ -28,12 +28,6 @@
       opacity: 0.075;
     }
 
-    @media (max-width: 575px) {
-      &.active {
-        color: #2e4051 !important;
-      }
-    }
-
     &.active:focus {
       animation: flatify-hue 25s infinite !important;
     }
@@ -44,6 +38,12 @@
       width: 1.5em;
       height: 1.75em;
     }
+  }
+}
+
+@media (max-width: 575px) {
+  .home .home-link.active {
+    color: #2e4051 !important;
   }
 }
 
