@@ -72,7 +72,6 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
 
   const poetName = title.includes("|") ? title.split("|")?.[0]?.trim() : "";
   const poetsAvatar = imageSearch && showPoetAvatar && poetName && poets ? poets[poetName] : "";
-  console.log(poetName, poetsAvatar);
 
   return (
     <article className={clsx("definition-box", className, !(poetsAvatar || hasImage) && "crumbled")}>
