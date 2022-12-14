@@ -7,6 +7,7 @@
   "githubURL": "https://github.com/amir2mi/vajehh",
   "donateURL": "https://idpay.ir/vajehh",
   "donationsListURL": "/donations.json",
+  "poetsURL": "/poets.json",
   "searchDebounceDuration": 900,
   "dictionaryPickerDebounceDuration": 500,
   "localCacheLimit__emlaei": 30,

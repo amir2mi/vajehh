@@ -2,6 +2,7 @@ import React, { useState, Fragment, useMemo } from "react";
 import clsx from "clsx";
 import Highlighter from "react-highlight-words";
 import { useSettings } from "../../contexts/settings";
+import { usePoets } from "../../contexts/poets";
 import { ImageViewer } from "..";
 import Icons from "../Icons";
 import "./style.scss";
@@ -23,6 +24,7 @@ interface DefinitionBoxProps {
   highlightColor?: string;
   images?: DefinitionImagesProps[];
   limit?: number | false;
+  showPoetAvatar?: boolean;
   title: string;
   titleTagName?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 }
@@ -37,12 +39,14 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
     highlightColor,
     images,
     limit,
+    showPoetAvatar,
     title,
     titleTagName,
   } = props;
   const Heading = titleTagName || "h2";
 
   const { imageSearch } = useSettings();
+  const { poets } = usePoets();
 
   const [isLimited, setIsLimited] = useState(definition && limit && definition.length > limit);
   const [showGallery, setShowGallery] = useState(false);
@@ -66,17 +70,23 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
     [images]
   );
 
+  const poetName = title.includes("|") ? title.split("|")?.[0]?.trim() : "";
+  const poetsAvatar = imageSearch && showPoetAvatar && poetName && poets ? poets[poetName] : "";
+  console.log(poetName, poetsAvatar);
+
   return (
-    <article className={clsx("definition-box", className, !hasImage && "crumbled")}>
+    <article className={clsx("definition-box", className, !(poetsAvatar || hasImage) && "crumbled")}>
       <header className="main-header">
         {hasImage && (
           <>
             <button
+              aria-label={`نمایش تصاویر مرتبط با ${title}`}
               className={clsx("images-preview", images.length > 2 && "animated")}
               onClick={() => setShowGallery(true)}
             >
               {images.slice(0, 3).map((image, index) => (
                 <img
+                  draggable={false}
                   key={image.title + index}
                   className="preview"
                   src={image.thumbnail_link}
@@ -87,6 +97,9 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
             </button>
             <ImageViewer images={imagesGallery} isOpen={showGallery} onClose={() => setShowGallery(false)} />
           </>
+        )}
+        {poetsAvatar && (
+          <img draggable={false} className="poet-avatar" src={poetsAvatar} alt={poetName} loading="lazy" />
         )}
         <Heading className="definition-title">{title}</Heading>
       </header>

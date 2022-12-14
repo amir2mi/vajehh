@@ -40,3 +40,7 @@ export function getWordImage(dic: AllowedDictionaries, word: string) {
 export function getDonations() {
   return axios.get(config.donationsListURL);
 }
+
+export function getPoets() {
+  return axios.get(config.poetsURL);
+}
