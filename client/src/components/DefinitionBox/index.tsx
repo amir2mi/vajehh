@@ -1,4 +1,5 @@
 import React, { useState, Fragment, useMemo } from "react";
+import { Separator } from "react-flatifycss";
 import clsx from "clsx";
 import Highlighter from "react-highlight-words";
 import { useSettings } from "../../contexts/settings";
@@ -108,16 +109,20 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
           definition.map((line: string, index) => {
             return (
               <Fragment key={index}>
-                {highlight ? (
-                  <Highlighter
-                    className="definition"
-                    highlightClassName={clsx("marked-word", `style-${highlightColor}-light`)}
-                    autoEscape={true}
-                    searchWords={highlight}
-                    textToHighlight={line}
-                  />
+                {line ? (
+                  highlight ? (
+                    <Highlighter
+                      className="definition"
+                      highlightClassName={clsx("marked-word", `style-${highlightColor}-light`)}
+                      autoEscape={true}
+                      searchWords={highlight}
+                      textToHighlight={line}
+                    />
+                  ) : (
+                    <span className="definition">{line}</span>
+                  )
                 ) : (
-                  <span className="definition">{line}</span>
+                  <Separator type="short" size="xs" />
                 )}
                 <br />
               </Fragment>
