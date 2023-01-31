@@ -32,6 +32,7 @@ import { ReactComponent as NoActiveDict } from "../../assets/svg/no-active-dict.
 import { ReactComponent as NoResult } from "../../assets/svg/no-result.svg";
 import { ReactComponent as Settings } from "../../assets/svg/settings.svg";
 import { ReactComponent as Share } from "../../assets/svg/share.svg";
+import { ReactComponent as Sound } from "../../assets/svg/sound.svg";
 import { ReactComponent as Sun } from "../../assets/svg/sun.svg";
 import { ReactComponent as Twitter } from "../../assets/svg/twitter.svg";
 import { ReactComponent as Writing } from "../../assets/svg/writing.svg";
@@ -64,6 +65,7 @@ const Icons = {
   NoResult,
   Settings,
   Share,
+  Sound,
   Sun,
   Twitter,
   Writing,
