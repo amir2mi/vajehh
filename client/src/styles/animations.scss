@@ -23,3 +23,23 @@
     }
   }
 }
+
+.anim-sound-play {
+  .first-wave {
+    animation: scale-up-left 0.4s 0.4s ease-in-out;
+  }
+  .second-wave {
+    animation: scale-up-left 0.5s 0.6s ease-in-out;
+  }
+}
+
+@keyframes scale-up-left {
+  0% {
+    transform: translateX(-15px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

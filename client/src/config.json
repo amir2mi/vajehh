@@ -4,6 +4,7 @@
   "apiEndpointURL": "https://vajehh.com/api",
   "apiEndpointURL__dev": "http://localhost:8080/api",
   "apiOrigin": "https://vajehh.com",
+  "voiceOrigin": "https://voices.vajehh.com/voices",
   "githubURL": "https://github.com/amir2mi/vajehh",
   "donateURL": "https://idpay.ir/vajehh",
   "donationsListURL": "/donations.json",

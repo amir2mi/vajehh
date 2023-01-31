@@ -17,6 +17,7 @@ interface ResultProps {
   title: string;
   definition: string[];
   images: DefinitionImagesProps[];
+  voice?: string;
 }
 
 interface SearchResponseProps {
@@ -121,9 +122,11 @@ export default function TabBody({ children, dict, onFinish, onSearch, postsPerPa
               return (
                 <DefinitionBox
                   key={itemIndex}
+                  dictionary={dict}
                   title={item.title}
                   definition={item.definition}
                   images={item.images}
+                  voice={item.voice}
                   showPoetAvatar={dict === "ganjvar"}
                   limit={limitHeight && (dict === "ganjvar" || dict === "dehkhoda") && 10}
                   hasMultipleLine={dict === "ganjvar" || dict === "farhangestan" || dict === "dehkhoda"}

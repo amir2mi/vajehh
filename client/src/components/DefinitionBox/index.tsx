@@ -1,11 +1,12 @@
 import React, { useState, Fragment, useMemo } from "react";
-import { Separator } from "react-flatifycss";
+import { Button, Loading, Separator } from "react-flatifycss";
 import clsx from "clsx";
 import Highlighter from "react-highlight-words";
 import { useSettings } from "../../contexts/settings";
 import { usePoets } from "../../contexts/poets";
 import { ImageViewer } from "..";
 import Icons from "../Icons";
+import config from "../../config.json";
 import "./style.scss";
 
 export interface DefinitionImagesProps {
@@ -20,6 +21,7 @@ interface DefinitionBoxProps {
   children?: string | React.ReactNode;
   className?: string;
   definition?: string | string[];
+  dictionary?: string;
   hasMultipleLine?: boolean;
   highlight?: string[] | false;
   highlightColor?: string;
@@ -28,6 +30,7 @@ interface DefinitionBoxProps {
   showPoetAvatar?: boolean;
   title: string;
   titleTagName?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  voice?: string;
 }
 
 export default function DefinitionBox(props: DefinitionBoxProps) {
@@ -35,6 +38,7 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
     children,
     className,
     definition,
+    dictionary,
     hasMultipleLine,
     highlight,
     highlightColor,
@@ -43,6 +47,7 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
     showPoetAvatar,
     title,
     titleTagName,
+    voice,
   } = props;
   const Heading = titleTagName || "h2";
 
@@ -77,31 +82,34 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
   return (
     <article className={clsx("definition-box", className, !(poetsAvatar || hasImage) && "crumbled")}>
       <header className="main-header">
-        {hasImage && (
-          <>
-            <button
-              aria-label={`نمایش تصاویر مرتبط با ${title}`}
-              className={clsx("images-preview", images.length > 2 && "animated")}
-              onClick={() => setShowGallery(true)}
-            >
-              {images.slice(0, 3).map((image, index) => (
-                <img
-                  draggable={false}
-                  key={image.title + index}
-                  className="preview"
-                  src={image.thumbnail_link}
-                  alt={image.title}
-                  loading="lazy"
-                />
-              ))}
-            </button>
-            <ImageViewer images={imagesGallery} isOpen={showGallery} onClose={() => setShowGallery(false)} />
-          </>
-        )}
-        {poetsAvatar && (
-          <img draggable={false} className="poet-avatar" src={poetsAvatar} alt={poetName} loading="lazy" />
-        )}
-        <Heading className="definition-title">{title}</Heading>
+        <div className="title">
+          {hasImage && (
+            <>
+              <button
+                aria-label={`نمایش تصاویر مرتبط با ${title}`}
+                className={clsx("images-preview", images.length > 2 && "animated")}
+                onClick={() => setShowGallery(true)}
+              >
+                {images.slice(0, 3).map((image, index) => (
+                  <img
+                    draggable={false}
+                    key={image.title + index}
+                    className="preview"
+                    src={image.thumbnail_link}
+                    alt={image.title}
+                    loading="lazy"
+                  />
+                ))}
+              </button>
+              <ImageViewer images={imagesGallery} isOpen={showGallery} onClose={() => setShowGallery(false)} />
+            </>
+          )}
+          {poetsAvatar && (
+            <img draggable={false} className="poet-avatar" src={poetsAvatar} alt={poetName} loading="lazy" />
+          )}
+          <Heading className="definition-title">{title}</Heading>
+        </div>
+        {voice && <VoiceButton {...props} />}
       </header>
 
       <p className={clsx("definition-content", isLimited && "limited")}>
@@ -152,5 +160,47 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
         )}
       </p>
     </article>
+  );
+}
+
+function VoiceButton({ voice, dictionary, title }: DefinitionBoxProps) {
+  const { highlightColor } = useSettings();
+  const [loading, setLoading] = useState(false);
+  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+
+  const handleOnPlay = () => {
+    setLoading(false);
+  };
+
+  const handleClearPlay = () => {
+    audio?.pause();
+    audio?.removeEventListener("canplaythrough", handleOnPlay);
+    setLoading(false);
+    setAudio(null);
+  };
+
+  return (
+    <>
+      <Button
+        className="play-voice-button"
+        aria-label={`شنیدن تلفظ ${title}`}
+        size="xs"
+        theme={highlightColor}
+        onClick={() => {
+          handleClearPlay();
+          if (!loading) {
+            setLoading(true);
+            const voiceName = voice && voice.split("|")?.[2].replaceAll(/\]|\[/g, "").trim();
+            const createdAudio = new Audio(`${config.voiceOrigin}/${dictionary}/${voiceName}.mp3`);
+            createdAudio?.play();
+            setAudio(createdAudio);
+            createdAudio.addEventListener("canplaythrough", handleOnPlay);
+            createdAudio.addEventListener("abort", handleClearPlay);
+          }
+        }}
+      >
+        {loading ? <Loading size="xs" spinner /> : <Icons.Sound className="anim-sound-play" />}
+      </Button>
+    </>
   );
 }

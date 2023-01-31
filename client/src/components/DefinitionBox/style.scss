@@ -37,7 +37,13 @@
   .main-header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 0.5em;
+
+    .title {
+      display: flex;
+      align-items: center;
+    }
   }
 
   &.crumbled {
@@ -199,6 +205,18 @@
 .marked-word {
   padding: 0 !important;
   border-radius: 0 !important;
+}
+
+.play-voice-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3em;
+  padding: 0.5em;
+
+  svg {
+    fill: currentColor;
+  }
 }
 
 @media screen and (max-width: 575px) {
