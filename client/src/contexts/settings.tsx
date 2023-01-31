@@ -35,7 +35,7 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
     imageSearch: true,
     limitHeight: true,
     highlight: true,
-    highlightColor: "yellow",
+    highlightColor: "blue",
   });
 
   const [columnsCount, setColumnsCount] = useState<number>(userSettings.columns);
