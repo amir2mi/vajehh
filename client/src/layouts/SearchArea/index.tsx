@@ -193,6 +193,7 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
         <Input
           ref={searchInputElement}
           autoFocus
+          autoComplete="off"
           name="search"
           type="text"
           wrapperClassName={clsx("search-bar", value && "has-value")}
