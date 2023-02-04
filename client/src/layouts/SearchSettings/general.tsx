@@ -12,6 +12,8 @@ export default function GeneralSettings() {
     setFuzzySearch,
     imageSearch,
     setImageSearch,
+    audioSearch,
+    setAudioSearch,
     limitHeight,
     setLimitHeight,
   } = useSettings();
@@ -26,6 +28,11 @@ export default function GeneralSettings() {
   const handleImageSearchToggle = (value: boolean) => {
     setImageSearch(value);
     setLocalStorageProp("settings", "imageSearch", value);
+  };
+
+  const handleAudioSearchToggle = (value: boolean) => {
+    setAudioSearch(value);
+    setLocalStorageProp("settings", "audioSearch", value);
   };
 
   const handleFuzzySearchToggle = (value: boolean) => {
@@ -80,6 +87,15 @@ export default function GeneralSettings() {
               <Badge theme="accent-light">جدید</Badge>
             </span>
             <span className="settings-description">نمایش تصاویر مرتبط با واژه جستجو شده</span>
+          </p>
+        </ToggleSwitch>
+        <ToggleSwitch checked={audioSearch} isAfterLabel={true} onChange={(e, value) => handleAudioSearchToggle(value)}>
+          <p>
+            <span>
+              تلفظ واژگان
+              <Badge theme="accent-light">جدید</Badge>
+            </span>
+            <span className="settings-description">امکان پخش تلفظ واژگان ضبط شده توسط کاربران فارسی‌زبان</span>
           </p>
         </ToggleSwitch>
         <ToggleSwitch checked={fuzzySearch} isAfterLabel={true} onChange={(e, value) => handleFuzzySearchToggle(value)}>

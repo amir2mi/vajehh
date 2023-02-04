@@ -41,6 +41,7 @@ export default function ColumnSettings() {
     <>
       <p className="menu-item heading">تعداد ستون‌ها</p>
       <ItemsGroup
+        size="sm"
         items={columns}
         className="column-picker"
         value={columnsCount}

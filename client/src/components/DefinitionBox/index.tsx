@@ -51,7 +51,7 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
   } = props;
   const Heading = titleTagName || "h2";
 
-  const { imageSearch } = useSettings();
+  const { imageSearch, audioSearch } = useSettings();
   const { poets } = usePoets();
 
   const [isLimited, setIsLimited] = useState(definition && limit && definition.length > limit);
@@ -109,7 +109,7 @@ export default function DefinitionBox(props: DefinitionBoxProps) {
           )}
           <Heading className="definition-title">{title}</Heading>
         </div>
-        {voice && <VoiceButton {...props} />}
+        {voice && audioSearch && <VoiceButton {...props} />}
       </header>
 
       <p className={clsx("definition-content", isLimited && "limited")}>
@@ -180,27 +180,25 @@ function VoiceButton({ voice, dictionary, title }: DefinitionBoxProps) {
   };
 
   return (
-    <>
-      <Button
-        className="play-voice-button"
-        aria-label={`شنیدن تلفظ ${title}`}
-        size="xs"
-        theme={highlightColor}
-        onClick={() => {
-          handleClearPlay();
-          if (!loading) {
-            setLoading(true);
-            const voiceName = voice && voice.split("|")?.[2].replaceAll(/\]|\[/g, "").trim();
-            const createdAudio = new Audio(`${config.voiceOrigin}/${dictionary}/${voiceName}.mp3`);
-            createdAudio?.play();
-            setAudio(createdAudio);
-            createdAudio.addEventListener("canplaythrough", handleOnPlay);
-            createdAudio.addEventListener("abort", handleClearPlay);
-          }
-        }}
-      >
-        {loading ? <Loading size="xs" spinner /> : <Icons.Sound className="anim-sound-play" />}
-      </Button>
-    </>
+    <Button
+      className="play-voice-button"
+      aria-label={`شنیدن تلفظ ${title}`}
+      size="xs"
+      theme={highlightColor}
+      onClick={() => {
+        handleClearPlay();
+        if (!loading) {
+          setLoading(true);
+          const voiceName = voice && voice.split("|")?.[2].replaceAll(/\]|\[/g, "").trim();
+          const createdAudio = new Audio(`${config.voiceOrigin}/${dictionary}/${voiceName}.mp3`);
+          createdAudio?.play();
+          setAudio(createdAudio);
+          createdAudio.addEventListener("canplaythrough", handleOnPlay);
+          createdAudio.addEventListener("abort", handleClearPlay);
+        }
+      }}
+    >
+      {loading ? <Loading size="xs" spinner /> : <Icons.Sound className="anim-sound-play" />}
+    </Button>
   );
 }

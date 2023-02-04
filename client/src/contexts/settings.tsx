@@ -16,6 +16,8 @@ interface SettingsContextProps {
   setFuzzySearch: (value: boolean) => void;
   imageSearch: boolean;
   setImageSearch: (value: boolean) => void;
+  audioSearch: boolean;
+  setAudioSearch: (value: boolean) => void;
   limitHeight: boolean;
   setLimitHeight: (value: boolean) => void;
   highlight: boolean;
@@ -33,6 +35,7 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
     autoSearch: true,
     fuzzySearch: true,
     imageSearch: true,
+    audioSearch: true,
     limitHeight: true,
     highlight: true,
     highlightColor: "blue",
@@ -42,6 +45,7 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
   const [autoSearch, setAutoSearch] = useState<boolean>(userSettings.autoSearch);
   const [fuzzySearch, setFuzzySearch] = useState<boolean>(userSettings.fuzzySearch);
   const [imageSearch, setImageSearch] = useState<boolean>(userSettings.imageSearch);
+  const [audioSearch, setAudioSearch] = useState<boolean>(userSettings.audioSearch);
   const [limitHeight, setLimitHeight] = useState<boolean>(userSettings.limitHeight);
   const [highlight, setHighlight] = useState<boolean>(userSettings.highlight);
   const [highlightColor, setHighlightColor] = useState<HighlightColors>(userSettings.highlightColor);
@@ -57,6 +61,8 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
         setFuzzySearch,
         imageSearch,
         setImageSearch,
+        audioSearch,
+        setAudioSearch,
         limitHeight,
         setLimitHeight,
         highlight,
