@@ -18,16 +18,16 @@ const handleWordSearchTitle = (activeTab, word) => {
     if (activeTab && word) {
       switch (activeTab) {
         case "dehkhoda":
-          resolve(`واژه | معنی و تفسیر ${word} در لغت نامه دهخدا`);
+          resolve(`واژه | معنی و تفسیر ${word} در لغت نامه دهخدا با تلفظ فارسی`);
           break;
         case "teyfi":
-          resolve(`واژه | واژگان مشابه با ${word} در فرهنگ طیفی`);
+          resolve(`واژه | واژگان مشابه با ${word} در فرهنگ طیفی با تلفظ فارسی`);
           break;
         case "motaradef":
-          resolve(`واژه | مترادف و متضاد ${word}`);
+          resolve(`واژه | مترادف و متضاد ${word} با تلفظ فارسی`);
           break;
         case "sereh":
-          resolve(`واژه | معادل فارسی ${word} در فرهنگ سره`);
+          resolve(`واژه | معادل فارسی ${word} در فرهنگ سره با تلفظ`);
           break;
         case "farhangestan":
           resolve(`واژه | معادل تخصصی فارسی ${word} در فرهنگستان`);
