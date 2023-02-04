@@ -98,16 +98,16 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
     if (activeTab && value) {
       switch (activeTab) {
         case "dehkhoda":
-          document.title = `واژه | معنی و تفسیر ${value} در لغت نامه دهخدا`;
+          document.title = `واژه | معنی و تفسیر ${value} در لغت نامه دهخدا با تلفظ فارسی`;
           break;
         case "teyfi":
-          document.title = `واژه | واژگان مشابه با ${value} در فرهنگ طیفی`;
+          document.title = `واژه | واژگان مشابه با ${value} در فرهنگ طیفی با تلفظ فارسی`;
           break;
         case "motaradef":
-          document.title = `واژه | مترادف و متضاد ${value}`;
+          document.title = `واژه | مترادف و متضاد ${value} با تلفظ فارسی`;
           break;
         case "sereh":
-          document.title = `واژه | معادل فارسی ${value} در فرهنگ سره`;
+          document.title = `واژه | معادل فارسی ${value} در فرهنگ سره با تلفظ`;
           break;
         case "farhangestan":
           document.title = `واژه | معادل تخصصی فارسی ${value} در فرهنگستان`;
@@ -120,7 +120,7 @@ export default function SearchArea({ disableSuggestion }: SearchAreaProps) {
       if (value) {
         document.title = `واژه | نتایج جستجو برای ${value}`;
       } else {
-        document.title = `واژه | جستجوی واژه و اشعار در فرهنگ های سره، طیفی، گنجور و غیره`;
+        document.title = `واژه | جستجوی واژه و اشعار در فرهنگ های سره، طیفی، گنجور و غیره با تلفظ فارسی`;
       }
     }
   };
