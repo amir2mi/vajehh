@@ -22,17 +22,25 @@
 
 ### تکنولوژی‌ها
 
-طرح اولیه واژه با نرم‌افزار فیگما پیاده‌سازی شده که می‌توانید <a href="https://www.figma.com/community/file/1083498571775166027" target="_blank" rel="noreferrer">از اینجا</a> آن را مشاهده کنید.  
+طرح اولیه واژه با نرم‌افزار فیگما پیاده‌سازی شده که می‌توانید
+[از اینجا](https://www.figma.com/community/file/1083498571775166027)
+آن را مشاهده کنید.  
 کتابخانه‌های مورد استفاده برای سمت کاربر
-<a href="https://flatifycss.com/" target="_blank" rel="noreferrer">FlatifyCSS</a>
-&nbsp;و
-<a href="https://react.flatifycss.com/" target="_blank" rel="noreferrer">React FlatifyCSS</a>
-&nbsp;هستند.  
+[FlatifyCSS](https://flatifycss.com/)
+و
+[React FlatifyCSS](https://react.flatifycss.com)
+هستند.  
 پایگاه‌داده مورد استفاده
 MongoDB
 بوده و جستجو سریع بین هزاران واژه با قابلیت
 MongoDB Atlas Search
 امکان‌پذیر شده است.
+
+### تلفظ
+
+صوت تلفظ واژگان توسط api اشتراکی
+[Forvo](https://forvo.com/)
+ارائه شده است.
 
 ### منابع
 
