@@ -8,28 +8,28 @@
 
   .right {
     bottom: -3em;
-    right: -5%;
-    font-size: 4em;
+    right: -10%;
+    font-size: 5em;
     transform: rotate(10deg);
     opacity: 0.35;
     --vajehh__firefly-color: #1cb0f6;
   }
 
   .center {
-    bottom: -3em;
+    bottom: -4em;
     left: 5%;
     right: 0;
     margin: 0 auto;
-    font-size: 6em;
+    font-size: 7em;
     transform: rotate(-10deg);
-    opacity: 0.5;
+    opacity: 0.6;
     --vajehh__firefly-color: #ffe749;
   }
 
   .left {
     bottom: -4em;
-    left: 0;
-    font-size: 4em;
+    left: -10%;
+    font-size: 6em;
     opacity: 0.5;
     --vajehh__firefly-color: #ff6694;
   }

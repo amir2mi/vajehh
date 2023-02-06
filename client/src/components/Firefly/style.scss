@@ -18,10 +18,9 @@
   }
 
   &:before {
-    background: var(--vajehh__firefly-color);
+    background: radial-gradient(50% 50% at 50% 50%, var(--vajehh__firefly-color), transparent);
     border-radius: 50%;
-    filter: blur(85px);
-    will-change: opacity, filter;
+    will-change: opacity;
   }
 
   &:after {
