@@ -184,7 +184,9 @@ function VoiceButton({ voice, dictionary, title }: DefinitionBoxProps) {
       className="play-voice-button"
       aria-label={`شنیدن تلفظ ${title}`}
       size="xs"
-      theme={highlightColor}
+      theme="light-light"
+      bordered
+      state={loading ? "active" : undefined}
       onClick={() => {
         handleClearPlay();
         if (!loading) {
@@ -198,7 +200,13 @@ function VoiceButton({ voice, dictionary, title }: DefinitionBoxProps) {
         }
       }}
     >
-      {loading ? <Loading size="xs" spinner /> : <Icons.Sound className="anim-sound-play" />}
+      {loading ? (
+        <Loading className="anim-fade-in" size="xs" spinner />
+      ) : (
+        <span className="anim-fade-in">
+          <Icons.Sound className="anim-sound-play" />
+        </span>
+      )}
     </Button>
   );
 }
