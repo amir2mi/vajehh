@@ -16,6 +16,7 @@ export default function HeaderInfo() {
       <p className="subtitle">واژه، موتور جستجوی نویسندگان</p>
       <form onSubmit={() => handleOnSubmit()}>
         <Input
+          autoComplete="off"
           type="text"
           wrapperClassName="search-bar"
           placeholder="جستجو واژه"
