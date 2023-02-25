@@ -45,7 +45,7 @@ export function getPoets() {
   return axios.get(config.poetsURL);
 }
 
-interface ChatRequestProps {
+export interface ChatRequestProps {
   prompt: string;
   type?: "standard" | "summerize" | "question-answer" | "translator" | "chat";
   options?: {

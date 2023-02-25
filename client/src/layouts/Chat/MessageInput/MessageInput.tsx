@@ -1,8 +1,9 @@
 import { Icons } from "@components";
 import { useMessages } from "@contexts/messages";
-import { chat } from "@services/api";
+import { chat, ChatRequestProps } from "@services/api";
 import { FormEvent, useEffect, useRef, useState } from "react";
-import { Button, Input, Toast } from "react-flatifycss";
+import { Button, Dropdown, DropdownBody, DropdownButton, Input, ItemsGroup, Toast } from "react-flatifycss";
+import { ItemProps } from "react-flatifycss/dist/items-group/item";
 import "./style.scss";
 
 export default function MessageInput() {
@@ -10,7 +11,7 @@ export default function MessageInput() {
   const [prompt, setPrompt] = useState<string>();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
+  const [conversationType, setConversationType] = useState<Partial<ItemProps>>(conversationTypes[0]);
   const messageInputElement = useRef<HTMLInputElement | null>(null);
 
   const getAnswer = async (prompt: string) => {
@@ -18,7 +19,7 @@ export default function MessageInput() {
 
     try {
       setLoading(true);
-      const { data } = await chat({ prompt });
+      const { data } = await chat({ prompt, type: conversationType.value as ChatRequestProps["type"] });
 
       if (data?.result) {
         addMessage({
@@ -70,6 +71,21 @@ export default function MessageInput() {
 
   return (
     <form className="message-form" onSubmit={handeOnSubmit}>
+      <Dropdown autoClose id="chat-settings">
+        <DropdownButton aria-label={conversationType.title}>{conversationType.svg}</DropdownButton>
+        <DropdownBody isMenu>
+          <li className="menu-item heading">نوع گفتگو</li>
+          <li className="conversation-types">
+            <ItemsGroup
+              value={conversationType.value || ""}
+              onChange={(value) =>
+                setConversationType(conversationTypes.find((item) => item.value === value) || conversationType[0])
+              }
+              items={conversationTypes}
+            />
+          </li>
+        </DropdownBody>
+      </Dropdown>
       <Input
         ref={messageInputElement}
         autoFocus
@@ -96,3 +112,31 @@ export default function MessageInput() {
     </form>
   );
 }
+
+const conversationTypes = [
+  {
+    title: "پیشفرض",
+    value: "standard",
+    svg: <Icons.Standard />,
+  },
+  {
+    title: "خلاصه‌نویس",
+    value: "summerize",
+    svg: <Icons.Summary />,
+  },
+  {
+    title: "سوال جواب",
+    value: "question-answer",
+    svg: <Icons.QuestionAnswer />,
+  },
+  {
+    title: "مترجم",
+    value: "translator",
+    svg: <Icons.Translate />,
+  },
+  {
+    title: "گفتگو",
+    value: "chat",
+    svg: <Icons.Chat />,
+  },
+];

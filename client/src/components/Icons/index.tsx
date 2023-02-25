@@ -1,3 +1,11 @@
+// chat
+import { ReactComponent as Chat } from "@assets/svg/chat/chat.svg";
+import { ReactComponent as QuestionAnswer } from "@assets/svg/chat/qa.svg";
+import { ReactComponent as Send } from "@assets/svg/chat/send.svg";
+import { ReactComponent as Standard } from "@assets/svg/chat/standard.svg";
+import { ReactComponent as Summary } from "@assets/svg/chat/summary.svg";
+import { ReactComponent as Translate } from "@assets/svg/chat/translate.svg";
+
 // columns
 import { ReactComponent as FourColumns } from "@assets/svg/columns/four-columns.svg";
 import { ReactComponent as OneColumn } from "@assets/svg/columns/one-column.svg";
@@ -30,7 +38,6 @@ import { ReactComponent as Moon } from "@assets/svg/moon.svg";
 import { ReactComponent as More } from "@assets/svg/more.svg";
 import { ReactComponent as NoActiveDict } from "@assets/svg/no-active-dict.svg";
 import { ReactComponent as NoResult } from "@assets/svg/no-result.svg";
-import { ReactComponent as Send } from "@assets/svg/send.svg";
 import { ReactComponent as Settings } from "@assets/svg/settings.svg";
 import { ReactComponent as Share } from "@assets/svg/share.svg";
 import { ReactComponent as Sound } from "@assets/svg/sound.svg";
@@ -39,6 +46,11 @@ import { ReactComponent as Twitter } from "@assets/svg/twitter.svg";
 import { ReactComponent as Writing } from "@assets/svg/writing.svg";
 
 const Icons = {
+  Chat,
+  QuestionAnswer,
+  Standard,
+  Summary,
+  Translate,
   FourColumns,
   OneColumn,
   ThreeColumns,
