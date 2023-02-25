@@ -176,7 +176,7 @@ describe("Search functionality", () => {
     userEvent.type(searchInput, "کمال");
 
     // check if the loading (fake definition boxes) are displayed correctly
-    waitFor(() => {
+    await waitFor(() => {
       expect(screen.getAllByRole("heading", { level: 2 })[0]).toHaveTextContent("در حال جستجو");
     });
   });
@@ -190,13 +190,13 @@ describe("Search functionality", () => {
     userEvent.type(searchInput, "کمال");
 
     // check if the result title is displayed correctly
-    waitFor(() => {
+    await waitFor(() => {
       expect(container.querySelector(".dehkhoda .definition-box:first-child .definition-title")).toHaveTextContent(
         "کمال‌طلب"
       );
     });
     // check if the result definition is displayed correctly
-    waitFor(() => {
+    await waitFor(() => {
       expect(container.querySelector(".motaradef .definition-box:first-child .definition")).toHaveTextContent(
         "استغنا، بلوغ، پختگی"
       );
@@ -212,13 +212,13 @@ describe("Search functionality", () => {
     userEvent.type(searchInput, "کمال");
 
     // check if the result title is displayed correctly
-    waitFor(() => {
+    await waitFor(() => {
       expect(container.querySelector(".teyfi .definition-box:first-child .definition-title")).toHaveTextContent(
         "به‌کمال رسیدن"
       );
     });
     // check if the result definition is displayed correctly
-    waitFor(() => {
+    await waitFor(() => {
       expect(container.querySelector(".teyfi .definition-box:first-child .definition")).toHaveTextContent(
         "ایده‌آل، معصومیت، خطاناپذیری، بلوغ"
       );
@@ -234,13 +234,13 @@ describe("Search functionality", () => {
     userEvent.type(searchInput, "کمال");
 
     // check if the result title is displayed correctly
-    waitFor(() => {
+    await waitFor(() => {
       expect(container.querySelector(".motaradef .definition-box:first-child .definition-title")).toHaveTextContent(
         "کمال‌طلب"
       );
     });
     // check if the result definition is displayed correctly
-    waitFor(() => {
+    await waitFor(() => {
       expect(container.querySelector(".motaradef .definition-box:first-child .definition")).toHaveTextContent(
         "استغنا، بلوغ، پختگی"
       );
@@ -256,11 +256,11 @@ describe("Search functionality", () => {
     userEvent.type(searchInput, "کمال");
 
     // check if the result title is displayed correctly
-    waitFor(() => {
+    await waitFor(() => {
       expect(container.querySelector(".sereh .definition-box:first-child .definition-title")).toHaveTextContent("کمال");
     });
     // check if the result definition is displayed correctly
-    waitFor(() => {
+    await waitFor(() => {
       expect(container.querySelector(".sereh .definition-box:first-child .definition")).toHaveTextContent(
         "والایی، کهتری، فرهیختگی، فرگشتگی، فرازمندی"
       );
@@ -276,7 +276,7 @@ describe("Search functionality", () => {
     userEvent.type(searchInput, "کمال");
 
     // check if the result title is displayed correctly
-    waitFor(() => {
+    await waitFor(() => {
       expect(container.querySelector(".farhangestan .definition-box:first-child .definition-title")).toHaveTextContent(
         "least-upper-bound axiom"
       );
@@ -284,17 +284,17 @@ describe("Search functionality", () => {
 
     // check if the result definition is displayed correctly
     // Farhangestan put each line in a separate [.definition] element, so check each line if it has the correct info
-    waitFor(() => {
+    await waitFor(() => {
       expect(
         container.querySelector(".farhangestan .definition-box:first-child .definition:nth-of-type(1)")
       ).toHaveTextContent("اصل کوچک‌ترین کران بالا");
     });
-    waitFor(() => {
+    await waitFor(() => {
       expect(
         container.querySelector(".farhangestan .definition-box:first-child .definition:nth-of-type(2)")
       ).toHaveTextContent("اصل موضوع کمال");
     });
-    waitFor(() => {
+    await waitFor(() => {
       expect(
         container.querySelector(".farhangestan .definition-box:first-child .definition:nth-of-type(3)")
       ).toHaveTextContent("[ریاضی]");
@@ -310,7 +310,7 @@ describe("Search functionality", () => {
     userEvent.type(searchInput, "کمال");
 
     // check if the result title is displayed correctly
-    waitFor(() => {
+    await waitFor(() => {
       expect(container.querySelector(".ganjvar .definition-box:first-child .definition-title")).toHaveTextContent(
         "رشیدالدین وطواط | رباعیات | شمارهٔ ۹ - در مدح کمال الدین"
       );
@@ -318,22 +318,22 @@ describe("Search functionality", () => {
 
     // check if the result definition is displayed correctly
     // Ganjvar put each line in a separate [.definition] element, so check each line if it has the correct info
-    waitFor(() => {
+    await waitFor(() => {
       expect(
         container.querySelector(".ganjvar .definition-box:first-child .definition:nth-of-type(1)")
       ).toHaveTextContent("عنوان ظفر نام کمال الدینست");
     });
-    waitFor(() => {
+    await waitFor(() => {
       expect(
         container.querySelector(".ganjvar .definition-box:first-child .definition:nth-of-type(2)")
       ).toHaveTextContent("مقصود جهان کام کمال الدینست");
     });
-    waitFor(() => {
+    await waitFor(() => {
       expect(
         container.querySelector(".ganjvar .definition-box:first-child .definition:nth-of-type(3)")
       ).toHaveTextContent("هر جا که یکی صاحب فضلست امروز");
     });
-    waitFor(() => {
+    await waitFor(() => {
       expect(
         container.querySelector(".ganjvar .definition-box:first-child .definition:nth-of-type(4)")
       ).toHaveTextContent("در سایهٔ انعام کمال الدینست");
@@ -349,7 +349,7 @@ describe("Search functionality", () => {
     userEvent.type(searchInput, "کمال");
 
     // fake Emlaei API call always return "جمال" & "شمال"
-    waitFor(() => {
+    await waitFor(() => {
       expect(container.querySelector(".search-info")).toHaveTextContent("منظورتان جمال یا شمال بود؟");
     });
   });
