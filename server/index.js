@@ -1,4 +1,5 @@
 const express = require("express");
+const { Configuration, OpenAIApi } = require("openai");
 const { MongoClient } = require("mongodb");
 const cors = require("cors");
 const morgan = require("morgan");
@@ -10,6 +11,7 @@ const farhangestan = require("./routes/farhangestan");
 const ganjvar = require("./routes/ganjvar");
 const emlaei = require("./routes/emlaei");
 const dynamicHTML = require("./routes/dynamic-html");
+const chat = require("./routes/chat");
 const path = require("path");
 const gzipStatic = require("connect-gzip-static");
 
@@ -22,6 +24,7 @@ const secondDatabaseClient = new MongoClient(process.env["VAJEHH_SECOND_DB_URL"]
 
 // Middlewares
 const app = express();
+app.use(express.json());
 
 const allowedOrigin = process.env["NODE_ENV"] === "production" ? "https://vajehh.com" : "http://localhost:3000";
 app.use(
@@ -34,7 +37,7 @@ app.use(
 // Dev only middlewares
 if (app.get("env") === "development") {
   app.use(morgan("dev"));
-  console.info("Morgan enabled");
+  console.info("✨ Morgan enabled");
 }
 
 // Routes
@@ -42,6 +45,7 @@ if (app.get("env") === "development") {
 // the example can be page title and meta tags
 
 app.use("/", dynamicHTML);
+app.use("/api/chat", chat);
 app.use("/api/dehkhoda", dehkhoda);
 app.use("/api/teyfi", teyfi);
 app.use("/api/motaradef", motaradef);
@@ -63,16 +67,16 @@ app.get("*", (req, res) => {
 
 const port = process.env.PORT || 8080;
 app.listen(port, async () => {
-  console.info(`Listening on port ${port}`);
+  console.info(`🌐 Listening on port ${port}`);
 
   // connect to the first database and share it with all routes
   try {
     await firstDatabaseClient.connect();
     const database = firstDatabaseClient.db("vajehh");
     app.locals.firstDatabase = database;
-    console.info(`Successfully connected to the first database`);
+    console.info(`✅ Successfully connected to the first database`);
   } catch (e) {
-    console.error("error connecting to the first database", e);
+    console.error("❌ Error happened when connecting to the first database", e);
   }
 
   // connect to the second database and share it with all routes
@@ -80,8 +84,20 @@ app.listen(port, async () => {
     await secondDatabaseClient.connect();
     const database = secondDatabaseClient.db("vajehh");
     app.locals.secondDatabase = database;
-    console.info(`Successfully connected to the second database`);
+    console.info(`✅ Successfully connected to the second database`);
   } catch (e) {
-    console.error("error connecting to the second database", e);
+    console.error("❌ Error happened when connecting to the second database", e);
+  }
+
+  // connect to OpenAi client and share it with all routes
+  try {
+    const openaiConfig = new Configuration({
+      apiKey: process.env["VAJEHH_OPENAI_SECRET"],
+    });
+    const openai = new OpenAIApi(openaiConfig);
+    app.locals.openai = openai;
+    console.info(`✅ Successfully connected to OpenAi client`);
+  } catch (e) {
+    console.error("❌ Error happened when connecting to the OpenAi client", e);
   }
 });
