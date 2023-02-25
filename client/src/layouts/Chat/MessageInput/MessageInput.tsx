@@ -74,7 +74,9 @@ export default function MessageInput() {
   return (
     <form className="message-form" onSubmit={handeOnSubmit}>
       <Dropdown autoClose id="chat-settings">
-        <DropdownButton aria-label={conversationType.title}>{conversationType.svg}</DropdownButton>
+        <DropdownButton type="button" aria-label={conversationType.title}>
+          {conversationType.svg}
+        </DropdownButton>
         <DropdownBody isMenu>
           <li className="menu-item heading">نوع گفتگو</li>
           <li className="conversation-types">
