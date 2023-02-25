@@ -1,7 +1,7 @@
-import { Icons } from "@components";
-import { useMessages } from "@contexts/messages";
-import { chat, ChatRequestProps } from "@services/api";
 import { FormEvent, useEffect, useRef, useState } from "react";
+import { Icons } from "@components";
+import { MessageConversationTypes, useMessages } from "@contexts/messages";
+import { chat } from "@services/api";
 import { Button, Dropdown, DropdownBody, DropdownButton, Input, ItemsGroup, Toast } from "react-flatifycss";
 import { ItemProps } from "react-flatifycss/dist/items-group/item";
 import "./style.scss";
@@ -19,13 +19,14 @@ export default function MessageInput() {
 
     try {
       setLoading(true);
-      const { data } = await chat({ prompt, type: conversationType.value as ChatRequestProps["type"] });
+      const { data } = await chat({ prompt, type: conversationType.value as MessageConversationTypes });
 
       if (data?.result) {
         addMessage({
           body: data?.result,
           date: Date.now(),
           isQuestion: false,
+          type: conversationType.value as MessageConversationTypes,
         });
       } else {
         setError("سرویس در دسترس نبود، لحظاتی دیگر مجددا تلاش کنید");
@@ -47,6 +48,7 @@ export default function MessageInput() {
       body: prompt,
       date: Date.now(),
       isQuestion: true,
+      type: conversationType.value as MessageConversationTypes,
     });
     getAnswer(prompt);
     setPrompt("");

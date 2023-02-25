@@ -2,6 +2,7 @@ import axios from "axios";
 import config from "@config.json";
 import { getLocalStorage } from "@utils/localStorage";
 import type { AllowedDictionaries } from "@contexts/dictionary";
+import type { MessageConversationTypes } from "@contexts/messages";
 
 // Use real API when it is in production mode
 const endPoint: string = process.env.NODE_ENV !== "production" ? config.apiEndpointURL__dev : config.apiEndpointURL;
@@ -47,7 +48,7 @@ export function getPoets() {
 
 export interface ChatRequestProps {
   prompt: string;
-  type?: "standard" | "summerize" | "question-answer" | "translator" | "chat";
+  type?: MessageConversationTypes;
   options?: {
     model?: string;
     temperature?: number;

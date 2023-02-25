@@ -14,15 +14,33 @@ interface BubbleProps extends MessageProps {
   className?: string;
 }
 
-export default function Bubble({ children, className, isQuestion, body, date }: BubbleProps) {
+export default function Bubble({ children, className, isQuestion, body, type, date }: BubbleProps) {
   const bodyInfo = checkIsCodeSnippet(body);
+
+  const getTypeLabel = (type) => {
+    switch (type) {
+      case "standard":
+        return "پیشفرض";
+      case "summerize":
+        return "خلاصه‌نویس";
+      case "question-answer":
+        return "سوال جواب";
+      case "translator":
+        return "مترجم";
+      case "chat":
+        return "گفتگو";
+    }
+  };
 
   return (
     <article className={clsx("bubble text-auto", isQuestion ? "question" : "answer", className)}>
       <img className="avatar" src={isQuestion ? defaultAvatar : ferdowsiAvatar} alt="اواتار" />
-      <time className="date-time" dateTime={String(date)}>
-        {timeSince(date)}
-      </time>
+      <div className="info">
+        <time className="datatime" dateTime={String(date)} title={new Date(date).toLocaleString("fa-IR")}>
+          {timeSince(date)}
+        </time>
+        {!isQuestion && <Badge>{getTypeLabel(type)}</Badge>}
+      </div>
       <div>
         {bodyInfo.isCode ? (
           <div>

@@ -8,10 +8,13 @@ interface MessagesContextProps {
   resetMessages: () => void;
 }
 
+export type MessageConversationTypes = "standard" | "summerize" | "question-answer" | "translator" | "chat";
+
 export interface MessageProps {
   body: string;
   date: string | number;
   isQuestion: boolean;
+  type: MessageConversationTypes;
 }
 
 interface MessagesProviderProps {
@@ -24,8 +27,10 @@ const MessagesProvider = ({ children }: MessagesProviderProps) => {
   const defaultHistory: MessageProps[] = [
     {
       isQuestion: false,
-      body: `به چت هوشمند واژه خوش‌آمدید <br /> برای شروع پیامی ارسال کنید.`,
+      body: `به چت هوشمند واژه خوش‌آمدید برای شروع پیامی ارسال کنید.
+      از تنظیمات می‌توانید قالب گفتگو را تغییر دهید، هر قالب مشخصه‌های متفاوتی دارد و پاسخ ربات نیز با توجه به قالب متفاوت خواهد بود.`,
       date: Date.now(),
+      type: "standard",
     },
   ];
 

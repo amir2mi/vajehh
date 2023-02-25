@@ -16,7 +16,7 @@
       right: -1.5em;
     }
 
-    .date-time {
+    .info {
       right: 2.5em;
     }
   }
@@ -29,7 +29,7 @@
       left: -1.5em;
     }
 
-    .date-time {
+    .info {
       right: 1.25em;
     }
   }
@@ -42,11 +42,17 @@
     border-radius: 1em;
   }
 
-  .date-time {
+  .info {
     position: absolute;
     top: 1em;
-    font-size: 0.85em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
     opacity: 0.75;
+
+    .datatime {
+      font-size: 0.85em;
+    }
   }
 
   pre {
