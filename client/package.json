@@ -17,10 +17,12 @@
     "clsx": "^1.1.1",
     "copy-text-to-clipboard": "^3.0.1",
     "flatifycss": "1.5.3",
+    "lang-detector": "^1.0.6",
     "markdown-to-jsx": "^7.1.7",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-flatifycss": "2.0.0",
+    "react-highlight": "^0.15.0",
     "react-highlight-words": "^0.18.0",
     "react-images-viewer": "^1.7.1",
     "react-infinite-scroller": "^1.2.5",
@@ -29,7 +31,8 @@
     "react-scripts": "5.0.0",
     "sass": "^1.50.0",
     "typescript": "^4.6.3",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "xss": "^1.0.14"
   },
   "overrides": {
     "react": "^18.0.0",

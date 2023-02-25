@@ -10,10 +10,13 @@ const navLinks = [
     to: "/search",
   },
   {
+    title: "چت هوشمند",
+    to: "/chat",
+  },
+  {
     title: "راهنما",
     to: "/help",
   },
-
   {
     title: "پشتیبانی",
     to: "/support",
