@@ -6,7 +6,9 @@ export default function MessagesHistory() {
   const { messages } = useMessages();
 
   useEffect(() => {
-    window.scrollTo(0, document.body.scrollHeight);
+    if (messages?.length > 1) {
+      window.scrollTo(0, document.body.scrollHeight);
+    }
   }, [messages]);
 
   return (
