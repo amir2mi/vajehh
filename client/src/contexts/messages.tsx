@@ -24,11 +24,7 @@ const MessagesProvider = ({ children }: MessagesProviderProps) => {
   const defaultHistory: MessageProps[] = [
     {
       isQuestion: false,
-      body: `به چت واژه خوش آمدید`,
-      date: Date.now(),
-    }, {
-      isQuestion: true,
-      body: `به چت واژه خوش آمدید`,
+      body: `به چت هوشمند واژه خوش‌آمدید <br /> برای شروع پیامی ارسال کنید.`,
       date: Date.now(),
     },
   ];
