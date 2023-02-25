@@ -44,3 +44,20 @@ export function getDonations() {
 export function getPoets() {
   return axios.get(config.poetsURL);
 }
+
+interface ChatRequestProps {
+  prompt: string;
+  type?: "standard" | "summerize" | "question-answer" | "translator" | "chat";
+  options?: {
+    model?: string;
+    temperature?: number;
+    max_tokens?: number;
+    top_p?: number;
+    frequency_penalty?: number;
+    presence_penalty?: number;
+  };
+}
+
+export function chat(props: ChatRequestProps) {
+  return axios.post(`${endPoint}/chat`, props);
+}

@@ -31,6 +31,7 @@ app.use(
   cors({
     origin: allowedOrigin,
     credentials: true,
+    methods: ["GET", "POST"],
   })
 );
 
