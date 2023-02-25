@@ -1,5 +1,7 @@
 .footer {
   overflow: hidden;
+  position: relative;
+  z-index: 50;
   width: 100%;
   height: calc(100% + 2em);
   padding-top: 5em;
