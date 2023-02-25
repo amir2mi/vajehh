@@ -4,6 +4,7 @@
   "homepage": "https://vajehh.com",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^7.0.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^14.0.4",
@@ -35,12 +36,12 @@
     "react-dom": "^18.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "build-gzip": "react-scripts build && gzipper compress ./build/static/js && gzipper compress ./build/static/css",
+    "start": "craco start",
+    "build": "craco build",
+    "build-gzip": "craco build && gzipper compress ./build/static/js && gzipper compress ./build/static/css",
     "predeploy": "npm run build",
-    "test": "react-scripts test",
-    "dangerous-eject": "react-scripts eject"
+    "test": "craco test",
+    "dangerous-eject": "craco eject"
   },
   "eslintConfig": {
     "extends": [
