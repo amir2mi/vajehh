@@ -41,6 +41,13 @@
   text-align: right;
 }
 
+.text-auto *,
+.text-auto {
+	text-align: start;
+	unicode-bidi: plaintext;
+}
+
+
 // Delay animation items by order
 .anim-delay-items {
   @for $i from 1 through 20 {

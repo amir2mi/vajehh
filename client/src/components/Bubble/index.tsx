@@ -18,7 +18,7 @@ export default function Bubble({ children, className, isQuestion, body, date }: 
   const bodyInfo = checkIsCodeSnippet(body);
 
   return (
-    <article className={clsx("bubble", isQuestion ? "question" : "answer", className)}>
+    <article className={clsx("bubble text-auto", isQuestion ? "question" : "answer", className)}>
       <img className="avatar" src={isQuestion ? defaultAvatar : ferdowsiAvatar} alt="اواتار" />
       <time className="date-time" dateTime={String(date)}>
         {timeSince(date)}

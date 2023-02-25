@@ -2,10 +2,10 @@
   position: relative;
   width: 520px;
   max-width: 100%;
-  padding: 2em 1em 1em;
+  padding: 2.5em 1em 1em;
   margin: 4em 0;
   background: var(--flatify__bg-color-dark);
-  border-radius: 1em;
+  border-radius: 1.25em;
 
   &.question {
     margin-left: auto;
@@ -35,7 +35,7 @@
 
   .avatar {
     position: absolute;
-    top: -1.5em;
+    top: -1em;
     width: 3em;
     border: 0.25em solid var(--flatify__bg-color-darker);
     border-radius: 1em;
@@ -43,8 +43,7 @@
 
   .date-time {
     position: absolute;
-    top: 0.5em;
-
+    top: 1em;
     font-size: 0.85em;
     opacity: 0.75;
   }

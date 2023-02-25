@@ -30,6 +30,7 @@ import { ReactComponent as Moon } from "@assets/svg/moon.svg";
 import { ReactComponent as More } from "@assets/svg/more.svg";
 import { ReactComponent as NoActiveDict } from "@assets/svg/no-active-dict.svg";
 import { ReactComponent as NoResult } from "@assets/svg/no-result.svg";
+import { ReactComponent as Send } from "@assets/svg/send.svg";
 import { ReactComponent as Settings } from "@assets/svg/settings.svg";
 import { ReactComponent as Share } from "@assets/svg/share.svg";
 import { ReactComponent as Sound } from "@assets/svg/sound.svg";
@@ -63,6 +64,7 @@ const Icons = {
   More,
   NoActiveDict,
   NoResult,
+  Send,
   Settings,
   Share,
   Sound,

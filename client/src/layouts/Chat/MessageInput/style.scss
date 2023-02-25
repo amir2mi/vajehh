@@ -1,0 +1,23 @@
+.message-form {
+  position: fixed;
+  bottom: 1em;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  margin: 0 auto;
+  width: 500px;
+  max-width: 100%;
+
+  .message-input {
+    width: 100%;
+  }
+
+  .send-button {
+    svg {
+      width: 1.75em;
+      height: 1.75em;
+      fill: currentColor;
+    }
+  }
+}
