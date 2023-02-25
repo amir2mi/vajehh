@@ -1,7 +1,7 @@
 import { Icons } from "@components";
 import { useMessages } from "@contexts/messages";
 import { chat } from "@services/api";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { Button, Input, Toast } from "react-flatifycss";
 import "./style.scss";
 
@@ -10,6 +10,8 @@ export default function MessageInput() {
   const [prompt, setPrompt] = useState<string>();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  const messageInputElement = useRef<HTMLInputElement | null>(null);
 
   const getAnswer = async (prompt: string) => {
     if (!prompt) return;
@@ -49,9 +51,27 @@ export default function MessageInput() {
     setPrompt("");
   };
 
+  const onGlobalKeyDown = (e: KeyboardEvent) => {
+    // Accessiblity keyboard navigation: focus search input when "/" is pressed
+    const input = messageInputElement?.current;
+    if ((e.key === "/" || e.code === "Slash") && document.activeElement !== input) {
+      input?.focus();
+      e.preventDefault();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", onGlobalKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", onGlobalKeyDown);
+    };
+  });
+
   return (
     <form className="message-form" onSubmit={handeOnSubmit}>
       <Input
+        ref={messageInputElement}
         autoFocus
         hasFloatingLabel
         autoComplete="off"
@@ -61,7 +81,13 @@ export default function MessageInput() {
         onChange={(value) => setPrompt(value)}
         wrapperClassName="message-input text-auto"
       />
-      <Button disabled={loading} loading={loading} aria-label="ارسال پیام" theme="accent" className="send-button">
+      <Button
+        disabled={loading}
+        loading={loading}
+        aria-label={loading ? "در حال پردازش پیام قبلی" : "ارسال پیام"}
+        theme="accent"
+        className="send-button"
+      >
         <Icons.Send />
       </Button>
       <Toast autoClose theme="danger" size="sm" y="top" show={!!error} onClose={() => setError("")}>
