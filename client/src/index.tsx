@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import "flatifycss/scss/flatify-rtl.scss";
 import "./index.scss";
-import { ThemeProvider } from "./contexts/theme";
+import { ThemeProvider } from "@contexts/theme";
 
 import Vajehh from "./App";
 import reportWebVitals from "./reportWebVitals";

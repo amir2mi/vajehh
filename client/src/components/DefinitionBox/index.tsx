@@ -2,11 +2,11 @@ import React, { useState, Fragment, useMemo } from "react";
 import { Button, Loading, Separator } from "react-flatifycss";
 import clsx from "clsx";
 import Highlighter from "react-highlight-words";
-import { useSettings } from "../../contexts/settings";
-import { usePoets } from "../../contexts/poets";
-import { ImageViewer } from "..";
-import Icons from "../Icons";
-import config from "../../config.json";
+import { useSettings } from "@contexts/settings";
+import { usePoets } from "@contexts/poets";
+import { ImageViewer } from "@components";
+import Icons from "@components/Icons";
+import config from "@config.json";
 import "./style.scss";
 
 export interface DefinitionImagesProps {

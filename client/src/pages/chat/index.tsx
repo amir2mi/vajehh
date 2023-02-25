@@ -7,7 +7,7 @@ import ResultTabs from "@layouts/ResultTabs";
 import ResultImage from "@layouts/ResultImage";
 import { ShareBox } from "@components";
 
-export default function SearchPage() {
+export default function ChatPage() {
   return (
     <main className="search-main container-lg">
       <SettingsProvider>

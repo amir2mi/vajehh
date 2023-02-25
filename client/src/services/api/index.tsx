@@ -1,7 +1,7 @@
 import axios from "axios";
-import config from "../../config.json";
-import { getLocalStorage } from "../../utils/localStorage";
-import type { AllowedDictionaries } from "../../contexts/dictionary";
+import config from "@config.json";
+import { getLocalStorage } from "@utils/localStorage";
+import type { AllowedDictionaries } from "@contexts/dictionary";
 
 // Use real API when it is in production mode
 const endPoint: string = process.env.NODE_ENV !== "production" ? config.apiEndpointURL__dev : config.apiEndpointURL;

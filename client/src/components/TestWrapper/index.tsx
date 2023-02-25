@@ -1,8 +1,8 @@
 import { BrowserRouter } from "react-router-dom";
-import { SearchProvider } from "../../contexts/search";
-import { SettingsProvider } from "../../contexts/settings";
-import { DictionaryProvider } from "../../contexts/dictionary";
-import { ThemeProvider } from "../../contexts/theme";
+import { SearchProvider } from "@contexts/search";
+import { SettingsProvider } from "@contexts/settings";
+import { DictionaryProvider } from "@contexts/dictionary";
+import { ThemeProvider } from "@contexts/theme";
 
 interface TestWrapperProps {
   children: React.ReactNode;

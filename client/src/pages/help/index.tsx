@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Article } from "../../components";
+import { Article } from "@components";
 import content from "./help.md";
 
 export default function HelpPage() {

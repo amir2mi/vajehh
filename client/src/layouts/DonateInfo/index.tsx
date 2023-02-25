@@ -2,7 +2,7 @@ import { useState } from "react";
 import clsx from "clsx";
 import { Toast } from "react-flatifycss";
 import copy from "copy-text-to-clipboard";
-import { Icons, MessageBox } from "../../components";
+import { Icons, MessageBox } from "@components";
 import DonateInput from "./DonateInput";
 import "./style.scss";
 

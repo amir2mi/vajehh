@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { Button } from "react-flatifycss";
-import { shareVajehh } from "../../utils/share";
-import { Info } from "../../components";
+import { shareVajehh } from "@utils/share";
+import { Info } from "@components";
 import "./style.scss";
 
 export default function SupportUs() {

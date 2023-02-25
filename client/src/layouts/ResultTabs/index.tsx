@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Tabs, Tab, TabList, TabPanels, TabPanel } from "react-flatifycss";
-import { useSearch } from "../../contexts/search";
-import { useDictionary } from "../../contexts/dictionary";
-import { Icons, IntroBox } from "../../components";
+import { useSearch } from "@contexts/search";
+import { useDictionary } from "@contexts/dictionary";
+import { Icons, IntroBox } from "@components";
 import TabTitle from "./TabTitle";
 import TabBody from "./TabBody";
 import NoActiveTab from "./NoActiveTab";

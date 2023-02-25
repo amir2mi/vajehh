@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { Dropdown, DropdownButton, DropdownBody } from "react-flatifycss";
-import config from "../../config.json";
-import { Icons, NavLinks, NightModeButton } from "../../components";
+import config from "@config.json";
+import { Icons, NavLinks, NightModeButton } from "@components";
 import "./style.scss";
 
 const navLinks = [

@@ -1,6 +1,6 @@
 import { Button } from "react-flatifycss";
-import DaftPunk from "../../assets/images/daft-punk-retro.png";
-import { shareVajehh } from "../../utils/share";
+import DaftPunk from "@assets/images/daft-punk-retro.png";
+import { shareVajehh } from "@utils/share";
 import { Icons, Info, RotatedBox } from "..";
 import "./style.scss";
 

@@ -1,8 +1,8 @@
 import { ToggleSwitch, Badge } from "react-flatifycss";
-import { useSettings } from "../../contexts/settings";
-import { useDictionary } from "../../contexts/dictionary";
-import { useSearch } from "../../contexts/search";
-import { setLocalStorage, setLocalStorageProp } from "../../utils/localStorage";
+import { useSettings } from "@contexts/settings";
+import { useDictionary } from "@contexts/dictionary";
+import { useSearch } from "@contexts/search";
+import { setLocalStorage, setLocalStorageProp } from "@utils/localStorage";
 
 export default function GeneralSettings() {
   const {

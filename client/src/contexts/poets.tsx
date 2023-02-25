@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { getLocalStorage, setLocalStorage } from "../utils/localStorage";
-import { getPoets } from "../services/api";
+import { getLocalStorage, setLocalStorage } from "@utils/localStorage";
+import { getPoets } from "@services/api";
 
 interface PoetsProviderProps {
   children: React.ReactNode;

@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 import MasonryGrid from "./MasonryGrid";
 import { Loading } from "react-flatifycss";
-import config from "../../config.json";
-import { useSearch } from "../../contexts/search";
-import { useSettings } from "../../contexts/settings";
-import type { AllowedDictionaries } from "../../contexts/dictionary";
-import { cacheToLocalStorage } from "../../utils/localStorage";
-import { searchWord } from "../../services/api";
-import { DefinitionBox, FakeDefinitionBox } from "../../components";
-import { DefinitionImagesProps } from "../../components/DefinitionBox";
+import config from "@config.json";
+import { useSearch } from "@contexts/search";
+import { useSettings } from "@contexts/settings";
+import type { AllowedDictionaries } from "@contexts/dictionary";
+import { cacheToLocalStorage } from "@utils/localStorage";
+import { searchWord } from "@services/api";
+import { DefinitionBox, FakeDefinitionBox } from "@components";
+import { DefinitionImagesProps } from "@components/DefinitionBox";
 import IdleTab from "./IdleTab";
 
 interface ResultProps {

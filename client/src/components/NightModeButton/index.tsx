@@ -1,7 +1,7 @@
 import { Button } from "react-flatifycss";
-import { useTheme } from "../../contexts/theme";
-import { setLocalStorageProp } from "../../utils/localStorage";
-import Icons from "../Icons";
+import { useTheme } from "@contexts/theme";
+import { setLocalStorageProp } from "@utils/localStorage";
+import Icons from "@components/Icons";
 
 export default function NightModeButton() {
   const { nightMode, setNightMode } = useTheme();

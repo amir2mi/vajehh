@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { ItemsGroup, ToggleSwitch } from "react-flatifycss";
-import { useSettings } from "../../contexts/settings";
-import { setLocalStorageProp } from "../../utils/localStorage";
+import { useSettings } from "@contexts/settings";
+import { setLocalStorageProp } from "@utils/localStorage";
 
 const highlightPalette = [
   {

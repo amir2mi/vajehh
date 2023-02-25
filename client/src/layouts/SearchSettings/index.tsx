@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Modal } from "react-flatifycss";
 import clsx from "clsx";
-import Icons from "../../components/Icons";
+import Icons from "@components/Icons";
 import ColumnSettings from "./columns";
 import GeneralSettings from "./general";
 import HighlightSettings from "./highlight";

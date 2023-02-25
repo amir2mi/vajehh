@@ -1,4 +1,4 @@
-import { useSearch } from "../../contexts/search";
+import { useSearch } from "@contexts/search";
 import Error from "./Error";
 import NoResult from "./NoResult";
 

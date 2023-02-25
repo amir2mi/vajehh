@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useSearch } from "../../contexts/search";
-import { getWordImage } from "../../services/api";
-import type { AllowedDictionaries } from "../../contexts/dictionary";
+import { useSearch } from "@contexts/search";
+import { getWordImage } from "@services/api";
+import type { AllowedDictionaries } from "@contexts/dictionary";
 import "./style.scss";
 
 interface SearchResponseProps {

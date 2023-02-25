@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { TestWrapper } from "../../components";
+import { TestWrapper } from "@components";
 import ResultTabs from ".";
 
 describe("<ResultTabs/>", () => {

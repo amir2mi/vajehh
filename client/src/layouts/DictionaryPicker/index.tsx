@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Checkbox, Dropdown, DropdownBody, DropdownButton } from "react-flatifycss";
-import config from "../../config.json";
-import useDebounce from "../../hooks/useDebounce";
-import { useDictionary, Dictionaries } from "../../contexts/dictionary";
-import { setLocalStorage } from "../../utils/localStorage";
+import config from "@config.json";
+import useDebounce from "@hooks/useDebounce";
+import { useDictionary, Dictionaries } from "@contexts/dictionary";
+import { setLocalStorage } from "@utils/localStorage";
 import "./style.scss";
 
 export default function DictionaryPicker() {

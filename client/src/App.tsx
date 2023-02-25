@@ -8,6 +8,7 @@ import HelpPage from "./pages/help";
 import SupportPage from "./pages/support";
 import DonatePage from "./pages/donate";
 import NothingFound from "./pages/404";
+import ChatPage from "./pages/chat";
 import Navigation from "./layouts/Navigation";
 import Footer from "./layouts/Footer";
 import { OnRouteChange } from "./components";
@@ -22,6 +23,7 @@ function Vajehh() {
       <OnRouteChange>
         <Routes>
           <Route path="/search/*" element={<SearchPage />} />
+          <Route path="/chat" element={<ChatPage />} />
           <Route path="/help" element={<HelpPage />} />
           <Route path="/support" element={<SupportPage />} />
           <Route path="/donate" element={<DonatePage />} />

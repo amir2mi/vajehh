@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ButtonGroup } from "react-flatifycss";
-import { Info, Firefly } from "../../components";
+import { Info, Firefly } from "@components";
 import "./style.scss";
 
 export default function NothingFound() {

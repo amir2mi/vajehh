@@ -2,8 +2,8 @@
 import axios from "axios";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { TestWrapper } from "../components";
-import SearchPage from "../pages/search";
+import { TestWrapper } from "@components";
+import SearchPage from "@pages/search";
 
 // create a mock axios instance for fake API calls
 jest.mock("axios");

@@ -1,5 +1,5 @@
 import Masonry from "react-masonry-css";
-import { useSettings } from "../../contexts/settings";
+import { useSettings } from "@contexts/settings";
 
 interface MasonryGridProps {
   children: React.ReactNode;

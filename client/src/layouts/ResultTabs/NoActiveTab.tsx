@@ -1,4 +1,4 @@
-import { Icons, IntroBox } from "../../components";
+import { Icons, IntroBox } from "@components";
 
 export default function NoActiveTab() {
   return (

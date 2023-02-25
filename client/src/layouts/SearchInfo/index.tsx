@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Button, ToggleSwitch } from "react-flatifycss";
-import config from "../../config.json";
-import { useDictionary } from "../../contexts/dictionary";
-import { useSearch } from "../../contexts/search";
-import { useSettings } from "../../contexts/settings";
-import { searchWord } from "../../services/api";
-import { cacheToLocalStorage, setLocalStorage, setLocalStorageProp } from "../../utils/localStorage";
+import config from "@config.json";
+import { useDictionary } from "@contexts/dictionary";
+import { useSearch } from "@contexts/search";
+import { useSettings } from "@contexts/settings";
+import { searchWord } from "@services/api";
+import { cacheToLocalStorage, setLocalStorage, setLocalStorageProp } from "@utils/localStorage";
 import "./style.scss";
 
 interface SearchInfoProps {

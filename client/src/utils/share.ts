@@ -1,4 +1,4 @@
-import config from "../config.json";
+import config from "@config.json";
 
 async function shareIt(title: string, text?: string, url?: string) {
   if (navigator.share) {

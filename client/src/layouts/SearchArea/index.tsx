@@ -2,13 +2,13 @@ import { useState, useEffect, FormEvent, MouseEvent, useCallback, useRef } from 
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { Input } from "react-flatifycss";
 import clsx from "clsx";
-import config from "../../config.json";
-import useDebounce from "../../hooks/useDebounce";
-import { useSettings } from "../../contexts/settings";
-import { useSearch } from "../../contexts/search";
-import SearchInfo from "../SearchInfo";
-import DictionaryPicker from "../DictionaryPicker";
-import SearchSettings from "../SearchSettings";
+import config from "@config.json";
+import useDebounce from "@hooks/useDebounce";
+import { useSettings } from "@contexts/settings";
+import { useSearch } from "@contexts/search";
+import SearchInfo from "@layouts/SearchInfo";
+import DictionaryPicker from "@layouts/DictionaryPicker";
+import SearchSettings from "@layouts/SearchSettings";
 import "./style.scss";
 
 interface SearchAreaProps {

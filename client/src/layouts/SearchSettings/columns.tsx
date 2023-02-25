@@ -1,7 +1,7 @@
 import { ItemsGroup } from "react-flatifycss";
-import { useSettings } from "../../contexts/settings";
-import { setLocalStorageProp } from "../../utils/localStorage";
-import Icons from "../../components/Icons";
+import { useSettings } from "@contexts/settings";
+import { setLocalStorageProp } from "@utils/localStorage";
+import Icons from "@components/Icons";
 
 // the list of column options
 const columns = [

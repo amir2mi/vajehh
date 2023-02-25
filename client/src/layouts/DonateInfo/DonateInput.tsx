@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 import { Input, Button, Checkbox } from "react-flatifycss";
-import config from "../../config.json";
+import config from "@config.json";
 
 export default function DonateInput() {
   const [amount, setAmount] = useState<string | number | null>(null);

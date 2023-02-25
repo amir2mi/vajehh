@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { getLocalStorage } from "../utils/localStorage";
+import { getLocalStorage } from "@utils/localStorage";
 
 interface DictionaryProviderProps {
   children: React.ReactNode;

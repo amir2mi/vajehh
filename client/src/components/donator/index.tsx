@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import gravatarUrl from "gravatar-url";
-import defaultAvatar from "../../assets/images/none.jpeg";
+import defaultAvatar from "@assets/images/none.jpeg";
 import "./style.scss";
 
 interface DonatorProps {

@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo, useCallback } from "react";
 import { Loading } from "react-flatifycss";
-import { getDonations } from "../../services/api";
-import { Donator } from "../../components";
+import { getDonations } from "@services/api";
+import { Donator } from "@components";
 import DonationsHeader from "./DonationsHeader";
 import "./style.scss";
 

@@ -1,8 +1,8 @@
 /* eslint-disable testing-library/no-node-access */
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { TestWrapper } from "../components";
-import SearchPage from "../pages/search";
+import { TestWrapper } from "@components";
+import SearchPage from "@pages/search";
 
 describe("Dictionary Picker functionality", () => {
   const setup = () => {

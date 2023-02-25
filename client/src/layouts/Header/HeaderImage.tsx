@@ -1,5 +1,5 @@
-import { RotatedBox } from "../../components";
-import Ferdowsi from "../../assets/images/ferdowsi-retro.png";
+import { RotatedBox } from "@components";
+import Ferdowsi from "@assets/images/ferdowsi-retro.png";
 
 export default function HeaderImage() {
   return (
