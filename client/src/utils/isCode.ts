@@ -12,7 +12,6 @@ export default function checkIsCodeSnippet(text: string) {
   };
 
   const detectedLanguage = detectLang(text, { statistics: true });
-  console.log(detectedLanguage);
 
   if (detectedLanguage.detected !== "Unknown") {
     const mostRated = Object.keys(detectedLanguage.statistics).find((key) => detectedLanguage.statistics[key] > 2);

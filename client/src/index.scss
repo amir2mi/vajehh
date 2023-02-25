@@ -47,10 +47,9 @@ body.home {
   position: relative;
 }
 
-
 ::selection {
-  color: var(--flatify__txt-color);
-  background: var(--flatify__bg-color-darker);
+  color: var(--flatify__bg-color-dark);
+  background: var(--flatify__color-accent-primary);
 }
 
 // General

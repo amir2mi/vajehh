@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { ToastsWrapper } from "react-flatifycss";
 import { useTheme, getNightModeClass } from "./contexts/theme";
 import SearchPage from "./pages/search";
@@ -15,6 +15,7 @@ import { OnRouteChange } from "./components";
 
 function Vajehh() {
   const { nightMode } = useTheme();
+  const { pathname } = useLocation();
 
   return (
     <div className={clsx("app", getNightModeClass(nightMode))}>
@@ -32,7 +33,7 @@ function Vajehh() {
           <Route path="*" element={<Navigate to="/404" />} />
         </Routes>
       </OnRouteChange>
-      <Footer />
+      {pathname !== "/chat" && <Footer />}
     </div>
   );
 }
