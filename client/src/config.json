@@ -1,5 +1,5 @@
 {
-  "version": "6.2.0",
+  "version": "6.2.1",
   "websiteURL": "https://vajehh.com",
   "apiEndpointURL": "https://vajehh.com/api",
   "apiEndpointURL__dev": "http://localhost:8080/api",
