@@ -66,6 +66,17 @@ router.get("/help", async function (req, res) {
   res.send(data);
 });
 
+router.get("/chat", async function (req, res) {
+  const url = await getRequestUrl(req);
+  const data = await dynamizeHTML(
+    staticFile,
+    "واژه | چت هوشمند ChatGPT - نسخه آنلاین فارسی",
+    "چت آنلاین هوشمند مشابه ChatGPT قدرت گرفته از OpenAI",
+    url
+  );
+  res.send(data);
+});
+
 router.get("/search", async function (req, res) {
   const url = await getRequestUrl(req);
   const data = await dynamizeHTML(
