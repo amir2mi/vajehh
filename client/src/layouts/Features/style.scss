@@ -47,12 +47,6 @@
     width: 40%;
   }
 
-  .info {
-    // because of fireflies :)
-    position: relative;
-    z-index: 2;
-  }
-
   .subtitle {
     max-width: 18em;
     margin: 1em 0 2em;
@@ -87,9 +81,6 @@
   }
 
   .feature-box {
-    // because of fireflies :)
-    position: relative;
-    z-index: 2;
     margin-top: 3em;
     flex-basis: calc(50% - 0.5em);
   }
@@ -116,63 +107,5 @@
   .update {
     --vajehh__feature-box-icon-background: #cb7cff;
     --vajehh__feature-box-icon-border: #c164ff;
-  }
-}
-
-.features-purple-firefly {
-  bottom: -10%;
-  left: -5%;
-  font-size: 3em;
-  --vajehh__firefly-color: #d04d9d;
-  opacity: 0.4;
-
-  @media (max-width: 767px) {
-    bottom: 15%;
-    font-size: 3em;
-    opacity: 0.3;
-    --vajehh__firefly-color: #ff248a;
-  }
-}
-.features-orange-firefly {
-  left: 0;
-  right: 10%;
-  bottom: -5%;
-  margin: auto;
-  font-size: 3em;
-  opacity: 0.3;
-  --vajehh__firefly-color: #ffa424;
-
-  @media (max-width: 767px) {
-    top: 35%;
-    bottom: unset;
-  }
-}
-
-.features-green-firefly {
-  left: 10%;
-  right: 15%;
-  top: 10%;
-  margin: auto;
-  font-size: 3em;
-  opacity: 0.2;
-  --vajehh__firefly-color: #62e002;
-
-  @media (max-width: 767px) {
-    top: 0;
-    right: -20%;
-    --vajehh__firefly-color: #1cb0f6;
-  }
-}
-
-.features-red-firefly {
-  top: 10%;
-  left: 0;
-  font-size: 3em;
-  opacity: 0.5;
-  --vajehh__firefly-color: #ff6666;
-
-  @media (max-width: 575px) {
-    top: 12em;
-    left: 0;
   }
 }

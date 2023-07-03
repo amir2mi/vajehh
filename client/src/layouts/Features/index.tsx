@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-flatifycss";
-import { Icons, Info, FeatureBox, Firefly } from "@components";
+import { Icons, Info, FeatureBox } from "@components";
 
 import "./style.scss";
 
@@ -9,10 +9,6 @@ export default function Features() {
 
   return (
     <div className="features-wrapper">
-      <Firefly className="features-green-firefly" />
-      <Firefly className="features-purple-firefly" />
-      <Firefly className="features-orange-firefly" />
-      <Firefly className="features-red-firefly" />
       <div className="features main-container">
         <div className="features-intro">
           <Info
