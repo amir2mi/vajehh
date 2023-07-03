@@ -1,0 +1,99 @@
+.voice-feature {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 90em;
+  padding: 2em 6em 0;
+  margin: 0 auto;
+
+  @media (max-width: 991px) {
+    padding: 6em 2em;
+  }
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    padding-top: 3em;
+
+    .call-to-action {
+      margin-top: 2em;
+    }
+  }
+}
+
+.voice-info {
+  @media (max-width: 767px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.voice-icon {
+  position: relative;
+  padding: 4em 6em;
+
+  .microphone {
+    width: 10em;
+    height: 10em;
+    fill: currentColor;
+  }
+
+  .waves {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 18em;
+    height: 18em;
+    margin: auto;
+    fill: currentColor;
+    opacity: 0.1;
+
+    path {
+      transform-origin: center center;
+    }
+
+    path:nth-child(1) {
+      animation: scale-play 400ms ease infinite;
+    }
+    path:nth-child(2) {
+      animation: scale-play 800ms ease infinite;
+    }
+    path:nth-child(3) {
+      animation: scale-play 600ms ease infinite;
+    }
+    path:nth-child(4) {
+      animation: scale-play 900ms ease infinite;
+    }
+    path:nth-child(5) {
+      animation: scale-play 400ms ease infinite;
+    }
+    path:nth-child(6) {
+      animation: scale-play 500ms ease infinite;
+    }
+    path:nth-child(7) {
+      animation: scale-play 800ms ease infinite;
+    }
+    path:nth-child(8) {
+      animation: scale-play 400ms ease infinite;
+    }
+    path:nth-child(9) {
+      animation: scale-play 900ms ease infinite;
+    }
+  }
+}
+
+@keyframes scale-play {
+  25% {
+    opacity: 0.75;
+    transform: scaleY(0.25);
+  }
+  60% {
+    opacity: 0.25;
+    transform: scaleY(1.25);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
