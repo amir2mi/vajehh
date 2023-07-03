@@ -3197,11 +3197,6 @@ caniuse-lite@^1.0.30001426:
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001457.tgz#6af34bb5d720074e2099432aa522c21555a18301"
   integrity sha512-SDIV6bgE1aVbK6XyxdURbUE89zY7+k1BBBaOwYwkNCglXlel/E7mELiHC64HQ+W0xSKlqWhV9Wh7iHxUjMs4fA==
 
-canvas-image-generator@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/canvas-image-generator/-/canvas-image-generator-1.0.0.tgz#6a3ef1584e89f9d5f162206f28fae5f95185f707"
-  integrity sha512-roa1qXL46LNbG859vnGdfpRMtQ6l1mZePTk9NvTjbX1EIFf5l94OPS7rsui6aL7IpHdNYqvT8o37eJwp37zCBQ==
-
 case-sensitive-paths-webpack-plugin@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/case-sensitive-paths-webpack-plugin/-/case-sensitive-paths-webpack-plugin-2.4.0.tgz#db64066c6422eed2e08cc14b986ca43796dbc6d4"
